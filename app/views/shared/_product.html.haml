@@ -1,0 +1,26 @@
+#product
+  .hr
+  %br
+  %h2 Promote your #{hipscan}
+  %br
+  %p
+    <b>#{hipscan}</b> has partnered with the
+    %b Social Print Studio
+    to provide awesome products featuring your code. Order
+    apparel, stickers, or a poster with your code and enjoy
+    the flexibility of changing its destination anytime.
+
+  %br
+  %table
+    %tr
+      %td
+        .product= image_tag 'products/sticker.jpg'
+      %td
+        .product= image_tag 'products/tshirt.jpg'
+
+  %br
+
+
+  = link_to image_tag('buttons/button-store.png', 'data-hover' => '/images/buttons/button-store_selected.png'), 'http://Hipscan.socialprintstudio.com', :target => '_blank'
+
+

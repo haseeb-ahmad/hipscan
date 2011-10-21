@@ -1,0 +1,150 @@
+%table.twocol
+  %tr
+    %td{:style => 'width: 50%'}
+      - case current_user.profile_option
+        - when User::PROFILE_URL
+          %h1 When scanned your #{hipscan} will launch the following custom URL:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          = render :partial => 'shared/custom_url', :locals => {:user => current_user}
+
+        - when User::PROFILE_TEXT
+          %h1 When scanned your #{hipscan} will display the following custom text:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          = render :partial => 'shared/custom_text', :locals => {:user => current_user}
+
+
+        - when User::PROFILE_IMAGE
+          %h1 When scanned your #{hipscan} will display the following custom image:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          = render :partial => 'shared/custom_image', :locals => {:user => current_user}
+
+
+        - when User::PROFILE_PAGE
+          %h1 When scanned your #{hipscan} will display a  custom page:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          =# render :partial => 'shared/custom_page', :locals => {:user => current_user}
+          %p= link_to 'View Custom Page', current_user.hipscan, :target => '_blank'
+
+        - when User::PROFILE_VIDEO
+          %h1 When scanned your #{hipscan} will launch a video:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          =# render :partial => 'shared/custom_page', :locals => {:user => current_user}
+          %p= link_to 'View Video', current_user.hipscan, :target => '_blank'
+
+
+        - else # must be profile
+          %h1 When scanned your #{hipscan} will launch your #{hipscan(' profile')}:
+          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
+          .hr
+
+          = render :partial => 'shared/custom_profile', :locals => {:user => current_user}
+
+      %br
+      %p
+        Your #{hipscan} URL is #{link_to current_user.hipscan, current_user.hipscan}
+        = link_to image_tag('ExtLink.png'), current_user.hipscan, :target => '_blank'
+
+      - if facebook_logged_in?
+        %p
+          You are logged in to Facebook!
+          = link_to 'Upload your Hipscan!', '/home/qr_to_facebook'
+
+      %br
+
+      - if current_user.premium?
+        = render :partial => 'premium'
+      - else
+        = render :partial => 'shared/product'
+
+
+    %td
+      #div{:style => 'margin: 0 auto'}
+        %h1.hipscan= current_user.username
+        #hipscan_qr
+          = image_tag current_user.qr.url(:medium), :title => current_user.hipscan, :id => 'qr_image'
+          #update_message{:style => 'padding:20px; display:none'}
+            %h2 Updating
+            %br
+            %p{:style => 'font-size: 11px'}
+              %i Please wait...
+
+        .cl
+        .fr{:style => 'margin-right: 60px'}
+          Download
+          =# link_to_function 'Big', "$('#toPrint').printElement({printMode: 'popup',overrideElementCSS: ['/stylesheets/print_big.css']});"
+          =# link_to_function 'Big', "$('#large_print').printElement({printMode: 'popup'});"
+          = link_to 'Big', current_user.qr.url(:print)
+          |
+          = link_to 'Small', current_user.qr.url(:medium)
+          =# link_to_function 'Small', "$('#toPrint').printElement({printMode: 'popup',overrideElementCSS: ['/stylesheets/print_small.css']});"
+          =# link_to_function 'Small', "$('#small_print').printElement({printMode: 'popup'});"
+
+        .cl
+        %h2 What's Your Color?
+
+        %div
+          - for color in User::COLORS
+            %a.change_color{:href => home_color_path(:color => color)}
+              .color_swatch
+                .color_div{:style => "background-color:#{color}"}
+        .cl
+        %br
+
+        =# render :partial => 'shared/scanned'
+        - if @scan_count > 0
+          #scanned
+            %h2 You've been scanned #{@scan_count} times!
+            %br
+            %p= link_to "Click here for analytics on your Hipscan.", home_analytics_path
+
+        #sms
+          - if current_user.send_sms
+            %p
+              You are now receiving SMS notifications whenever you are <span class='hipscan'>Hipscanned</span>!
+            %p
+              = link_to 'Disable SMS Notifications', home_sms_path(:disable => true)
+
+          - else
+            %p
+              Like to know immediately when you've been <span class='hipscan'>Hipscanned?</span>
+            %p
+              = link_to 'Enable SMS Notifications', home_sms_path
+              now!
+
+      -#
+        %br
+        - unless current_user.facebook_id && current_user.twitter_id && current_user.linked_in_id
+          %h2 Link your Account...
+          %br
+          - unless current_user.facebook_id
+            .social_connect= link_to image_tag('icons/FaceBook_icon_32x32.png'), user_omniauth_authorize_path(:facebook)
+
+          - unless current_user.twitter_id
+            .social_connect= link_to image_tag('icons/twitter-icon-32x32.png'), user_omniauth_authorize_path(:twitter)
+
+          - unless current_user.linked_in_id
+            .social_connect= link_to image_tag('icons/linkedin_icon_32.png'), user_omniauth_authorize_path(:linked_in)
+
+-#
+  %div{:style => 'display:none'}
+    = barcode(current_user.hipscan, 15, 'large_print')
+    = barcode(current_user.hipscan, 2, 'small_print')
+
+:javascript
+  $('a.change_color').bind({
+    click: function() {
+      $('#qr_image').hide();
+      $('#update_message').show();
+      // do something on click
+    }
+  });

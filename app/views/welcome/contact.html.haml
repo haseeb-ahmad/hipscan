@@ -1,0 +1,21 @@
+- content_for :meta do
+  <meta name="Description" content=" Hipscan can generate and share different unique links to the others people, depending on the purpose of exchanging information. Contact us for Hipscan, that can  be extremely helpful in spreading information about yourself." />
+
+#contact
+  %h1 Contact #{hipscan}
+  %p Questions, compliments, criticisms, suggestions.
+  .hr
+  %br
+  = form_tag do
+    %p
+      %b Message*
+      (required)
+    %p= text_area_tag :message, params[:message], :style => 'width:100%; height: 160px; padding:5px; font-size: 15px'
+
+    %p
+      %b Your email
+      (required)
+
+    %p= text_field_tag :email, params[:email], :style => 'width:100%; padding:5px; font-size: 15px'
+
+    %p= submit_tag 'Send'

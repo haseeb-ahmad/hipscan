@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- 
+Source: Bureau of Labor Statistics, Department of Labor
+-->
+<us_states>
+
+<state id="range">
+	<data>0</data>
+	<color>FFFFFF</color>
+</state>
+<state id="range">
+	<data>1</data>
+	<color>89b04b</color>
+</state>
+<state id="range">
+	<data>2</data>
+	<color>597231</color>
+</state>
+
+<state id="point_range">
+	<data>1</data>
+	<color>cc0000</color>
+	<size>20</size>
+</state>
+
+
+<state id="hide_labels">
+	<data>true</data>
+</state>
+<state id="outline_color">
+	<color>333333</color>
+</state>
+<state id="default_color">
+	<color>FFFFFF</color>
+</state>
+<state id="background_color">
+	<color>ffffff</color>
+</state>
+	
+
+	
+
+<state id="AL">
+	<name>Alabama</name>
+	<data>0</data>
+	<hover>Funding Available: $100.5 million
+Amount Claimed: $0 
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="AK">
+	<name>Alaska</name>
+	<data>1</data>
+	<hover>Funding Available: $15.6 million
+Amount Claimed: $5.2 million
+Qualifying Modernization Policies: Already had dependent allowance 
+and spouse relocation, added alternative base period </hover>
+</state>
+<state id="AZ">
+	<name>Arizona</name>
+	<data>0</data>
+	<hover>Funding Available: $150.1 million
+Amount Claimed: $0 
+Qualifying Modernization Policies: Already covered workers who leave 
+their jobs for compelling family reasons </hover>
+</state>
+<state id="AR">
+	<name>Arkansas</name>
+	<data>2</data>
+	<hover>Funding Available: $60.0 million
+Amount Claimed: $60.0 million
+Qualifying Modernization Policies: 
+Adopted alternative base period, 
+added coverage for part-time workers 
+and those who leave their jobs 
+for compelling family reasons </hover>
+</state>
+<state id="CA">
+	<name>California</name>
+	<data>2</data>
+	<hover>Funding Available: $838.7 million
+Amount Claimed: $838.7 million
+Qualifying Modernization Policies: Adopted alternative base period 
+(effective 2011), already covered part-time workers, those in job 
+training and those who leave their jobs for compelling family reasons </hover>
+</state>
+<state id="CO">
+	<name>Colorado</name>
+	<data>2</data>
+	<hover>Funding Available: $127.5 million
+Amount Claimed: $127.5 million
+Qualifying Modernization Policies: 
+Adopted alternative base period, 
+added coverage for workers in job 
+training and those who leave their 
+jobs for compelling family reasons </hover>
+</state>
+<state id="CT">
+	<name>Connecticut</name>
+	<data>2</data>
+	<hover>Funding Available: $87.8 million
+Amount Claimed: $87.8 million
+Qualifying Modernization Policies: Already used the alternative base 
+period, and offered a dependent allowance, added coverage for workers 
+who leave their jobs for compelling family reasons  </hover>
+</state>
+<state id="DE">
+	<name>Delaware</name>
+	<data>0</data>
+	<hover>Funding Available: $21.9 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Already covered part-time workers 
+and those who leave their jobs because of domestic violence </hover>
+</state>
+<state id="DC">
+	<name>Washington, D.C.</name>
+	<data>1</data>
+	<hover>Funding Available: $27.6 million
+Amount Claimed: $9.2 million
+Qualifying Modernization Policies: Already used the alternative base 
+period, covered part-time workers and those who leave their jobs 
+because of domestic violence </hover>
+</state>
+<state id="FL">
+	<name>Florida</name>
+	<data>0</data>
+	<hover>Funding Available: $444.3 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="GA">
+	<name>Georgia</name>
+	<data>2</data>
+	<hover>Funding Available: $220.3 million
+Amount Claimed: $220.3 million
+Qualifying Modernization Policies: Already used the alternative 
+base period, added coverage for part-time workers and those in 
+job training </hover>
+</state>
+<state id="HI">
+	<name>Hawaii</name>
+	<data>2</data>
+	<hover>Funding Available: $30.5 million
+Amount Claimed: $30.5 million
+Qualifying Modernization Policies: 
+Already used the alternative base 
+period, amended coverage for part-time 
+workers and and those who leave their 
+jobs for compelling family reasons </hover>
+</state>
+<state id="ID">
+	<name>Idaho</name>
+	<data>2</data>
+	<hover>Funding Available: $32.3 million
+Amount Claimed: $32.3 million
+Qualifying Modernization Policies: Adopted the alternative base 
+period, added coverage for part-time workers and those in job 
+training </hover>
+</state>
+<state id="IL">
+	<name>Illinois</name>
+	<data>2</data>
+	<hover>Funding Available: $301.2 million
+Amount Claimed: $301.2 million
+Qualifying Modernization Policies: Already used 
+the alternative base period, increased the dependent 
+allowance and amended coverage for workers who leave 
+their jobs for compelling family reasons </hover>
+</state>
+<state id="IN">
+	<name>Indiana</name>
+	<data>0</data>
+	<hover>Funding Available: $148.5 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Already covered 
+workers who leave their jobs because of domestic 
+violence or a spouse relocates </hover>
+</state>
+<state id="IA">
+	<name>Iowa</name>
+	<data>2</data>
+	<hover>Funding Available: $70.8 million
+Amount Claimed: $70.8 million
+Qualifying Modernization Policies: 
+Adopted the alternative base period, 
+amended coverage for part-time workers 
+and added coverage for those in job 
+training </hover>
+</state>
+<state id="KS">
+	<name>Kansas</name>
+	<data>2</data>
+	<hover>Funding Available: $69.0 million
+Amount Claimed: $69.0 million
+Qualifying Modernization Policies: 
+Adopted the alternative base period, 
+added coverage for part-time workers 
+and those in job training, already 
+offered coverage for workers who leave 
+their job because of domestic violence 
+or when a spouse relocates </hover>
+</state>
+<state id="KY">
+	<name>Kentucky</name>
+	<data>0</data>
+	<hover>Funding Available: $90.2 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="LA">
+	<name>Louisiana</name>
+	<data>0</data>
+	<hover>Funding Available: $98.4 million
+Amount Claimed: $0
+Qualifying Modernization Policies: 
+Already covered part-time workers </hover>
+</state>
+<state id="ME">
+	<name>Maine</name>
+	<data>2</data>
+	<hover>Funding Available: $28.2 million
+Amount Claimed: $28.2 million
+Qualifying Modernization Policies: Already used alternative base period, 
+covered part-time workers, amended coverage for workers in job training 
+and those who leave their jobs for a compelling family reason </hover>
+</state>
+<state id="MD">
+	<name>Maryland</name>
+	<data>0</data>
+	<hover>Funding Available: $126.8 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Added coverage for part-time 
+workers, already covered workers who leave their jobs because 
+of an illness or disability in the family </hover>
+</state>
+<state id="MA">
+	<name>Massachusetts</name>
+	<data>1</data>
+	<hover>Funding Available: $162.7 million
+Amount Claimed: $54.2 million
+Qualifying Modernization Policies: Already used the alternative 
+base period, offered a dependent allowance and covered workers 
+who leave their jobs because of domestic violence </hover>
+</state>
+<state id="MI">
+	<name>Michigan</name>
+	<data>1</data>
+	<hover>Funding Available: $208.3 million
+Amount Claimed: $69.4 million
+Qualifying Modernization Policies: Already used alternative base 
+period </hover>
+</state>
+<state id="MN">
+	<name>Minnesota</name>
+	<data>2</data>
+	<hover>Funding Available: $130.1 million
+Amount Claimed: $130.1 million
+Qualifying Modernization Policies: 
+Amended alternative base period, 
+added coverage for part-time workers 
+and those who leave their jobs for a 
+compelling family reason </hover>
+</state>
+<state id="MS">
+	<name>Mississippi</name>
+	<data>0</data>
+	<hover>Funding Available: $56.1 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="MO">
+	<name>Missouri</name>
+	<data>0</data>
+	<hover>Funding Available: $133.3 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="MT">
+	<name>Montana</name>
+	<data>2</data>
+	<hover>Funding Available: $19.5 million
+Amount Claimed: $19.5 million
+Qualifying Modernization Policies: Already covered workers 
+who leave their jobs because of domestic violence, adopted 
+the alternative base period, coverage for part-time workers 
+and those in job training </hover>
+</state>
+<state id="NE">
+	<name>Nebraska</name>
+	<data>0</data>
+	<hover>Funding Available: $43.6 million
+Amount Claimed: $0
+Qualifying Modernization Policies: 
+Already covered part-time workers 
+and those who leave their jobs for 
+a compelling family reason </hover>
+</state>
+<state id="NV">
+	<name>Nevada</name>
+	<data>2</data>
+	<hover>Funding Available: $76.9 million
+Amount Claimed: $76.6 million
+Qualifying Modernization Policies: Adopted the alternative 
+base period, already covered part-time workers and those 
+who leave their jobs for a compelling family reason </hover>
+</state>
+<state id="NH">
+	<name>New Hampshire</name>
+	<data>2</data>
+	<hover>Funding Available: $31.4 million
+Amount Claimed: $31.4 million
+Qualifying Modernization Policies: Already used the alternative 
+base period, covered part-time workers, added coverage for those 
+who leave their jobs for a compelling family reason </hover>
+</state>
+<state id="NJ">
+	<name>New Jersey</name>
+	<data>2</data>
+	<hover>Funding Available: $206.8 million
+Amount Claimed: $206.8 million
+Qualifying Modernization Policies: Already used alternative base 
+period, covered part-time workers, amended coverage for workers in 
+job training </hover>
+</state>
+<state id="NM">
+	<name>New Mexico</name>
+	<data>1</data>
+	<hover>Funding Available: $39.0 million
+Amount Claimed: $13.0 million
+Qualifying Modernization Policies: 
+Already used the alternative base 
+period, offered a dependent allowance, 
+covered part-time workers and those who 
+leave their jobs because of domestic 
+violence  </hover>
+</state>
+<state id="NY">
+	<name>New York</name>
+	<data>2</data>
+	<hover>Funding Available: $412.7 million
+Amount Claimed: $412.7 million
+Qualifying Modernization Policies: Already used the alternative base 
+period, amended coverage for part-time workers and those who leave 
+their jobs for a compelling family reason </hover>
+</state>
+<state id="NC">
+	<name>North Carolina</name>
+	<data>1</data>
+	<hover>Funding Available: $205.1 million
+Amount Claimed: $68.4 million
+Qualifying Modernization Policies: Already used the alternative base 
+period, covered part-time workers and those who leave their jobs for 
+a compelling family reason </hover>
+</state>
+<state id="ND">
+	<name>North Dakota</name>
+	<data>0</data>
+	<hover>Funding Available: $14.6 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="OH">
+	<name>Ohio</name>
+	<data>1</data>
+	<hover>Funding Available: $264.5 million
+Amount Claimed: $88.2 million
+Qualifying Modernization Policies: Already used the alternative base 
+period </hover>
+</state>
+<state id="OK">
+	<name>Oklahoma</name>
+	<data>2</data>
+	<hover>Funding Available: $75.9 million
+Amount Claimed: $75.9 million
+Qualifying Modernization Policies: 
+Amended alternative base period, 
+added coverage for part-time workers 
+and those who leave their jobs for 
+a compelling family reason </hover>
+</state>
+<state id="OR">
+	<name>Oregon</name>
+	<data>2</data>
+	<hover>Funding Available: $85.6 million
+Amount Claimed: $85.6 million
+Qualifying Modernization Policies: Adopted the alternative base 
+period, amended coverage for workers in job training and amended 
+coverage for those who leave their jobs for a compelling family 
+reason </hover>
+</state>
+
+<state id="PA">
+	<name>Pennsylvania</name>
+	<data>0</data>
+	<hover>Funding Available: $273.3 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Already covered part-time 
+workers and those who leave their jobs because a spouse 
+relocates </hover>
+</state>
+<state id="RI">
+	<name>Rhode Island</name>
+	<data>1</data>
+	<hover>Funding Available: $23.5 million
+Amount Claimed: $7.8 million
+Qualifying Modernization Policies: Already used the alternative 
+base period and covered workers who leave their jobs for a 
+compelling family reason </hover>
+</state>
+<state id="SC">
+	<name>South Carolina</name>
+	<data>0</data>
+	<hover>Funding Available: $97.5 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Already offered coverage to 
+workers who leave their jobs because of domestic violence </hover>
+</state>
+<state id="SD">
+	<name>South Dakota</name>
+	<data>1</data>
+	<hover>Funding Available: $17.6 million
+Amount Claimed: $5.9 million
+Qualifying Modernization Policies: 
+Adopted the alternative base period, 
+already covered part-time workers 
+and those who leave their jobs because 
+of domestic violence </hover>
+</state>
+<state id="TN">
+	<name>Tennessee</name>
+	<data>2</data>
+	<hover>Funding Available: $141.8 million
+Amount Claimed: $141.8 million
+Qualifying Modernization Policies: Adopted the alternative base 
+period, added dependent allowance and coverage for part-time 
+workers </hover>
+</state>
+<state id="TX">
+	<name>Texas</name>
+	<data>0</data>
+	<hover>Funding Available: $555.7 million
+Amount Claimed: $0
+Qualifying Modernization Policies: 
+Already covered workers who leave 
+their jobs for compelling family 
+reasons </hover>
+</state>
+<state id="UT">
+	<name>Utah</name>
+	<data>0</data>
+	<hover>Funding Available: $61.0 million
+Amount Claimed: $0
+Qualifying Modernization Policies: None </hover>
+</state>
+<state id="VT">
+	<name>Vermont</name>
+	<data>2</data>
+	<hover>Funding Available: $13.9 million
+Amount Claimed: $13.9 million
+Qualifying Modernization Policies: Already used alternative 
+base period, covered part-time workers and those who leave 
+their jobs because of domestic violence, added coverage for 
+workers in job training </hover>
+</state>
+<state id="VA">
+	<name>Virginia</name>
+	<data>1</data>
+	<hover>Funding Available: $188.5 million
+Amount Claimed: $62.8 million
+Qualifying Modernization Policies: Already used alternative 
+base period </hover>
+</state>
+<state id="WA">
+	<name>Washington</name>
+	<data>1</data>
+	<hover>Funding Available: $146.6 million
+Amount Claimed: $48.9 million
+Qualifying Modernization Policies: Already used alternative 
+base period, covered workers who leave their jobs for 
+compelling family reasons, added coverage for workers who 
+leave their jobs when a spouse relocates </hover>
+</state>
+<state id="WV">
+	<name>West Virginia</name>
+	<data>1</data>
+	<hover>Funding Available: $33.2 million
+Amount Claimed: $11.0 million
+Qualifying Modernization Policies: Adopted alternative base 
+period </hover>
+</state>
+<state id="WI">
+	<name>Wisconsin</name>
+	<data>2</data>
+	<hover>Funding Available: $133.9 million
+Amount Claimed: $133.9 million
+Qualifying Modernization Policies: Already used the alternative 
+base period, added coverage for workers in job training, 
+amended coverage for workers who leave their jobs for a 
+compelling family reason </hover>
+</state>
+<state id="WY">
+	<name>Wyoming</name>
+	<data>0</data>
+	<hover>Funding Available: $14.2 million
+Amount Claimed: $0
+Qualifying Modernization Policies: Already covered part-time 
+workers, those who leave their jobs because of domestic violence </hover>
+</state>
+</us_states>

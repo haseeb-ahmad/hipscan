@@ -1,0 +1,22 @@
+.qr {
+  border: 1px solid;
+  padding: 10px;
+  float: left; }
+  .qr table {
+    border-width: 0;
+    border-style: none;
+    border-color: blue;
+    border-collapse: collapse; }
+    .qr table td {
+      border-width: 0;
+      border-style: none;
+      border-color: blue;
+      border-collapse: collapse;
+      padding: 0;
+      margin: 0;
+      width: 10px;
+      height: 10px; }
+    .qr table td.black {
+      background-color: black; }
+    .qr table td.white {
+      background-color: white; }

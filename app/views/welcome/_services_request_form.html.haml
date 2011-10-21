@@ -1,0 +1,22 @@
+#info_form
+  %a{:name => 'info_form'}
+  = form_tag do
+    = hidden_field_tag :request_type, request_type
+    %table
+      %tr
+        %td Your Name:
+        %td= text_field_tag :name, params[:name]
+
+      %tr
+        %td Your Email:
+        %td= text_field_tag :email, logged_in? ? (params[:email] || current_user.email) : params[:email]
+
+      %tr
+        %td Your Industry:
+        %td= text_field_tag :industry, params[:industry]
+
+      %tr
+        %td
+        %td
+          %br
+          = submit_tag 'Submit'

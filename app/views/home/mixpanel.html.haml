@@ -1,0 +1,26 @@
+- content_for :js do
+  = javascript_include_tag "http://mixpanel.com/site_media/api/platform/platform.1.min.js"
+
+  :javascript
+      var platform = new Mixpanel.Platform(
+      '#{APP_CONFIG[:mixpanel_api_key]}',
+      '#{@bucket_secret}',
+      '#{current_user.id}'
+      );
+
+      platform.create_line_chart('example1', ['scan']);
+      platform.create_property_line_chart('example2', 'scan', 'scan_type', null, {xlabel: 'Date', ylabel: 'Count'} );
+      platform.create_property_pie_chart('example3', 'scan', 'mobile_device', null, {} );
+
+      //platform.create_property_pie_chart('example3', 'scan', 'mobile_device', {labels: true});
+
+%h1 Mixpanel for #{current_user.username}
+
+<div id="example1" style="width:400px;height:300px"></div>
+<div id="example2" style="width:400px;height:300px"></div>
+<div id="example3" style="width:400px;height:300px"></div>
+.cl
+%p
+  %br
+  = link_to 'Back to your homepage', home_path
+

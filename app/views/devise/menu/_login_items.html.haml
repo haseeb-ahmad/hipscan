@@ -1,0 +1,18 @@
+- if user_signed_in?
+  %li= link_to('Logout', destroy_user_session_path)
+- else
+  %li
+    = link_to('Login', new_user_session_path)
+    |
+  %li Sign in with
+  %li
+    = link_to "Facebook", user_omniauth_authorize_path(:facebook)
+    |
+  %li
+    = link_to "Twitter", user_omniauth_authorize_path(:twitter)
+    |
+  %li
+    = link_to "LinkedIn", user_omniauth_authorize_path(:linked_in)
+    |
+  %li
+    =link_to "Google", user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id")

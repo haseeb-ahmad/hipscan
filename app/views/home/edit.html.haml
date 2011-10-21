@@ -1,0 +1,175 @@
+- content_for :js do
+  = javascript_include_tag :ckeditor
+  
+%table.twocol
+  %tr
+    %td{:style => 'width: 350px; padding-right: 10px'}
+      %h1.hipscan= current_user.username
+      =# barcode(current_user.hipscan, 7)
+      #hipscan_qr
+        = image_tag current_user.qr.url(:medium), :title => current_user.hipscan
+
+
+    %td
+      %h1
+        %i Awesome!
+        %br
+        So, what will your #{hipscan} do?
+
+      #edit
+        = error_messages_for current_user, :header_message => 'Unable to save your profile'
+        -# if @error_msg
+          .profile_error_message= @error_msg
+
+        %h1.profile_heading= link_to_function 'Launch Custom URL', "$('.profile_option').hide();$('#edit_url').show();"
+
+        #edit_url.profile_option{:style => "display:#{current_user.profile_url? ? nil : 'none'}"}
+          = form_tag home_update_path do
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_URL
+            = text_field_tag '[user][url]', current_user.url, :class => 'field_with_default', :title => 'http://www.example com'
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+        %h1.profile_heading= link_to_function "Launch your Hipscan Profile", "$('.profile_option').hide();$('#edit_profile').show();"
+
+        #edit_profile.profile_option{:style => "display:#{current_user.profile_profile? ? nil : 'none'}"}
+          = form_tag home_update_path, :multipart => true do
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_PROFILE
+            %h2 #{hipscan('  Profiles')} are digital business cards &#151; they provide your most essential contact details to anyone who scans your #{hipscan}.
+            %h2{:style => 'color: #aaa; margin: 10px 0'} All fields are optional.  Only selected fields are displayed.
+            %p
+              = label_tag '[user][display_name]', 'Display Name'
+              = text_field_tag '[user][display_name]', current_user.display_name, :class => 'field_with_default', :title => 'Your Name'
+            %p
+              = label_tag '[user][email_address]', 'Email Address'
+              = text_field_tag '[user][email_address]', current_user.email_address.nil? ? current_user.email : current_user.email_address, :class => 'field_with_default'
+            %p
+              = label_tag '[user][phone_number]', 'Phone Number'
+              = text_field_tag '[user][phone_number]', current_user.phone_number, :class => 'field_with_default', :title => '###-###-####'
+            %p
+              = label_tag '[user][status]', 'Your Status Message (200 characters max)'
+              = text_area_tag '[user][status]', current_user.status, :style => 'height: 100px', :class => 'field_with_default', :title => 'Enter your status here'
+            %p
+              %label
+                = link_to 'Facebook', 'http://facebook.com', :target => '_blank'
+                Username (will link to your profile)
+                = link_to 'How to find your username', 'http://news.idg.no/cw/art.cfm?id=D56E0598-1A64-6A71-CE18078D9D7139AB', :target => '_blank'
+                - if current_user.facebook_id
+                  = link_to_function 'Fill this in for me!', "$('#_user_facebook_url').val('#{current_user.facebook_id}')"
+              = text_field_tag '[user][facebook_url]', current_user.facebook_url.nil? ? current_user.facebook_id : current_user.facebook_url, :class => 'field_with_default'
+
+            %p
+              %label
+                = link_to 'Google+ ID', 'http://plus.google.com', :target => '_blank'
+                ID (will link to your profile)
+                = link_to 'How to find your Google+ ID', 'http://ansonalex.com/google-plus/how-do-i-find-my-google-plus-user-id-google/', :target => '_blank'
+              = text_field_tag '[user][google_profile_id]', current_user.google_profile_id, :class => 'field_with_default'
+
+            %p
+              %label
+                = link_to 'Twitter', 'http://twitter.com', :target => '_blank'
+                Username
+              = text_field_tag '[user][twitter_username]', current_user.twitter_username, :class => 'field_with_default'
+
+            -#
+              %p
+                = label_tag '[user][foursquare_username]', 'Foursquare Username'
+                = text_field_tag '[user][foursquare_username]', current_user.foursquare_username, :class => 'field_with_default', :title => 'Foursquare Username'
+            %p
+              %label
+                = link_to 'LinkedIn', 'http://linkedin.com', :target => '_blank'
+                Profile URL
+              = text_field_tag '[user][linked_in_profile_url]', current_user.linked_in_profile_url
+
+            -#%p
+              %label
+                = link_to 'socialpda', 'http://socialpda.com', :target => '_blank'
+                Profile
+              = text_field_tag '[user][spda_username]', current_user.spda_username, :class => 'field_with_default', :title => 'Your profile name at socialpda'
+
+            %p
+              = label_tag '[user][website_name]', 'Website Name'
+              = text_field_tag '[user][website_name]', current_user.website_name.blank? ? 'My Website' : current_user.website_name
+            %p
+              = label_tag '[user][website_url]', 'Website URL'
+              = text_field_tag '[user][website_url]', current_user.website_url, :class => 'field_with_default', :title => 'http://www.example com'
+
+            %p
+              = link_to_function "Show more websites", "$('#additional_websites').show()"
+
+            #additional_websites{:style => 'display:none'}
+              %p
+                = label_tag '[user][website_name2]', 'Website 2 Name'
+                = text_field_tag '[user][website_name2]', current_user.website_name2, :class => 'field_with_default', :title => 'Name of site'
+              %p
+                = label_tag '[user][website_url2]', 'Website 2 URL'
+                = text_field_tag '[user][website_url2]', current_user.website_url2, :class => 'field_with_default', :title => 'http://www.example com'
+
+              %p
+                = label_tag '[user][website_name3]', 'Website 3 Name'
+                = text_field_tag '[user][website_name3]', current_user.website_name3, :class => 'field_with_default', :title => 'Name of site'
+              %p
+                = label_tag '[user][website_url3]', 'Website 3 URL'
+                = text_field_tag '[user][website_url3]', current_user.website_url3, :class => 'field_with_default', :title => 'http://www.example com'
+
+              %p
+                = label_tag '[user][website_name4]', 'Website 4 Name'
+                = text_field_tag '[user][website_name4]', current_user.website_name4, :class => 'field_with_default', :title => 'Name of site'
+              %p
+                = label_tag '[user][website_url4]', 'Website 4 URL'
+                = text_field_tag '[user][website_url4]', current_user.website_url4, :class => 'field_with_default', :title => 'http://www.example com'
+
+              %p
+                = label_tag '[user][website_name5]', 'Website 5 Name'
+                = text_field_tag '[user][website_name5]', current_user.website_name5, :class => 'field_with_default', :title => 'Name of site'
+              %p
+                = label_tag '[user][website_url5]', 'Website 5 URL'
+                = text_field_tag '[user][website_url5]', current_user.website_url5, :class => 'field_with_default', :title => 'http://www.example com'
+
+            %p
+              = label_tag '[user][photo]', 'Photo'
+            = file_field :user, :photo
+
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+        %h1.profile_heading= link_to_function 'Display Custom Text', "$('.profile_option').hide();$('#edit_custom_text').show();"
+
+        #edit_custom_text.profile_option{:style => "display:#{current_user.profile_option == 'custom_text' ? nil : 'none'}"}
+          = form_tag home_update_path do
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_TEXT
+            = text_area_tag '[user][custom_text]', current_user.custom_text, :class => 'field_with_default', :title => 'enter text here'
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+        %h1.profile_heading= link_to_function 'Display a Custom Image', "$('.profile_option').hide();$('#edit_custom_image').show();"
+
+        #edit_custom_image.profile_option{:style => "display:#{current_user.profile_option == 'custom_image' ? nil : 'none'}"}
+          = form_tag home_update_path, :multipart => true do
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_IMAGE
+            = file_field :user, :image
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+        %h1.profile_heading
+          = link_to_function 'Display Custom Page', "$('.profile_option').hide();$('#edit_custom_page').show();"
+
+        #edit_custom_page.profile_option{:style => "display:#{current_user.profile_option == 'custom_page' ? nil : 'none'}"}
+          = form_for current_user, :url => home_update_path, :method => :post do |f|
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_PAGE
+            = f.cktext_area :custom_page, :width => '100%', :height => '600px'
+            =# ckeditor_textarea "user", "custom_page", :width => '100%', :height => '200px'
+            =# raise @user.custom_page.inspect
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+        %h1.profile_heading= link_to_function 'Launch Video', "$('.profile_option').hide();$('#edit_video_url').show();"
+
+        #edit_video_url.profile_option{:style => "display:#{current_user.profile_video? ? nil : 'none'}"}
+          = form_tag home_update_path do
+            = hidden_field_tag '[user][profile_option]', User::PROFILE_VIDEO
+            %h2{:style => 'color: #aaa; margin: 10px 0'} Enter a url to your video (from Youtube, Vimeo, etc.)
+            = text_field_tag '[user][video_url]', current_user.video_url, :class => 'field_with_default', :title => 'http://www.example com'
+            %h2{:style => 'color: #aaa; margin: 10px 0'} Or copy and paste the embed code below:
+            = text_area_tag '[user][video_embed]', current_user.video_embed, :class => 'field_with_default', :title => 'Paste embed'
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+

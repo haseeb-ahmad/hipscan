@@ -1,0 +1,21 @@
+%h1 #{hipscan} Profile Clicks
+
+%p
+  There are currently
+  %b #{Click.count} Scans.
+
+%table.scaffold
+  %tr.th
+    %th Username
+    %th Type
+    %th IP
+    %th Created
+
+  - for c in @clicks
+    %tr{:class => cycle('odd', 'even')}
+      %td= link_to c.user.username, "/#{c.user.username}?noscan=1"
+      %td= link_to c.click_type, click_path(c.user, c.click_type, :noclick => 1)
+      %td= c.ip
+      %td #{time_ago_in_words(c.created_at)} ago
+
+= will_paginate @clicks

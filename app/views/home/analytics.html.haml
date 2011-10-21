@@ -1,0 +1,232 @@
+- content_for :js do
+  = javascript_include_tag '/us_albers/swfobject'
+  = javascript_include_tag "http://mixpanel.com/site_media/api/platform/platform.1.min.js"
+
+  :javascript
+    function pageclick(page, me) {
+      $('h3 a').removeClass('selected');
+      $('.page').hide();$(page).show();
+      $(me).addClass('selected')
+    }
+
+
+    function zoomOut() {
+        var flashObj = swfobject.getObjectById("map");
+        if (flashObj) {
+          flashObj.zoomOut();
+        };
+        var wflashObj = swfobject.getObjectById("wmap");
+        if (wflashObj) {
+          wflashObj.zoomOut();
+        };
+    }
+
+    function zoomTo(_state) {
+        var flashObj = swfobject.getObjectById("map");
+        if (flashObj) {
+          flashObj.zoomTo(_state);
+        }
+    }
+
+    function zoomPoint(_point) {
+        var flashObj = swfobject.getObjectById("map");
+        if (flashObj) {
+          flashObj.zoomPoint(_point);
+        }
+    }
+
+    function setColor(_state, _color) {
+        var flashObj = swfobject.getObjectById("map");
+        if (flashObj) {
+          flashObj.setColor(_state, _color);
+        }
+    }
+
+    function refreshData(_data) {
+        var flashObj = swfobject.getObjectById("map");
+        if (flashObj) {
+          flashObj.refreshData(_data);
+        }
+    }
+
+
+    //swfobject.registerObject("DIYMap", "10.0.0");
+    var flashvars = {
+      data_file: "/home/analytics_map_data.xml",
+      wmode: "transparent",
+      use_js: "on"
+    };
+    var params = {
+      allowscriptaccess: "always"
+    };
+
+    swfobject.embedSWF("/us_albers/us_albers.swf", "wmap", "600", "400", "9.0.0", "expressInstall.swf", flashvars, params);
+
+    var wflashvars = {
+      data_file: "/home/analytics_map_data_world.xml",
+      //data_file: "/world/visited.xml",
+      wmode: "transparent",
+      use_js: "on"
+    };
+
+    swfobject.embedSWF("/world/world.swf", "map", "600", "400", "9.0.0", "expressInstall.swf", wflashvars, params);
+
+    var platform = new Mixpanel.Platform(
+    '#{APP_CONFIG[:mixpanel_api_key]}',
+    '#{@bucket_secret}',
+    '#{current_user.id}'
+    );
+
+    platform.create_line_chart('scan_chart', ['scan']);
+
+%h1 Analytics for #{@qr ? @qr.name : current_user.username}
+
+
+#map_container
+  #map
+    <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+
+
+  #wmap_c{:style => 'display:none'}
+    #wmap
+      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+
+  %p
+    = link_to_function "World Map", "$('#wmap_c').hide();$('#map').show();"
+    |
+    = link_to_function "US Map", "$('#map').hide();$('#wmap_c').show();"
+    -#
+      |
+      = link_to_function "Zoom Out", 'zoomOut()'
+  -#<p>Make California: <a href="javascript:setColor('CA','ff0000');">Red</a>, <a href="javascript:setColor('CA','ffffff');">White</a>, <a href="javascript:setColor('CA','0000ff');">Blue</a></p>
+
+%table.analytics{:style => 'margin-top: 10px'}
+  %tr
+    %td{:style => 'width: 50%'}
+      %p
+        %b Unique Visits
+      = image_tag 'icons/person_16_bw.png'
+      = @scans.map{|a| a.ip}.uniq.count
+    %td
+      - if @clicks
+        %p
+          %b Website Clicks
+        = image_tag 'icons/www_16_bw.gif'
+        = @clicks.count{|a| a.website_url?}
+
+  %tr
+    %td
+      %p
+        %b Total Visits
+      = image_tag 'icons/people_16_bw.png'
+      = @scans.count
+    %td
+      - if @clicks
+        %p
+          %b Twitter: Clicks
+        = image_tag 'icons/twitter_16_bw.png'
+        = @clicks.count{|a| a.twitter?}
+
+  %tr
+    %td
+      %p
+        %b Last Visited
+      = image_tag 'icons/date_16_bw.gif'
+      %span{:style => 'font-size: 10px'}= @scans.last ? @scans.last.created_at.strftime('%b %d %I:%M %p') : 'n/a'
+    %td
+      - if @clicks
+        %p
+          %b Facebook Clicks
+        = image_tag 'icons/facebook_16_bw.gif'
+        = @clicks.count{|a| a.facebook?}
+
+  %tr
+    %td{:colspan => 2}
+      %p
+        %b Phone Manufacturer
+
+      - t = @scans.count.to_f
+      - i = @scans.count{|a| a.iphone?}
+      - a = @scans.count{|a| a.android?}
+      - o = t - i - a
+      %table.bar-chart
+        %tr
+          %td iPhone
+          %td
+            = image_tag 'bar.png', :style => "width: #{i / t * 75}%; height: 16px", :title =>  "#{number_with_precision(i / t * 100, :precision => 1)}%"
+            %span{:title =>  "#{number_with_precision(i / t * 100, :precision => 1)}%"}= i
+
+        %tr
+          %td Android
+          %td
+            = image_tag 'bar.png', :style => "width: #{a / t * 75}%; height: 16px", :title =>  "#{number_with_precision(a / t * 100, :precision => 1)}%"
+            %span{:title =>  "#{number_with_precision(a / t * 100, :precision => 1)}%"}= a
+
+        %tr
+          %td Other
+          %td
+            = image_tag 'bar.png', :style => "width: #{o / t * 75}%; height: 16px", :title =>  "#{number_with_precision(o / t * 100, :precision => 1)}%"
+            %span{:title =>  "#{number_with_precision(o / t * 100, :precision => 1)}%"}= o.to_i
+
+.cl
+
+%table.analytics{:style => 'width:100%'}
+  - unless @qr
+    %tr
+      %td{:colspan => 3, :style => 'vertical-align:top'}
+        %p
+          %b Scans by Date
+
+        #scan_chart
+
+  %tr
+    %td{:style => 'vertical-align:top; width: 33%'}
+      %p
+        %b Network Provider
+
+        - t = @scans.count.to_f
+
+      %table.bar-chart
+        - @isps.map{|a| {:name => a.blank? ? 'Other' : a.gsub('"', ''), :count => @scans.count{|s| s.isp == a } } }.sort{|a,b| b[:count] <=> a[:count]}.each_with_index do |isp, idx|
+          %tr
+            %td= isp[:name]
+            %td
+              = image_tag 'bar.png', :style => "width: #{isp[:count] / t * 75}%; height: 16px", :title =>  "#{number_with_precision(isp[:count] / t * 100, :precision => 1)}%"
+              %span= isp[:count]
+
+    %td{:style => 'vertical-align:top; width: 33%'}
+      %p
+        %b Country of Origin
+
+        - t = @scans.count.to_f
+
+      %table.bar-chart
+        - @countries.map{|a| {:name => a.blank? ? 'Other' : a.gsub('"', ''), :count => @scans.count{|s| s.country == a } } }.sort{|a,b| b[:count] <=> a[:count]}.each do |country|
+          %tr
+            %td
+              = country[:name]
+            %td
+              = image_tag 'bar.png', :style => "width: #{country[:count] / t * 75}%; height: 16px", :title =>  "#{number_with_precision(country[:count] / t * 100, :precision => 1)}%"
+              %span= country[:count]
+
+    %td{:style => 'vertical-align:top; width: 33%'}
+      %p
+        %b State/Region
+
+        - t = @scans.count.to_f
+
+      %table.bar-chart
+        - @states.map{|a| {:name => (a.blank? || a == '(null)') ? 'Other' : a.gsub('"', ''), :count => @scans.count{|s| s.state == a } } }.sort{|a,b| b[:count] <=> a[:count]}.each do |state|
+          %tr
+            %td
+              = state[:name]
+            %td
+              = image_tag 'bar.png', :style => "width: #{state[:count] / t * 75}%; height: 16px", :title =>  "#{number_with_precision(state[:count] / t * 100, :precision => 1)}%"
+              %span= state[:count]
+
+.cl
+%p
+  %br
+  = link_to 'Back to your homepage', home_path
+
+

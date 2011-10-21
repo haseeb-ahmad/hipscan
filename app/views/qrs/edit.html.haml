@@ -1,0 +1,69 @@
+- content_for :js do
+  = javascript_include_tag :ckeditor
+  
+%table.twocol
+  %tr
+    %td{:style => 'width: 350px; padding-right: 10px'}
+      %h1.hipscan= @qr.name || 'New Hipscan'
+      =# barcode(current_user.hipscan, 7)
+      #hipscan_qr
+        = image_tag @qr.qr.url(:medium), :title => @qr.name
+      %br
+
+      %h2 What's Your Color?
+      %div
+        - for color in User::COLORS
+          =# link_to color, color_qr_path(:color => color), :remote => true
+          %a.change_color{:href => color_qr_path(:color => color), 'data-remote' => 'true'}
+            .color_swatch
+              .color_div{:style => "background-color:#{color}"}
+      .cl
+
+    %td
+      = form_for @qr, :html => {:multipart => true} do |f|
+        = f.hidden_field :profile_option, :id => :profile_option
+        %h2
+          %i Welcome!
+          %br
+          Create your Product Marketing #{hipscan}
+        %h2{:style => 'color: #888; margin: 10px 0'} After picking a destination for this Hipscan you will have the opportunity to create a marketing call-out card for offline engagement.
+
+        #edit
+          = error_messages_for @qr#, :header_message => 'Unable to save your profile'
+
+          .fixed_profile_option
+            %p
+              = f.label :name, 'Identify your Hipscan (this will not be displayed)'
+              = f.text_field :name, :class => 'field_with_default', :title => 'Name this Hipscan'
+
+          %h1.profile_heading= link_to_function 'Launch Custom URL', "$('.profile_option').hide();$('#edit_url').show();$('#profile_option').val('url');"
+
+          #edit_url.profile_option{:style => "display:#{@qr.profile_url? ? nil : 'none'}"}
+            = f.text_field :url, :class => 'field_with_default', :title => 'http://www.example com'
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+
+          %h1.profile_heading= link_to_function 'Display Custom Text', "$('.profile_option').hide();$('#edit_custom_text').show();$('#profile_option').val('custom_text');"
+
+          #edit_custom_text.profile_option{:style => "display:#{@qr.profile_option == 'custom_text' ? nil : 'none'}"}
+            = f.cktext_area :custom_text, :width => '100%', :height => '600px'
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+          %h1.profile_heading= link_to_function 'Display a Custom Image', "$('.profile_option').hide();$('#edit_custom_image').show();$('#profile_option').val('custom_image');"
+
+          #edit_custom_image.profile_option{:style => "display:#{@qr.profile_option == 'custom_image' ? nil : 'none'}"}
+            = f.file_field :image
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+
+          %h1.profile_heading
+            = link_to_function 'Launch a Video', "$('.profile_option').hide();$('#edit_video').show();;$('#profile_option').val('video');"
+
+          #edit_video.profile_option{:style => "display:#{@qr.profile_option == 'video' ? nil : 'none'}"}
+            %h2{:style => 'color: #aaa; margin: 10px 0'} Enter a url to your video (from Youtube, Vimeo, etc.)
+            = f.text_field :video_url, :class => 'field_with_default', :title => 'http://www.example com'
+            %h2{:style => 'color: #aaa; margin: 10px 0'} Or copy and paste the embed code below:
+            = f.text_area :video_embed, :class => 'field_with_default', :title => 'Paste embed'
+            %br
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'

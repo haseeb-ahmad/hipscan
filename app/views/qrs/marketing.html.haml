@@ -1,0 +1,23 @@
+- unless params[:layout]
+  %h1.center Marketing Call-Out For #{@qr.name}
+#qr_marketing
+  %h1= @qr.title
+  - if @qr.logo.file?
+    #qr_logo= image_tag(@qr.logo(:medium))
+
+  = raw @qr.marketing_text
+  #qr_qr= image_tag(@qr.qr(:medium))
+  #qr_tagline= @qr.tagline
+  #qr_powered_by
+    Powered by<br>
+    = image_tag 'hipscan-logo.png'
+  .cl
+
+- unless params[:layout]
+  %br
+  .center
+    = link_to 'Edit Marketing', edit_marketing_qr_path(@qr)
+    \|
+    = link_to 'PDF', marketing_qr_path(@qr, :format => :pdf)
+    \|
+    = link_to 'Home', home_path

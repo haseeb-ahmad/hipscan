@@ -1,0 +1,32 @@
+%h1 Your Premium QR Codes
+
+%table.scaffold
+  %tr.th
+    %th
+    %th Name
+    %th Option
+    %th Scans
+    %th
+
+  - @qrs.each do |qr|
+    %tr{:class => cycle('odd', 'even')}
+      %td= link_to image_tag(qr.qr(:thumb)), marketing_qr_path(qr)
+      %td= link_to qr.name, "/#{qr.code}?noscan=1"
+      %td= qr.profile_option
+      %td= qr.scans.count
+      %td
+        = link_to 'Marketing', marketing_qr_path(qr)
+        |
+        = link_to 'PDF', marketing_qr_path(qr, :format => :pdf), :target => '_blank'
+        |
+        = link_to 'Edit', edit_qr_path(qr)
+        |
+        = link_to 'Edit Marketing', edit_marketing_qr_path(qr)
+        |
+        = link_to 'Destroy', qr, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New QR Code', new_qr_path
+\|
+= link_to 'Back', home_path

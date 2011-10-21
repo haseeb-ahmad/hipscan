@@ -1,0 +1,19 @@
+= form_for @service_request do |f|
+  -if @service_request.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@service_request.errors.count, "error")} prohibited this service_request from being saved:"
+      %ul
+        - @service_request.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :
+    = f.text_field :
+  .field
+    = f.label :email
+    = f.text_field :email
+  .actions
+    = f.submit 'Save'

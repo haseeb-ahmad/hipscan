@@ -1,0 +1,43 @@
+%br
+- if logged_in?
+  %fieldset
+    %legend Social
+    %fieldset
+      %legend Facebook #{facebook_logged_in? ? 'Active' : link_to('Activate', user_omniauth_authorize_path(:facebook))}
+
+      - if facebook_logged_in?
+        - for feed in graph.get_connections("me", "feed")[0,5]
+          %p
+            %b= feed['from']['name']
+            %i= feed['message']
+
+        %br
+        - form_tag '/home/wall' do
+          #{text_field_tag :text} #{submit_tag 'Post to Wall!'}
+
+      %br
+      <fb:like href="" show_faces="true" width="450" font=""></fb:like>
+
+    %br
+    %fieldset
+      %legend Twitter #{twitter_logged_in? ? 'Active' : link_to('Activate', user_omniauth_authorize_path(:twitter))}
+      - if current_user.twitter_id
+        %p
+          Your Current Twitter Status: #{Twitter.user_timeline(current_user.twitter_id).first.text}
+
+          - if twitter
+            %p Your Feed:
+            - for tweet in twitter.home_timeline[0,5]
+              &nbsp; #{tweet.text} -- #{tweet.name}<br>
+
+        - if twitter_logged_in?
+          - form_tag '/home/tweet' do
+            #{text_field_tag :text} #{submit_tag 'Tweet!'}
+
+    %br
+    %fieldset
+      %legend LinkedIn #{linked_in_logged_in? ? 'Active' : link_to('Activate', user_omniauth_authorize_path(:linked_in))}
+      - if linked_in_logged_in?
+        %p
+          Linked in says about you:
+          = linked_in.profile.instance_variable_get(:@doc).at('headline').content

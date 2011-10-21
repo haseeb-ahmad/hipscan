@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<us_states>
+
+<state id="range">
+	<data>0</data>
+	<color>000000</color>
+</state>
+
+<state id="outline_color">
+	<color>777777</color>
+</state>
+<state id="label_color">
+	<color>666666</color>
+</state>
+<state id="default_color">
+	<color>000000</color>
+</state>
+<state id="background_color">
+	<color>999999</color>
+</state>
+<state id="default_point">
+		<color>ff0000</color>
+		<size>5</size>
+</state>
+<state id="scale_points">
+		<data>50</data>
+</state>
+
+<state id="hover">
+	<font_size>18</font_size>
+	<font_color>ffffff</font_color>
+	<background_color>990000</background_color>
+</state>
+
+                     
+
+
+<state id="point">
+	<name>Arizona</name>
+	<loc>33.448333,-112.073333</loc>
+	<url>http://arizona.indymedia.org</url>
+	<hover>http://arizona.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Arkansas</name>
+	<loc>34.746389,-92.289444</loc>
+	<url>http://arkansas.indymedia.org</url>
+	<hover>http://arkansas.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Atlanta</name>
+	<loc>33.75000,-84.380</loc>
+	<url>http://atlanta.indymedia.org</url>
+	<hover>http://atlanta.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Austin</name>
+	<loc>30.27000,-97.75000</loc>
+	<url>http://austin.indymedia.org</url>
+	<hover>http://austin.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Baltimore</name>
+	<loc>39.32000,-76.61000</loc>
+	<url>http://baltimore.indymedia.org</url>
+	<hover>http://baltimore.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Binghamton</name>
+	<loc>42.10000,-75.90000</loc>
+	<url>http://binghamton.indymedia.org</url>
+	<hover>http://binghamton.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Boston</name>
+	<loc>42.37000,-71.04000</loc>
+	<url>http://boston.indymedia.org</url>
+	<hover>http://boston.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Buffalo</name>
+	<loc>42.88000,-78.88000</loc>
+	<url>http://buffalo.indymedia.org</url>
+	<hover>http://buffalo.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Charlottesville</name>
+	<loc>38.031,-78.481</loc>
+	<url>http://cvilleindymedia.org</url>
+	<hover>http://cvilleindymedia.org</hover>
+</state>
+<state id="point">
+	<name>Chicago</name>
+	<loc>41.85000,-87.65000</loc>
+	<url>http://chicago.indymedia.org</url>
+	<hover>http://chicago.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Cleveland</name>
+	<loc>41.50000,-81.7000</loc>
+	<url>http://cleveland.indymedia.org</url>
+	<hover>http://cleveland.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Colorado</name>
+	<loc>39.73000,-104.98000</loc>
+	<url>http://colorado.indymedia.org</url>
+	<hover>http://colorado.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Danbury, Ct</name>
+	<loc>41.40000,-73.45000</loc>
+	<url>http://www.madhattersimc.org</url>
+	<hover>http://www.madhattersimc.org</hover>
+</state>
+<state id="point">
+	<name>Washington DC</name>
+	<loc>38.90000,-77.03000</loc>
+	<url>http://dc.indymedia.org</url>
+	<hover>http://dc.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Hawaii</name>
+	<loc>21.30000,-157.87000</loc>
+	<url>http://hawaii.indymedia.org</url>
+	<hover>http://hawaii.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Houston</name>
+	<loc>29.80000,-95.40000</loc>
+	<url>http://houston.indymedia.org</url>
+	<hover>http://houston.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Hudson Mohawk</name>
+	<loc>42.65000,-73.75000</loc>
+	<url>http://www.hm.indymedia.org</url>
+	<hover>http://www.hm.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Idaho</name>
+	<loc>43.62000,-116.20000</loc>
+	<url>http://idaho.indymedia.org</url>
+	<hover>http://idaho.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Ithaca</name>
+	<loc>42.43000,-76.50000</loc>
+	<url>http://ithaca.indymedia.org</url>
+	<hover>http://ithaca.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Kansas City</name>
+	<loc>39.036605,-94.587333</loc>
+	<url>http://kcindymedia.org</url>
+	<hover>http://kcindymedia.org</hover>
+</state>
+<state id="point">
+	<name>Los Angeles</name>
+	<loc>34.05000,-118.25000</loc>
+	<url>http://la.indymedia.org</url>
+	<hover>http://la.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Madison</name>
+	<loc>43.07000,-89.00000</loc>
+	<url>http://madison.indymedia.org</url>
+	<hover>http://madison.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Maine</name>
+	<loc>44.32000,-69.78000</loc>
+	<url>http://maine.indymedia.org</url>
+	<hover>http://maine.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Miami</name>
+	<loc>25.790376,-80.131228</loc>
+	<url>http://miami.indymedia.org</url>
+	<hover>http://miami.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Michigan</name>
+	<loc>42.73000,-84.55000</loc>
+	<url>http://www.michiganimc.org</url>
+	<hover>http://www.michiganimc.org</hover>
+</state>
+<state id="point">
+	<name>Milwaukee</name>
+	<loc>43.03000,-87.90000</loc>
+	<url>http://milwaukee.indymedia.org</url>
+	<hover>http://milwaukee.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Minneapolis/St. Paul</name>
+	<loc>44.8833247,-93.2169225</loc>
+	<url>http://twincities.indymedia.org</url>
+	<hover>http://twincities.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>New Hampshire</name>
+	<loc>43.067967,-70.773091</loc>
+	<url>http://nh.indymedia.org</url>
+	<hover>http://nh.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>New Jersey</name>
+	<loc>40.22000,-74.75000</loc>
+	<url>http://newjersey.indymedia.org</url>
+	<hover>http://newjersey.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>New Mexico</name>
+	<loc>35.68000,-105.93000</loc>
+	<url>http://newmexico.indymedia.org</url>
+	<hover>http://newmexico.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>New Orleans</name>
+	<loc>29.95000,-90.08000</loc>
+	<url>http://neworleans.indymedia.org</url>
+	<hover>http://neworleans.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>North Carolina</name>
+	<loc>35.77000,-78.63000</loc>
+	<url>http://chapelhill.indymedia.org</url>
+	<hover>http://chapelhill.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>North Texas</name>
+	<loc>32.78000,-96.80000</loc>
+	<url>http://www.ntimc.org</url>
+	<hover>http://www.ntimc.org</hover>
+</state>
+<state id="point">
+	<name>New York City</name>
+	<loc>40.744806,-73.985283</loc>
+	<url>http://nyc.indymedia.org</url>
+	<hover>http://nyc.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Oklahoma</name>
+	<loc>35.47000,-97.5200</loc>
+	<url>http://www.okimc.org</url>
+	<hover>http://www.okimc.org</hover>
+</state>
+<state id="point">
+	<name>Philadelphia</name>
+	<loc>39.95000,-75.17000</loc>
+	<url>http://www.phillyimc.org</url>
+	<hover>http://www.phillyimc.org</hover>
+</state>
+<state id="point">
+	<name>Pittsburgh</name>
+	<loc>40.46580,-79.9460</loc>
+	<url>http://pittsburgh.indymedia.org</url>
+	<hover>http://pittsburgh.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Portland</name>
+	<loc>45.52000,-122.68000</loc>
+	<url>http://portland.indymedia.org</url>
+	<hover>http://portland.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Richmond</name>
+	<loc>37.55000,-77.47000</loc>
+	<url>http://richmond.indymedia.org</url>
+	<hover>http://richmond.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Rochester</name>
+	<loc>43.15000,-77.62000</loc>
+	<url>http://rochester.indymedia.org</url>
+	<hover>http://rochester.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Rogue Valley</name>
+	<loc>42.43000,-123.17000</loc>
+	<url>http://rogueimc.org</url>
+	<hover>http://rogueimc.org</hover>
+</state>
+<state id="point">
+	<name>San Diego</name>
+	<loc>32.72000,-117.15000</loc>
+	<url>http://sandiego.indymedia.org</url>
+	<hover>http://sandiego.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>San Francisco Bay Area</name>
+	<loc>37.78000,-122.42000</loc>
+	<url>http://www.indybay.org</url>
+	<hover>http://www.indybay.org</hover>
+</state>
+<state id="point">
+	<name>Santa Barbara</name>
+	<loc>34.422620,-119.703368</loc>
+	<url>http://sbindymedia.org</url>
+	<hover>http://sbindymedia.org</hover>
+</state>
+<state id="point">
+	<name>Santa Cruz, Ca</name>
+	<loc>36.97000,-122.03000</loc>
+	<url>http://santacruz.indymedia.org</url>
+	<hover>http://santacruz.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Seattle</name>
+	<loc>47.60000,-122.33000</loc>
+	<url>http://seattle.indymedia.org</url>
+	<hover>http://seattle.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>St Louis</name>
+	<loc>38.63000,-90.20000</loc>
+	<url>http://stlouis.indymedia.org</url>
+	<hover>http://stlouis.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Tallahassee-Red Hills</name>
+	<loc>30.43000,-84.28000</loc>
+	<url>http://tallahassee.indymedia.org</url>
+	<hover>http://tallahassee.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Tennessee</name>
+	<loc>36.17000,-86.78000</loc>
+	<url>http://tnimc.org</url>
+	<hover>http://tnimc.org</hover>
+</state>
+<state id="point">
+	<name>Urbana-Champaign</name>
+	<loc>40.12000,-88.23000</loc>
+	<url>http://urbana.indymedia.org</url>
+	<hover>http://urbana.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Utah</name>
+	<loc>40.77000,-111.88000</loc>
+	<url>http://utah.indymedia.org</url>
+	<hover>http://utah.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Vermont</name>
+	<loc>44.27000,-72.580</loc>
+	<url>http://vermont.indymedia.org</url>
+	<hover>http://vermont.indymedia.org</hover>
+</state>
+<state id="point">
+	<name>Western Mass</name>
+	<loc>42.10000,-72.58000</loc>
+	<url>http://wmass.indymedia.org</url>
+	<hover>http://wmass.indymedia.org</hover>
+</state>
+
+
+
+	
+<state id="AL">
+	<name>Alabama</name>
+	<data>1</data>
+</state>
+<state id="AK">
+	<name>Alaska</name>
+	<data>0</data>
+</state>
+<state id="AZ">
+	<name>Arizona</name>
+	<data>1</data>
+</state>
+<state id="AR">
+	<name>Arkansas</name>
+	<data>1</data>
+</state>
+<state id="CA">
+	<name>California</name>
+	<data>1</data>
+</state>
+<state id="CO">
+	<name>Colorado</name>
+	<data>1</data>
+</state>
+<state id="CT">
+	<name>Connecticut</name>
+	<data>1</data>
+</state>
+<state id="DE">
+	<name>Delaware</name>
+	<data>1</data>
+</state>
+<state id="DC">
+	<name>District of Columbia</name>
+	<data>0</data>
+</state>
+<state id="FL">
+	<name>Florida</name>
+	<data>1</data>
+</state>
+<state id="GA">
+	<name>Georgia</name>
+	<data>1</data>
+</state>
+<state id="HI">
+	<name>Hawaii</name>
+	<data>0</data>
+</state>
+<state id="ID">
+	<name>Idaho</name>
+	<data>1</data>
+</state>
+<state id="IL">
+	<name>Illinois</name>
+	<data>1</data>
+</state>
+<state id="IN">
+	<name>Indiana</name>
+	<data>1</data>
+</state>
+<state id="IA">
+	<name>Iowa</name>
+	<data>0</data>
+</state>
+<state id="KS">
+	<name>Kansas</name>
+	<data>1</data>
+</state>
+<state id="KY">
+	<name>Kentucky</name>
+	<data>0</data>
+</state>
+<state id="LA">
+	<name>Louisiana</name>
+	<data>1</data>
+</state>
+<state id="ME">
+	<name>Maine</name>
+	<data>0</data>
+</state>
+<state id="MD">
+	<name>Maryland</name>
+	<data>1</data>
+</state>
+<state id="MA">
+	<name>Massachusetts</name>
+	<data>0</data>
+</state>
+<state id="MI">
+	<name>Michigan</name>
+	<data>0</data>
+</state>
+<state id="MN">
+	<name>Minnesota</name>
+	<data>0</data>
+</state>
+<state id="MS">
+	<name>Mississippi</name>
+	<data>1</data>
+</state>
+<state id="MO">
+	<name>Missouri</name>
+	<data>1</data>
+</state>
+<state id="MT">
+	<name>Montana</name>
+	<data>1</data>
+</state>
+<state id="NE">
+	<name>Nebraska</name>
+	<data>1</data>
+</state>
+<state id="NV">
+	<name>Nevada</name>
+	<data>1</data>
+</state>
+<state id="NH">
+	<name>New Hampshire</name>
+	<data>0</data>
+</state>
+<state id="NJ">
+	<name>New Jersey</name>
+	<data>1</data>
+</state>
+<state id="NM">
+	<name>New Mexico</name>
+	<data>1</data>
+</state>
+<state id="NY">
+	<name>New York</name>
+	<data>1</data>
+</state>
+<state id="NC">
+	<name>North Carolina</name>
+	<data>1</data>
+</state>
+<state id="ND">
+	<name>North Dakota</name>
+	<data>0</data>
+</state>
+<state id="OH">
+	<name>Ohio</name>
+	<data>1</data>
+</state>
+<state id="OK">
+	<name>Oklahoma</name>
+	<data>1</data>
+</state>
+<state id="OR">
+	<name>Oregon</name>
+	<data>1</data>
+</state>
+<state id="PA">
+	<name>Pennsylvania</name>
+	<data>1</data>
+</state>
+<state id="RI">
+	<name>Rhode Island</name>
+	<data>0</data>
+</state>
+<state id="SC">
+	<name>South Carolina</name>
+	<data>1</data>
+</state>
+<state id="SD">
+	<name>South Dakota</name>
+	<data>1</data>
+</state>
+<state id="TN">
+	<name>Tennessee</name>
+	<data>1</data>
+</state>
+<state id="TX">
+	<name>Texas</name>
+	<data>1</data>
+</state>
+<state id="UT">
+	<name>Utah</name>
+	<data>1</data>
+</state>
+<state id="VT">
+	<name>Vermont</name>
+	<data>0</data>
+</state>
+<state id="VA">
+	<name>Virginia</name>
+	<data>1</data>
+</state>
+<state id="WA">
+	<name>Washington</name>
+	<data>1</data>
+</state>
+<state id="WV">
+	<name>West Virginia</name>
+	<data>0</data>
+</state>
+<state id="WI">
+	<name>Wisconsin</name>
+	<data>0</data>
+</state>
+<state id="WY">
+	<name>Wyoming</name>
+	<data>1</data>
+</state>
+</us_states>

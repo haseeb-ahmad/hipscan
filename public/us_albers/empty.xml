@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<us_states>
+
+<state id="default_point">
+	<color>000099</color>
+	<opacity>50</opacity>
+</state>
+
+
+<state id="point_range"><data>500</data><size>20</size></state>
+<state id="point_range"><data>200</data><size>15</size></state>
+<state id="point_range"><data>100</data><size>9</size></state>
+<state id="point_range"><data>50</data><size>6</size></state>
+<state id="point_range"><data>20</data><size>5</size></state>
+<state id="point_range"><data>10</data><size>3</size></state>
+<state id="point_range"><data>5</data><size>2</size></state>
+<state id="point_range"><data>2</data><size>1.5</size></state>
+
+              
+<state id="label_color">
+<color>88bbbb</color>
+</state>
+
+<state id="outline_color">
+<color>88bbbb</color>
+</state>
+
+<state id="default_color">
+<color>eeffee</color>
+</state>
+
+<state id="background_color">
+<color>eeeeff</color>
+</state>
+
+<state id="hover">
+<font_size>14</font_size>
+<font_color>000000</font_color>
+<background_color>ffffff</background_color>
+</state>
+
+<state id="scale_points">
+<data>300</data>
+</state>
+
+<state id="range">
+	<data>0</data>
+	<color>cccccc</color>
+</state>
+
+<state id="AK">
+<name>Alaska</name>
+<hover>This is a hover!</hover>
+<data>0</data>
+</state>
+
+<state id="AL">
+<name>Alabama</name>
+</state>
+
+<state id="AR">
+<name>Arkansas</name>
+</state>
+
+<state id="AZ">
+<name>Arizona</name>
+</state>
+
+<state id="CA">
+<name>California</name>
+</state>
+
+<state id="CO">
+<name>Colorado</name>
+</state>
+
+<state id="CT">
+<name>Connecticut</name>
+</state>
+
+<state id="DC">
+<name>District Of Columbia</name>
+</state>
+
+<state id="DE">
+<name>Delaware</name>
+</state>
+
+<state id="FL">
+<name>Florida</name>
+</state>
+
+<state id="GA">
+<name>Georgia</name>
+</state>
+
+<state id="HI">
+<name>Hawaii</name>
+</state>
+
+<state id="IA">
+<name>Iowa</name>
+</state>
+
+<state id="ID">
+<name>Idaho</name>
+</state>
+
+<state id="IL">
+<name>Illinois</name>
+</state>
+
+<state id="IN">
+<name>Indiana</name>
+</state>
+
+<state id="KS">
+<name>Kansas</name>
+</state>
+
+<state id="KY">
+<name>Kentucky</name>
+</state>
+
+<state id="LA">
+<name>Louisiana</name>
+</state>
+
+<state id="MA">
+<name>Massachusetts</name>
+</state>
+
+<state id="MD">
+<name>Maryland</name>
+</state>
+
+<state id="ME">
+<name>Maine</name>
+</state>
+
+<state id="MI">
+<name>Michigan</name>
+</state>
+
+<state id="MN">
+<name>Minnesota</name>
+</state>
+
+<state id="MO">
+<name>Missouri</name>
+</state>
+
+<state id="MS">
+<name>Mississippi</name>
+</state>
+
+<state id="MT">
+<name>Montana</name>
+</state>
+
+<state id="NC">
+<name>North Carolina</name>
+</state>
+
+<state id="ND">
+<name>North Dakota</name>
+</state>
+
+<state id="NE">
+<name>Nebraska</name>
+</state>
+
+<state id="NH">
+<name>New Hampshire</name>
+</state>
+
+<state id="NJ">
+<name>New Jersey</name>
+</state>
+
+<state id="NM">
+<name>New Mexico</name>
+</state>
+
+<state id="NV">
+<name>Nevada</name>
+</state>
+
+<state id="NY">
+<name>New York</name>
+</state>
+
+<state id="OH">
+<name>Ohio</name>
+</state>
+
+<state id="OK">
+<name>Oklahoma</name>
+</state>
+
+<state id="OR">
+<name>Oregon</name>
+</state>
+
+<state id="PA">
+<name>Pennsylvania</name>
+</state>
+
+<state id="RI">
+<name>Rhode Island</name>
+</state>
+
+<state id="SC">
+<name>South Carolina</name>
+</state>
+
+<state id="SD">
+<name>South Dakota</name>
+</state>
+
+<state id="TN">
+<name>Tennessee</name>
+</state>
+
+<state id="TX">
+<name>Texas</name>
+</state>
+
+<state id="UT">
+<name>Utah</name>
+</state>
+
+<state id="VA">
+<name>Virginia</name>
+</state>
+
+<state id="VT">
+<name>Vermont</name>
+</state>
+
+<state id="WA">
+<name>Washington</name>
+</state>
+
+<state id="WI">
+<name>Wisconsin</name>
+</state>
+
+<state id="WV">
+<name>West Virginia</name>
+</state>
+
+<state id="WY">
+<name>Wyoming</name>
+</state>
+
+</us_states>

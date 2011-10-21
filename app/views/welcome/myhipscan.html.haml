@@ -1,0 +1,24 @@
+#myhipscan
+  - case @user.profile_option
+    - when User::URL
+      = javascript_tag "window.location='#{@user.url}'"
+    - when User::PROFILE_TEXT
+      = render :partial => 'shared/custom_text', :locals => {:user => @user}
+
+    - when User::PROFILE_IMAGE
+      = render :partial => 'shared/custom_image', :locals => {:user => @user}
+
+    - when User::PROFILE_PAGE
+      = render :partial => 'shared/custom_page', :locals => {:user => @user}
+
+    - when User::PROFILE_VIDEO
+      = render :partial => 'shared/video', :locals => {:user => @user}
+
+    - else # must be profile
+      = render :partial => 'shared/custom_profile', :locals => {:user => @user}
+
+  .cl
+  .fr{:style => 'margin-top: 3px'}
+    Powered by #{link_to hipscan, root_url}
+
+

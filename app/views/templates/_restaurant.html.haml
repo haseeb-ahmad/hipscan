@@ -1,0 +1,49 @@
+- content_for :css do
+  = stylesheet_link_tag 'restaurant'
+
+.header
+  = link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), root_path
+
+.call
+  = link_to f = field_value(:phone_number), "tel:#{f}"
+
+.menu
+  %ul
+    - unless field_value(:about).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/about-icon.png')}<span>About</span>"), template_page_path(@qr, @template_key, :about)
+
+    - unless field_value(:find_us).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/find-us-icon.png')}<span>Find Us</span>"), field_value(:find_us)
+
+    - unless field_value(:hours).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/hours-icon.png')}<span>Hours</span>"), template_page_path(@qr, @template_key, :hours)
+
+    - unless field_value(:delivery).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/food-delivery-icon.png')}<span>Food Delivery</span>"), template_page_path(@qr, @template_key, :delivery)
+
+    %li= link_to raw("#{image_tag('templates/restaurant/our-menu-icon.png')}<span>Our Menu</span>"), template_page_path(@qr, @template_key, :menu)
+
+    - unless field_value(:website).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/full-website-icon.png')}<span>Full Website</span>"), field_value(:website)
+
+    - unless field_value(:facebook).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/facebook-icon.png')}<span>Facebook</span>"), field_value(:facebook)
+
+    - unless field_value(:twitter).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/twitter-icon.png')}<span>Twitter</span>"), field_value(:twitter)
+
+    - unless field_value(:specials).blank?
+      %li= link_to raw("#{image_tag('templates/restaurant/current-specials-icon.png')}<span>Current Specials</span>"), template_page_path(@qr, @template_key, :specials)
+
+-#
+  <li><a href="http://hipscan.com?view=full"><img alt="" src="images/full-website-icon.png"><span>Full Website</span></a></li>
+
+  <li><a href="http://www.facebook.com?view=full"><img alt="" src="images/facebook-icon.png"><span>Facebook</span></a></li>
+  <li><a href="http://twitter.com?view=full"><img alt="" src="images/twitter-icon.png"><span>Twitter</span></a></li>
+  <li><a href="current-specials.html"><img alt="" src="images/current-specials-icon.png"><span>Current Specials</span></a></li>
+
+
+.footer
+  = raw field_value(:footer)
+
+.clear

@@ -1,0 +1,24 @@
+%h1 #{hipscan} Users without Profile Set (#{@users.count})
+%p= link_to 'Export CSV', admin_incomplete_path(:format => 'csv')
+%table.scaffold
+  %tr.th
+    %th Username
+    %th Email
+    %th Created
+    %th
+    
+  - for u in @users
+    %tr{:class => cycle('odd', 'even')}
+      %td
+        - if u.username.blank?
+          Incomplete
+        - else
+          = u.username
+        %span{:style => 'font-size: 9px'}
+          %b= link_to 'SWITCH TO', admin_user_switch_to_path(u)
+      %td= u.email
+      %td= time_ago_in_words(u.created_at)
+      %td
+        %span{:style => 'font-size: 9px'}
+          %b= link_to 'DELETE', admin_user_path(u), :method => :delete, :confirm => 'Delete user?'
+

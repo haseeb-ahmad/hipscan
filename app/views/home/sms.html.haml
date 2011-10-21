@@ -1,0 +1,16 @@
+%h1 Receive #{hipscan} SMS Notifications
+%p Please fill out all the fields below to have notifications sent to your phone whenever your #{hipscan} is scanned.
+
+= form_for current_user, :url => home_sms_path do |f|
+  = f.error_messages
+
+  %p
+    = f.label :sms_phone_number
+    = f.text_field :sms_phone_number, :class => 'field_with_default', :title => '10 digit', :size => 15
+
+  %p
+    = f.label :sms_carrier
+    = carrier_select('user[sms_carrier]', "Please choose a carrier")
+
+  %p
+    = f.submit 'Enable SMS'

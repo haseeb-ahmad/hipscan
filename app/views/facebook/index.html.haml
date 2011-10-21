@@ -1,0 +1,41 @@
+%h1 Loading #{hipscan}...
+- url = "http://#{APP_CONFIG[:host]}#{user_omniauth_authorize_path(:facebook)}"
+= javascript_tag "window.top.location.href = '#{url}'"
+-#
+  %p= link_to 'Test Page', '/facebook/test'
+  %hr
+
+  = @oauth = Koala::Facebook::OAuth.new(APP_CONFIG[:facebook_app_id], APP_CONFIG[:facebook_api_secret])
+  - sr = @oauth.parse_signed_request(params[:signed_request])
+
+  %p= sr['oauth_access_token']
+
+-#
+  %p= @graph = Koala::Facebook::GraphAPI.new(sr['oauth_access_token'])
+
+
+  %p= graph.get_object("me")
+
+
+  .hr
+  - params.each_pair do |k,v|
+    %p #{k} = #{v}
+
+  - if logged_in?
+    %fieldset
+      %legend Social
+      %fieldset
+        %legend Facebook #{facebook_logged_in? ? 'Active' : link_to('Activate', user_omniauth_authorize_path(:facebook))}
+
+        - if facebook_logged_in?
+          - for feed in graph.get_connections("me", "feed")[0,5]
+            %p
+              %b= feed['from']['name']
+              %i= feed['message']
+
+          %br
+          - form_tag '/home/wall' do
+            #{text_field_tag :text} #{submit_tag 'Post to Wall!'}
+
+        %br
+        <fb:like href="" show_faces="true" width="450" font=""></fb:like>

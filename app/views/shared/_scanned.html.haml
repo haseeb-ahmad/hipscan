@@ -1,0 +1,23 @@
+- scans = Scan.count(:conditions => {:user_id => current_user.id})
+- if scans > 0
+  #scanned
+    %h2 You've been scanned!
+    %br
+    %p
+      Your #{hipscan} has been scanned #{scans} times.
+      %br
+      The last scan was #{time_ago_in_words current_user.scans.last.created_at} ago.
+      -#and came from #{current_user.scans.last.location}.
+  %br
+- if current_user.send_sms
+  %p
+    You are now receiving SMS notifications whenever you are <span class='hipscan'>Hipscanned</span>!
+  %p
+    = link_to 'Disable SMS Notifications', home_sms_path(:disable => true)
+
+- else
+  %p
+    Like to know immediately when you've been <span class='hipscan'>Hipscanned?</span>
+  %p
+    = link_to 'Enable SMS Notifications', home_sms_path
+    now!

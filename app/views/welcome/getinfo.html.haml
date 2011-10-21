@@ -1,0 +1,24 @@
+#services
+  %h1.center #{hipscan} Professional Services - The future of business marketing!
+  %br
+
+  %div{:style => 'width: 600px; margin-left: 100px'}
+    %p
+      Awesome! We're ready to begin working on your project. Fill out the information below and a media consultant will be in touch with you within 24 hours.
+
+      
+    = form_tag do
+      %p
+        %b Your Hipscan Name:
+      %p= text_field_tag :username, logged_in? ? current_user.username : params[:username], :size => '30'
+
+      %p
+        %b Your email:
+      %p= text_field_tag :email, logged_in? ? current_user.email : params[:email], :size => '30'
+
+      %p
+        %b Description of what you would like to see:
+      %p= text_area_tag :description, params[:description], :size => '80x10'
+
+      %p= submit_tag 'Submit'
+

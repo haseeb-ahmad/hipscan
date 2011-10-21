@@ -1,0 +1,44 @@
+development: &non_production_settings
+  host: localhost:3000
+  site_name: Hipscan Dev
+  admin_email: admin@webjaw.com
+  noreply_email: noreply@webjaw.com
+  contact_email: johnc@testdev.net
+  google_analytics_id:
+  facebook_app_id: 182656605089757
+  facebook_api_key: b5cf15c3e7223d19332d9e6164feeb2e
+  facebook_api_secret: 6f5df2d620c28a30b6af9b5516a6e341
+  foursquare_client_id: MFNEKH4ZOUBIURR4IYMQYQYD2B00LM2UUK5BEB12RB1ZGWWD
+  foursquare_client_secret: 5TOIDCHYQA4GPIREXGNUZFFVCNJU02ZAYSSRQ3I2BQKAJIF3
+  twitter_consumer_key: JTnG1gK502gmt8rZUchtjw
+  twitter_consumer_secret: vdg0oemaA3zeMLzO2ciCLSSgAWt8O3QfTMaO7qnMuQ
+  path_to_qrencode: '/usr/local/bin/qrencode'
+  maxmind_key: 1p97IDASzAia
+  mixpanel_token: 8ae68e1362cc80f85d052e2b4dee3e9e
+  mixpanel_api_key: 14ebf93852dc0b11b792ef50ce0b8c02
+  mixpanel_api_secret: 89850e170bbf80d69bb14302cbbe231d
+
+test:
+  <<: *non_production_settings
+
+staging:
+  <<: *non_production_settings
+  host: hipscan.betaking.com
+  site_name: Hipscan Staging
+  facebook_app_id: 226254944056520
+  facebook_api_key: 2122bbe679f832d33d0f54cf6223059c
+  facebook_api_secret: efc3a56e402a9f451f8e691d076a2f6b
+  foursquare_client_id: CQN5YS5IVJT3CFYR4ZEE0ZYK1SHCQVEHJJDTWLGWO3OJLEUH
+  foursquare_client_secret: UZ123LQSB5Z14WJDL5KNUUFVI1SNMMDD3H4IQV1UE1UREFDQ
+
+production:
+  <<: *non_production_settings
+  host: hipscan.com
+  site_name: Hipscan
+  admin_email: admin@hipscan.com
+  noreply_email: noreply@hipscan.com
+  contact_email: info@hipscan.com
+  facebook_app_id: 116840015050902
+  facebook_api_key: 861ffe28fab5128de00a16286cf2c55d
+  facebook_api_secret: 1b4a83f82a4039a5ccf705d06803a80b
+

@@ -1,0 +1,53 @@
+- content_for :js do
+  = javascript_include_tag :ckeditor
+
+%table.twocol
+  %tr
+    %td{:style => 'width: 350px; padding-right: 10px'}
+      %h1.hipscan= @qr.name
+      =# barcode(current_user.hipscan, 7)
+      #hipscan_qr
+        = image_tag @qr.qr.url(:medium), :title => @qr.name
+      %br
+
+      %h2 What's Your Color?
+      %div
+        - for color in User::COLORS
+          =# link_to color, color_qr_path(:color => color), :remote => true
+          %a.change_color{:href => color_qr_path(:color => color), 'data-remote' => 'true'}
+            .color_swatch
+              .color_div{:style => "background-color:#{color}"}
+      .cl
+      %br
+      - if @qr.logo.file?
+        .center= image_tag @qr.logo.url(:medium), :style => 'width: 300px'
+
+
+    %td
+      #edit
+        %h2 Marketing Call-Out Card Creation Wizard
+        -#%h2{:style => 'color: #888; margin: 10px 0'} Welcome to the Marketing Creation Wizard for Offline Engagement.  Simply Enter information into the Following Fields and The System Will Create a Downloadable PDF File Ready for Printing.
+          
+        = form_for @qr, :url => update_marketing_qr_path(@qr), :html => {:multipart => true} do |f|
+          = f.error_messages
+          .profile_option
+            %p
+              = f.label :title, 'Marketing Header (This Will Be Your Top Headline)'
+              = f.text_field :title, :style => 'width: 93%', :class => 'field_with_default', :title => 'Enter title'
+
+            %p
+              = f.label :logo, 'Logo/Product Image (Upload Your Logo or Product Image)'
+              = f.file_field :logo
+
+            %p
+              = f.label :marketing_text, 'Main Marketing Text (Body of Collateral)'
+              =  f.cktext_area :marketing_text, :width => '100%', :height => '400px'
+
+            %p
+              = f.label :tagline, 'Footer Text (Displayed Under Hipscan)'
+              = f.text_field :tagline, :class => 'field_with_default', :style => 'width: 93%'
+
+            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
+      -#
+        %br
+        = link_to 'Back', qrs_path

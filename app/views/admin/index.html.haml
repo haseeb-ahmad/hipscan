@@ -1,0 +1,23 @@
+%h1 #{hipscan} Admin
+
+%p
+  There are currently
+  %b #{User.count} Registered #{link_to 'Users', admin_users_path}.
+
+%p
+  There are currently
+  %b #{Scan.count} #{link_to 'Scans', admin_scans_path}.
+
+%p
+  There are currently
+  %b #{Click.count} #{link_to 'Clicks', admin_clicks_path}.
+
+%p
+  There are currently
+  %b #{User.where(:profile_option => nil).count} #{link_to 'Incomplete Registrations', admin_incomplete_path}.
+
+%hr
+
+%p
+  There are #{ServiceRequest.count} #{link_to 'Professional Service Requests', admin_service_requests_path}
+  -# (#{ServiceRequest.where(:read => false).count} unread)

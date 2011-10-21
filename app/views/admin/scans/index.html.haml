@@ -1,0 +1,34 @@
+%h1 #{hipscan} Scans
+
+%p
+  There are currently
+  %b #{Scan.count} Scans.
+
+%table.scaffold
+  %tr.th
+    %th Username
+    %th
+    %th IP
+    %th City
+    %th Created
+
+  - for s in @scans
+    - if s.user
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = link_to s.user.username, "/#{s.user.username}?noscan=1"
+          %span{:style => 'font-size: 9px'}
+            %b= link_to 'SWITCH TO', admin_user_switch_to_path(s.user)
+
+        %td
+          - if s.iphone?
+            iPhone
+          - elsif s.android?
+            Android
+        %td= s.ip
+        %td
+          = s.city
+          = s.state
+        %td #{time_ago_in_words(s.created_at)} ago
+
+= will_paginate @scans

@@ -1,0 +1,27 @@
+#services
+  %h1.center #{hipscan} Professional Services - The future of business marketing!
+  %br
+
+  %p.center
+    %b Thank you for your response.  We will contact you shortly.
+
+  - if params[:d]
+    %p.center.large
+      %br
+      Instant Whitepaper Download
+
+    %p.center.large
+      - if params[:d] == 'Video'
+        %b= link_to "Why Video? The Benefits of Video Creation For Your Business!", '/pdfs/WhyVideo.pdf', :target => '_blank'
+
+      - elsif params[:d] == 'Mobile'
+        %b= link_to "Why Mobile? The Importance of an Effective Mobile Presence For Your Business!", '/pdfs/WhyMobile.pdf', :target => '_blank'
+
+      - elsif params[:d] == 'Print'
+        %b= link_to "Why Print? The Importance of Integrating Printed Materials into an Online Marketing Campaign!", '/pdfs/WhyPrint.pdf', :target => '_blank'
+
+  %p
+    %br
+    = link_to 'Continue to Hipscan', root_path
+      
+

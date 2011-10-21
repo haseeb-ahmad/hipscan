@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    :css
+      .hipscan {
+        color: #f36d21;
+      }
+
+  %body
+    = image_tag('http://hipscan.com/images/hipscan-logo.png')
+
+    = yield
+
+    = render :partial => 'notifier/footer'
