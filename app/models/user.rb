@@ -13,17 +13,16 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
-  devise :database_authenticatable,
-         :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   #:confirmable, 
-
-
 
   has_many :scans, :order => :created_at, :dependent => :destroy
   has_many :clicks, :dependent => :destroy
   has_many :qrs, :dependent => :destroy
   
   belongs_to :account
+  
+  delegate :subscription, :to => :account
 
 #  validates_presence_of :username
   validates_format_of :username, :with => URL_SAFE, :message => 'Please use only numbers, letters and underscore for your username'
@@ -53,15 +52,12 @@ class User < ActiveRecord::Base
   end
 
   before_save :check_qr
-  before_save :add_default_account
   after_create :send_welcome_email
   after_create :add_to_batchbook
   before_save :update_batchbook
 
   has_attached_file :photo, :styles => { :medium => "960x", :thumb => "100x" }
-
   has_attached_file :image, :styles => { :medium => "960x", :thumb => "100x" }
-
   has_attached_file :qr,
                     :processors => [:change_color],
                     :styles => {
@@ -88,6 +84,9 @@ class User < ActiveRecord::Base
                   :website_name4, :website_url4, :website_name5, :website_url5,
                   :sms_phone_number, :sms_carrier, :google_profile_id, :video_url, :video_embed
 
+  def plan_name
+    self.subscription.subscription_plan.name
+  end
 
   def send_welcome_email
     begin
@@ -437,11 +436,6 @@ class User < ActiveRecord::Base
     !persisted? || password.present? || password_confirmation.present?
   end
 
-private
-  def add_default_account
-    account = Account.find_by_account_type :basic
-    self.account = account if account.present?
-  end
 end
 
 

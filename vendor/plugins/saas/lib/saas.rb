@@ -129,7 +129,8 @@ module Saas
   module ControllerHelpers
     def self.included(base)
       base.inherit_resources
-      base.before_filter :authenticate_saas_admin!
+      # base.before_filter :authenticate_saas_admin!
+      base.before_filter :admin_authenticate
     end
   end
   
@@ -146,7 +147,7 @@ module Saas
       # This is used throughout the app to scope queries, like
       # current_account.users, etc.
       def current_account(raise_on_not_found = true)
-        @current_account ||= Account.find_by_full_domain(request.host) || (Rails.env.development? ? Account.first : nil)
+        @current_account ||= current_user.account
         raise ActiveRecord::RecordNotFound if !@current_account && raise_on_not_found
         @current_account
       end

@@ -4,7 +4,7 @@
       - if current_user
         %li
           Hi,
-          %span.hipscan #{current_user.username}!
+          %span.hipscan= link_to "#{current_user.username}!", account_path
           &nbsp;
           
         %li= link_to('Sign out', destroy_user_session_path)
@@ -18,16 +18,22 @@
       - if current_user
         %div{:style => 'text-align: right; margin-top:5px; font-size:11px'}
           Account Type:
-          %b= current_user.account_type
-
+          %b= current_user.account.subscription.subscription_plan
+          
   = link_to image_tag('hipscan-logo.png'), root_path
 
   - unless notice.blank?
     .flash_notice= raw notice
 
   - unless alert.blank?
-    .flash_alert
-      = raw alert
+    .flash_alert= raw alert
 
   .hr
-
+  
+  - if controller.controller_path.starts_with?('saas_admin')
+    %li= link_to('Subscriptions', saas_admin_subscriptions_path)
+    %li= link_to('Accounts', saas_admin_accounts_path)
+    %li= link_to('Plans', saas_admin_subscription_plans_path)
+    %li= link_to('Discounts', saas_admin_subscription_discounts_path)
+    %li= link_to('Affiliates', saas_admin_subscription_affiliates_path)
+    %li= link_to("Log out #{current_user.email}", destroy_user_session_path)

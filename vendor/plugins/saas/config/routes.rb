@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :saas_admins
+  # devise_for :saas_admins
 
   namespace "saas_admin" do
 

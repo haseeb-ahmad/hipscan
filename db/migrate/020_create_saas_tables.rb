@@ -65,6 +65,10 @@ class CreateSaasTables < ActiveRecord::Migration
       t.integer  "renewal_period",                                :default => 1
       t.decimal  "setup_amount",   :precision => 10, :scale => 2
       t.integer  "trial_period",                                  :default => 1
+      t.integer  "user_limit"
+      t.float    "unit_price"
+      t.text     "description"
+      t.boolean  "featured",                                      :default => false
     end
 
     create_table "subscriptions", :force => true do |t|

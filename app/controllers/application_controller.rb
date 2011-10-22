@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-
-
   def route_not_found
 #    raise request.inspect
     username = request.env['REQUEST_URI'].split('?').first.gsub('/','').downcase
@@ -60,6 +58,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  
+  def admin_authenticate
+    unless admin?
+      flash[:notice] = "You don't have rights to access this page."
+      redirect_to root_path 
+    end
+    return
+  end
 
   def logged_in?
     user_signed_in? ? true : false

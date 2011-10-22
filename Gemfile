@@ -6,9 +6,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'vidibus-routing_error'
 
 gem 'fastercsv'
-
 gem 'batchbook'
-
 gem 'pdfkit'
 
 #gem 'rails', '3.1.0.rc4'
@@ -24,6 +22,7 @@ gem 'pdfkit'
 gem 'rails3_acts_as_paranoid'
 gem 'activemerchant', '~>1.9', :require => "active_merchant"
 gem 'ssl_requirement'
+gem "dynamic_form"
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -41,7 +40,6 @@ gem "jquery-rails"
 
 # Generators
 gem 'rails3-generators'
-
 gem "paperclip", "~> 2.3"
 gem 'aws-s3'
 
@@ -60,6 +58,7 @@ gem 'pony'
 gem "geocoder"
 
 gem 'devise', :git => "git://github.com/plataformatec/devise.git"
+gem 'cancan'
 gem 'omniauth'
 #gem "oa-oauth", :git => 'git://github.com/intridea/omniauth.git', :require => "omniauth/oauth"
 #gem 'oa-openid', :require => 'omniauth/openid'

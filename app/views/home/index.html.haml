@@ -58,14 +58,11 @@
         %p
           You are logged in to Facebook!
           = link_to 'Upload your Hipscan!', '/home/qr_to_facebook'
-
       %br
-
       - if current_user.premium?
         = render :partial => 'premium'
       - else
         = render :partial => 'shared/product'
-
 
     %td
       #div{:style => 'margin: 0 auto'}

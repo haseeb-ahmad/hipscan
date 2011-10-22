@@ -10,15 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020183118) do
+ActiveRecord::Schema.define(:version => 20111022103952) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "account_type"
-    t.string   "description"
-    t.float    "price"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_domain"
+    t.datetime "deleted_at"
   end
+
+  add_index "accounts", ["full_domain"], :name => "index_accounts_on_full_domain"
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -192,6 +194,10 @@ ActiveRecord::Schema.define(:version => 20111020183118) do
     t.integer  "renewal_period",                                :default => 1
     t.decimal  "setup_amount",   :precision => 10, :scale => 2
     t.integer  "trial_period",                                  :default => 1
+    t.integer  "user_limit"
+    t.float    "unit_price"
+    t.text     "description"
+    t.boolean  "featured",                                      :default => false
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -297,6 +303,7 @@ ActiveRecord::Schema.define(:version => 20111020183118) do
     t.string   "video_url"
     t.text     "video_embed"
     t.integer  "account_id"
+    t.boolean  "account_admin",                        :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

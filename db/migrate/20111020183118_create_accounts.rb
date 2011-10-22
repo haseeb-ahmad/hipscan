@@ -1,11 +1,14 @@
 class CreateAccounts < ActiveRecord::Migration
   def self.up
-    create_table :accounts do |t|
-      t.string :account_type
-      t.string :description
-      t.float :price
-      t.timestamps
+    create_table "accounts", :force => true do |t|
+      t.string   "name"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+      t.string   "full_domain"
+      t.datetime "deleted_at"
     end
+
+    add_index "accounts", "full_domain"
     
     add_column :users, :account_id, :integer
   end

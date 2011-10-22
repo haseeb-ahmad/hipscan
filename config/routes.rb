@@ -1,7 +1,45 @@
+class MainSite
+  def self.matches?(request)
+    request.subdomain.blank? || request.subdomain == 'www'
+  end
+end
+
 Hipscan::Application.routes.draw do
+  # Routes for the public site
+  constraints MainSite do
+    # Homepage
+    root :to => 'welcome#index'
+    
+    # Account Signup Routes
+    match '/signup' => 'accounts#plans', :as => 'plans'
+    match '/signup/d/:discount' => 'accounts#plans'
+    match '/signup/thanks' => 'accounts#thanks', :as => 'thanks'
+    match '/signup/create/:discount' => 'accounts#create', :as => 'create', :defaults => { :discount => nil }
+    match '/signup/:plan/:discount' => 'accounts#new', :as => 'new_account'
+    match '/signup/:plan' => 'accounts#new', :as => 'new_account'
+    
+    # Catch-all that just loads views from app/views/content/* ...
+    # e.g, http://yoursite.com/content/about -> app/views/content/about.html.erb
+    #
+    match '/content/:action' => 'content'
+  end
+
+  root :to => "accounts#dashboard"
+
+  #
+  # Account / User Management Routes
+  #
+  resource :account do 
+    member do
+      get :dashboard, :thanks, :plans, :canceled
+      match :billing, :paypal, :plan, :plan_paypal, :cancel
+    end
+  end  
+  
+  ## END OF SUBSCRIPTIONS
+  
 
   ActiveAdmin.routes(self)
-
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
