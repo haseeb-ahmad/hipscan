@@ -1,0 +1,6 @@
+%h1 Account created
+%p
+  Thank you for creating an account!  You can now log in to your account at
+  = succeed "." do
+    %a{:href => "http://#{flash[:domain]}.#{Saas::Config.base_domain}/"}
+      http://#{flash[:domain]}.#{Saas::Config.base_domain}/

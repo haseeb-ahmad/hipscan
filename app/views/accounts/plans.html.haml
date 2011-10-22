@@ -1,0 +1,5 @@
+%h1 Plans
+%p
+  Here are our plans.  Pick one:
+%ul
+  = raw(@plans.map {|p| content_tag(:li, link_to(p, new_account_url(:plan => p, :discount => params[:discount])))}.join)

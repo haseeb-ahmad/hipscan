@@ -1,0 +1,7 @@
+%p
+  This would be your public landing page.  Go to a #{link_to('test subdomain', root_url(:host => "test.#{request.host_with_port}"))} to log in.
+%p
+  = link_to('Sign up for a new account', plans_path)
+%p
+  = link_to('Sign in', '/saas_admin')
+  to the admin area.
