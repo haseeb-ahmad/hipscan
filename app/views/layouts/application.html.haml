@@ -19,7 +19,13 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     / Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
     / CSS: implied media="all"
+    
     = stylesheet_link_tag "style", "application", :media => "all", :cache => "styles"
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    
     = yield :css
     / More ideas for your <head> here: h5bp.com/docs/#head-Tips
     /
