@@ -6,6 +6,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Account.create!([{ :account_type => :basic },
-                 { :account_type => :product },
-                 { :account_type => :business }])
+plans = [{ :name => 'Basic', :amount => 0.0, :setup_amount => 0.0, :renewal_period => 1, :trial_period => 1 }, { :name => 'Product', :amount => 14.0, :setup_amount => 0.0, :renewal_period => 1, :trial_period => 1 }, { :name => 'Business', :amount => 19.0, :setup_amount => 0.0, :renewal_period => 1, :trial_period => 1 }]
+
+SubscriptionPlan.create(plans)

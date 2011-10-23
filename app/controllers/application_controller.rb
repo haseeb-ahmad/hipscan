@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
 
   def route_not_found
 #    raise request.inspect
-    username = request.env['REQUEST_URI'].split('?').first.gsub('/','').downcase
+    username = params[:username] if params[:username].present?
+    username ||= request.env['REQUEST_URI'].split('?').first.gsub('/','').downcase
 #    raise request.env['action_dispatch.request.parameters']['noscan'].inspect
 
     if @user = User.find_by_username(username)

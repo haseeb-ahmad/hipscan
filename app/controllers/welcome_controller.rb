@@ -21,8 +21,11 @@ class WelcomeController < ApplicationController
       redirect_to :action => :index
     end
   end
-
-
+  
+  def missing_route
+    route_not_found
+  end
+  
   def myhipscan
     unless params[:username]
       redirect_to root_path, :alert => 'No User Specified'

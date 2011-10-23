@@ -1,0 +1,2 @@
+class MobileSitesController < ApplicationController
+end

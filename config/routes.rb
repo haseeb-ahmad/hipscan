@@ -22,6 +22,8 @@ Hipscan::Application.routes.draw do
     # e.g, http://yoursite.com/content/about -> app/views/content/about.html.erb
     #
     match '/content/:action' => 'content'
+    match '/u/:username' => 'mobile_sites#index'
+    
   end
 
   root :to => "accounts#dashboard"
@@ -100,8 +102,8 @@ Hipscan::Application.routes.draw do
   match 'template/:qr/edit/:template' => 'templates#edit', :as => 'edit_template'
   match 'template/:qr/update/:template' => 'templates#update', :as => 'update_template'
 
-#  post 'home/tweet'
-#  post 'home/wall'
+  #  post 'home/tweet'
+  #  post 'home/wall'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -205,7 +207,7 @@ Hipscan::Application.routes.draw do
 
 
   # sneaky catch all, sets username to path
-#  match '*username', :to => 'welcome#route_not_found'
+  match '*username', :to => 'welcome#missing_route'
 
-  # match '*username' => '# welcome#index'
+  # match '*username' => 'welcome#index'
 end
