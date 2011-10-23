@@ -1,44 +1,47 @@
-%h1 Create an account
-= form_for @account, :url => { :action => 'create' } do |account|
-  = hidden_field_tag 'plan', params[:plan]
-  %p
-    Enter the name of your business and the subdomain you'd like to use for your site.
-  - if @account.errors.any?
-    .errorExplanation
-      %h2 Errors encountered with your account information:
-      %ul
-        = raw(@account.errors.full_messages.map {|m| content_tag('li', m)})
-        
-  // %fieldset
-  //   = account.label :name
-  //   = account.text_field :name
-  //   = account.label :domain
-  //   = account.text_field :domain
-  //   \.#{Saas::Config.base_domain}
-  // %p
-  //   Enter info for the administrator account.
-  %fieldset
-    = account.fields_for :admin do |admin|
-      = admin.label :username
-      = admin.text_field :username
-      = admin.label :email
-      = admin.text_field :email
-      = admin.label :password
-      = admin.password_field :password
-      = admin.label :password_confirmation
-      = admin.password_field :password_confirmation
-  - if @account.needs_payment_info?
+#registration
+  // %table.twocol
+  //   %tr
+  //     %td{:style => 'border-right: 2px solid #f36d21; padding-right: 20px'}
+  %h1 Create an account
+  = form_for @account, :url => { :action => 'create' } do |account|
+    = hidden_field_tag 'plan', params[:plan]
     %p
-      Enter your payment info
-    = render :partial => "shared/credit_card_form"
-  %br/
-  %fieldset
-    %label Discount Code
-    = text_field_tag :discount, params[:discount]
-  %br/
-  %fieldset
-    = content_tag(:p) do
-      Your card will be charged #{number_to_currency(@account.plan.setup_amount) + ' now and ' if  @account.plan.setup_amount? && !@account.plan.trial_period?} #{number_to_currency(@account.plan.amount)}
-      \#{@account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months"}.
-    - end if @account.needs_payment_info?
-    %input{:type => "submit", :value => "Create my account"}/
+      Enter the name of your business and the subdomain you'd like to use for your site.
+    - if @account.errors.any?
+      .errorExplanation
+        %h2 Errors encountered with your account information:
+        = raw(@account.errors.full_messages.each {|s| s.gsub! /Admin/, 'User'}.join(',<br/>'))
+
+    %fieldset
+      = account.fields_for :admin do |admin|
+        %p
+          = admin.label :username
+          %br
+          = admin.text_field :username
+        %p
+          = admin.label :email
+          %br
+          = admin.text_field :email
+        %p
+          = admin.label :password
+          %br
+          = admin.password_field :password
+        %p
+          = admin.label :password_confirmation
+          %br
+          = admin.password_field :password_confirmation
+    - if @account.needs_payment_info?
+      %p
+        Your card will be charged #{number_to_currency(@account.plan.setup_amount) + ' now and ' if  @account.plan.setup_amount? && !@account.plan.trial_period?} #{number_to_currency(@account.plan.amount)}
+        \#{@account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months"} until you cancel the subscription.
+      %p 
+        Please enter your payment information
+      = render :partial => "shared/credit_card_form"
+    %br/
+    %fieldset
+      = label_tag :discount, "Discount Code"
+      %br
+      = text_field_tag :discount, params[:discount]
+    %br/
+    %fieldset
+      %button Create my Account

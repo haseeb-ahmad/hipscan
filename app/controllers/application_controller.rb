@@ -74,6 +74,10 @@ class ApplicationController < ActionController::Base
   def admin?
      user_signed_in? && current_user.admin?
   end
+  
+  def account_admin?
+    user_signed_in? and current_user.account_admin?
+  end
 
   def require_facebook_login
     unless logged_in? && facebook_logged_in?

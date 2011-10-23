@@ -1,0 +1,34 @@
+#premium_feauters
+  .hr
+  %h2 Business Marketer #{hipscan('s')}
+  %br
+  %p
+    %button Create Your Mobile Website NOW!
+  
+  - c = current_user.qrs.count
+  %p
+    You have created #{c} of 30 Marketing #{hipscan('s')}.
+    
+  - if c < 30
+    %p= link_to "Create #{c == 0 ? 'One' : 'Another'} Now", new_qr_path
+
+  - if c > 0
+    -#%p= link_to "View your Marketing Hipscan Codes", qrs_path
+
+    %table#qrlist.scaffold
+      %tr
+        %th Name
+        %th{:style => 'text-align:right'} Actions
+      - for qr in current_user.qrs
+        %tr{:class => cycle('odd', 'even')}
+          %td= link_to qr.name || 'New Hipscan', "/#{qr.code}"
+          %td{:style => 'text-align:right'}
+            = link_to 'Edit', edit_qr_path(qr)
+            \|
+            = link_to 'Marketing', marketing_qr_path(qr)
+            \|
+            = link_to 'Analytics', analytics_qr_path(qr)
+            \|
+            = link_to 'Templates', templates_path(qr)
+            \|
+            = link_to 'Delete', qr, :confirm => 'Are you sure?', :method => :delete

@@ -41,8 +41,7 @@ Hipscan::Application.routes.draw do
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => :registrations do
 #    get "/", :to => "devise/registrations#new"
 #    root :to => "home#index"
   end

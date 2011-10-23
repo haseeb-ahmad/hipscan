@@ -12,13 +12,13 @@
       - else
         %li
           Already have a <span class='hipscan'>Hipscan</span>?
-          = link_to 'Sign in', new_user_registration_path
+          = link_to 'Sign in', new_user_session_path
 
 
       - if current_user
         %div{:style => 'text-align: right; margin-top:5px; font-size:11px'}
           Account Type:
-          %b= current_user.account.subscription.subscription_plan
+          %b= current_user.account.subscription.subscription_plan.name
           
   = link_to image_tag('hipscan-logo.png'), root_path
 

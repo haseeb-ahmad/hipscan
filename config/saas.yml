@@ -3,10 +3,12 @@ defaults: &defaults
   from_email: support@hipscan.com
   base_domain: hipscan.com
   gateway: authorize_net_cim
+  require_payment_info_for_trials: true
   credentials:
     gateway:
       :login: 4yygM7B2G4
       :password: 3n32PqS4nVNy5w97
+      # :test: true
     paypal:
       :login: demo
       :password: password
@@ -15,15 +17,15 @@ defaults: &defaults
 development:
   <<: *defaults
   base_domain: subscriptions.dev # Edit /etc/hosts to add subscriptions.dev, test.subscriptions.dev, etc., or use Pow: http://pow.cx
-  gateway: authorize_net_cim
-  credentials:
-    gateway:
-      :login: 7MaS7yD7hL
-      :password: 76Cf4WHc4S7J9c93
-    paypal:
-      :login: demo
-      :password: password
-      :signature: signature
+  # gateway: authorize_net_cim
+  # credentials:
+  #   gateway:
+  #     :login: 7MaS7yD7hL
+  #     :password: 76Cf4WHc4S7J9c93
+  #   paypal:
+  #     :login: demo
+  #     :password: password
+  #     :signature: signature
 
 test:
   <<: *defaults

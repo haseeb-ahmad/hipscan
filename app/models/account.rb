@@ -18,7 +18,7 @@ class Account < ActiveRecord::Base
   #
   delegate :email, :to => :admin
   
-  validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
+  validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/, :allow_blank => true
   validates_exclusion_of :domain, :in => %W( support blog www billing help api ), :message => "The domain <strong>{{value}}</strong> is not available."
   validates_presence_of :admin, :on => :create, :message => "information is missing"
   validates_associated :admin, :on => :create

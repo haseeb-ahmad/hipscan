@@ -59,8 +59,11 @@
           You are logged in to Facebook!
           = link_to 'Upload your Hipscan!', '/home/qr_to_facebook'
       %br
-      - if current_user.premium?
-        = render :partial => 'premium'
+      - if current_user.account_plan == 'Business'
+        = render :partial => 'business'
+      - elsif current_user.account_plan == 'Product'
+        gfdgfd
+        = render :partial => 'product'
       - else
         = render :partial => 'shared/product'
 

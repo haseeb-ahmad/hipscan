@@ -225,7 +225,7 @@ class Subscription < ActiveRecord::Base
       if new_record?
         if !next_renewal_at? || next_renewal_at < 1.day.from_now.at_midnight
           if subscription_plan.trial_period?
-            self.next_renewal_at = Time.now.advance(:months => subscription_plan.trial_period)
+            self.next_renewal_at = Time.now.advance(:days => subscription_plan.trial_period)
           else
             charge_amount = subscription_plan.setup_amount? ? subscription_plan.setup_amount : amount
             if (@response = gateway.purchase(charge_amount * 100, billing_id)).success?

@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   
   delegate :subscription, :to => :account
 
-#  validates_presence_of :username
+  validates_presence_of :username
   validates_format_of :username, :with => URL_SAFE, :message => 'Please use only numbers, letters and underscore for your username'
   validates_length_of :username, :minimum => 3, :maximum => 20, :message => 'must be between 3 and 20 characters'
   validates_length_of :status, :maximum => 200
@@ -49,6 +49,14 @@ class User < ActiveRecord::Base
     if profile_video? && video_url.present? && video_embed.present?
       errors.add :base, 'Please choose a video url or embed code, not both'
     end
+  end
+  
+  HUMANIZED_ATTRIBUTES = {
+    :email => "E-mail address"
+  }
+
+  def self.human_attribute_name(attr)
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 
   before_save :check_qr
@@ -393,7 +401,11 @@ class User < ActiveRecord::Base
   end
 
   def premium?
-    self.account_type == 'premium'
+    self.account_type == 'premium1'
+  end
+  
+  def account_plan
+    self.subscription.subscription_plan.name
   end
 
   def at_qr_limit?

@@ -23,6 +23,10 @@ class AccountsController < ApplicationController
   
   def create
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
+    
+    @account.domain = @account.admin.username
+    @account.name = @account.admin.username
+    @account.admin.account_admin = true
 
     if @account.needs_payment_info?
       @address.first_name = @creditcard.first_name
@@ -33,7 +37,7 @@ class AccountsController < ApplicationController
     
     if @account.save
       flash[:domain] = @account.domain
-      redirect_to thanks_url
+      redirect_to home_path
     else
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
@@ -199,7 +203,7 @@ class AccountsController < ApplicationController
     end
     
     def authorized?
-      redirect_to new_user_session_url unless self.action_name == 'dashboard' || admin?
+      redirect_to new_user_session_url unless self.action_name == 'dashboard' || account_admin?
     end 
     
     def load_account

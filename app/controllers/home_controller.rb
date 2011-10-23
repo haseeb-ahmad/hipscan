@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!
   before_filter :validate_user_info, :except => [:unsubscribe, :sms]
   before_filter :require_facebook_login, :only => :qr_to_facebook
+  before_filter :account_active?, :only => [:index]
 
   def index
     if current_user.profile_option.blank?
@@ -138,4 +139,9 @@ class HomeController < ApplicationController
     @bucket_secret = Digest::MD5.hexdigest("#{APP_CONFIG[:mixpanel_api_secret]}#{current_user.id}")
   end
 
+private
+  def account_active?
+    redirect_to billing_account_path unless current_user.account.active?
+    return true
+  end
 end
