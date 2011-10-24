@@ -10,11 +10,22 @@ class HomeController < ApplicationController
   before_filter :account_active?, :only => [:index]
 
   def index
+    if current_user.subscription.subscription_plan.name == 'Business'
+      if current_user.template.present?
+        redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)
+        return
+      else
+        redirect_to new_template_path
+        return
+      end
+    end
+    
     if current_user.profile_option.blank?
       flash.keep
       redirect_to home_edit_path
       return
     end
+    
     @scan_count = current_user.scans.count
   end
 
