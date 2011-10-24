@@ -36,6 +36,7 @@ class AccountsController < ApplicationController
     end
     
     if @account.save
+      sign_in(:user, @account.admin)
       # flash[:domain] = @account.domain
       redirect_to home_path
     else
