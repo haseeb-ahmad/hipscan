@@ -36,7 +36,7 @@ class AccountsController < ApplicationController
     end
     
     if @account.save
-      flash[:domain] = @account.domain
+      # flash[:domain] = @account.domain
       redirect_to home_path
     else
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users

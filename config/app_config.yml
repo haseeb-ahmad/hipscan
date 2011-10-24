@@ -23,8 +23,9 @@ test:
 
 staging:
   <<: *non_production_settings
-  host: hipscan.betaking.com
+  host: staging.socialpda.com
   site_name: Hipscan Staging
+  path_to_qrencode: '/usr/bin/qrencode'
   facebook_app_id: 226254944056520
   facebook_api_key: 2122bbe679f832d33d0f54cf6223059c
   facebook_api_secret: efc3a56e402a9f451f8e691d076a2f6b

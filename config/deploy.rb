@@ -12,8 +12,8 @@ require 'bundler/capistrano'
 #############################################################
 
 set :application, "hipscan"
-# set :deploy_to, "/rails/#{application}"
-
+#i set :deploy_to, "/rails/#{application}"
+set :deploy_to, "/var/www/hipscan"
 
 set :keep_releases, 4
 after "deploy:update", "deploy:cleanup"
@@ -25,7 +25,8 @@ after "deploy:update_code", "bundler:bundle_new_release"
 #############################################################
 set :scm, :git
 
-set :repository, "ssh://johnc@testdev.net:2222/git/hipscan"
+#i set :repository, "ssh://johnc@testdev.net:2222/git/hipscan"
+set :repository, 'git@caplu.com:hipscan.git'
 ssh_options[:forward_agent] = true
 set :branch, "master"
 set :deploy_via, :remote_cache
@@ -41,16 +42,20 @@ default_run_options[:pty] = true
 #ssh_options[:forward_agent] = true
 #set :use_sudo, true
 set :scm_verbose, false
-set :rails_env, "production"
+#i set :rails_env, "production"
+set :rails_env, "staging"
 
 
 #############################################################
 # Servers
 #############################################################
 
-set :domain, "hipscan.com"
-set :user, "deploy"
-set :password, "!!dxni9e"
+#i set :domain, "hipscan.com"
+set :domain, 'staging.socialpda.com'
+#i set :user, "deploy"
+set :user, "spda"
+#i set :password, "!!dxni9e"
+
 #ssh_options[:port] = 2222
 
 server domain, :app, :web

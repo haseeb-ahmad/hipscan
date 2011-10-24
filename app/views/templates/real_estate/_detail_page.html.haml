@@ -1,0 +1,48 @@
+#main
+  #header1
+    %a{:href => "index.html"}
+      %img{:alt => "", :height => "57", :src => "images/logo.png", :width => "218"}/
+  #content1
+    .title-outer
+      .title Sample Detail Page
+    .center
+      %img{:alt => "", :src => "images/gallery-im.jpg"}/
+    .right $2,500
+    %h2 31 Wheaton Road
+    %p
+      1.5 Bath, 2 Bed
+      %br/
+      Building Size: 1564 SQ. Feet
+      %br/
+      Litchfield Hills
+      %br/
+      Sotheby's International Realty
+    .detail-outer
+      .detail-inner.flot-left
+        .img1
+          %a{:href => "#"}
+            %img{:alt => "", :src => "images/plans-icon.png"}/
+        %a{:href => "#"} Floor Plans
+      .detail-inner.flot-right
+        .img1
+          %a{:href => "#"}
+            %img{:alt => "", :src => "images/map.png"}/
+        %a{:href => "#"} View on map
+      .clear
+      .detail-inner.flot-left
+        .img1
+          %a{:href => "#"}
+            %img{:alt => "", :src => "images/description.png"}/
+        %a{:href => "#"} Full description
+      <div class="detail-inner flot-right"">
+      .img1
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/send-to-icon.png"}/
+      %a{:href => "#"} Send to a friend
+  .clear
+#footer
+  .previous.flot-left{:style => "width:40%;"}
+    %a{:href => "#"} Previous
+  .buttons.flot-right{:style => "width:40%"}
+    %a{:href => "#"} Next
+  .clear

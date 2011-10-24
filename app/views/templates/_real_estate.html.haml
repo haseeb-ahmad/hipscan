@@ -6,10 +6,10 @@
 #content
   %h1= field_value(:welcome_title) || "Attn: Real Estate Professionals! Yes, you are in the right place. In the screens that follow we will show you how a Hipscan (QR Code on Your Offline Material) tied into a Custom Mobile Website Will Increase Engagement and Help Sell 2X More Units!"
   %br
+  %br
 #footer
   .text Click the "Next" Button to See What You've Been Missing Out On!
-  .buttons
-    = link_to 'Next', ''
+  .buttons= link_to 'Next', template_page_path(@qr, @template_key, :agent_detail)
   .clear
 
 

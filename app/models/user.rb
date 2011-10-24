@@ -52,14 +52,6 @@ class User < ActiveRecord::Base
     end
   end
   
-  HUMANIZED_ATTRIBUTES = {
-    :email => "E-mail address"
-  }
-
-  def self.human_attribute_name(attr)
-    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
-  end
-
   before_save :check_qr
   after_create :send_welcome_email
   after_create :add_to_batchbook

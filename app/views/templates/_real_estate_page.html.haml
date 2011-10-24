@@ -1,0 +1,4 @@
+- content_for :css do
+  = stylesheet_link_tag 'realestate'
+
+= render :partial => "templates/#{@template_key}/#{@field.to_s}_page"

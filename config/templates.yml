@@ -56,4 +56,16 @@
   :welcome_title:
     :field_name: 'Welcome title'
     :field_type: :string
+  :agent_detail:
+    :field_name: 'Agent Detail'
+    :field_type: :page
+  :agent_listing:
+    :field_name: 'Agent Listing'
+    :field_type: :page
+  :agent_detail:
+    :field_name: 'Contact'
+    :field_type: :page
+  :detail_page:
+    :field_name: 'Detail Page'
+    :field_type: :page
   
