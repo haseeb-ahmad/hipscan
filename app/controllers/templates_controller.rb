@@ -26,7 +26,7 @@ class TemplatesController < ApplicationController
   
   def create
     if request.post?
-      qr = current_user.template.present? ? current_user.template : current_user.qr.new
+      qr = current_user.template.present? ? current_user.template : current_user.qrs.new
       qr.profile_option = 'template'
       qr.template = (params['template'].present? ? Template.find(params['template']) : Template.first).template_type
       qr.save(false)
