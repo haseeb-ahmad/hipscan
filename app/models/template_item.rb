@@ -2,73 +2,7 @@ class TemplateItem < ActiveRecord::Base
   belongs_to :user
   has_attached_file :file
 
-  TEMPLATES = {
-      :restaurant => {
-          :logo => {
-              :field_name => 'Logo',
-              :field_type => :file
-          },
-          :phone_number => {
-              :field_name => 'Phone Number',
-              :field_type => :string,
-              :size => '15',
-              :validate_presence => :true,
-              :validate_phone => :true
-          },
-          :about => {
-              :field_name => 'About',
-              :field_type => :page
-          },
-          :find_us => {
-              :field_name => 'Find Us',
-              :field_type => :url,
-              :title => 'Enter URL for Google Map directions',
-              :size => '80'
-          },
-          :hours => {
-              :field_name => 'Hours of Operation',
-              :field_type => :page
-          },
-          :delivery => {
-              :field_name => 'Food Delivery',
-              :field_type => :page
-          },
-          :menu => {
-              :field_name => 'Menu',
-              :field_type => :string
-          },
-          :website => {
-              :field_name => 'Full Website',
-              :field_type => :url,
-              :title => 'Enter URL for Website',
-              :size => '80'
-          },
-          :facebook => {
-              :field_name => 'Facebook',
-              :field_type => :url,
-              :title => 'Enter URL for Facebook',
-              :size => '80'
-          },
-          :twitter => {
-              :field_name => 'Twitter',
-              :field_type => :url,
-              :title => 'Enter URL for Twitter',
-              :size => '80'
-          },
-          :specials => {
-              :field_name => 'Current Specials',
-              :field_type => :page
-          },
-          :footer => {
-              :field_name => 'Footer',
-              :field_type => :string,
-              :size => '60',
-              :validate_presence => :true,
-              :validate_phone => :true
-          }
-
-      }
-  }
+  TEMPLATES = YAML.load_file("#{Rails.root}/config/templates.yml")
 
   def self.get(qr, template_name, field)
     find_or_create_by_qr_id_and_template_name_and_field_name(qr.id, template_name, field)
@@ -87,6 +21,11 @@ class TemplateItem < ActiveRecord::Base
         raise 'TBD'
     end
     item.save
+  end
+  
+  def self.remove(qr, template_name, field)
+    item = find_or_create_by_qr_id_and_template_name_and_field_name(qr.id, template_name, field)
+    item.delete
   end
 
 

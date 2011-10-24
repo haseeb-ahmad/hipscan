@@ -1,10 +1,22 @@
 %table.twocol
   %tr
     %td{:style => 'width: 350px; padding-right: 10px'}
+      .signup-button{ :style => 'margin: 0px 0 10px 100px;'}= link_to 'return home', home_path
+      .preview-template
+        #loading-preview
+          Loading preview...
+        %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('#loading-preview').hide();" }
+      
+      
       %h1.hipscan= @qr.name
       #hipscan_qr
         = image_tag @qr.qr.url(:medium), :title => @qr.name
       %br
+      .fr{:style => 'margin-right: 60px'}
+        Download
+        = link_to 'Big', @qr.qr.url(:print)
+        |
+        = link_to 'Small', @qr.qr.url(:medium)
 
       -#%h2 What's Your Color?
         %div
@@ -15,13 +27,10 @@
                 .color_div{:style => "background-color:#{color}"}
       .cl
 
-
     %td
       #edit
         %h2 #{@template_key.to_s.titleize} Template Wizard
         -#%h2{:style => 'color: #888; margin: 10px 0'} Welcome to the Marketing Creation Wizard for Offline Engagement.  Simply Enter information into the Following Fields and The System Will Create a Downloadable PDF File Ready for Printing.
-
-
 
         = form_tag update_template_path(@qr, @template_key), :multipart => true do
           .profile_option
@@ -30,7 +39,7 @@
                 - when :string, :url
                   %p.template_string_field
                     = label_tag "#{@template[field][:field_name]}:"
-                    = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :title => field_title(field)
+                    = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
 
                 - when :file
                   %p.template_file_field
@@ -45,5 +54,6 @@
                 - else
                   %p
                     Unhandled Field: #{field_name(field)}:#{field_type(field)}
-            .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
-            = link_to 'Cancel', templates_path
+            
+            .signup-button= link_to 'Update content', 'javascript: $("form").submit();'
+            

@@ -12,7 +12,9 @@ require 'bundler/capistrano'
 #############################################################
 
 set :application, "hipscan"
-set :deploy_to, "/rails/#{application}"
+# set :deploy_to, "/rails/#{application}"
+
+
 set :keep_releases, 4
 after "deploy:update", "deploy:cleanup"
 after "deploy:update_code", "bundler:bundle_new_release"

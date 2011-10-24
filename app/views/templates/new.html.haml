@@ -1,0 +1,16 @@
+%h1 Mobile website
+
+%h3 You can create a personalized mobile website based on templates
+
+To start building your website select one of the templates and press next.
+
+.template_select
+  - form_tag(create_template_path) do
+    = label_tag :template, 'Select template:'
+    = select_tag :template, options_for_select(@templates_selection)
+    = submit_tag 'Next'
+    |
+    = link_to 'Home', home_path
+  
+
+  

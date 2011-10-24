@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :scans, :order => :created_at, :dependent => :destroy
   has_many :clicks, :dependent => :destroy
-  has_many :qrs, :dependent => :destroy
+  has_many :qrs, :dependent => :destroy, :conditions => { :profile_option => nil }
+  has_one :template, :class_name => "Qr", :foreign_key => "user_id", :conditions => {:profile_option => 'template' }
   
   belongs_to :account
   

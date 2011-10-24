@@ -828,6 +828,21 @@ table.bar-chart td:first-child {
   padding-top: 45px;
 }
 
+/* line 65, ../../app/stylesheets/partials/_layout.sass */
+.template_select {
+  margin-top: 20px;
+}
+/* line 67, ../../app/stylesheets/partials/_layout.sass */
+.template_select input {
+  margin-left: 20px;
+}
+
+/* line 71, ../../app/stylesheets/partials/_layout.sass */
+.preview-template iframe {
+  width: 380px;
+  height: 600px;
+}
+
 /* line 9, ../../app/stylesheets/partials/_page.sass */
 body.bp {
   line-height: 1.5;

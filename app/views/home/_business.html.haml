@@ -2,9 +2,18 @@
   .hr
   %h2 Business Marketer #{hipscan('s')}
   %br
-  %p
-    %button Create Your Mobile Website NOW!
-  
+  %br
+  .mobile-website
+    %h2 Mobile website
+    - if current_user.template.present?
+      = link_to 'Edit', edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)
+      |
+      = link_to "Show", template_path(:qr => current_user.template.id)
+      |
+      = link_to 'Change template', new_template_path
+    - else 
+      = link_to 'Create Your Mobile Website NOW!', new_template_path
+    %br
   - c = current_user.qrs.count
   %p
     You have created #{c} of 30 Marketing #{hipscan('s')}.
@@ -28,7 +37,7 @@
             = link_to 'Marketing', marketing_qr_path(qr)
             \|
             = link_to 'Analytics', analytics_qr_path(qr)
-            \|
-            = link_to 'Templates', templates_path(qr)
+            // \|
+            // = link_to 'Templates', templates_path(qr)
             \|
             = link_to 'Delete', qr, :confirm => 'Are you sure?', :method => :delete

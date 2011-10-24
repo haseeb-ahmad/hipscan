@@ -95,12 +95,14 @@ Hipscan::Application.routes.draw do
   match 'terms_of_use' => 'welcome#terms_of_use'
   match 'contact' => 'welcome#contact'
 
-
-  match 'templates/:qr/index' => 'templates#index', :as => 'templates'
+  match 'templates/new' => 'templates#new', :as => "new_template"
+  match 'templates/index/:qr/' => 'templates#index', :as => 'templates'
+  match 'templates/create' => 'templates#create', :as => "create_template"
   match 'template/:qr' => 'templates#show', :as => 'template'
   match 'template/:qr/:template/page/:field' => 'templates#page', :as => 'template_page'
   match 'template/:qr/edit/:template' => 'templates#edit', :as => 'edit_template'
   match 'template/:qr/update/:template' => 'templates#update', :as => 'update_template'
+  
 
   #  post 'home/tweet'
   #  post 'home/wall'

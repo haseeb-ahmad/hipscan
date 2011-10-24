@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
 
 # These are bugged in Rails 3.0 -- see last item in routes.rb
-  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found if Rails.env != 'development'
   rescue_from ActionController::RoutingError, :with => :route_not_found
 
   protected
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       @user = @qr.user
       add_scan(@user, @qr)
 
-      if @qr.template
+      if @qr.template.present?
         redirect_to template_path(@qr)
       elsif @qr.profile_url?
         redirect_to @qr.url

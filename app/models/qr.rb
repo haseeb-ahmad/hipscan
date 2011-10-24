@@ -13,7 +13,7 @@ class Qr < ActiveRecord::Base
                         :medium => {:resize => '400x400', :color => lambda{|a| a.instance.color}}
                         }
 
-  validates_presence_of :profile_option, :name, :allow_blank => false
+  validates_presence_of :profile_option, :allow_blank => false
   validates_presence_of :url, :allow_blank => false, :if => :profile_url?
   validates_presence_of :custom_text, :allow_blank => false, :if => :custom_text?
   validates_attachment_presence :image, :if => :custom_image?
