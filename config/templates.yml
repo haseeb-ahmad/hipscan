@@ -58,14 +58,45 @@
     :field_type: :string
   :agent_detail:
     :field_name: 'Agent Detail'
-    :field_type: :page
+    :field_type: :page_content
+  :agent_detail_name:
+    :field_name: 'Agent name'
+    :field_type: :string
+    :size: '100'
+  :agent_photo:
+    :field_name: 'Profile Photo'
+    :field_type: :file
+  :agent_detail_title:
+    :field_name: 'Agent Title'
+    :field_type: :string
+    :size: '100'
+  :agent_detail_email:
+    :field_name: 'Agent E-mail'
+    :field_type: :string
+    :size: '100'
+  :agent_phone_number:
+    :field_name: 'Agent Phone Number'
+    :field_type: :string
+    :size: '100'
+  :agent_phone_mobile_number:
+    :field_name: 'Agent Phone Mobile Number'
+    :field_type: :string
+    :size: '100'
+  :agent_specialties:  
+    :field_name: 'Agent Specialties'
+    :field_type: :string
+    :size: '100'
+  :agent_office_address:  
+    :field_name: 'Agent Office Address'
+    :field_type: :string
+    :size: '100'
   :agent_listing:
     :field_name: 'Agent Listing'
-    :field_type: :page
+    :field_type: :page_content
   :agent_detail:
     :field_name: 'Contact'
-    :field_type: :page
+    :field_type: :page_content
   :detail_page:
     :field_name: 'Detail Page'
-    :field_type: :page
+    :field_type: :page_content
   

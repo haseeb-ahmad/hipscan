@@ -2,7 +2,7 @@
   %tr
     %td{:style => 'width: 350px; padding-right: 10px'}
       .signup-button{ :style => 'margin: 0px 0 10px 0px; display: inline-block;'}= link_to 'Return Home', home_path
-      .signup-button{ :style => 'margin: 0px 0 10px 27px; display: inline-block;'}= link_to 'Change Template', home_path
+      .signup-button{ :style => 'margin: 0px 0 10px 27px; display: inline-block;'}= link_to 'Change Template', new_template_path
       .preview-template
         #loading-preview
           Loading preview...
@@ -51,7 +51,28 @@
                   %p.template_file_field
                     = label_tag "#{@template[field][:field_name]}:"
                     = text_area_tag field_tag(field), field_value(field)
-
+                    
+                - when :page_content
+                  %p.template_file_field
+                    == #{@template[field][:field_name]}
+                    // - @template[field][:content].each_key do |sub_field|
+                    //   - case field_type(sub_field)
+                    //     - when :string, :url
+                    //       %p.template_string_field
+                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
+                    //         = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
+                    //     - when :file
+                    //       %p.template_file_field
+                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
+                    //         = file_field_tag field_tag(field), :size => field_size(field)
+                    //     - when :text, :page
+                    //       %p.template_file_field
+                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
+                    //         = text_area_tag field_tag(field), field_value(field)
+                    //     - else
+                    //       %p
+                    //         Unhandled Field: #{field_name(field)}:#{field_type(field)}
+                      
                 - else
                   %p
                     Unhandled Field: #{field_name(field)}:#{field_type(field)}

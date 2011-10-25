@@ -1,45 +1,28 @@
 #main
-  #header1
-    %a{:href => "index.html"}
-      %img{:alt => "", :height => "57", :src => "images/logo.png", :width => "218"}/
+  #header1= link_to image_tag(field_value(:logo) || '/images/templates/realestate/logo.png'), root_path
   #content1
     .title-outer
-      .title Sample Agent Detail Page
-    .center
-      %img{:alt => "", :src => "images/header-im.jpg"}/
-    %h1 Adam Wong
-    %p residential sales agent
+      .title Agent Detail Page
+    .center= image_tag(photo) if (photo = field_value(:agent_photo)).present?
+    %h1= field_value(:agent_detail_name)
+    %p= field_value(:agent_detail_title)
     %p
-      %a{:href => "mailto:adamwong@mcgrath.com.au"}
-        %span> e
-        adamwongmcgrath.com.au
+      %span> e
+      = mail_to field_value(:agent_detail_email)
     %p
-      %a{:href => "tel:02-9908-6052"}
-        %span> t
-        02 9908 6052
+      %span> t
+      = link_to f = field_value(:agent_phone_number) || '', "tel:#{f}"
     %p
-      %a{:href => "tel:0403-315-349"}
-        %span> m
-        0403 315 349
-    %h2
-      %a{:href => "#"} Download agent details
+      %span> m
+      = link_to f = field_value(:agent_phone_mobile_number) || '', "tel:#{f}"
     %p
-      %span - specialty areas
+      %span -
     %p
-      %span>
-      Artarmon
-    %p
-      %span>
-      Chatswood
-    %p
-      %span>
-      Willoughby
+      = field_value(:agent_specialties)
     %p
       %span office
-      Northbridge, Sydney Metropolitan
+      = field_value(:agent_office_address)
   #footer
-    .previous.flot-left{:style => "width:40%;"}
-      %a{:href => "#"} Previous
-    .buttons.flot-right{:style => "width:40%"}
-      %a{:href => "#"} Next
+    .previous.flot-left{:style => "width:40%;"}= link_to 'Previous', template_path(@qr)
+    .buttons.flot-right{:style => "width:40%"}= link_to 'Next', ''
     .clear
