@@ -45,7 +45,7 @@ class TemplatesController < ApplicationController
 
     @qr.update_attribute(:template, @template_key)
     for field in params[:field]
-      if field.last.match /^Enter URL for/
+      if field.class == 'String' and field.last.match /^Enter URL for/
         TemplateItem.remove(@qr, @template_key, field.first)
       else
         TemplateItem.set(@qr, @template_key, field.first, field.last)
