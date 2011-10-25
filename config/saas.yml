@@ -10,9 +10,9 @@ defaults: &defaults
       :password: 3n32PqS4nVNy5w97
       # :test: true
     paypal:
-      :login: demo
-      :password: password
-      :signature: signature
+      :login: info_api1.hipscan.com
+      :password: ZXV6JAU2NYTMMB6L
+      :signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AA3w8uCFhKqLSLgvagrD347wp9t4
     
 development:
   <<: *defaults
