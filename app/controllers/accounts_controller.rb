@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   inherit_resources
   
+  
   before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks]
   before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks]
   before_filter :build_user, :only => [:new, :create]
@@ -34,13 +35,26 @@ class AccountsController < ApplicationController
       @account.address = @address
       @account.creditcard = @creditcard
     end
-    
+          
     if @account.save
+      unless @account.subscription.subscription_plan.name =~ /^Basic/
+        @account.admin.profile_option = "profile"
+      end
+      
       sign_in(:user, @account.admin)
       # flash[:domain] = @account.domain
       redirect_to home_path
     else
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+    end
+  end
+  
+  def password
+    if request.post?
+      if current_user.update_with_password(params[:user])
+        sign_in User.find(current_user.id), :bypass => true
+        redirect_to account_path, :notice => "Password updated!"
+      end
     end
   end
   

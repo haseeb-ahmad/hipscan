@@ -18,7 +18,7 @@
             = label_tag 'user[remember_me]', 'Remember me'
           %br
           %p
-            %button Login
+            .signup-button{:style => "display: inline-block; margin-right: 30px;"}= link_to 'Login', 'javascript: $("form").submit();'
             = link_to "Forgot your password?", new_password_path('user')
 
           %br

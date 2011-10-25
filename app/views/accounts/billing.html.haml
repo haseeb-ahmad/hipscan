@@ -1,30 +1,31 @@
-%h1= @page_title = 'View / Change Billing Information'
-- if @subscription.state == 'trial'
-  - if @subscription.next_renewal_at > Time.now
-    %p
-      Thank you for trying #{Saas::Config.app_name}!  Your trial account will expire in #{pluralize(@subscription.trial_days, 'day', 'days')}, at which time you will no longer have access to your account.  To maintain access to your account, enter your credit card information below.  Your first charge will happen on #{@subscription.next_renewal_at.to_s(:long_day)}.
-  - else
-    Thank you for trying #{Saas::Config.app_name}!  Your trial account has expired.  To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
-%fieldset
-  %label Plan:
-  = @subscription.subscription_plan.name
-  (
-  %a{:href => "/account/plan"}> Change plan
-  )
+#billing
+  %h1= @page_title = 'View / Change Billing Information'
   - if @subscription.state == 'trial'
-    %label Trial expiration date:
-    = @subscription.next_renewal_at.to_s(:long_day)
-  - else
-    - if @subscription.amount > 0
-      %label Next charge date:
+    - if @subscription.next_renewal_at > Time.now
+      %p
+        Thank you for trying #{Saas::Config.app_name}!  Your trial account will expire in #{pluralize(@subscription.trial_days, 'day', 'days')}, at which time you will no longer have access to your account.  To maintain access to your account, enter your credit card information below.  Your first charge will happen on #{@subscription.next_renewal_at.strftime('%m-%d-%Y')}.
+    - else
+      Thank you for trying #{Saas::Config.app_name}!  Your trial account has expired.  To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
+  %fieldset
+    %label Plan:
+    = @subscription.subscription_plan.name
+    (
+    %a{:href => "/account/plan"}> Change plan
+    )
+    - if @subscription.state == 'trial'
+      %label Trial expiration date:
       = @subscription.next_renewal_at.to_s(:long_day)
-      %br/
-      %label Next charge amount:
-      = number_to_currency @subscription.amount
-      %br/
-      %label Current payment method:
-      = @subscription.paypal? ? 'PayPal' : "#{@subscription.card_number} / #{@subscription.card_expiration}"
-- if @subscription.amount > 0
-  = form_for @creditcard, :as => :creditcard, :url => { :action => 'billing' } do |f|
-    = render 'shared/credit_card_form'
-    = submit_or_cancel '/account', 'Update billing information'
+    - else
+      - if @subscription.amount > 0
+        %label Next charge date:
+        = @subscription.next_renewal_at.to_s(:long_day)
+        %br/
+        %label Next charge amount:
+        = number_to_currency @subscription.amount
+        %br/
+        %label Current payment method:
+        = @subscription.paypal? ? 'PayPal' : "#{@subscription.card_number} / #{@subscription.card_expiration}"
+  - if @subscription.amount > 0
+    = form_for @creditcard, :as => :creditcard, :url => { :action => 'billing' } do |f|
+      = render 'shared/credit_card_form'
+      = submit_or_cancel '/account', 'Update billing information'

@@ -1,6 +1,19 @@
-Hi, #{@account.name}!
-
-%ul
-  %li= link_to('Change plan', plan_account_url)
-  %li= link_to('Billing info', billing_account_url)
-  %li= link_to('Cancel plan', cancel_account_url)
+.back_home= link_to 'return home', root_path
+#registration
+  %table.twocol
+    %tr
+      %td{:style => 'border-right: 2px solid #f36d21; padding-right: 20px'}
+        %h1 Personal Information
+        %p Username: #{@account.name}
+        %p    Email: #{@account.admin.email}
+        %p 
+          Password:
+          = link_to 'change password', change_password_path
+        
+      %td
+        %h1 Billing Information
+        %p Current plan: #{current_user.subscription_plan}
+        %ul
+          %li= link_to('Change plan', plan_account_url)
+          %li= link_to('Billing info', billing_account_url)
+          %li= link_to('Cancel plan', cancel_account_url)

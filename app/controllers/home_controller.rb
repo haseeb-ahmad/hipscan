@@ -8,24 +8,9 @@ class HomeController < ApplicationController
   before_filter :validate_user_info, :except => [:unsubscribe, :sms]
   before_filter :require_facebook_login, :only => :qr_to_facebook
   before_filter :account_active?, :only => [:index]
+  before_filter :check_subscription, :only => [:index]
 
   def index
-    if current_user.subscription.subscription_plan.name == 'Business'
-      if current_user.template.present?
-        redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)
-        return
-      else
-        redirect_to new_template_path
-        return
-      end
-    end
-    
-    if current_user.profile_option.blank?
-      flash.keep
-      redirect_to home_edit_path
-      return
-    end
-    
     @scan_count = current_user.scans.count
   end
 
@@ -154,5 +139,25 @@ private
   def account_active?
     redirect_to billing_account_path unless current_user.account.active?
     return true
+  end
+  
+  def check_subscription
+    subscription = current_user.subscription.subscription_plan.name
+    
+    if subscription =~ /^Business/
+      if current_user.template.present?
+        redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)
+        return
+      else
+        redirect_to new_template_path
+        return
+      end
+    else
+      if current_user.profile_option.blank?
+        flash.keep
+        redirect_to home_edit_path
+        return
+      end
+    end
   end
 end

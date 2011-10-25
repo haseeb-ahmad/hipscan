@@ -102,6 +102,10 @@ class User < ActiveRecord::Base
       Rails.logger.debug $!
     end
   end
+  
+  def subscription_plan
+    subscription.subscription_plan.name
+  end
 
   def add_to_batchbook
     if Rails.env == 'production'
@@ -440,7 +444,6 @@ class User < ActiveRecord::Base
   def password_required?
     !persisted? || password.present? || password_confirmation.present?
   end
-
 end
 
 

@@ -45,8 +45,7 @@ module ApplicationHelper
   
   # Render a submit button and cancel link
   def submit_or_cancel(cancel_url = session[:return_to] ? session[:return_to] : url_for(:action => 'index'), label = 'Save Changes')
-    raw(content_tag(:div, submit_tag(label) + ' or ' +
-      link_to('Cancel', cancel_url), :id => 'submit_or_cancel', :class => 'submit'))
+    raw(content_tag(:div, content_tag(:div, link_to(label, 'javascript: $("form").submit();', :style => 'display: inline-block; font-size: 14px'), :class => 'signup-button', :style => 'display: inline-block;margin-top: 15px') + ' or ' + link_to('Cancel', cancel_url), :id => 'submit_or_cancel', :class => 'submit'))
   end
 
   def discount_label(discount)

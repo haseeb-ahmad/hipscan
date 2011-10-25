@@ -17,6 +17,7 @@ Hipscan::Application.routes.draw do
     match '/signup/create/:discount' => 'accounts#create', :as => 'create', :defaults => { :discount => nil }
     match '/signup/:plan/:discount' => 'accounts#new', :as => 'new_account'
     match '/signup/:plan' => 'accounts#new', :as => 'new_account'
+    match 'change-password' => 'accounts#password', :as => 'change_password'
     
     # Catch-all that just loads views from app/views/content/* ...
     # e.g, http://yoursite.com/content/about -> app/views/content/about.html.erb

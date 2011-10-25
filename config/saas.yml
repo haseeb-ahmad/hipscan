@@ -17,15 +17,16 @@ defaults: &defaults
 development:
   <<: *defaults
   base_domain: subscriptions.dev # Edit /etc/hosts to add subscriptions.dev, test.subscriptions.dev, etc., or use Pow: http://pow.cx
-  # gateway: authorize_net_cim
-  # credentials:
-  #   gateway:
-  #     :login: 7MaS7yD7hL
-  #     :password: 76Cf4WHc4S7J9c93
-  #   paypal:
-  #     :login: demo
-  #     :password: password
-  #     :signature: signature
+  require_payment_info_for_trials: false
+  gateway: authorize_net_cim
+  credentials:
+    gateway:
+      :login: 7MaS7yD7hL
+      :password: 76Cf4WHc4S7J9c93
+    paypal:
+      :login: demo
+      :password: password
+      :signature: signature
 
 test:
   <<: *defaults
