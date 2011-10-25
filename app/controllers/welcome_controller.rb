@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
       redirect_to home_path
       return
     end
-    @background_image = 'backgrounds/grassbg_white.jpg'
+    # @background_image = 'backgrounds/grassbg_white.jpg'
   end
 
   def contact

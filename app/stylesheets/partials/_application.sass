@@ -54,9 +54,9 @@ html, body
 #layout, #hipscan_layout, #facebook_layout
   //position: relative
   //z-index: 1
-  width: 900px
+  +box-shadow
+  width: 960px
   margin: auto
-  padding: 20px
 
 #hipscan_layout
   width: 400px
@@ -132,23 +132,52 @@ p
   
 
 // Major Page components
+.flash_notice
+  color: #333
+  margin-left: 40px
 
 #header
-  margin-bottom: 20px
+  background-color: #636363
+  height: 28px
+  color: #eee
+  font-size: 13px
+  border-bottom: 1px solid white
+  ul  
+    li 
+      font-size: 13px
+  a
+    color: white
+  .fr
+    margin-right: 5px
 
 #footer
   clear: both
-  padding-top: 30px
-  color: $hipscan
+  padding: 10px 10px 10px 10px
+  background-color: #333333
+  border-top: 1px solid #888
+  color: #999999
   font-size: 12px
-
   a
-    color: $hipscan
-
+    color: #999999
+  .fr
+    vertical-align: middle
+    margin-top: -15px
+    margin-right: 10px
+    img
+      height: 18px
+      width: 18px
+      margin-top: 13px
+    a
+      margin-right: -10px
+  .hipscans
+    margin-top: 1px
+    margin-right: 5px
 #content
+  +background-image(linear-gradient(#d1d1d1, #f8f8f8 10%, #ececec 80%))
+  padding: 130px 0 20px 20px
   min-height: 400px
-  margin: 10px 0 10px 0
-
+  margin: 0
+  background-color: #f5f5f5
 // classes
 
 ul.tabs
@@ -156,14 +185,23 @@ ul.tabs
 
   li
     display: inline
+    
+ul.tmenu
+  position: absolute
+  left: 420px
+  list-style: none
+  margin: 11px 0 0 2em
+  padding: 0 20px 0 0
+  li
+    display: inline
+    padding: 0 3px
 
 ul.hmenu
   list-style: none
-  margin: 0 0 2em
-  padding: 0
-
+  margin-top: 5px
   li
-    display: inline
+    vertical-align: middle
+    display: inline-block
 
 table.twocol
   width: 100%
@@ -243,7 +281,8 @@ legend
   font-size: 15px
   color: $gray-color
   border: 2px solid #bfbfbf
-  padding: 20px 45px
+  padding: 20px 45px 10px 20px
+  margin: 10px 25px 0 0
   background-color: #efefef
   
   b
