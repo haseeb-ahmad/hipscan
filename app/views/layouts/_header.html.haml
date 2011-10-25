@@ -4,7 +4,7 @@
       - if current_user
         %li{:style => 'margin-top: 6px;'}
           Hi,
-          %span.hipscan{:style => 'color: #f06d2e;'}= link_to "#{current_user.username}!", account_path
+          %span.hipscan= link_to "#{current_user.username}!", account_path, :style => 'color: #f06d2e;'
           &nbsp;
           
         %li{:style => 'margin-top: 6px;'}= link_to('Sign out', destroy_user_session_path)
@@ -19,7 +19,8 @@
         Account Type:
         %b= current_user.subscription_plan
         - if current_user.subscription_plan =~ /^Basic/
-          = link_to "Upgrade", plan_account_path
+          %br
+          = link_to "Upgrade", plan_account_path, :style => 'color: #f06d2e; margin-right: 3px'
   .fr
     %ul.tmenu
       - unless logged_in?
