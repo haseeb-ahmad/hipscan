@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
   before_filter :load_discount, :only => [ :plans, :plan, :new, :create ]
   before_filter :build_plan, :only => [:new, :create]
   before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks]
+
   
   # ssl_required :billing, :cancel, :new, :create
   # ssl_allowed :plans, :thanks, :canceled, :paypal

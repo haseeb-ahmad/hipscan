@@ -18,104 +18,54 @@
 %table.twocol
   %tr
     %td{:style => 'width: 50%; padding-right: 40px'}
-      %h1 Connect the real world with your digital identity &mdash;
+      %h1{:style => 'font-size: 37px; font-weight: bold;'} Connect the real world with your digital identity
       %br
-      %p
-        A <b>#{hipscan}</b> sends mobile devices to your website, social
+      %p{:style => 'font-weight: bold;'}
+        A #{hipscan} sends mobile devices to your website, social
         profile, or anything else online. The best part is that you
-        can change it any time you want! &nbsp;
-        = link_to 'Learn more', '#', :class => 'hipscan', :id => 'click'
+        can change it any time you want!
 
-
-
-      %div{:style => 'margin: 30px 0 10px 0'}
-        = link_to image_tag('buttons/button-create-your-hipscan.png', 'data-hover' => '/images/buttons/button-create-your-hipscan_selected.png'), plans_path
-
-      %p What's your color? Create your #{hipscan} in 5 different colors.
-      %div
-        - User::COLORS.each_with_index do |color, idx|
-          -#%a.change_color{:onclick => "$('.home_qr').hide(); $('#qr#{idx}').show();"}
-          %a.change_color
-            .color_swatch
-              .color_div{:style => "background-color:#{color}"}
-      .cl
-      %br
-
-      = render :partial => 'shared/product'
-
+      .create-hipscan-today
+        Create you Hipscan Today
+        .signup-button= link_to 'It\'s free!', plans_path
+        = image_tag('plan-arrow.png')
     %td
-      -#
-        #hipscan_qr
-          .home_qr#qr0
-            = image_tag 'hipscan_qr_350_black.png', :title => 'http://hipscan.com'
-          .home_qr#qr1{:style => 'display:none'}
-            = image_tag 'hipscan_qr_350_red.png', :title => 'http://hipscan.com'
-          .home_qr#qr2{:style => 'display:none'}
-            = image_tag 'hipscan_qr_350_dkblue.png', :title => 'http://hipscan.com'
-          .home_qr#qr3{:style => 'display:none'}
-            = image_tag 'hipscan_qr_350_green.png', :title => 'http://hipscan.com'
-          .home_qr#qr4{:style => 'display:none'}
-            = image_tag 'hipscan_qr_350_purple.png', :title => 'http://hipscan.com'
-
       #hipscan_qr
         .home_qr#qr0
-          = image_tag 'hipscan_qr_350_black.png', :title => 'http://hipscan.com'
-          = image_tag 'hipscan_qr_350_red.png', :title => 'http://hipscan.com'
-          = image_tag 'hipscan_qr_350_dkblue.png', :title => 'http://hipscan.com'
-          = image_tag 'hipscan_qr_350_green.png', :title => 'http://hipscan.com'
-          = image_tag 'hipscan_qr_350_purple.png', :title => 'http://hipscan.com'
-
-        .cl
-      %div{:style => 'margin-top: 20px'}
-        %h2 Let’s take your business marketing to the next level with #{hipscan} Professional Services.
-        %br
-        %p
-          No matter what kind of business or market you’re in, we here at
-          %b #{hipscan} Professional Services
-          will be able to find creative and highly efficient ways to incorporate #{hipscan} to your marketing campaigns
-          so you’ll get optimum leverage and maximum returns.
-          = link_to 'Click here to learn more.', services_path
-
-        %br
-        %h2
-          %i Did you know?
-        %br
-        %p
-          Any app capable of scanning QR codes will be redirected to your #{hipscan}.
-          So go ahead and use your favorite mobile scanner. Or use one of our recommended ones below.
-        %p
-          = link_to 'Redlaser', 'http://itunes.apple.com/app/redlaser/id312720263?mt=8'
-          for iPhone and
-          = link_to 'Barcode Scanner', 'https://market.android.com/details?id=com.google.zxing.client.android'
-          for Android.
-
-
-      -#
-        %div{:style => 'margin-top: 15px'}
-          %h2 How to <span class='hipscan'>Hipscan</span>?
-          %br
-          %p
-            Any app capable of scanning
-            = link_to 'QR codes', 'http://en.wikipedia.org/wiki/QR_code', :target => '_blank'
-            mobile devices will be redirected to your <span class='hipscan'>Hipscan</span>.
-            So go ahead and use your favorite mobile scanner.
-            Or use one of our recommended ones below.
-
-          %p
-            = link_to 'Redlaser', 'http://itunes.apple.com/app/redlaser/id312720263?mt=8'
-            for iPhone and
-            = link_to 'Barcode Scanner', 'https://market.android.com/details?id=com.google.zxing.client.android'
-            for Android.
-
-        %div{:style => 'margin-top: 15px'}
-          %h2 Coming Soon to <span class='hipscan'>Hipscan</span>!
-          %br
-          %p
-            Want to put #{hipscan} to work for your business?  You'll soon be able to point your #{hipscan} to a custom mobile site for your business.  Stay tuned!
-
-#popup{:style => 'display:none'}
-  Typically when you create a Qr code, the URL or data returned when it is scanned with a mobile device is<br>
-  fixed within the actual barcode image. Hipscan creates a unique link and allows you to edit the<br>
-  information that is returned when someone scans the barcode. This means you can create one barcode and<br>
-  use it in a variety of contexts, changing up the corresponding data as needed.<br>
-
+          = image_tag 'qr_slide_1.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_2.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_3.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_4.png', :title => 'http://hipscan.com'
+          = link_to image_tag('qr_slide_5.png', :title => 'http://hipscan.com'), "#"
+%table{ :style => 'padding-top: 20px'}
+  %tr
+    %td         
+      .packages
+        .plan
+          .price-sticker= image_tag('business_sticker_price.png')
+          .icons= image_tag('product-icons.png')
+          .content
+            %h2 Product Marketer
+            %p
+              %b Create and track
+              up to
+              %b 30 Hipscan QR codes
+              within a single account. Each product can be tied into a URL or to a video, image or text destination.
+            %p
+              %b Make a custom
+              product call-out card for each product if you desire.
+          %hr
+          %p{:style => 'text-align:right;'}= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
+        .plan
+          .price-sticker= image_tag('product_sticker_price.png')
+          .icons= image_tag('business-icons.png')
+          .content
+            %h2 Business Marketer
+            %p
+              %b Create a custom HTML5 Mobile Website
+              or Mobile Coupon showcasing your product.
+            %p
+              %b Beautiful templates
+              availbale for each industry makes it easy to get started.
+          %hr{ :style => 'margin-top: 31px;'}
+          %p{:style => 'text-align:right;'}= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
