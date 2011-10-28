@@ -1,79 +1,65 @@
-%table.twocol
-  %tr
-    %td{:style => 'width: 350px; padding-right: 10px'}
-      .signup-button{ :style => 'margin: 0px 0 10px 0px; display: inline-block;'}= link_to 'Return Home', home_path
-      .signup-button{ :style => 'margin: 0px 0 10px 27px; display: inline-block;'}= link_to 'Change Template', new_template_path
-      .preview-template
-        #loading-preview
-          Loading preview...
-        %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('#loading-preview').hide();" }
-      
-      
-      %h1.hipscan= @qr.name
-      #hipscan_qr
-        = image_tag @qr.qr.url(:medium), :title => @qr.name
-      %br
-      .fr{:style => 'margin-right: 60px'}
-        Download
-        = link_to 'Big', @qr.qr.url(:print)
-        |
-        = link_to 'Small', @qr.qr.url(:medium)
+- unless current_user.template.present?
+  #registration
+    %table.twocol
+      %tr
+        %td
+          %ul.progress
+            %li 1. Choose mobile website template
+            %li
+              %b 2. Edit Information on mobile website
+            %li 3. Finish
 
-      -#%h2 What's Your Color?
-        %div
-          - for color in User::COLORS
-            =# link_to color, color_qr_path(:color => color), :remote => true
-            %a.change_color{:href => color_qr_path(:color => color), 'data-remote' => 'true'}
-              .color_swatch
-                .color_div{:style => "background-color:#{color}"}
-      .cl
+%div{:style => 'margin: 15px;'}
+  %h2{:style => 'color: #888; margin: 10px 0'} Welcome to the Marketing Creation Wizard for mobile website.
+  Quick instructions to get you started. On the right side you can see a preview website simulator and on the other side there are fields to enter you information. To update your simulator click 'Refresh Preview'. Your mobile website consists of landing page and following information pages. To update information in any of the pages simply select a page which you want to edit. When you are finished click 'Complete'.
+#registration
+  %table.twocol
+    %tr
+      %td{ :style => 'width: 350px; padding-right: 0px'}
+        #edit-template
+          = form_tag update_template_path(@qr, @template_key), :multipart => true do
+            = hidden_field_tag 'complete', ''
+            .profile_option
+              .page_template{:class => 'selected', :id => 'landing_page'}
+                %h1 Landing page
+                %h3 Add information to this page
+                - @template.each_key do |field|
+                  - case field_type(field)
+                    - when :string, :url
+                      %p.template_string_field
+                        = label_tag "#{@template[field][:field_name]}:"
+                        = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
+                    - when :file
+                      %p.template_file_field
+                        = label_tag "#{@template[field][:field_name]}:"
+                        = file_field_tag field_tag(field), :size => field_size(field)
+                    - when :text, :page
+                      %p.template_file_field
+                        = label_tag "#{@template[field][:field_name]}:"
+                        = text_area_tag field_tag(field), field_value(field)
+                    - else
+                      - if field_type(field) != :page_content
+                        %p
+                          Unhandled Field: #{field_name(field)}:#{field_type(field)}
+            = render :partial => 'templates/page_content'
+                            
+            .signup-button{ :style => 'margin: 0px 0 10px 5px; display: inline-block;'}= link_to 'Refresh Preview', 'javascript: $("form").submit();'
+            .signup-button{ :style => 'margin: 0px 0 10px 5px; display: inline-block;'}= link_to 'Complete', 'javascript: $("#complete")[0].value = "true";$("form").submit();'
+              
+      %td{:style => 'width: 350px; padding-right: 10px'}
+        #page-select
+          %h2 #{@template_key.to_s.titleize} Template Wizard
+          %p
+            Select the page to edit the information 
+            %br
+            (defalt page is 'Landing page'):
 
-    %td
-      #edit
-        %h2 #{@template_key.to_s.titleize} Template Wizard
-        -#%h2{:style => 'color: #888; margin: 10px 0'} Welcome to the Marketing Creation Wizard for Offline Engagement.  Simply Enter information into the Following Fields and The System Will Create a Downloadable PDF File Ready for Printing.
+          .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');", :class => 'selected'} Landing Page
+          - @template.each_key do |field|
+            - if field_type(field) == :page_content
+              .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected')"}= @template[field][:field_name]
 
-        = form_tag update_template_path(@qr, @template_key), :multipart => true do
-          .profile_option
-            - @template.each_key do |field|
-              - case field_type(field)
-                - when :string, :url
-                  %p.template_string_field
-                    = label_tag "#{@template[field][:field_name]}:"
-                    = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
-                - when :file
-                  %p.template_file_field
-                    = label_tag "#{@template[field][:field_name]}:"
-                    = file_field_tag field_tag(field), :size => field_size(field)
-                - when :text, :page
-                  %p.template_file_field
-                    = label_tag "#{@template[field][:field_name]}:"
-                    = text_area_tag field_tag(field), field_value(field)
-                - when :page_content
-                  .page_content{:style => 'display:none;'}
-                    = @template[field][:field_name]
-                    - if @template[field][:content].present?
-                      - @template[field][:content].each_key do |page_field|
-                        - case page_field_type(field, page_field)
-                          - when :string, :url
-                            %p.template_string_field
-                              = label_tag "#{page_field_name(field, page_field)}:"
-                              = text_field_tag page_field_tag(field, page_field), page_field_value(field, page_field), :class => 'page_field_with_default', :placeholder => page_field_title(field, page_field)
-                          - when :file
-                            %p.template_file_field
-                              = label_tag "#{page_field_name(field, page_field)}:"
-                              = file_field_tag page_field_tag(field, page_field), :size => page_field_size(field, page_field)
-                          - when :text, :page
-                            %p.template_file_field
-                              = label_tag "#{page_field_name(field, page_field)}:"
-                              = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
-                          - else
-                            %p
-                              Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}
-                      
-                - else
-                  %p
-                    Unhandled Field: #{field_name(field)}:#{field_type(field)}
-            
-            .signup-button= link_to 'Update content', 'javascript: $("form").submit();'
-            
+        .preview-template
+          #loading-preview{} Loading preview...
+          %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
+        = link_to 'Change Template', new_template_path

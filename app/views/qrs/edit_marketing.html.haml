@@ -6,7 +6,7 @@
     %td{:style => 'width: 350px; padding-right: 10px'}
       %h1.hipscan= @qr.name
       =# barcode(current_user.hipscan, 7)
-      #hipscan_qr
+      #hipscan_qr_code
         = image_tag @qr.qr.url(:medium), :title => @qr.name
       %br
 

@@ -30,7 +30,23 @@
 
 .template_selection
   margin-top: 30px
-  
+
+.page_selector
+  cursor: hand
+  font-size: 15px
+  background: url(/images/icons/closed_arrow.png) no-repeat
+  padding-left: 20px
+  &:hover
+    text-decoration: underline
+
+#page-select
+  margin-bottom: 30px
+.page_selector.selected
+  background: url(/images/icons/open_arrow.png) no-repeat
+  padding-left: 20px
+  text-decoration: underline
+  color: $orange-color
+    
 .create-hipscan-today
   color: $orange-color
   font-weight: bold
@@ -116,6 +132,9 @@
   color: $bright-blue-color
   text-align: center
   padding-top: 45px
+
+#template_editor
+  margin-top: 30px
   
 .template_select
   margin-top: 20px
@@ -126,8 +145,20 @@
     margin-right: 52px
   input
     margin-left: 20px
+  
+#loading-preview
+  margin-bottom: -25px
+  margin-left: 10px
+
+#edit-template
+  input[type=text], input[type=file], textarea
+    +rounded-corners
+    width: 430px
+    padding: 10px 20px
+    font-size: 20px
     
 .preview-template
   iframe
+    +picture-drop-shadow
     width: 380px
-    height: 600px
+    height: 430px

@@ -12,3 +12,4 @@ SubscriptionPlan.create(plans)
 
 Template.create({:name => 'Restaurant', :template_type => "restaurant"})
 Template.create({:name => 'Real Estate', :template_type => 'real_estate'})
+Template.create({:name => 'Coupon', :template_type => 'coupon'})

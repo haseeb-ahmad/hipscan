@@ -1,0 +1,23 @@
+- @template.each_key do |field|
+  - if field_type(field) == :page_content
+    .page_template{:style => 'display:none;', :id => underscore(@template[field][:field_name])}
+      %h1== #{@template[field][:field_name]} page
+      %h3 Add information to this page
+      - if @template[field][:content].present?
+        - @template[field][:content].each_key do |page_field|
+          - case page_field_type(field, page_field)
+            - when :string, :url
+              %p.template_string_field
+                = label_tag "#{page_field_name(field, page_field)}:"
+                = text_field_tag page_field_tag(field, page_field), page_field_value(field, page_field), :class => 'page_field_with_default', :placeholder => page_field_title(field, page_field)
+            - when :file
+              %p.template_file_field
+                = label_tag "#{page_field_name(field, page_field)}:"
+                = file_field_tag page_field_tag(field, page_field), :size => page_field_size(field, page_field)
+            - when :text, :page
+              %p.template_file_field
+                = label_tag "#{page_field_name(field, page_field)}:"
+                = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
+            - else
+              %p
+                Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}                          

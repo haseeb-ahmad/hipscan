@@ -1,22 +1,24 @@
-#registration
-  %table.twocol
-    %tr
-      %td
-        %ul.progress
-          %li
-            %b 1. Choose mobile website template
-          %li 2. Edit Information on mobile website
-          %li 3. Finish
+-if current_user.template.present?
+  = link_to 'cancel template selection', home_path
+- else
+  #registration
+    %table.twocol
+      %tr
+        %td
+          %ul.progress
+            %li
+              %b 1. Choose mobile website template
+            %li 2. Edit Information on mobile website
+            %li 3. Finish
 
 .template_selection
-  %h1 Mobile website
-
-  %h3 You can create a personalized mobile website based on templates
-
-  To start building your website select one of the templates.
-
+  - if current_user.template.present?
+    %h1 Select new template from the selection
+  - else
+    %h1 Mobile website
+    %h3 You can create a personalized mobile website based on templates
+    To start building your website select one of the templates.
   .template_select
-    = link_to image_tag('restaurant_template.png'), '#'
-    = link_to image_tag('real_estate_template.png'), '#'
-    = link_to image_tag('coupon_template.png'), '#'
-    
+    = link_to image_tag('restaurant_template.png'), create_template_path(:qr => @qr, :template => 'restaurant')
+    = link_to image_tag('real_estate_template.png'), create_template_path(:qr => @qr, :template => 'real_estate')
+    = link_to image_tag('coupon_template.png'), create_template_path(:qr => @qr, :template => 'coupon')

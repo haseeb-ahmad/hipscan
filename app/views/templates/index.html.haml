@@ -1,3 +1,50 @@
-%h1 Templates
-%div
-  Restaurant:  #{link_to 'Edit', edit_template_path(@qr, :restaurant)}
+#registration
+  %table.twocol
+    %tr
+      %td
+        %h1 When scanned your #{hipscan} will launch the following personal mobile website:
+        %p (#{link_to 'Edit your Hipscan mobile website', edit_template_path(@qr, @qr.template)})
+        .hr
+        
+        #hipscan_qr_code
+          = image_tag @qr.qr.url(:medium), :title => @qr.name
+        %br
+        .fr
+          Download
+          = link_to 'Big', @qr.qr.url(:print)
+          |
+          = link_to 'Small', @qr.qr.url(:medium)
+
+        -#%h2 What's Your Color?
+          %div
+            - for color in User::COLORS
+              %a.change_color{:href => home_color_path(:color => color)}
+                .color_swatch
+                  .color_div{:style => "background-color:#{color}"}
+          .cl
+        = render :partial => 'shared/product'
+
+      %td
+        .preview-template
+          #loading-preview
+            Loading preview...
+          %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('#loading-preview').hide();" }
+        - if @scan_count > 0
+          #scanned
+            %h2 You've been scanned #{@scan_count} times!
+            %br
+            %p= link_to "Click here for analytics on your Hipscan.", home_analytics_path
+
+        #sms
+          - if current_user.send_sms
+            %p
+              You are now receiving SMS notifications whenever you are <span class='hipscan'>Hipscanned</span>!
+            %p
+              = link_to 'Disable SMS Notifications', home_sms_path(:disable => true)
+
+          - else
+            %p
+              Like to know immediately when you've been <span class='hipscan'>Hipscanned?</span>
+            %p
+              = link_to 'Enable SMS Notifications', home_sms_path
+              now!

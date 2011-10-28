@@ -147,7 +147,7 @@ private
     if subscription =~ /^Business/
       if current_user.template.present?
         # redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)
-        redirect_to new_template_path
+        redirect_to templates_path(:qr => current_user.template.id)
         return
       else
         redirect_to new_template_path

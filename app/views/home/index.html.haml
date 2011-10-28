@@ -69,7 +69,7 @@
     %td
       #div{:style => 'margin: 0 auto'}
         %h1.hipscan= current_user.username
-        #hipscan_qr
+        #hipscan_qr_code
           = image_tag current_user.qr.url(:medium), :title => current_user.hipscan, :id => 'qr_image'
           #update_message{:style => 'padding:20px; display:none'}
             %h2 Updating

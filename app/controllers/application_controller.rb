@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 # These are bugged in Rails 3.0 -- see last item in routes.rb
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found if Rails.env != 'development'
-  rescue_from ActionController::RoutingError, :with => :route_not_found
+  rescue_from ActionController::RoutingError, :with => :route_not_found if Rails.env != 'development'
 
   protected
 

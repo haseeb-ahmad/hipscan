@@ -55,4 +55,8 @@ module TemplatesHelper
   def show_field(field_type, data)
 
   end
+
+  def underscore(text)
+    text.gsub(/ /,'_').underscore
+  end
 end

@@ -3,6 +3,7 @@ class TemplatesController < ApplicationController
   before_filter :set_qr, :except => [:new, :create]
 
   def index
+    @scan_count = current_user.scans.count
   end
 
   def show
@@ -21,7 +22,6 @@ class TemplatesController < ApplicationController
   end
   
   def new
-    @templates_selection = Template.all.map {|t| [t.name, t.id]}
   end
   
   def create
@@ -54,7 +54,11 @@ class TemplatesController < ApplicationController
       end
     end if params[:page_field].present?
 
-    redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
+    if params[:complete].present? and params[:complete] == 'true'
+      redirect_to templates_path(:qr => @qr)
+    else
+      redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
+    end
   end
   
 
