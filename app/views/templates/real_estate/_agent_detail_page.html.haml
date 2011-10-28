@@ -3,26 +3,26 @@
   #content1
     .title-outer
       .title Agent Detail Page
-    .center= image_tag(photo) if (photo = field_value(:agent_photo)).present?
-    %h1= field_value(:agent_detail_name)
-    %p= field_value(:agent_detail_title)
+    .center= image_tag(photo) if (photo = page_field_value(:agent_detail, :photo)).present?
+    %h1= page_field_value(:agent_detail, :name)
+    %p= page_field_value(:agent_detail, :title)
     %p
       %span> e
-      = mail_to field_value(:agent_detail_email)
+      = mail_to page_field_value(:agent_detail, :email)
     %p
       %span> t
-      = link_to f = field_value(:agent_phone_number) || '', "tel:#{f}"
+      = link_to f = page_field_value(:agent_detail, :phone_number) || '', "tel:#{f}"
     %p
       %span> m
-      = link_to f = field_value(:agent_phone_mobile_number) || '', "tel:#{f}"
+      = link_to f = page_field_value(:agent_detail, :phone_mobile_number) || '', "tel:#{f}"
     %p
       %span -
     %p
-      = field_value(:agent_specialties)
+      = page_field_value(:agent_detail, :specialties)
     %p
       %span office
-      = field_value(:agent_office_address)
+      = page_field_value(:agent_detail, :office_address)
   #footer
     .previous.flot-left{:style => "width:40%;"}= link_to 'Previous', template_path(@qr)
-    .buttons.flot-right{:style => "width:40%"}= link_to 'Next', ''
+    .buttons.flot-right{:style => "width:40%"}= link_to 'Next', template_page_path(@qr, @template_key, :agent_listing)
     .clear

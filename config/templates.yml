@@ -72,79 +72,82 @@
   :welcome_title:
     :field_name: 'Welcome title'
     :field_type: :string
-  :agents_detail:
+  :agent_detail:
     :field_name: 'Agent Detail'
     :field_type: :page_content
     :content:
-      :detail_name:
-        :field_name: 'Agent name'
+      :name:
+        :field_name: 'Full name'
         :field_type: :string
         :size: '100'
       :photo:
         :field_name: 'Profile Photo'
         :field_type: :file
-      :detail_title:
-        :field_name: 'Agent Title'
+      :title:
+        :field_name: 'Title'
         :field_type: :string
         :size: '100'
-      :detail_email:
-        :field_name: 'Agent E-mail'
+      :email:
+        :field_name: 'E-mail'
         :field_type: :string
         :size: '100'
       :phone_number:
-        :field_name: 'Agent Phone Number'
+        :field_name: 'Phone Number'
         :field_type: :string
         :size: '100'
       :phone_mobile_number:
-        :field_name: 'Agent Phone Mobile Number'
+        :field_name: 'Mobile Number'
         :field_type: :string
         :size: '100'
       :specialties:  
-        :field_name: 'Agent Specialties'
+        :field_name: 'Specialties'
         :field_type: :string
         :size: '100'
       :office_address:  
-        :field_name: 'Agent Office Address'
+        :field_name: 'Office Address'
         :field_type: :string
         :size: '100'
   :agent_listing:
     :field_name: 'Agent Listing'
     :field_type: :page_content
     :content:
-      :detail_name:
-        :field_name: 'Agent name'
-        :field_type: :string
-        :size: '100'
-      :photo:
-        :field_name: 'Profile Photo'
+      :photo_1:
+        :field_name: 'Photo 1'
         :field_type: :file
-      :detail_title:
-        :field_name: 'Agent Title'
+      :title_1:
+        :field_name: 'Listing title 1'
+        :field_type: :string      
+      :description_1:
+        :field_name: 'Listing description 1'
+        :field_type: :page
+      :price_1:
+        :field_name: 'Price 1'
         :field_type: :string
         :size: '100'
-      :detail_email:
-        :field_name: 'Agent E-mail'
+      :street_1:
+        :field_name: 'Street Address 1'
+        :field_type: :page
+        :size: '300'
+      :photo_2:
+        :field_name: 'Photo 2'
+        :field_type: :file
+      :title_2:
+        :field_name: 'Listing title 2'
+        :field_type: :string      
+      :description_2:
+        :field_name: 'Listing description 2'
+        :field_type: :page
+      :price_2:
+        :field_name: 'Price 2'
         :field_type: :string
         :size: '100'
-      :phone_number:
-        :field_name: 'Agent Phone Number'
-        :field_type: :string
-        :size: '100'
-      :phone_mobile_number:
-        :field_name: 'Agent Phone Mobile Number'
-        :field_type: :string
-        :size: '100'
-      :specialties:  
-        :field_name: 'Agent Specialties'
-        :field_type: :string
-        :size: '100'
-      :office_address:  
-        :field_name: 'Agent Office Address'
-        :field_type: :string
-        :size: '100'
-  :agent_detail:
-    :field_name: 'Contact'
-    :field_type: :page_content
-  :detail_page:
-    :field_name: 'Detail Page'
-    :field_type: :page_content
+      :street_1:
+        :field_name: 'Street Address 1'
+        :field_type: :page
+        :size: '300'
+  # :contact:
+  #   :field_name: 'Contact'
+  #   :field_type: :page_content
+  # :detail_page:
+  #   :field_name: 'Detail Page'
+  #   :field_type: :page_content

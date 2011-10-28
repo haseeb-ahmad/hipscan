@@ -1,41 +1,30 @@
 #main
-  #header1
-    %a{:href => "index.html"}
-      %img{:alt => "", :height => "57", :src => "images/logo.png", :width => "218"}/
+  #header1= link_to image_tag(field_value(:logo) || '/images/templates/realestate/logo.png'), template_path(@qr)
   #content1
     .title-outer
-      .title Sample Listing Page
+      .title Listing Page
     .round-box
       .titlebar
-        .right $2,500
-        31 Wheaton Road
+        .right= page_field_value(:agent_listing, :price_1)
+        = page_field_value(:agent_listing, :street_1)
       .img-box
-        .left-img
-          %img{:alt => "", :height => "93", :src => "images/img.jpg", :width => "93"}/
+        .left-img= image_tag(page_field_value(:agent_listing, :photo_1) || '')
         .right-text
-          %h3 Washington Depot CT
-          %p - 1.5 Bath, 2 Bed
-          %p - Building Size: 1564 SQ. Feet
-          %p - Litchfield Hills
-          %p - Sotheby's International Realty
+          %h3= page_field_value(:agent_listing, :title_1)
+          %p= page_field_value(:agent_listing, :description_1)
         .clear
-    .round-box
-      .titlebar
-        .right $2,500
-        31 Wheaton Road
-      .img-box
-        .left-img
-          %img{:alt => "", :height => "93", :src => "images/img.jpg", :width => "93"}/
-        .right-text
-          %h3 Washington Depot CT
-          %p - 1.5 Bath, 2 Bed
-          %p - Building Size: 1564 SQ. Feet
-          %p - Litchfield Hills
-          %p - Sotheby's International Realty
-        .clear
+    - if page_field_value(:agent_listing, :title_2) != ''
+      .round-box
+        .titlebar
+          .right= page_field_value(:agent_listing, :price_2)
+          = page_field_value(:agent_listing, :street_2)
+        .img-box
+          .left-img= image_tag(page_field_value(:agent_listing, :photo_2))
+          .right-text
+            %h3= page_field_value(:agent_listing, :title_2)
+            %p= page_field_value(:agent_listing, :description_2)
+          .clear
   #footer
-    .previous.flot-left{:style => "width:40%;"}
-      %a{:href => "#"} Previous
-    .buttons.flot-right{:style => "width:40%"}
-      %a{:href => "#"} Next
+    .previous.flot-left{:style => "width:40%;"}= link_to 'Previous', template_page_path(@qr, @template_key, :agent_detail)
+    / .buttons.flot-right{:style => "width:40%"}= link_to 'Next', '#'
     .clear
