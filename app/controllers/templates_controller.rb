@@ -22,16 +22,15 @@ class TemplatesController < ApplicationController
   end
   
   def new
+    
   end
   
   def create
-    if request.post?
-      qr = current_user.template.present? ? current_user.template : current_user.qrs.new
-      qr.profile_option = 'template'
-      qr.template = (params['template'].present? ? Template.find(params['template']) : Template.first).template_type
-      qr.save(false)
-      redirect_to edit_template_path(:qr => qr.id, :template => qr.template)
-    end
+    qr = current_user.template.present? ? current_user.template : current_user.qrs.new
+    qr.profile_option = 'template'
+    qr.template = (params['template'].present? ? Template.find_by_template_type(params['template']) : Template.first).template_type
+    qr.save(false)
+    redirect_to edit_template_path(:qr => qr.id, :template => qr.template)
   end
 
   def edit

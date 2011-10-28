@@ -52,7 +52,7 @@
           %p
             Select the page to edit the information 
             %br
-            (defalt page is 'Landing page'):
+            (default page is 'Landing page'):
 
           .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');", :class => 'selected'} Landing Page
           - @template.each_key do |field|
@@ -60,6 +60,7 @@
               .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected')"}= @template[field][:field_name]
 
         .preview-template
+          %h2{:style => 'margin-bottom:20px;'} Try it out!
           #loading-preview{} Loading preview...
           %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
         = link_to 'Change Template', new_template_path

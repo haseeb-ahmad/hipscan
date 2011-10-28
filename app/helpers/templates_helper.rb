@@ -49,6 +49,10 @@ module TemplatesHelper
   end
 
   def page_field_value(field, page_field)
+    logger.debug "FIELD #{@template_key}"
+    logger.debug "FIELD #{field}"
+    logger.debug "FIELD #{page_field}"
+
     TemplateItem.get(@qr, @template_key, field, page_field).value
   end
 

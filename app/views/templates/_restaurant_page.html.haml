@@ -2,18 +2,16 @@
   = stylesheet_link_tag 'restaurant'
 
 #template
-  .header
-    = link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), root_path
+  .header= link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), root_path
 
-  .call
-    = link_to f = field_value(:phone_number), "tel:#{f}"
+  .call= link_to f = field_value(:phone_number), "tel:#{f}"
 
   .content
     .right= link_to 'Home', template_path(@qr)
 
-    %h1= field_name(@field)
+    %h1= page_field_name(@field, @field)
 
-    = simple_format field_value(@field)
+    = simple_format page_field_value(@field, @field)
   
   .footer
     = raw field_value(:footer)

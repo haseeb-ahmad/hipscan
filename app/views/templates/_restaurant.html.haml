@@ -9,16 +9,16 @@
 
 .menu
   %ul
-    - unless field_value(:about).blank?
+    - unless page_field_value(:about, :about).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/about-icon.png')}<span>About</span>"), template_page_path(@qr, @template_key, :about)
 
     - unless field_value(:find_us).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/find-us-icon.png')}<span>Find Us</span>"), field_value(:find_us)
 
-    - unless field_value(:hours).blank?
+    - unless page_field_value(:hours, :hours).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/hours-icon.png')}<span>Hours</span>"), template_page_path(@qr, @template_key, :hours)
 
-    - unless field_value(:delivery).blank?
+    - unless page_field_value(:delivery, :delivery).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/food-delivery-icon.png')}<span>Food Delivery</span>"), template_page_path(@qr, @template_key, :delivery)
 
     - unless field_value(:menu).blank?
@@ -33,7 +33,7 @@
     - unless field_value(:twitter).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/twitter-icon.png')}<span>Twitter</span>"), field_value(:twitter)
 
-    - unless field_value(:specials).blank?
+    - unless page_field_value(:specials, :specials).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/current-specials-icon.png')}<span>Current Specials</span>"), template_page_path(@qr, @template_key, :specials)
 
 -#

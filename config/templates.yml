@@ -10,18 +10,30 @@
     :validate_phone: :true
   :about:
     :field_name: 'About'
-    :field_type: :page
+    :field_type: :page_content
+    :content:
+      :about:
+        :field_name: 'About'
+        :field_type: :page
   :find_us:
     :field_name: 'Find Us'
     :field_type: :url
     :title: 'Enter URL for Google Map directions'
     :size: '80'
   :hours:
-    :field_name: 'Hours of Operation'
-    :field_type: :page
+    :field_name: 'Opening Hours'
+    :field_type: :page_content
+    :content:
+      :hours:
+        :field_name: 'Hours of Operation'
+        :field_type: :page
   :delivery:
-    :field_name: 'Food Delivery'
-    :field_type: :page
+    :field_name: 'Delivery Information'
+    :field_type: :page_content
+    :content:
+      :delivery:
+        :field_name: 'Food Delivery'
+        :field_type: :page
   :menu:
     :field_name: 'Menu'
     :field_type: :string
@@ -41,8 +53,12 @@
     :title: 'Enter URL for Twitter'
     :size: '80'
   :specials:
-    :field_name: 'Current Specials'
-    :field_type: :page
+    :field_name: 'Specials'
+    :field_type: :page_content
+    :content:
+      :specials:
+        :field_name: 'Current Specials'
+        :field_type: :page
   :footer:
     :field_name: 'Footer'
     :field_type: :string
