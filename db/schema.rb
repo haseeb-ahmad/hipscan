@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024153553) do
+ActiveRecord::Schema.define(:version => 20111028113946) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -235,6 +235,7 @@ ActiveRecord::Schema.define(:version => 20111024153553) do
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
+    t.string   "page_field_name"
   end
 
   create_table "templates", :force => true do |t|

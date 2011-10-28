@@ -41,37 +41,35 @@
                   %p.template_string_field
                     = label_tag "#{@template[field][:field_name]}:"
                     = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
-
                 - when :file
                   %p.template_file_field
                     = label_tag "#{@template[field][:field_name]}:"
                     = file_field_tag field_tag(field), :size => field_size(field)
-
                 - when :text, :page
                   %p.template_file_field
                     = label_tag "#{@template[field][:field_name]}:"
                     = text_area_tag field_tag(field), field_value(field)
-                    
                 - when :page_content
-                  %p.template_file_field
-                    == #{@template[field][:field_name]}
-                    // - @template[field][:content].each_key do |sub_field|
-                    //   - case field_type(sub_field)
-                    //     - when :string, :url
-                    //       %p.template_string_field
-                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
-                    //         = text_field_tag field_tag(field), field_value(field), :class => 'field_with_default', :placeholder => field_title(field)
-                    //     - when :file
-                    //       %p.template_file_field
-                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
-                    //         = file_field_tag field_tag(field), :size => field_size(field)
-                    //     - when :text, :page
-                    //       %p.template_file_field
-                    //         = label_tag "#{@template[field][:content][sub_field][:field_name]}:"
-                    //         = text_area_tag field_tag(field), field_value(field)
-                    //     - else
-                    //       %p
-                    //         Unhandled Field: #{field_name(field)}:#{field_type(field)}
+                  .page_content{:style => 'display:none;'}
+                    = @template[field][:field_name]
+                    - if @template[field][:content].present?
+                      - @template[field][:content].each_key do |page_field|
+                        - case page_field_type(field, page_field)
+                          - when :string, :url
+                            %p.template_string_field
+                              = label_tag "#{page_field_name(field, page_field)}:"
+                              = text_field_tag page_field_tag(field, page_field), page_field_value(field, page_field), :class => 'page_field_with_default', :placeholder => page_field_title(field, page_field)
+                          - when :file
+                            %p.template_file_field
+                              = label_tag "#{page_field_name(field, page_field)}:"
+                              = file_field_tag page_field_tag(field, page_field), :size => page_field_size(field, page_field)
+                          - when :text, :page
+                            %p.template_file_field
+                              = label_tag "#{page_field_name(field, page_field)}:"
+                              = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
+                          - else
+                            %p
+                              Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}
                       
                 - else
                   %p

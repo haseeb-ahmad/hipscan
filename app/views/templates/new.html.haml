@@ -1,16 +1,22 @@
-%h1 Mobile website
+#registration
+  %table.twocol
+    %tr
+      %td
+        %ul.progress
+          %li
+            %b 1. Choose mobile website template
+          %li 2. Edit Information on mobile website
+          %li 3. Finish
 
-%h3 You can create a personalized mobile website based on templates
+.template_selection
+  %h1 Mobile website
 
-To start building your website select one of the templates and press next.
+  %h3 You can create a personalized mobile website based on templates
 
-.template_select
-  - form_tag(create_template_path) do
-    = label_tag :template, 'Select template:'
-    = select_tag :template, options_for_select(@templates_selection)
-    = submit_tag 'Next'
-    |
-    = link_to 'Home', home_path
-  
+  To start building your website select one of the templates.
 
-  
+  .template_select
+    = link_to image_tag('restaurant_template.png'), '#'
+    = link_to image_tag('real_estate_template.png'), '#'
+    = link_to image_tag('coupon_template.png'), '#'
+    

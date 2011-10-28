@@ -44,19 +44,28 @@ class TemplatesController < ApplicationController
     @template = TemplateItem::TEMPLATES[@template_key]
 
     @qr.update_attribute(:template, @template_key)
-    for field in params[:field]
-      if field.class == 'String' and field.last.match /^Enter URL for/
-        TemplateItem.remove(@qr, @template_key, field.first)
-      else
-        TemplateItem.set(@qr, @template_key, field.first, field.last)
+    params[:field].each do |field|
+      update_field(field.first, nil, field.last)
+    end if params[:field].present?
+
+    params[:page_field].each do |field|
+      field.last.each do |page_field|
+        update_field(field.first, page_field.first, page_field.last)
       end
-    end
+    end if params[:page_field].present?
 
     redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
   end
   
 
 private
+  def update_field(field, page_field = nil, value)
+    if field.class == 'String' and field.last.match /^Enter URL for/
+      TemplateItem.remove(@qr, @template_key, field.first, page_field)
+    else
+      TemplateItem.set(@qr, @template_key, field, page_field, value)
+    end
+  end
 
   def set_qr
     @qr = logged_in? ? current_user.template : Qr.find(params[:qr])
