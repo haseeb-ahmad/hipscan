@@ -1,0 +1,20 @@
+= link_to 'return home', root_path
+#registration
+  %table.twocol
+    %tr
+      %td
+        %h1 User list for Coupon Template
+        %table.user-list
+          %theader
+            %tr
+              %td First Name
+              %td Last Name
+              %td Email
+          %tbody
+            - @data.each do |user|
+              - data = JSON(user.value)
+              %tr
+                %td= data['first_name']
+                %td= data['last_name']
+                %td= data['email']
+= link_to 'export to CSV', export_template_path

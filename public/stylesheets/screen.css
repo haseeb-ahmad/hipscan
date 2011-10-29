@@ -913,7 +913,18 @@ table.bar-chart td:first-child {
   line-height: 1.75;
 }
 
-/* line 31, ../../app/stylesheets/partials/_layout.sass */
+/* line 33, ../../app/stylesheets/partials/_layout.sass */
+.user-list theader td {
+  font-weight: bold;
+  border-bottom: 1px solid #999999;
+  font-size: 16px;
+}
+/* line 37, ../../app/stylesheets/partials/_layout.sass */
+.user-list td {
+  width: 200px;
+}
+
+/* line 40, ../../app/stylesheets/partials/_layout.sass */
 .toll-free {
   position: absolute;
   color: black;
@@ -922,29 +933,29 @@ table.bar-chart td:first-child {
   font-size: 16px;
 }
 
-/* line 38, ../../app/stylesheets/partials/_layout.sass */
+/* line 47, ../../app/stylesheets/partials/_layout.sass */
 .template_selection {
   margin-top: 30px;
 }
 
-/* line 41, ../../app/stylesheets/partials/_layout.sass */
+/* line 50, ../../app/stylesheets/partials/_layout.sass */
 .page_selector {
   cursor: hand;
   font-size: 15px;
   background: url(/images/icons/closed_arrow.png) no-repeat;
   padding-left: 20px;
 }
-/* line 46, ../../app/stylesheets/partials/_layout.sass */
+/* line 55, ../../app/stylesheets/partials/_layout.sass */
 .page_selector:hover {
   text-decoration: underline;
 }
 
-/* line 49, ../../app/stylesheets/partials/_layout.sass */
+/* line 58, ../../app/stylesheets/partials/_layout.sass */
 #page-select {
   margin-bottom: 30px;
 }
 
-/* line 51, ../../app/stylesheets/partials/_layout.sass */
+/* line 60, ../../app/stylesheets/partials/_layout.sass */
 .page_selector.selected {
   background: url(/images/icons/open_arrow.png) no-repeat;
   padding-left: 20px;
@@ -952,30 +963,30 @@ table.bar-chart td:first-child {
   color: #f06d2e;
 }
 
-/* line 57, ../../app/stylesheets/partials/_layout.sass */
+/* line 66, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today {
   color: #f06d2e;
   font-weight: bold;
   font-size: 18px;
   margin-top: 35px;
 }
-/* line 62, ../../app/stylesheets/partials/_layout.sass */
+/* line 71, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today img {
   display: block;
   margin-left: 140px;
   margin-top: 10px;
 }
-/* line 66, ../../app/stylesheets/partials/_layout.sass */
+/* line 75, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button {
   display: inline;
   padding: 10px;
 }
-/* line 69, ../../app/stylesheets/partials/_layout.sass */
+/* line 78, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button a {
   color: white;
 }
 
-/* line 72, ../../app/stylesheets/partials/_layout.sass */
+/* line 81, ../../app/stylesheets/partials/_layout.sass */
 .packages {
   -moz-box-shadow: 0 -5px 20px #bbbbbb;
   -webkit-box-shadow: 0 -5px 20px #bbbbbb;
@@ -987,62 +998,62 @@ table.bar-chart td:first-child {
   padding-top: 20px;
   height: 230px;
 }
-/* line 80, ../../app/stylesheets/partials/_layout.sass */
+/* line 89, ../../app/stylesheets/partials/_layout.sass */
 .packages td {
   padding: 0 20px;
   position: relative;
 }
-/* line 83, ../../app/stylesheets/partials/_layout.sass */
+/* line 92, ../../app/stylesheets/partials/_layout.sass */
 .packages b {
   font-weight: bold;
 }
-/* line 85, ../../app/stylesheets/partials/_layout.sass */
+/* line 94, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan {
   float: left;
   width: 45%;
   padding: 30px 20px 0 20px;
   position: relative;
 }
-/* line 90, ../../app/stylesheets/partials/_layout.sass */
+/* line 99, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan h2 {
   font-size: 18px;
   font-weight: 100;
   padding-top: 14px;
 }
-/* line 94, ../../app/stylesheets/partials/_layout.sass */
+/* line 103, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan a {
   text-align: right;
   font-weight: bold;
 }
-/* line 97, ../../app/stylesheets/partials/_layout.sass */
+/* line 106, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .icons {
   float: left;
   margin-right: 15px;
 }
-/* line 101, ../../app/stylesheets/partials/_layout.sass */
+/* line 110, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .content p {
   margin-bottom: 0;
   padding-top: 11px;
 }
-/* line 104, ../../app/stylesheets/partials/_layout.sass */
+/* line 113, ../../app/stylesheets/partials/_layout.sass */
 .packages .price-sticker {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-/* line 110, ../../app/stylesheets/partials/_layout.sass */
+/* line 119, ../../app/stylesheets/partials/_layout.sass */
 .left-side .signup-button {
   margin-top: 48px;
 }
 
-/* line 112, ../../app/stylesheets/partials/_layout.sass */
+/* line 121, ../../app/stylesheets/partials/_layout.sass */
 .right-side {
   margin-left: 330px;
   font-size: 95%;
 }
 
-/* line 117, ../../app/stylesheets/partials/_layout.sass */
+/* line 126, ../../app/stylesheets/partials/_layout.sass */
 .featured {
   position: absolute;
   background-color: #d7d7d7;
@@ -1052,11 +1063,11 @@ table.bar-chart td:first-child {
   margin-left: -184px;
   top: 125px;
 }
-/* line 125, ../../app/stylesheets/partials/_layout.sass */
+/* line 134, ../../app/stylesheets/partials/_layout.sass */
 .featured .signup-button {
   margin-top: 57px;
 }
-/* line 127, ../../app/stylesheets/partials/_layout.sass */
+/* line 136, ../../app/stylesheets/partials/_layout.sass */
 .featured .popular {
   display: block;
   position: absolute;
@@ -1067,7 +1078,7 @@ table.bar-chart td:first-child {
   top: 0px;
 }
 
-/* line 136, ../../app/stylesheets/partials/_layout.sass */
+/* line 145, ../../app/stylesheets/partials/_layout.sass */
 .anytime {
   font-family: Georgia, "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial;
   font-size: 16px;
@@ -1076,17 +1087,17 @@ table.bar-chart td:first-child {
   padding-top: 45px;
 }
 
-/* line 143, ../../app/stylesheets/partials/_layout.sass */
+/* line 152, ../../app/stylesheets/partials/_layout.sass */
 #template_editor {
   margin-top: 30px;
 }
 
-/* line 146, ../../app/stylesheets/partials/_layout.sass */
+/* line 155, ../../app/stylesheets/partials/_layout.sass */
 .template_select {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 149, ../../app/stylesheets/partials/_layout.sass */
+/* line 158, ../../app/stylesheets/partials/_layout.sass */
 .template_select img {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1094,18 +1105,18 @@ table.bar-chart td:first-child {
   border: 4px solid white;
   margin-right: 52px;
 }
-/* line 153, ../../app/stylesheets/partials/_layout.sass */
+/* line 162, ../../app/stylesheets/partials/_layout.sass */
 .template_select input {
   margin-left: 20px;
 }
 
-/* line 156, ../../app/stylesheets/partials/_layout.sass */
+/* line 165, ../../app/stylesheets/partials/_layout.sass */
 #loading-preview {
   margin-bottom: -25px;
   margin-left: 10px;
 }
 
-/* line 161, ../../app/stylesheets/partials/_layout.sass */
+/* line 170, ../../app/stylesheets/partials/_layout.sass */
 #edit-template input[type=text], #edit-template input[type=file], #edit-template textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1116,7 +1127,7 @@ table.bar-chart td:first-child {
   font-size: 20px;
 }
 
-/* line 168, ../../app/stylesheets/partials/_layout.sass */
+/* line 177, ../../app/stylesheets/partials/_layout.sass */
 .preview-template iframe {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;

@@ -10,7 +10,12 @@ class TemplatesController < ApplicationController
     #@author_mode = true
     @template_key = @qr.template.to_sym
     @template = TemplateItem::TEMPLATES[@template_key]
-    render :layout => 'template'
+    if params[:show_data].present?
+      @data = current_user.user_data_items.email_listings
+      render :template => 'templates/show_data'
+    else
+      render :layout => 'template'
+    end
   end
 
   def page
@@ -58,6 +63,23 @@ class TemplatesController < ApplicationController
     else
       redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
     end
+  end
+
+  def export
+    require 'csv'
+
+    @data = current_user.user_data_items.email_listings
+
+    csv_string = CSV.generate do |csv|
+      csv << ['First Name', 'Last Name', 'Email']
+
+      @data.each do |user|
+        data = JSON(user.value)
+        csv << [data['first_name'], data['last_name'], data['email']]
+      end
+    end
+
+    send_data csv_string, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=users_list.csv"
   end
 
   def form
