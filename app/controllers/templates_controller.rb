@@ -59,6 +59,22 @@ class TemplatesController < ApplicationController
       redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
     end
   end
+
+  def form
+    if request.post?
+      if params[:email].present?
+        data = @qr.user_data_items.new
+        data.user = current_user
+        data.data_type = 'email_listing'
+        data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name]}.to_json
+        data.save
+        redirect_to params[:redirect_to] if params[:redirect_to].present?
+        return
+      end
+    end
+
+    render :text => 'Success!'
+  end
   
 
 private

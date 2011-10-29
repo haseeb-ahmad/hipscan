@@ -1,0 +1,19 @@
+- content_for :css do
+  = stylesheet_link_tag 'coupon'
+  
+#header= link_to image_tag(field_value(:logo) || 'templates/coupon/logo.png'), root_path
+.content
+  %h1= field_value(:welcome_title) || "Glad to see you here!"
+  .text Fill in your name and email address for your exclusive coupon.
+  = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
+    .field_box
+      = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :offer)
+      .label= label_tag :first_name
+      .field= text_field_tag :first_name
+      .label= label_tag :last_name
+      .field= text_field_tag :last_name
+      .label= label_tag :email
+      .field= text_field_tag :email
+      .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
+      .clear
+#footer Copyright &copy; 2011 All Rights Reserved.

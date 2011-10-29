@@ -113,6 +113,7 @@ Hipscan::Application.routes.draw do
   match 'contact' => 'welcome#contact'
 
   match 'templates/new' => 'templates#new', :as => "new_template"
+  match 'templates/:qr/form/:template' => 'templates#form', :as => "form_template"
   match 'templates/index/:qr/' => 'templates#index', :as => 'templates'
   match 'templates/create' => 'templates#create', :as => "create_template"
   match 'template/:qr' => 'templates#show', :as => 'template'

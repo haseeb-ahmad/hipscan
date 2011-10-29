@@ -151,3 +151,48 @@
   # :detail_page:
   #   :field_name: 'Detail Page'
   #   :field_type: :page_content
+:coupon:
+  :logo:
+    :field_name: 'Logo'
+    :field_type: :file
+  :welcome_title:
+    :field_name: 'Greeting title'
+    :field_type: :string
+  :offer:
+    :field_name: 'Offer'
+    :field_type: :page_content
+    :content:
+      :welcome_title:
+        :field_name: 'Welcome title'
+        :field_type: :string
+      :offer_title:
+        :field_name: 'Coupon title'
+        :field_type: :string
+      :coupon_code:
+        :field_name: 'Coupon code'
+        :field_type: :string
+      :coupon_description:
+        :field_name: 'Description'
+        :field_type: :page
+      :facebook:
+        :field_name: 'Facebook URL'
+        :field_type: :string
+        :title: 'Enter URL for Facebook'
+      :twitter:
+        :field_name: 'Twitter URL'
+        :field_type: :string
+        :title: 'Enter URL for Twitter'
+      :youtube:
+        :field_name: 'YouTube URL'
+        :field_type: :string
+        :title: 'Enter URL for You Tube'
+      :phone_number:
+        :field_name: 'Phone Number'
+        :field_type: :string
+      :email:
+        :field_name: 'Email'
+        :field_type: :string
+      :website:
+        :field_name: 'Website URL'
+        :field_type: :url
+        :title: 'Enter URL for Website'

@@ -1,0 +1,339 @@
+@charset "utf-8";
+/* CSS Document */
+*{ outline:medium none;}
+html {
+	color:#000;
+	background:#fff;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset, img {
+	border:0;
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style:normal;
+	font-weight:normal;
+}
+li {
+	list-style:none;
+}
+caption, th {
+	text-align:left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+	color: #FFFFFF;
+}
+q:before, q:after {
+	content:'';
+}
+abbr, acronym {
+	border:0;
+	font-variant:normal;
+}
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+input, textarea, select {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+	color: #656565;
+}
+input, textarea, select {
+*font-size:100%;
+}
+legend {
+	color:#000;
+}
+del, ins {
+	text-decoration:none;
+}
+html, body {
+	background-color: #fff;
+}
+body {
+	color:#000;
+	font-family: Verdana, Arial, Helvetica, sans-serif, Geneva ;
+	background-image: url(../images/templates/coupon/main-bg.jpg);
+	background-repeat: repeat;
+	background-position: center top;
+}
+img {
+	max-width:320px;
+}
+.clear {
+	clear:both;
+}
+a {
+	color:#000;
+}
+.hr{
+	background-color: #2368A0;
+	background-repeat: repeat;
+	height: 1px;
+	width:100%;
+	margin:0px;
+	margin-bottom:10px;
+}
+.padding { padding:3px 5px 5px 0}
+.float_left{ float:left;}
+.float_right{ float:right;}
+#wrap {
+	padding:0;
+	width:100%;
+	overflow:hidden;
+}
+#header {
+    margin: 0;
+    padding:8px;
+    text-align: center;
+}
+.content{
+	margin:0;
+	padding:5px;
+}
+.content h1{
+	margin:0;
+	padding:5px 5px 5px 0;
+	font-size:16px;
+	color:#fff;
+	border-bottom: 1px dotted #fff;
+	text-align:left;
+}
+.content .text{
+	margin:0;
+	padding:5px 28px;
+	font-size:16px;
+	color:#ffea00;
+	text-align: center;
+	line-height:20px;
+}
+.content .field_box{
+	margin:0;
+	padding:15px 10px 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color:#eeeeee;
+	background-image: url(../images/templates/coupon/box-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	border: 1px solid #aeaeae;
+}
+.content .field_box .label{
+	color:#000;
+	font-size:16px;
+	text-align:left;
+	padding:5px;
+}
+.content .field_box .field{
+	text-align:left;
+	padding:0;
+	
+}
+.content .field_box .field input{
+	text-align:left;
+	padding:8px 5px;
+	color:#666;
+	font-size:14px;
+	width:95%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:url(../images/templates/coupon/input-fild-bg.jpg) left top repeat-x;
+	border:1px solid #aeaeae;
+}
+.content .field_box .button{
+	margin:0;
+	padding:10px 5px;
+	width:50%;
+}
+.content .field_box .button .submit{
+	font-family:"Helvetica Neue", "HelveticaNeueLT Std", "HelveticaNeueLT Std Blk Cn", "HelveticaNeueLT Std Blk Ext";
+	text-align:center;
+	padding:5px;
+	color:#000;
+	font-size:16px;
+	width:100%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #878d59;
+	background: url(../images/templates/coupon/submitbg.jpg) left top repeat-x;
+	text-shadow: -1px -2px 3px #FFF;
+	font-weight:bold;
+}
+.content .offer_box{
+	margin:0;
+	padding:0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color:#eeeeee;
+	background-image: url(../images/templates/coupon/offer-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	border: 1px solid #aeaeae;
+}
+.content .offer_box h1{
+	margin:0;
+	padding:5px;
+	font-size:12px;
+	color:#000;
+	text-align:left;
+	border:none;
+}
+.content .offer_box .social{
+	margin:2px 5px;
+	padding:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color:#eeeeee;
+	background-image: url(../images/templates/coupon/social-box-bg.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border: 1px solid #aeaeae;
+}
+.content .offer_box .social ul{
+	margin:0;
+	padding:0px;
+	list-style:none;
+}
+.content .offer_box .social ul li {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding:0 3px;
+    text-align: center;
+    width: 31%;
+}
+.content .offer_box .social ul li a{
+    display: block;
+	padding:2px 15px;
+    margin: 0;
+    text-align:center;
+	border:none;
+}
+.content .offer_box .contact_icon{
+	margin:0px;
+	padding:5px;
+	text-align:center;
+	width:25%;
+}
+.content .offer_box .contact{
+	margin:0px;
+	padding:5px;
+	width:65%;
+}
+.content .offer_box .contact ul{
+	margin:0;
+	padding:0px;
+	list-style:none;
+}
+.content .offer_box .contact ul li {
+	display:list-item;
+	margin: 0;
+	padding:0px;
+	text-align:left;
+	background-image: url(../images/templates/coupon/hend-icon.png);
+	background-repeat: no-repeat;
+	background-position: left 4px;
+	color:#000;
+	font-size:12px;
+}
+.content .offer_box .contact ul li a{
+    display: block;
+	padding:5px 5px 5px 25px;;
+	text-decoration:none;
+	color:#000;
+}
+
+.content .offer_box .offer-title{
+	margin:0;
+	padding:5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color:#eeeeee;
+	background-image: url(../images/templates/coupon/offer-title.jpg);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	border: 1px solid #aeaeae;
+}
+.content .offer_box .offer-coupons{
+	margin:5px;
+	padding:5px;
+	background-color:#fff;
+	border:5px dashed #000;
+}
+.offer_box .offer-coupons .frame{
+	margin:0px;
+	padding:2px;
+	background-color:#fff;
+	background:url(../images/templates/coupon/offer-firem.png) center top no-repeat;
+	height:127px;
+	text-align:center;
+}
+.offer_box .offer-coupons .frame h2{
+	margin:0px;
+	padding:18px 0 3px 30px;
+	text-align:center;
+	color:#000;
+	font-style:italic;
+	font-weight:bold;
+	font-size:14px;
+}
+.offer_box .offer-coupons .frame h1{
+	margin:0px;
+	padding:0 0 2px 20px;
+	text-align:center;
+	color:#82ab3d;
+	font-weight:bold;
+	font-size:24px;
+}
+.offer_box .offer-coupons .frame h1 span{
+	color:#000;
+	vertical-align:text-top;
+}
+.offer_box .offer-coupons .frame h1 span.big{
+	color:#000;
+	font-size:30px;
+}
+.offer_box .offer-coupons .frame p {
+    color: #000000;
+    font-size: 11px;
+    line-height: 12px;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+}
+.offer-coupons .frame p span {
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+	padding:2px 8px;
+	border-bottom:1px solid #999;
+}
+#footer{
+	margin:0;
+	padding:15px 5px;
+	text-align:center;
+	font-size:12px;
+	color:#fff;
+	
+}

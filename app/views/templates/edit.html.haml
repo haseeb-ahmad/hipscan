@@ -46,7 +46,7 @@
             .signup-button{ :style => 'margin: 0px 0 10px 5px; display: inline-block;'}= link_to 'Refresh Preview', 'javascript: $("form").submit();'
             .signup-button{ :style => 'margin: 0px 0 10px 5px; display: inline-block;'}= link_to 'Complete', 'javascript: $("#complete")[0].value = "true";$("form").submit();'
               
-      %td{:style => 'width: 350px; padding-right: 10px'}
+      %td{:style => 'width: 350px; padding-left: 15px'}
         #page-select
           %h2 #{@template_key.to_s.titleize} Template Wizard
           %p

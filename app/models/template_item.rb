@@ -30,6 +30,8 @@ class TemplateItem < ActiveRecord::Base
   def template; TEMPLATES[template_name.to_sym]; end
 
   def field_type
+    logger.debug "FIELD #{field_name}"
+    logger.debug "FIELD #{page_field_name}"
     unless self.page_field_name.nil?
       template[field_name.to_sym][:content][page_field_name.to_sym][:field_type]
     else

@@ -1,6 +1,7 @@
 class Qr < ActiveRecord::Base
   belongs_to :user
   has_many :scans
+  has_many :user_data_items
 
   has_attached_file :logo, :styles => { :medium => "400x", :thumb => "100x" }
   has_attached_file :image, :styles => { :medium => "960x", :thumb => "100x" }
@@ -63,5 +64,4 @@ class Qr < ActiveRecord::Base
   def qr_tmp_file
     "#{Rails.root}/tmp/#{code}.png"
   end
-
 end
