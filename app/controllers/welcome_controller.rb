@@ -111,6 +111,29 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def edit
+    if params[:data_content]
+      @content = UserDataItem.find_or_create_by_data_type "#{params[:data_content]}-content"
+    end
+  end
+
+  def update
+    content = UserDataItem.find_or_create_by_data_type "#{params[:data_content]}-content" 
+    content.text_value = params['user_data_item']['text_value']
+    content.save
+    flash[:notice] = 'Successfully updated content.'
+    redirect_to root_path
+    return
+  end
+
+  def about
+    @content = UserDataItem.find_or_create_by_data_type('about-content').text_value
+  end
+
+  def qr_uni
+    @content = UserDataItem.find_or_create_by_data_type('qr-uni-content').text_value
+  end
+
   def video_services
     if request.post?
       process_request_info_form

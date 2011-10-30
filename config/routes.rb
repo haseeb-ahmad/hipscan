@@ -112,6 +112,8 @@ Hipscan::Application.routes.draw do
   match 'privacy_policy' => 'welcome#privacy_policy'
   match 'terms_of_use' => 'welcome#terms_of_use'
   match 'contact' => 'welcome#contact'
+  match 'welcome/edit' => 'welcome#edit', :as => 'edit_welcome'
+  match 'cms/update' => 'welcome#update', :as => 'update_welcome'
 
   match 'templates/new' => 'templates#new', :as => "new_template"
   match 'templates/export' => 'templates#export', :as => "export_template"

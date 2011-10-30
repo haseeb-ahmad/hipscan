@@ -64,7 +64,7 @@ gem 'omniauth'
 #gem 'oa-openid', :require => 'omniauth/openid'
 #gem "oa-core", "~> 0.3.0.rc1", :git => 'git://github.com/intridea/omniauth.git'
 
-gem 'ckeditor' #, '3.4.3'
+gem 'ckeditor', '3.5.0'
 
 # This is the admin scaffold
 gem 'activeadmin'

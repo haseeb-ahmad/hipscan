@@ -1,0 +1,7 @@
+= javascript_include_tag :ckeditor
+
+= form_for @content, :url => update_welcome_path, :method => :post do |f|
+  %fieldset
+    = hidden_field_tag 'data_content', params[:data_content]
+    = f.cktext_area :text_value, :width => '800px', :height => '600px'
+    = submit_tag 'Update'

@@ -1,14 +1,3 @@
-function setUrl(url) 
-{  
-  CKEDITOR.tools.callFunction(CKEditorFuncNum, url);
-  window.close();
-}
-
-function uploadButton(button)
-{
-  $('#fj').toggle();
-}
-  
 function uploadStart(file) {
 	try {
 		/* I don't want to do any file validation or anything,  I'll just update the UI and

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -33,8 +33,8 @@ CKEDITOR.lang['tr'] =
 	editorTitle : 'Zengin metin editörü, %1, yardım için ALT 0 tuşuna basın.',
 
 	// ARIA descriptions.
-	toolbars	: 'Editor toolbars', // MISSING
-	editor		: 'Zengin Metin Editörü',
+	toolbar	: 'Toolbar',
+	editor	: 'Zengin Metin Editörü',
 
 	// Toolbar buttons without dialogs.
 	source			: 'Kaynak',
@@ -174,19 +174,18 @@ CKEDITOR.lang['tr'] =
 		langDirRTL		: 'Sağdan Sola (RTL)',
 		acccessKey		: 'Erişim Tuşu',
 		name			: 'Ad',
-		langCode			: 'Dil Yönü',
-		tabIndex			: 'Sekme İndeksi',
-		advisoryTitle		: 'Danışma Başlığı',
+		langCode		: 'Dil Yönü',
+		tabIndex		: 'Sekme İndeksi',
+		advisoryTitle	: 'Danışma Başlığı',
 		advisoryContentType	: 'Danışma İçerik Türü',
 		cssClasses		: 'Biçem Sayfası Sınıfları',
 		charset			: 'Bağlı Kaynak Karakter Gurubu',
 		styles			: 'Biçem',
-		rel			: 'Relationship', // MISSING
-		selectAnchor		: 'Bağlantı Seç',
+		selectAnchor	: 'Bağlantı Seç',
 		anchorName		: 'Bağlantı Adı ile',
-		anchorId			: 'Eleman Kimlik Numarası ile',
-		emailAddress		: 'E-Posta Adresi',
-		emailSubject		: 'İleti Konusu',
+		anchorId		: 'Eleman Kimlik Numarası ile',
+		emailAddress	: 'E-Posta Adresi',
+		emailSubject	: 'İleti Konusu',
 		emailBody		: 'İleti Gövdesi',
 		noAnchors		: '(Bu belgede hiç çapa yok)',
 		noUrl			: 'Lütfen Link URL\'sini yazın',
@@ -601,9 +600,9 @@ CKEDITOR.lang['tr'] =
 
 	iframe :
 	{
-		title		: 'IFrame Properties', // MISSING
-		toolbar		: 'IFrame', // MISSING
-		noUrl		: 'Please type the iframe URL', // MISSING
+		title		: 'iFrame Properties', // MISSING
+		toolbar		: 'iFrame', // MISSING
+		noUrl		: 'Please type the iFrame URL', // MISSING
 		scrolling	: 'Enable scrollbars', // MISSING
 		border		: 'Show frame border' // MISSING
 	},
@@ -714,8 +713,6 @@ CKEDITOR.lang['tr'] =
 	{
 		title		: 'CKEditor Hakkında',
 		dlgTitle	: 'CKEditor Hakkında',
-		help	: 'Check $1 for help.', // MISSING
-		userGuide : 'CKEditor User\'s Guide', // MISSING
 		moreInfo	: 'Lisanslama hakkında daha fazla bilgi almak için lütfen sitemizi ziyaret edin:',
 		copy		: 'Copyright &copy; $1. Tüm hakları saklıdır.'
 	},
@@ -727,7 +724,7 @@ CKEDITOR.lang['tr'] =
 	{
 		anchor		: 'Bağlantı',
 		flash		: 'Flash Animasyonu',
-		iframe		: 'IFrame', // MISSING
+		iframe		: 'iFrame', // MISSING
 		hiddenfield	: 'Hidden Field', // MISSING
 		unknown		: 'Bilinmeyen Nesne'
 	},
@@ -746,64 +743,9 @@ CKEDITOR.lang['tr'] =
 	toolbarCollapse	: 'Toolbar\'ı topla',
 	toolbarExpand	: 'Toolbar\'ı aç',
 
-	toolbarGroups :
-	{
-		document : 'Document', // MISSING
-		clipboard : 'Clipboard/Undo', // MISSING
-		editing : 'Editing', // MISSING
-		forms : 'Forms', // MISSING
-		basicstyles : 'Basic Styles', // MISSING
-		paragraph : 'Paragraph', // MISSING
-		links : 'Links', // MISSING
-		insert : 'Insert', // MISSING
-		styles : 'Styles', // MISSING
-		colors : 'Colors', // MISSING
-		tools : 'Tools' // MISSING
-	},
-
 	bidi :
 	{
 		ltr : 'Text direction from left to right', // MISSING
 		rtl : 'Text direction from right to left' // MISSING
-	},
-
-	docprops :
-	{
-		label : 'Document Properties', // MISSING
-		title : 'Document Properties', // MISSING
-		design : 'Design', // MISSING
-		meta : 'Meta Tags', // MISSING
-		chooseColor : 'Choose', // MISSING
-		other : 'Other...', // MISSING
-		docTitle :	'Page Title', // MISSING
-		charset : 	'Character Set Encoding', // MISSING
-		charsetOther : 'Other Character Set Encoding', // MISSING
-		charsetASCII : 'ASCII', // MISSING
-		charsetCE : 'Central European', // MISSING
-		charsetCT : 'Chinese Traditional (Big5)', // MISSING
-		charsetCR : 'Cyrillic', // MISSING
-		charsetGR : 'Greek', // MISSING
-		charsetJP : 'Japanese', // MISSING
-		charsetKR : 'Korean', // MISSING
-		charsetTR : 'Turkish', // MISSING
-		charsetUN : 'Unicode (UTF-8)', // MISSING
-		charsetWE : 'Western European', // MISSING
-		docType : 'Document Type Heading', // MISSING
-		docTypeOther : 'Other Document Type Heading', // MISSING
-		xhtmlDec : 'Include XHTML Declarations', // MISSING
-		bgColor : 'Background Color', // MISSING
-		bgImage : 'Background Image URL', // MISSING
-		bgFixed : 'Non-scrolling (Fixed) Background', // MISSING
-		txtColor : 'Text Color', // MISSING
-		margin : 'Page Margins', // MISSING
-		marginTop : 'Top', // MISSING
-		marginLeft : 'Left', // MISSING
-		marginRight : 'Right', // MISSING
-		marginBottom : 'Bottom', // MISSING
-		metaKeywords : 'Document Indexing Keywords (comma separated)', // MISSING
-		metaDescription : 'Document Description', // MISSING
-		metaAuthor : 'Author', // MISSING
-		metaCopyright : 'Copyright', // MISSING
-		previewHtml : '<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>' // MISSING
 	}
 };

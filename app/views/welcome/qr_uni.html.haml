@@ -1,74 +1,79 @@
 - content_for :meta do
   <meta name="Description" content="We help in creating a unique link that allows a person to edit the information that is returned when someone scans the barcode. " />
 
-#about_us{:style => 'padding-right: 20px'}
-  %h1 Welcome to the #{hipscan} QR University
+- if logged_in? and current_user.admin?
+  = link_to 'edit content', edit_welcome_path(:data_content => 'qr-uni')
 
-  %p 
-    You want to know about QR Codes—what they are? How you use them?  How they can help you create a bridge between your online and offline worlds? You’ve come to the right place. The #{hipscan} QR University can answer any questions you might have relating to QR Codes and why it makes sense for your business and your marketing mix. 
+- if @content.present?
+  = raw @content
+- else
+  #about_us{:style => 'padding-right: 20px'}
+    %h1 Welcome to the #{hipscan} QR University
 
-  %h1 A QR Code Cannot
-  %p
-    QR Codes have the capacity to do a lot for your marketing efforts. They can deliver your clients and customers to your digital world through the information barcode you strategically place on your print ads, direct mail, posters, stickers, business’ cards…even a static cling on your car window. Beyond that…they don’t have the power to make your marketing any more engaging for those you are driving to your website, microsite, blog or online retail outlet. So, if someone is going to take the effort to scan your code and follow up on your marketing efforts, make sure that you reward them with something that’s informative, engaging or entertaining.   
-   
+    %p 
+      You want to know about QR Codes—what they are? How you use them?  How they can help you create a bridge between your online and offline worlds? You’ve come to the right place. The #{hipscan} QR University can answer any questions you might have relating to QR Codes and why it makes sense for your business and your marketing mix. 
 
-  %h1 The Definitive Does and Don’ts of QR Code Marketing
+    %h1 A QR Code Cannot
+    %p
+      QR Codes have the capacity to do a lot for your marketing efforts. They can deliver your clients and customers to your digital world through the information barcode you strategically place on your print ads, direct mail, posters, stickers, business’ cards…even a static cling on your car window. Beyond that…they don’t have the power to make your marketing any more engaging for those you are driving to your website, microsite, blog or online retail outlet. So, if someone is going to take the effort to scan your code and follow up on your marketing efforts, make sure that you reward them with something that’s informative, engaging or entertaining.   
+     
 
-  %p 
-    You have a two-dimensional barcode that you can put to use for your marketing efforts. That’s cool…but it’s not enough to make what you do as effective as it can be. While QR Code usage is growing exponentially, they are still fairly new to the U.S. market, and inexperienced users are apt to make common mistakes. 
-  %p
-    #{hipscan} is on the cutting edge of this technology and, while we’ve been blazing trails, we’ve happened to accumulate a lot knowledge about what works, what works best, and what can blow up in your face when it comes to putting QR Codes to work for you. 
-    %br
-    #{hipscan}’s QR Code University can help you create more effective and efficient QR Code marketing. Use this resource and don’t hesitate to contact us should you require some expert guidance to get your QR Code campaign up and running. 
+    %h1 The Definitive Does and Don’ts of QR Code Marketing
 
-
-  %h1 What Are You Telling Them? Where Are You Sending Them?
-  %p 
-    The success of any marketing effort lies in your ability to create synergy between the consumer’s first contact with your brand, product or service and the payoff that lies at the end of their journey. In other words, you need to make sure that whoever is following your strategically placed QR Code finds something that approximates their expectations when they scan it.
-  %p
-    Whether it’s a promotion, a new product, a limited time offering or simply an engagement opportunity for your brand, what you say on the vehicle used to drive traffic (that’s the print ad, direct mailer, etc. that your QR Code appears) needs to convey what you are going to pay them off with once they reach your online space. Both are equally important, and you need to make sure that they work together. 
-  %p
-    There are a few general guidelines you can follow to help make your QR Code marketing efforts more powerful, assuming you have the right call-to-action/payoff equation.
-  %p
-    %ul
-      %li • Dynamic Media (videos, photos and imagery in general) have better holding power and create a stronger emotional connection between consumers and the brand.
-      %li • Limited-Time Offerings tend to create more of a sense of urgency and draw a greater response. This, of course, is only valid if there is an actual limited-time offer. 
-      %li • Free Stuff. People love free stuff. This can be in the form of a download or a piece of tchotchke (cheap crap) or some type of contest with an instant win component.
-      %li • Discounts, Coupons and Special Offers are something that is widely used with larger corporate retailers and service providers. They can motivate people to scan the QR Code…but it better be worth the customer’s time, or it’s not worth yours. 
-  %p
-    What applies best for you brand, product or service depends on what you’re trying to achieve and, obviously, you need to appeal to those that you are trying to reach…your target market. Miss the mark and all your efforts will, most likely, be for naught. 
-
-  %h1 Direct QR Codes Versus All The Other Guys
-  %p 
-    We wouldn’t be talking to you now if you didn’t have an interest in generating a QR Code for your business. So, forgive us if we don’t take this opportunity to toot our own horn. 
-  
-  %p
-    #{hipscan} uses what is called a Direct QR Code. There are other forms of QR Codes out there, such as AT&T Barcodes and Microsoft Tag but, along with offering similar capabilities, they also run the risk of losing customer contacts because of incompatibility with today’s mobile devices. After all, the app world is rife and there are a number of QR Code readers available for download. If you want to be read by every QR Code reader…your best bet is using a Direct QR Code.
-
-  %h1 With QR Codes…Size Does Matter
-  %p
-    Big? Small? Medium? When it comes to how large you want your QR Code on your marketing piece to be, the options are endless. In some respects, how big or how small you make the QR Code on your piece boils down to some common sense. 
-  %p
-    For instance, if you’re going to put your QR Code on a billboard, it better be pretty large because the mobile device needs to be able to pick up the intricacies of the 2D image.  
-  %p
-    A good general rule to follow is to use one-half inch for every foot of scanning distance. That means some one scanning your QR Code from 10 feet away would, ideally, need a code that is 5 inches. 
-  %p
-    WE NEED TO ADD SOMETHING ABOUT A #{hipscan} QR CODE IN RELATION TO ENLARGING OR REDUCING HERE (Look at what ShareSquare has on their Best Practices section).
+    %p 
+      You have a two-dimensional barcode that you can put to use for your marketing efforts. That’s cool…but it’s not enough to make what you do as effective as it can be. While QR Code usage is growing exponentially, they are still fairly new to the U.S. market, and inexperienced users are apt to make common mistakes. 
+    %p
+      #{hipscan} is on the cutting edge of this technology and, while we’ve been blazing trails, we’ve happened to accumulate a lot knowledge about what works, what works best, and what can blow up in your face when it comes to putting QR Codes to work for you. 
+      %br
+      #{hipscan}’s QR Code University can help you create more effective and efficient QR Code marketing. Use this resource and don’t hesitate to contact us should you require some expert guidance to get your QR Code campaign up and running. 
 
 
+    %h1 What Are You Telling Them? Where Are You Sending Them?
+    %p 
+      The success of any marketing effort lies in your ability to create synergy between the consumer’s first contact with your brand, product or service and the payoff that lies at the end of their journey. In other words, you need to make sure that whoever is following your strategically placed QR Code finds something that approximates their expectations when they scan it.
+    %p
+      Whether it’s a promotion, a new product, a limited time offering or simply an engagement opportunity for your brand, what you say on the vehicle used to drive traffic (that’s the print ad, direct mailer, etc. that your QR Code appears) needs to convey what you are going to pay them off with once they reach your online space. Both are equally important, and you need to make sure that they work together. 
+    %p
+      There are a few general guidelines you can follow to help make your QR Code marketing efforts more powerful, assuming you have the right call-to-action/payoff equation.
+    %p
+      %ul
+        %li • Dynamic Media (videos, photos and imagery in general) have better holding power and create a stronger emotional connection between consumers and the brand.
+        %li • Limited-Time Offerings tend to create more of a sense of urgency and draw a greater response. This, of course, is only valid if there is an actual limited-time offer. 
+        %li • Free Stuff. People love free stuff. This can be in the form of a download or a piece of tchotchke (cheap crap) or some type of contest with an instant win component.
+        %li • Discounts, Coupons and Special Offers are something that is widely used with larger corporate retailers and service providers. They can motivate people to scan the QR Code…but it better be worth the customer’s time, or it’s not worth yours. 
+    %p
+      What applies best for you brand, product or service depends on what you’re trying to achieve and, obviously, you need to appeal to those that you are trying to reach…your target market. Miss the mark and all your efforts will, most likely, be for naught. 
 
-  %h1 #{hipscan} QR Code Placement
-  %p
-    When it comes to where you place your QR Code…there really is no magic formula. The sizing rule trumps it every time because, if your target market can’t read the code with their phone (or doesn’t see it) it doesn’t matter where you place it. There are, however, some general guidelines that will help you in placing your QR Code and driving more traffic.
-    %ul
-      %li • Test your QR Code before you run anything to make sure that it works. Try it on more than one device. This way you’ll know that your QR Code is going to do the job it was intended to do…drive traffic.
-      %li • Clear out space around your QR Code. White space is effective as a marketing tool overall, even more so when you’re trying to make sure that something gets noticed. White space also makes your QR Code more scan-friendly as you don’t have the interference that can occur when you have a cluttered ad. 
-      %li • Running your QR Code on a computer or television screen? The only thing you need to make sure of is that you leave the QR Code on the screen for as long as possible. If you’re doing a 30 second spot…leave it on the entire 30 seconds. 
-      %Li • Place it on everything. Big. Small. Medium. No matter the size, a #{hipscan} QR Code will give you a lot of mileage…so use it as much as possible. One of the unique nuances of a #{hipscan} QR Code is that the address your driving customer traffic to is changeable (we’re the only ones that offer that), so you can send customers to wherever you want at any time without having to change the QR Code on your marketing elements in order to do it. 
+    %h1 Direct QR Codes Versus All The Other Guys
+    %p 
+      We wouldn’t be talking to you now if you didn’t have an interest in generating a QR Code for your business. So, forgive us if we don’t take this opportunity to toot our own horn. 
+    
+    %p
+      #{hipscan} uses what is called a Direct QR Code. There are other forms of QR Codes out there, such as AT&T Barcodes and Microsoft Tag but, along with offering similar capabilities, they also run the risk of losing customer contacts because of incompatibility with today’s mobile devices. After all, the app world is rife and there are a number of QR Code readers available for download. If you want to be read by every QR Code reader…your best bet is using a Direct QR Code.
 
-  %h1 Make It Fancy… But First, Make It Effective.
-  %p 
-    With #{hipscan}, you can choose from several colors. You want your QR Code to stand out and color can definitely help that in a black and white QR Code world. Just make sure that the color you pick stands out on whatever the piece is that you’ve created to market your business and drive traffic. 
-  %p
-    In other words, you wouldn’t want to put a red QR Code on an ad with a red background or anything that would dilute the definition of the code. 
-   
+    %h1 With QR Codes…Size Does Matter
+    %p
+      Big? Small? Medium? When it comes to how large you want your QR Code on your marketing piece to be, the options are endless. In some respects, how big or how small you make the QR Code on your piece boils down to some common sense. 
+    %p
+      For instance, if you’re going to put your QR Code on a billboard, it better be pretty large because the mobile device needs to be able to pick up the intricacies of the 2D image.  
+    %p
+      A good general rule to follow is to use one-half inch for every foot of scanning distance. That means some one scanning your QR Code from 10 feet away would, ideally, need a code that is 5 inches. 
+    %p
+      WE NEED TO ADD SOMETHING ABOUT A #{hipscan} QR CODE IN RELATION TO ENLARGING OR REDUCING HERE (Look at what ShareSquare has on their Best Practices section).
+
+
+
+    %h1 #{hipscan} QR Code Placement
+    %p
+      When it comes to where you place your QR Code…there really is no magic formula. The sizing rule trumps it every time because, if your target market can’t read the code with their phone (or doesn’t see it) it doesn’t matter where you place it. There are, however, some general guidelines that will help you in placing your QR Code and driving more traffic.
+      %ul
+        %li • Test your QR Code before you run anything to make sure that it works. Try it on more than one device. This way you’ll know that your QR Code is going to do the job it was intended to do…drive traffic.
+        %li • Clear out space around your QR Code. White space is effective as a marketing tool overall, even more so when you’re trying to make sure that something gets noticed. White space also makes your QR Code more scan-friendly as you don’t have the interference that can occur when you have a cluttered ad. 
+        %li • Running your QR Code on a computer or television screen? The only thing you need to make sure of is that you leave the QR Code on the screen for as long as possible. If you’re doing a 30 second spot…leave it on the entire 30 seconds. 
+        %Li • Place it on everything. Big. Small. Medium. No matter the size, a #{hipscan} QR Code will give you a lot of mileage…so use it as much as possible. One of the unique nuances of a #{hipscan} QR Code is that the address your driving customer traffic to is changeable (we’re the only ones that offer that), so you can send customers to wherever you want at any time without having to change the QR Code on your marketing elements in order to do it. 
+
+    %h1 Make It Fancy… But First, Make It Effective.
+    %p 
+      With #{hipscan}, you can choose from several colors. You want your QR Code to stand out and color can definitely help that in a black and white QR Code world. Just make sure that the color you pick stands out on whatever the piece is that you’ve created to market your business and drive traffic. 
+    %p
+      In other words, you wouldn’t want to put a red QR Code on an ad with a red background or anything that would dilute the definition of the code. 

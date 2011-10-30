@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -34,8 +34,8 @@ CKEDITOR.lang['he'] =
 	editorTitle : 'עורך טקסט עשיר, %1, לחץ אלט (ALT) + 0 לעזרה.',
 
 	// ARIA descriptions.
-	toolbars	: 'סרגלי כלים של העורך',
-	editor		: 'עורך טקסט עשיר',
+	toolbar	: 'סרגל הכלים',
+	editor	: 'עורך טקסט עשיר',
 
 	// Toolbar buttons without dialogs.
 	source			: 'מקור',
@@ -175,19 +175,18 @@ CKEDITOR.lang['he'] =
 		langDirRTL		: 'ימין לשמאל (RTL)',
 		acccessKey		: 'מקש גישה',
 		name			: 'שם',
-		langCode			: 'קוד שפה',
-		tabIndex			: 'מספר טאב',
-		advisoryTitle		: 'כותרת מוצעת',
+		langCode		: 'קוד שפה',
+		tabIndex		: 'מספר טאב',
+		advisoryTitle	: 'כותרת מוצעת',
 		advisoryContentType	: 'Content Type מוצע',
 		cssClasses		: 'גיליונות עיצוב קבוצות',
 		charset			: 'קידוד המשאב המקושר',
 		styles			: 'סגנון',
-		rel			: 'קשר גומלין',
-		selectAnchor		: 'בחירת עוגן',
+		selectAnchor	: 'בחירת עוגן',
 		anchorName		: 'עפ"י שם העוגן',
-		anchorId			: 'עפ"י זיהוי (ID) האלמנט',
-		emailAddress		: 'כתובת הדוא"ל',
-		emailSubject		: 'נושא ההודעה',
+		anchorId		: 'עפ"י זיהוי (ID) האלמנט',
+		emailAddress	: 'כתובת הדוא"ל',
+		emailSubject	: 'נושא ההודעה',
 		emailBody		: 'גוף ההודעה',
 		noAnchors		: '(אין עוגנים זמינים בדף)',
 		noUrl			: 'יש להקליד את כתובת הקישור (URL)',
@@ -602,8 +601,8 @@ CKEDITOR.lang['he'] =
 
 	iframe :
 	{
-		title		: 'מאפייני חלון פנימי (iframe)',
-		toolbar		: 'חלון פנימי (iframe)',
+		title		: 'מאפייני חלון פנימי (iFrame)',
+		toolbar		: 'חלון פנימי (iFrame)',
 		noUrl		: 'יש להכניס כתובת לחלון.',
 		scrolling	: 'אפשר פסי גלילה',
 		border		: 'הראה מסגרת לחלון'
@@ -715,8 +714,6 @@ CKEDITOR.lang['he'] =
 	{
 		title		: 'אודות CKEditor',
 		dlgTitle	: 'אודות CKEditor',
-		help	: 'היכנסו ל$1 לעזרה.',
-		userGuide : 'מדריך המשתמש של CKEditor',
 		moreInfo	: 'למידע נוסף בקרו באתרנו:',
 		copy		: 'Copyright &copy; $1. כל הזכויות שמורות.'
 	},
@@ -728,7 +725,7 @@ CKEDITOR.lang['he'] =
 	{
 		anchor		: 'עוגן',
 		flash		: 'סרטון פלאש',
-		iframe		: 'חלון פנימי (iframe)',
+		iframe		: 'חלון פנימי (iFrame)',
 		hiddenfield	: 'שדה חבוי',
 		unknown		: 'אובייקט לא ידוע'
 	},
@@ -747,64 +744,9 @@ CKEDITOR.lang['he'] =
 	toolbarCollapse	: 'מזעור סרגל כלים',
 	toolbarExpand	: 'הרחבת סרגל כלים',
 
-	toolbarGroups :
-	{
-		document : 'מסמך',
-		clipboard : 'לוח הגזירים (Clipboard)/צעד אחרון',
-		editing : 'עריכה',
-		forms : 'טפסים',
-		basicstyles : 'עיצוב בסיסי',
-		paragraph : 'פסקה',
-		links : 'קישורים',
-		insert : 'הכנסה',
-		styles : 'עיצוב',
-		colors : 'צבעים',
-		tools : 'כלים'
-	},
-
 	bidi :
 	{
 		ltr : 'כיוון טקסט משמאל לימין (LTR)',
 		rtl : 'כיוון טקסט מימין לשמאל (RTL)'
-	},
-
-	docprops :
-	{
-		label : 'מאפייני מסמך',
-		title : 'מאפייני מסמך',
-		design : 'עיצוב',
-		meta : 'תגי Meta',
-		chooseColor : 'בחירה',
-		other : 'אחר...',
-		docTitle :	'כותרת עמוד',
-		charset : 	'קידוד תווים',
-		charsetOther : 'קידוד תווים אחר',
-		charsetASCII : 'ASCII',
-		charsetCE : 'מרכז אירופאי',
-		charsetCT : 'סיני מסורתי (Big5)',
-		charsetCR : 'קירילי',
-		charsetGR : 'יווני',
-		charsetJP : 'יפני',
-		charsetKR : 'קוריאני',
-		charsetTR : 'טורקי',
-		charsetUN : 'יוניקוד (UTF-8)',
-		charsetWE : 'מערב אירופאי',
-		docType : 'כותר סוג מסמך',
-		docTypeOther : 'כותר סוג מסמך אחר',
-		xhtmlDec : 'כלול הכרזות XHTML',
-		bgColor : 'צבע רקע',
-		bgImage : 'כתובת של תמונת רקע',
-		bgFixed : 'רקע לא נגלל (צמוד)',
-		txtColor : 'צבע טקסט',
-		margin : 'מרווחי עמוד',
-		marginTop : 'עליון',
-		marginLeft : 'שמאלי',
-		marginRight : 'ימני',
-		marginBottom : 'תחתון',
-		metaKeywords : 'מילות מפתח של המסמך (מופרדות בפסיק)',
-		metaDescription : 'תיאור המסמך',
-		metaAuthor : 'מחבר/ת',
-		metaCopyright : 'זכויות יוצרים',
-		previewHtml : '<p>זהו <strong>טקסט הדגמה</strong>. את/ה משתמש/ת ב<a href="javascript:void(0)">CKEditor</a>.</p>'
 	}
 };
