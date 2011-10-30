@@ -47,7 +47,8 @@
         %p{:style => 'font-weight: 600;'} 
           You are signing up for a 
           = params[:plan]
-          Trial account.
+          = params[:plan] == 'Basic' ? "Free" : "Trial"
+          account.
         %p 
           = link_to "Click here", plans_path
           to select another plan or view plan details.

@@ -131,6 +131,7 @@ class WelcomeController < ApplicationController
   end
 
   def qr_uni
+    @title = 'QR University'
     @content = UserDataItem.find_or_create_by_data_type('qr-uni-content').text_value
   end
 

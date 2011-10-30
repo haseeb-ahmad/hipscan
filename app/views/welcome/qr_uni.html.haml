@@ -1,5 +1,6 @@
 - content_for :meta do
   <meta name="Description" content="We help in creating a unique link that allows a person to edit the information that is returned when someone scans the barcode. " />
+  <meta name="Keywords" content="qr university, hipscan qr university, what are qr codes, how do qr codes work" />
 
 - if logged_in? and current_user.admin?
   = link_to 'edit content', edit_welcome_path(:data_content => 'qr-uni')
@@ -8,6 +9,7 @@
   = raw @content
 - else
   #about_us{:style => 'padding-right: 20px'}
+    = image_tag('qr_slide_5.png', :title => 'http://hipscan.com')
     %h1 Welcome to the #{hipscan} QR University
 
     %p 

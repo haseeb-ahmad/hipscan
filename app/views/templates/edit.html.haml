@@ -22,7 +22,7 @@
             .profile_option
               .page_template{:class => 'selected', :id => 'landing_page'}
                 %h1 Landing page
-                %h3 Add information to this page
+                %h3 Begin customizing here:
                 - @template.each_key do |field|
                   - case field_type(field)
                     - when :string, :url
@@ -60,7 +60,6 @@
               .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected')"}= @template[field][:field_name]
 
         .preview-template
-          %h2{:style => 'margin-bottom:20px;'} Try it out!
           #loading-preview{} Loading preview...
           %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
         = link_to 'Change Template', new_template_path

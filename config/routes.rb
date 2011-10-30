@@ -108,7 +108,7 @@ Hipscan::Application.routes.draw do
 
 
   match 'about' => 'welcome#about'
-  match 'qr-uni' => 'welcome#qr_uni'
+  match 'qr-university' => 'welcome#qr_uni'
   match 'privacy_policy' => 'welcome#privacy_policy'
   match 'terms_of_use' => 'welcome#terms_of_use'
   match 'contact' => 'welcome#contact'

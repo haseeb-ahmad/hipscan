@@ -73,10 +73,13 @@
     :field_name: 'Main Message title'
     :field_type: :string
   :profile_photo:
-    :field_name: 'Landing Page Photo'
+    :field_name: 'Landing Page Photo (optional)'
     :field_type: :file
+  :next_page:
+    :field_name: 'Invitation to next page'
+    :field_type: :string
   :agent_detail:
-    :field_name: 'Agent Detail'
+    :field_name: 'Consultant/Agent Detail'
     :field_type: :page_content
     :content:
       :name:
@@ -111,7 +114,7 @@
         :field_type: :string
         :size: '100'
   :agent_listing:
-    :field_name: 'Agent/Consultant Listing/Information Page'
+    :field_name: 'Consultant/Agent Information/Listing Page'
     :field_type: :page_content
     :content:
       :photo_1:

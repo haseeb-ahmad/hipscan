@@ -15,13 +15,13 @@
           |
           = link_to 'Small', @qr.qr.url(:medium)
 
-        -#%h2 What's Your Color?
-          %div
-            - for color in User::COLORS
-              %a.change_color{:href => home_color_path(:color => color)}
-                .color_swatch
-                  .color_div{:style => "background-color:#{color}"}
-          .cl
+        %h2 What's Your Color?
+        %div
+          - for color in User::COLORS
+            %a.change_color{:href => home_color_path(:color => color)}
+              .color_swatch
+                .color_div{:style => "background-color:#{color}"}
+        .cl
         = render :partial => 'shared/product'
 
       %td

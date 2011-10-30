@@ -80,8 +80,8 @@ class AccountsController < ApplicationController
         @address.last_name = @creditcard.last_name
         if @creditcard.valid? & @address.valid?
           if @subscription.store_card(@creditcard, :billing_address => @address.to_activemerchant, :ip => request.remote_ip)
-            flash[:notice] = "Your billing information has been updated."
-            redirect_to :action => "billing"
+            flash[:notice] = "Thanks.  Your Billing Information Has Been Updated.  The Next Time Your Card Will Be Charged is #{@subscription.paypal? ? "PayPal" : @subscription.card_number} for #{number_to_currency @subscription.amount}"
+            redirect_to :action => "show"
           end
         end
       else
@@ -140,6 +140,10 @@ class AccountsController < ApplicationController
       if @subscription.save
         flash[:notice] = "Your subscription has been changed."
         SubscriptionNotifier.plan_changed(@subscription).deliver
+        if current_user.subscription_plan != 'Basic' and current_user.subscription.billing_id.nil?
+          redirect_to billing_account_path 
+          return
+        end
       else
         flash[:error] = "Error updating your plan: #{@subscription.errors.full_messages.to_sentence}"
       end
