@@ -1,17 +1,17 @@
-- unless current_user.template.present?
+- if request.referrer =~ /templates\/new$/
   #registration
     %table.twocol
       %tr
-        %td
-          %ul.progress
-            %li 1. Choose mobile website template
+        %td{ :style => 'padding-right: 0px'}
+          %ul.progress{:style => 'margin-left: 4%'}
+            %li 1. Choose a template
             %li
-              %b 2. Edit Information on mobile website
-            %li 3. Finish
+              %b 2. Customize the template
+            %li 3. Finish & start engaging customers
 
 %div{:style => 'margin: 15px;'}
-  %h2{:style => 'color: #888; margin: 10px 0'} Welcome to the Marketing Creation Wizard for mobile website.
-  Quick instructions to get you started. On the right side you can see a preview website simulator and on the other side there are fields to enter you information. To update your simulator click 'Refresh Preview'. Your mobile website consists of landing page and following information pages. To update information in any of the pages simply select a page which you want to edit. When you are finished click 'Complete'.
+  %h2{:style => 'color: #888; margin: 10px 0'} Welcome To The Hipscan HTML5 Mobile Wizard
+  Quick Tips: The preview on the right hand side will display how the information looks on a mobile browser.  After updating information, click the “Refresh Preview” button.  Your mobile website includes a main page (landing page) and several additional pages.  Click on the page you wish to update, then once you are happy with your creation, press the “Complete” button to publish to the world.  Remember, if you need help with marketing your Hipscan, we are here to help.
 #registration
   %table.twocol
     %tr

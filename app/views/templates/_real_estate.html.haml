@@ -3,7 +3,10 @@
   
 #header= link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), root_path
 #content
-  %h1= field_value(:welcome_title) || "Attn: Real Estate Professionals! Yes, you are in the right place. In the screens that follow we will show you how a Hipscan (QR Code on Your Offline Material) tied into a Custom Mobile Website Will Increase Engagement and Help Sell 2X More Units!"
+  %br
+  - if field_value(:profile_photo).present?
+    = image_tag(field_value(:profile_photo), :style => 'width: 200px')
+  %h1= field_value(:welcome_title) || "Main message title goes here!"
   %br
   %br
 #footer

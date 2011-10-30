@@ -39,6 +39,11 @@ h1, h2, h3,h4,h5{
 	padding:5px 5px 0px;
 	text-align:center;
 }
+
+#main #header img, #main #header1 img{
+	width: 200px;
+	margin-bottom: 30px;
+}
 #main #content {
     background-color: #F36D21;
     background-image: url(/images/templates/realestate/wight-bg.png);

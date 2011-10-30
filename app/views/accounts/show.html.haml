@@ -14,6 +14,6 @@
         %h1 Billing Information
         %p Current plan: #{current_user.subscription_plan}
         %ul
-          %li= link_to('Change plan', plan_account_url)
+          %li= link_to('Change plan', plan_account_url, :confirm => 'Changing from one plan to another one will disable some of the features of current plan. Do you want to continue?')
           %li= link_to('Billing info', billing_account_url)
           %li= link_to('Cancel plan', cancel_account_url)

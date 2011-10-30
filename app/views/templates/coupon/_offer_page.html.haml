@@ -14,21 +14,21 @@
     %h1 Connect with us below to stay in touch
     .social
     %ul
-      - if page_field_value(:offer, :facebook) != ''
+      - if page_field_value(:offer, :facebook).present?
         %li= link_to image_tag('templates/coupon/facebook-icon.png', :alt => 'Facebook'), page_field_value(:offer, :facebook)
-      - if page_field_value(:offer, :twitter) != ''
+      - if page_field_value(:offer, :twitter).present?
         %li= link_to image_tag('templates/coupon/twitter-icon.png', :alt => 'Twitter'), page_field_value(:offer, :twitter)
-      - if page_field_value(:offer, :youtube) != ''
+      - if page_field_value(:offer, :youtube).present?
         %li= link_to image_tag('templates/coupon/you-tube-icon.png', :alt => 'You Tube'), page_field_value(:offer, :youtube)
       .clear
     .contact_icon.float_left= image_tag('templates/coupon/contact-icon.png', :alt => 'contact')
     .contact.float_right
-    %ul  
-      - if page_field_value(:offer, :phone_number) != ''
-        %li= link_to page_field_value(:offer, :phone_number), "tel:#{page_field_value(:offer, :phone_number)}"
-      - if page_field_value(:offer, :email) != ''
-        %li= link_to page_field_value(:offer, :email), "mailto:#{page_field_value(:offer, :email)}"
-      - if page_field_value(:offer, :website) != ''
-        %li= link_to page_field_value(:offer, :website), page_field_value(:offer, :website)
-  .clear
-#footer Copyright &copy; 2011 All Rights Reserved.
+      %ul  
+        - if page_field_value(:offer, :phone_number).present?
+          %li= link_to page_field_value(:offer, :phone_number), "tel:#{page_field_value(:offer, :phone_number)}"
+        - if page_field_value(:offer, :email).present?
+          %li= link_to page_field_value(:offer, :email), "mailto:#{page_field_value(:offer, :email)}"
+        - if page_field_value(:offer, :website).present?
+          %li= link_to page_field_value(:offer, :website), page_field_value(:offer, :website)
+    .clear
+#footer= field_value(:copyright).present? ? field_value(:copyright) : "Copyright &copy; 2011 All Rights Reserved."

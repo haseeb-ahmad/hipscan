@@ -29,9 +29,11 @@
       %li= link_to "Hipscan QR University", "#"
       |
       %li= link_to "Blog", "http://blog.hipscan.com"
-  .toll-free Call Us. Toll-Free 855-438-4477    
+  - unless logged_in?
+    .toll-free 
+      Toll-Free 
+      .orange 855-438-4477    
         
-          
   = link_to image_tag('hipscan-logo.png', :style => 'margin-top: 4px;'), root_path
 
   - unless notice.blank?

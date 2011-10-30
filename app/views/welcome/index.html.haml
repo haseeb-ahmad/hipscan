@@ -56,7 +56,8 @@
               %b Make a custom
               product call-out card for each product if you desire.
           %hr
-          %p{:style => 'text-align:right;'}= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
+          %p{:style => 'text-align:right;'}
+            .select-button= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
         .plan
           .price-sticker= image_tag('product_sticker_price.png')
           .icons= image_tag('business-icons.png')
@@ -67,6 +68,6 @@
               or Mobile Coupon showcasing your product.
             %p
               %b Beautiful templates
-              availbale for each industry makes it easy to get started.
+              available for each industry makes it easy to get started.
           %hr{ :style => 'margin-top: 31px;'}
-          %p{:style => 'text-align:right;'}= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
+          .select-button= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])

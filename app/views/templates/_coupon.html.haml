@@ -3,8 +3,8 @@
   
 #header= link_to image_tag(field_value(:logo) || 'templates/coupon/logo.png'), root_path
 .content
-  %h1= field_value(:welcome_title) || "Glad to see you here!"
-  .text Fill in your name and email address for your exclusive coupon.
+  %h1= field_value(:welcome_title).present? ? field_value(:welcome_title) : "Glad to see you here!"
+  .text= field_value(:fill_form).present? ? field_value(:fill_form) : "Fill in your name and email address for your exclusive coupon."
   = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
     .field_box
       = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :offer)
@@ -16,4 +16,4 @@
       .field= text_field_tag :email
       .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
       .clear
-#footer Copyright &copy; 2011 All Rights Reserved.
+#footer= field_value(:copyright).present? ? field_value(:copyright) : "Copyright &copy; 2011 All Rights Reserved."
