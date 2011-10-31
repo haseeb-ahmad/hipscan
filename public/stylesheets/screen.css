@@ -933,7 +933,7 @@ table.bar-chart td:first-child {
 .toll-free {
   position: absolute;
   color: black;
-  right: 165px;
+  right: 100px;
   top: 35px;
   font-size: 18px;
 }

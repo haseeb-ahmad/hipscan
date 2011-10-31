@@ -107,3 +107,18 @@ body.bp button {
   position: relative;
   top: 0.25em;
 }
+
+/* line 17, ../../app/stylesheets/ie.sass */
+.toll-free {
+  right: 200px;
+}
+
+/* line 21, ../../app/stylesheets/ie.sass */
+.hmenu li {
+  margin-left: 10px;
+}
+
+/* line 24, ../../app/stylesheets/ie.sass */
+ul.tmenu {
+  padding-left: 20px;
+}
