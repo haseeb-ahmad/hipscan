@@ -59,7 +59,7 @@ class Qr < ActiveRecord::Base
   protected
 
   def qrencode
-    cmd = "#{APP_CONFIG[:path_to_qrencode]} -o #{qr_tmp_file} -lL -s 10 -m 1 '#{code}'"
+    cmd = "#{APP_CONFIG[:path_to_qrencode]} -o #{qr_tmp_file} -lL -s 10 -m 1 'http://#{APP_CONFIG[:host]}/#{code}'"
     puts system(cmd)
   end
 
