@@ -36,11 +36,12 @@
               Please enter your payment information
             = render :partial => "shared/credit_card_form"
           %br/
-          %fieldset
-            = label_tag :discount, "Discount Code"
-            %br
-            = text_field_tag :discount, params[:discount]
-          %br/
+          - unless params[:plan] == 'Basic'
+            %fieldset
+              = label_tag :discount, "Discount Code"
+              %br
+              = text_field_tag :discount, params[:discount]
+            %br/
           %fieldset
             .signup-button= link_to 'Create my account', 'javascript: $("form").submit();'
       %td{ :style => 'width: 50%; padding: 30px 30px;' }
