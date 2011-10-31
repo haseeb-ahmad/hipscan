@@ -1,7 +1,7 @@
 - content_for :css do
   = stylesheet_link_tag 'coupon'
   
-#header= link_to image_tag(field_value(:logo) || 'templates/coupon/logo.png'), root_path
+#header= link_to image_tag(field_value(:logo) || 'templates/coupon/logo.png'), template_path(@qr)
 .content
   %h1= field_value(:welcome_title).present? ? field_value(:welcome_title) : "Glad to see you here!"
   .text= field_value(:fill_form).present? ? field_value(:fill_form) : "Fill in your name and email address for your exclusive coupon."

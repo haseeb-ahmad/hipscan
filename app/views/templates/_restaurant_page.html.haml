@@ -2,7 +2,7 @@
   = stylesheet_link_tag 'restaurant'
 
 #template
-  .header= link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), root_path
+  .header= link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), template_path(@qr)
 
   .call= link_to f = field_value(:phone_number), "tel:#{f}"
 

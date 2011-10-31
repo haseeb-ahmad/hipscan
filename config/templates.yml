@@ -36,7 +36,11 @@
         :field_type: :page
   :menu:
     :field_name: 'Menu'
-    :field_type: :string
+    :field_type: :page_content
+    :content:
+      :menu:
+        :field_name: 'Menu'
+        :field_type: :page
   :website:
     :field_name: 'Full Website'
     :field_type: :url
