@@ -34,6 +34,7 @@
     <label>First Name</label>
     <br/>
     <%= text_field :creditcard, :first_name, :size => 20, :placeholder => 'First Name' %>
+    <br/>
     <label>Last Name</label>
     <br/>
     <%= text_field :creditcard, :last_name, :size => 20, :placeholder => 'Last Name' %>
@@ -49,7 +50,6 @@
   </p>
   <p>
     <label>Expiration</label>
-    <br/>
     <div class='credit-form'>
       <%= select :creditcard, :month, (1 .. 12), :html => {:style => 'width:135px;'} %>
       <%= select :creditcard, :year, (Time.now.year .. 10.years.from_now.year), :html => {:style => 'width:135px;'} %>
@@ -75,6 +75,7 @@
     <%= text_field :address, :zip %><br/>
     <label>Country</label><br/>
     <%= country_select :address, :country, ['United States', 'Canada'] %><br/>
+    <br/>
     <label>Phone</label><br/>
     <%= text_field :address ,:phone %><br/>
   </p>

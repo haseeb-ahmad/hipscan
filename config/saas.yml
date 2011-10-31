@@ -17,7 +17,7 @@ defaults: &defaults
 development:
   <<: *defaults
   base_domain: subscriptions.dev # Edit /etc/hosts to add subscriptions.dev, test.subscriptions.dev, etc., or use Pow: http://pow.cx
-  require_payment_info_for_trials: false
+  require_payment_info_for_trials: true
   gateway: authorize_net_cim
   credentials:
     gateway:
