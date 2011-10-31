@@ -21,7 +21,7 @@
     - unless page_field_value(:delivery, :delivery).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/food-delivery-icon.png')}<span>Food Delivery</span>"), template_page_path(@qr, @template_key, :delivery)
 
-    - unless field_value(:menu).blank?
+    - unless page_field_value(:menu, :menu).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/our-menu-icon.png')}<span>Our Menu</span>"), template_page_path(@qr, @template_key, :menu)
 
     - unless field_value(:website).blank?
