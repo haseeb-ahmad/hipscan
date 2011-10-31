@@ -1,5 +1,5 @@
 #billing
-  %h1= @page_title = 'View / Change Billing Information'
+  %h1= @page_title = 'Update Billing Information'
   - if @subscription.state == 'trial'
     - if @subscription.next_renewal_at > Time.now
       %p
@@ -9,6 +9,8 @@
   %fieldset
     %label Plan:
     = @subscription.subscription_plan.name
+    - unless @subscription.subscription_plan.name == 'Basic'
+      Marketer
     (
     %a{:href => "/account/plan"}> Change plan
     )
@@ -28,4 +30,4 @@
   - if @subscription.amount > 0
     = form_for @creditcard, :as => :creditcard, :url => { :action => 'billing' } do |f|
       = render 'shared/credit_card_form'
-      = submit_or_cancel '/account', 'Update billing information'
+      = submit_or_cancel '/account', 'Submit'

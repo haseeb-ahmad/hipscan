@@ -31,9 +31,10 @@
     <h2><input type="radio" name="paypal" value=" " <%= 'checked="checked"' unless @subscription.paypal? %>> Pay with a credit card</h2>
   <% end %>
   <p>
-    <label>Name on Card</label>
+    <label>First Name</label>
     <br/>
     <%= text_field :creditcard, :first_name, :size => 20, :placeholder => 'First Name' %>
+    <label>Last Name</label>
     <br/>
     <%= text_field :creditcard, :last_name, :size => 20, :placeholder => 'Last Name' %>
   </p>
