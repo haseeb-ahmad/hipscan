@@ -7,7 +7,7 @@
         .hr
         
         #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
-        %br
+        
         .fr
           Download
           = link_to 'Big', @qr.qr.url(:print)
@@ -15,11 +15,11 @@
           = link_to 'Small', @qr.qr.url(:medium)
           |
           = link_to 'Email', @qr.qr.url(:email)
-
+        %br
         %h2 What's Your Color?
         %div
           - for color in User::COLORS
-            %a.change_color{:href => home_color_path(:color => color)}
+            %a.change_color{:href => color_qr_path(:color => color, :id => @qr.id), 'data-remote' => 'true'}
               .color_swatch
                 .color_div{:style => "background-color:#{color}"}
         .cl
@@ -52,12 +52,12 @@
               = link_to 'Enable SMS Notifications', home_sms_path
               now!
 
-:javascript
-  $('a.change_color').bind({
-    click: function() {
-      $('#qr_image').hide();
-      $('#update_message').show();
-      // do something on click
-    }
-  });
-
+- content_for :js do
+  :javascript
+    $('a.change_color').bind({
+      click: function() {
+        $('#qr_image').hide();
+        $('#update_message').show();
+        // do something on click
+      }
+    });

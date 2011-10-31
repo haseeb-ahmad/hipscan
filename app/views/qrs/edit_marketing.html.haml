@@ -1,13 +1,14 @@
 = javascript_include_tag :ckeditor
 
-:javascript
-  $('a.change_color').bind({
-    click: function() {
-      $('#qr_image').hide();
-      $('#update_message').show();
-      // do something on click
-    }
-  });
+- content_for :js do
+  :javascript
+    $('a.change_color').bind({
+      click: function() {
+        $('#qr_image').hide();
+        $('#update_message').show();
+        // do something on click
+      }
+    });
 
 %table.twocol
   %tr
@@ -29,7 +30,7 @@
       %div
         - for color in User::COLORS
           =# link_to color, color_qr_path(:color => color), :remote => true
-          %a.change_color{:href => color_qr_path(:color => color), 'data-remote' => 'true'}
+          %a.change_color{:href => color_qr_path(:color => color, :id => @qr.id), 'data-remote' => 'true'}
             .color_swatch
               .color_div{:style => "background-color:#{color}"}
       .cl

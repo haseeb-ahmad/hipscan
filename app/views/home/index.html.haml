@@ -95,7 +95,7 @@
 
         %div
           - for color in User::COLORS
-            %a.change_color{:href => home_color_path(:color => color)}
+            %a.change_color{:href => home_color_path(:color => color) }
               .color_swatch
                 .color_div{:style => "background-color:#{color}"}
         .cl
@@ -141,11 +141,12 @@
     = barcode(current_user.hipscan, 15, 'large_print')
     = barcode(current_user.hipscan, 2, 'small_print')
 
-:javascript
-  $('a.change_color').bind({
-    click: function() {
-      $('#qr_image').hide();
-      $('#update_message').show();
-      // do something on click
-    }
-  });
+- content_for :js do
+  :javascript
+    $('a.change_color').bind({
+      click: function() {
+        $('#qr_image').hide();
+        $('#update_message').show();
+        // do something on click
+      }
+    });

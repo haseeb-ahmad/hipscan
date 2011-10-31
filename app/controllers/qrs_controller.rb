@@ -81,7 +81,7 @@ class QrsController < ApplicationController
   end
 
   def color
-    @qr = current_user.qrs.find(params[:id])
+    @qr = Qr.find(params[:id])
     @qr.qr = nil
     @qr.color = params[:color]
     @qr.save(false)
