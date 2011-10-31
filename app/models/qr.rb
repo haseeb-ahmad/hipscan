@@ -2,6 +2,7 @@ class Qr < ActiveRecord::Base
   belongs_to :user
   has_many :scans
   has_many :user_data_items
+  has_many :template_items
 
   has_attached_file :logo, :styles => { :medium => "400x", :thumb => "100x" }
   has_attached_file :image, :styles => { :medium => "960x", :thumb => "100x" }
@@ -9,6 +10,7 @@ class Qr < ActiveRecord::Base
                     :processors => [:change_color],
                     :styles => {
                         :thumb => {:resize => '60x60', :color => lambda{|a| a.instance.color}},
+                        :email => {:resize => '100x100', :color => lambda{|a| a.instance.color}},
                         :print => {:resize => '2000x2000', :color => lambda{|a| a.instance.color}},
                         :poster => {:resize => '4000x4000', :color => lambda{|a| a.instance.color}},
                         :medium => {:resize => '400x400', :color => lambda{|a| a.instance.color}}

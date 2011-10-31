@@ -1,13 +1,28 @@
-- content_for :js do
-  = javascript_include_tag :ckeditor
+= javascript_include_tag :ckeditor
+
+:javascript
+  $('a.change_color').bind({
+    click: function() {
+      $('#qr_image').hide();
+      $('#update_message').show();
+      // do something on click
+    }
+  });
 
 %table.twocol
   %tr
     %td{:style => 'width: 350px; padding-right: 10px'}
       %h1.hipscan= @qr.name
       =# barcode(current_user.hipscan, 7)
-      #hipscan_qr_code
-        = image_tag @qr.qr.url(:medium), :title => @qr.name
+      #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
+      .fr{:style => 'margin-right: 25px; margin-top: 2px;'}
+        Download
+        = link_to 'Big', @qr.qr.url(:print)
+        |
+        = link_to 'Small', @qr.qr.url(:medium)
+        |
+        = link_to 'Email', @qr.qr.url(:email)
+
       %br
 
       %h2 What's Your Color?
@@ -19,6 +34,7 @@
               .color_div{:style => "background-color:#{color}"}
       .cl
       %br
+
       - if @qr.logo.file?
         .center= image_tag @qr.logo.url(:medium), :style => 'width: 300px'
 

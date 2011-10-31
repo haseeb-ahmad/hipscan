@@ -123,7 +123,9 @@ Hipscan::Application.routes.draw do
   match 'template/:qr' => 'templates#show', :as => 'template'
   match 'template/:qr/:template/page/:field' => 'templates#page', :as => 'template_page'
   match 'template/:qr/edit/:template' => 'templates#edit', :as => 'edit_template'
+  match 'template/:qr/destroy/:template_item' => 'templates#destroy', :as => 'destroy_template_item'
   match 'template/:qr/update/:template' => 'templates#update', :as => 'update_template'
+
   
 
   #  post 'home/tweet'

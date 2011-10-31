@@ -23,6 +23,10 @@ module TemplatesHelper
     TemplateItem.get(@qr, @template_key, field).value
   end
 
+  def field_id field
+    TemplateItem.get(@qr, @template_key, field).id
+  end
+
   def get_field_content(field)
     @template[field][:content]
   end
@@ -49,11 +53,11 @@ module TemplatesHelper
   end
 
   def page_field_value(field, page_field)
-    logger.debug "FIELD #{@template_key}"
-    logger.debug "FIELD #{field}"
-    logger.debug "FIELD #{page_field}"
-
     TemplateItem.get(@qr, @template_key, field, page_field).value
+  end
+
+  def page_field_id(field, page_field)
+    TemplateItem.get(@qr, @template_key, field, page_field).id
   end
 
   def show_field(field_type, data)
@@ -61,6 +65,6 @@ module TemplatesHelper
   end
 
   def underscore(text)
-    text.gsub(/ /,'_').underscore
+    text.gsub(/[ |\/]/,'_').underscore
   end
 end

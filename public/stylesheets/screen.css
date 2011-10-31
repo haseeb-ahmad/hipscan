@@ -412,7 +412,11 @@ legend {
   color: #f36d21;
 }
 
-/* line 253, ../../app/stylesheets/partials/_application.sass */
+/* line 252, ../../app/stylesheets/partials/_application.sass */
+#edit {
+  padding-right: 20px;
+}
+/* line 254, ../../app/stylesheets/partials/_application.sass */
 #edit .profile_heading {
   clear: both;
   border: 1px solid #888888;
@@ -422,12 +426,12 @@ legend {
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  width: 450px;
+  width: 400px;
   background-color: #f0f0f0;
 }
-/* line 263, ../../app/stylesheets/partials/_application.sass */
+/* line 264, ../../app/stylesheets/partials/_application.sass */
 #edit .profile_option input[type=text], #edit .profile_option input[type=file], #edit .profile_option textarea, #edit .fixed_profile_option input[type=text], #edit .fixed_profile_option input[type=file], #edit .fixed_profile_option textarea {
-  width: 450px;
+  width: 400px;
   padding: 10px 20px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -435,21 +439,21 @@ legend {
   border-radius: 5px;
   font-size: 20px;
 }
-/* line 269, ../../app/stylesheets/partials/_application.sass */
+/* line 270, ../../app/stylesheets/partials/_application.sass */
 #edit .profile_option textarea, #edit .fixed_profile_option textarea {
   height: 160px;
 }
-/* line 272, ../../app/stylesheets/partials/_application.sass */
+/* line 273, ../../app/stylesheets/partials/_application.sass */
 #edit .profile_option .save_and_continue, #edit .fixed_profile_option .save_and_continue {
   float: right;
-  margin: 15px -12px 15px 0;
+  margin: 15px 37px 15px 0;
 }
-/* line 276, ../../app/stylesheets/partials/_application.sass */
+/* line 277, ../../app/stylesheets/partials/_application.sass */
 #edit div.profile_option {
   width: 480px;
 }
 
-/* line 279, ../../app/stylesheets/partials/_application.sass */
+/* line 280, ../../app/stylesheets/partials/_application.sass */
 #hipscan_qr, #hipscan_qr_code {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -459,29 +463,29 @@ legend {
   height: 300px;
   margin-right: 25px;
 }
-/* line 285, ../../app/stylesheets/partials/_application.sass */
+/* line 286, ../../app/stylesheets/partials/_application.sass */
 #hipscan_qr img, #hipscan_qr_code img {
   width: 450px;
   height: 300px;
 }
 
-/* line 289, ../../app/stylesheets/partials/_application.sass */
+/* line 290, ../../app/stylesheets/partials/_application.sass */
 #hipscan_qr_code {
   width: 400px;
   height: 400px;
 }
-/* line 292, ../../app/stylesheets/partials/_application.sass */
+/* line 293, ../../app/stylesheets/partials/_application.sass */
 #hipscan_qr_code img {
   width: 400px;
   height: 400px;
 }
 
-/* line 296, ../../app/stylesheets/partials/_application.sass */
+/* line 297, ../../app/stylesheets/partials/_application.sass */
 .back_home {
   margin: 0 0 5px 10px;
 }
 
-/* line 299, ../../app/stylesheets/partials/_application.sass */
+/* line 300, ../../app/stylesheets/partials/_application.sass */
 #registration, #billing {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -494,11 +498,11 @@ legend {
   margin: 10px 25px 30px 0;
   background-color: #efefef;
 }
-/* line 308, ../../app/stylesheets/partials/_application.sass */
+/* line 309, ../../app/stylesheets/partials/_application.sass */
 #registration b, #billing b {
   font-weight: bold;
 }
-/* line 311, ../../app/stylesheets/partials/_application.sass */
+/* line 312, ../../app/stylesheets/partials/_application.sass */
 #registration input[type=text], #registration input[type=password], #registration select, #billing input[type=text], #billing input[type=password], #billing select {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -508,15 +512,15 @@ legend {
   padding: 10px 20px;
   font-size: 20px;
 }
-/* line 318, ../../app/stylesheets/partials/_application.sass */
+/* line 319, ../../app/stylesheets/partials/_application.sass */
 #registration .signup-button a, #billing .signup-button a {
   color: white;
 }
-/* line 321, ../../app/stylesheets/partials/_application.sass */
+/* line 322, ../../app/stylesheets/partials/_application.sass */
 #registration h1, #registration a, #billing h1, #billing a {
   color: #3c5a98;
 }
-/* line 324, ../../app/stylesheets/partials/_application.sass */
+/* line 325, ../../app/stylesheets/partials/_application.sass */
 #registration input[type=text], #registration input[type=email], #registration input[type=password], #billing input[type=text], #billing input[type=email], #billing input[type=password] {
   font-size: 15px;
   padding: 5px 10px;
@@ -525,25 +529,25 @@ legend {
   color: #3c5a98;
 }
 
-/* line 332, ../../app/stylesheets/partials/_application.sass */
+/* line 333, ../../app/stylesheets/partials/_application.sass */
 #billing select {
   width: 275px;
 }
-/* line 335, ../../app/stylesheets/partials/_application.sass */
+/* line 336, ../../app/stylesheets/partials/_application.sass */
 #billing .credit-form select {
   width: 135px;
 }
 
-/* line 340, ../../app/stylesheets/partials/_application.sass */
+/* line 341, ../../app/stylesheets/partials/_application.sass */
 #product table {
   width: 100%;
 }
-/* line 343, ../../app/stylesheets/partials/_application.sass */
+/* line 344, ../../app/stylesheets/partials/_application.sass */
 #product table td {
   width: 50%;
   text-align: center;
 }
-/* line 347, ../../app/stylesheets/partials/_application.sass */
+/* line 348, ../../app/stylesheets/partials/_application.sass */
 #product table td .product {
   width: 150px;
   background: white;
@@ -553,32 +557,32 @@ legend {
   box-shadow: 5px 5px 5px #888888;
 }
 
-/* line 355, ../../app/stylesheets/partials/_application.sass */
+/* line 356, ../../app/stylesheets/partials/_application.sass */
 #myhipscan {
   width: 400px;
   margin: auto;
   word-wrap: break-word;
 }
 
-/* line 360, ../../app/stylesheets/partials/_application.sass */
+/* line 361, ../../app/stylesheets/partials/_application.sass */
 #profile_display_name, #profile_email, #profile_phone_number, #profile_website {
   font-size: 20px;
   margin: 10px 0;
 }
 
-/* line 364, ../../app/stylesheets/partials/_application.sass */
+/* line 365, ../../app/stylesheets/partials/_application.sass */
 .profile_social_link {
   float: left;
   margin: 10px 20px 10px 0;
 }
 
-/* line 368, ../../app/stylesheets/partials/_application.sass */
+/* line 369, ../../app/stylesheets/partials/_application.sass */
 #custom_page {
   width: 600px;
   margin-left: -100px;
 }
 
-/* line 373, ../../app/stylesheets/partials/_application.sass */
+/* line 374, ../../app/stylesheets/partials/_application.sass */
 #custom_profile #profile_status {
   font-size: 18px;
   font-weight: bold;
@@ -586,7 +590,7 @@ legend {
   color: #666666;
 }
 
-/* line 379, ../../app/stylesheets/partials/_application.sass */
+/* line 380, ../../app/stylesheets/partials/_application.sass */
 #custom_text, #custom_url, #custom_image {
   font-size: 20px;
   border: 2px solid #aaaaaa;
@@ -596,13 +600,13 @@ legend {
   word-wrap: break-word;
   width: 360px;
 }
-/* line 388, ../../app/stylesheets/partials/_application.sass */
+/* line 389, ../../app/stylesheets/partials/_application.sass */
 #custom_text p, #custom_url p, #custom_image p {
   font-size: 18px;
   color: #333333;
 }
 
-/* line 392, ../../app/stylesheets/partials/_application.sass */
+/* line 393, ../../app/stylesheets/partials/_application.sass */
 #profile_photo, #custom_image {
   width: 360px;
   border: 1px solid #888888;
@@ -610,53 +614,53 @@ legend {
   margin: 10px 0;
   background: white;
 }
-/* line 399, ../../app/stylesheets/partials/_application.sass */
+/* line 400, ../../app/stylesheets/partials/_application.sass */
 #profile_photo img, #custom_image img {
   width: 100%;
 }
 
-/* line 402, ../../app/stylesheets/partials/_application.sass */
+/* line 403, ../../app/stylesheets/partials/_application.sass */
 #popup {
   background: white;
   border: 1px solid black;
   padding: 20px;
 }
 
-/* line 407, ../../app/stylesheets/partials/_application.sass */
+/* line 408, ../../app/stylesheets/partials/_application.sass */
 .social_connect {
   float: left;
   margin: 15px;
 }
 
-/* line 411, ../../app/stylesheets/partials/_application.sass */
+/* line 412, ../../app/stylesheets/partials/_application.sass */
 #policy_text, #terms_text {
   font-size: 13px;
   line-height: 20px;
 }
-/* line 415, ../../app/stylesheets/partials/_application.sass */
+/* line 416, ../../app/stylesheets/partials/_application.sass */
 #policy_text b, #terms_text b {
   line-height: 40px;
 }
 
-/* line 418, ../../app/stylesheets/partials/_application.sass */
+/* line 419, ../../app/stylesheets/partials/_application.sass */
 table.scaffold {
   width: 100%;
 }
-/* line 423, ../../app/stylesheets/partials/_application.sass */
+/* line 424, ../../app/stylesheets/partials/_application.sass */
 table.scaffold tr.odd {
   background-color: white;
 }
-/* line 426, ../../app/stylesheets/partials/_application.sass */
+/* line 427, ../../app/stylesheets/partials/_application.sass */
 table.scaffold tr.even {
   background-color: #eeeeee;
 }
-/* line 429, ../../app/stylesheets/partials/_application.sass */
+/* line 430, ../../app/stylesheets/partials/_application.sass */
 table.scaffold th, table.scaffold td {
   padding: 5px;
   text-align: left;
 }
 
-/* line 433, ../../app/stylesheets/partials/_application.sass */
+/* line 434, ../../app/stylesheets/partials/_application.sass */
 #scanned, #sms {
   margin: 20px 0 0 0;
   width: 345px;
@@ -666,27 +670,27 @@ table.scaffold th, table.scaffold td {
   background: #f5f5f5;
 }
 
-/* line 441, ../../app/stylesheets/partials/_application.sass */
+/* line 442, ../../app/stylesheets/partials/_application.sass */
 #errorExplanation, #error_explanation {
   border: 2px solid red;
   padding: 15px;
   background: #fff5f5;
 }
-/* line 446, ../../app/stylesheets/partials/_application.sass */
+/* line 447, ../../app/stylesheets/partials/_application.sass */
 #errorExplanation h2, #errorExplanation p, #errorExplanation li, #error_explanation h2, #error_explanation p, #error_explanation li {
   color: red;
 }
-/* line 449, ../../app/stylesheets/partials/_application.sass */
+/* line 450, ../../app/stylesheets/partials/_application.sass */
 #errorExplanation p, #errorExplanation li, #error_explanation p, #error_explanation li {
   font-size: 12px;
   margin-top: 5px;
 }
-/* line 453, ../../app/stylesheets/partials/_application.sass */
+/* line 454, ../../app/stylesheets/partials/_application.sass */
 #errorExplanation ul, #error_explanation ul {
   margin-left: 20px;
 }
 
-/* line 457, ../../app/stylesheets/partials/_application.sass */
+/* line 458, ../../app/stylesheets/partials/_application.sass */
 .color_swatch {
   float: left;
   background: white;
@@ -694,111 +698,111 @@ table.scaffold th, table.scaffold td {
   padding: 2px;
   margin: 5px;
 }
-/* line 464, ../../app/stylesheets/partials/_application.sass */
+/* line 465, ../../app/stylesheets/partials/_application.sass */
 .color_swatch .color_div {
   height: 20px;
   width: 20px;
   border: 1px solid #bbbbbb;
 }
 
-/* line 469, ../../app/stylesheets/partials/_application.sass */
+/* line 470, ../../app/stylesheets/partials/_application.sass */
 #services {
   width: 640px;
   margin: 0 auto;
 }
-/* line 473, ../../app/stylesheets/partials/_application.sass */
+/* line 474, ../../app/stylesheets/partials/_application.sass */
 #services p {
   font-size: 17px;
 }
-/* line 476, ../../app/stylesheets/partials/_application.sass */
+/* line 477, ../../app/stylesheets/partials/_application.sass */
 #services p.large {
   font-size: 21px;
 }
-/* line 479, ../../app/stylesheets/partials/_application.sass */
+/* line 480, ../../app/stylesheets/partials/_application.sass */
 #services .darkblue {
   color: darkblue;
 }
-/* line 482, ../../app/stylesheets/partials/_application.sass */
+/* line 483, ../../app/stylesheets/partials/_application.sass */
 #services .lg_service_img {
   float: right;
   margin: 40px 0 40px 20px;
 }
-/* line 486, ../../app/stylesheets/partials/_application.sass */
+/* line 487, ../../app/stylesheets/partials/_application.sass */
 #services .lg_service_img img {
   height: 270px;
 }
 
-/* line 490, ../../app/stylesheets/partials/_application.sass */
+/* line 491, ../../app/stylesheets/partials/_application.sass */
 ul.check {
   list-style-image: url("/images/icons/check-red.png");
   margin: 20px;
 }
-/* line 494, ../../app/stylesheets/partials/_application.sass */
+/* line 495, ../../app/stylesheets/partials/_application.sass */
 ul.check li {
   margin-left: 30px;
 }
 
-/* line 498, ../../app/stylesheets/partials/_application.sass */
+/* line 499, ../../app/stylesheets/partials/_application.sass */
 .page p {
   font-size: 12px;
   margin-top: 10px;
   color: #888888;
 }
 
-/* line 503, ../../app/stylesheets/partials/_application.sass */
+/* line 504, ../../app/stylesheets/partials/_application.sass */
 table.analytics {
   width: 270px;
 }
-/* line 505, ../../app/stylesheets/partials/_application.sass */
+/* line 506, ../../app/stylesheets/partials/_application.sass */
 table.analytics td {
   border: 1px solid #cccccc;
   padding: 10px;
 }
-/* line 510, ../../app/stylesheets/partials/_application.sass */
+/* line 511, ../../app/stylesheets/partials/_application.sass */
 table.analytics td p {
   font-size: 13px;
 }
 
-/* line 513, ../../app/stylesheets/partials/_application.sass */
+/* line 514, ../../app/stylesheets/partials/_application.sass */
 a.selected {
   color: black;
 }
 
-/* line 516, ../../app/stylesheets/partials/_application.sass */
+/* line 517, ../../app/stylesheets/partials/_application.sass */
 #map_container {
   position: relative;
   float: left;
   margin: 10px 20px 0 0;
 }
-/* line 521, ../../app/stylesheets/partials/_application.sass */
+/* line 522, ../../app/stylesheets/partials/_application.sass */
 #map_container #map, #map_container #wmap {
   width: 600px;
   height: 400px;
   border: 1px solid #cccccc;
 }
 
-/* line 527, ../../app/stylesheets/partials/_application.sass */
+/* line 528, ../../app/stylesheets/partials/_application.sass */
 table.bar-chart {
   width: 100%;
 }
-/* line 530, ../../app/stylesheets/partials/_application.sass */
+/* line 531, ../../app/stylesheets/partials/_application.sass */
 table.bar-chart td {
   border: 0;
   padding: 5px 0;
   vertical-align: middle;
 }
-/* line 535, ../../app/stylesheets/partials/_application.sass */
+/* line 536, ../../app/stylesheets/partials/_application.sass */
 table.bar-chart td span {
   font-size: 11px;
   color: #888888;
 }
-/* line 539, ../../app/stylesheets/partials/_application.sass */
+/* line 540, ../../app/stylesheets/partials/_application.sass */
 table.bar-chart td:first-child {
   width: 50px;
   padding-right: 10px;
 }
 
-/* line 543, ../../app/stylesheets/partials/_application.sass */
+/* line 544, ../../app/stylesheets/partials/_application.sass */
 #info_form {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -809,21 +813,21 @@ table.bar-chart td:first-child {
   width: 80%;
   margin: 0 auto;
 }
-/* line 550, ../../app/stylesheets/partials/_application.sass */
+/* line 551, ../../app/stylesheets/partials/_application.sass */
 #info_form table {
   width: 100%;
 }
-/* line 553, ../../app/stylesheets/partials/_application.sass */
+/* line 554, ../../app/stylesheets/partials/_application.sass */
 #info_form table td {
   padding: 5px 0;
 }
-/* line 556, ../../app/stylesheets/partials/_application.sass */
+/* line 557, ../../app/stylesheets/partials/_application.sass */
 #info_form table td:first-child {
   text-align: right;
   padding-right: 10px;
 }
 
-/* line 560, ../../app/stylesheets/partials/_application.sass */
+/* line 561, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing {
   width: 700px;
   margin: 10px auto;
@@ -836,33 +840,33 @@ table.bar-chart td:first-child {
   text-align: center;
   background: white;
 }
-/* line 569, ../../app/stylesheets/partials/_application.sass */
+/* line 570, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing #qr_logo {
   margin-bottom: 15px;
 }
-/* line 572, ../../app/stylesheets/partials/_application.sass */
+/* line 573, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing #qr_qr img {
   width: 200px;
 }
-/* line 575, ../../app/stylesheets/partials/_application.sass */
+/* line 576, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing #qr_tagline {
   margin: 15px 0;
   font-size: 16px;
   font-style: italic;
 }
-/* line 580, ../../app/stylesheets/partials/_application.sass */
+/* line 581, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing #qr_powered_by {
   float: right;
   margin: 10px 50px 0 0;
   text-align: left;
   font-size: 11px;
 }
-/* line 586, ../../app/stylesheets/partials/_application.sass */
+/* line 587, ../../app/stylesheets/partials/_application.sass */
 #qr_marketing #qr_powered_by img {
   width: 70px;
 }
 
-/* line 590, ../../app/stylesheets/partials/_application.sass */
+/* line 591, ../../app/stylesheets/partials/_application.sass */
 .field_with_errors label {
   color: red;
   font-weight: bold;

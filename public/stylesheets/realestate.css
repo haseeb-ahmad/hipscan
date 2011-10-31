@@ -25,6 +25,7 @@ h1, h2, h3,h4,h5{
 	padding:0;
 	width:100%;
 	overflow:hidden;
+	word-wrap: break-word;
 }
 #main #header{
 	margin:0;

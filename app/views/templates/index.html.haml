@@ -6,14 +6,15 @@
         %p (#{link_to 'Edit your Hipscan mobile website', edit_template_path(@qr, @qr.template)})
         .hr
         
-        #hipscan_qr_code
-          = image_tag @qr.qr.url(:medium), :title => @qr.name
+        #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
         %br
         .fr
           Download
           = link_to 'Big', @qr.qr.url(:print)
           |
           = link_to 'Small', @qr.qr.url(:medium)
+          |
+          = link_to 'Email', @qr.qr.url(:email)
 
         %h2 What's Your Color?
         %div
@@ -50,3 +51,13 @@
             %p
               = link_to 'Enable SMS Notifications', home_sms_path
               now!
+
+:javascript
+  $('a.change_color').bind({
+    click: function() {
+      $('#qr_image').hide();
+      $('#update_message').show();
+      // do something on click
+    }
+  });
+

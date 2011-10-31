@@ -85,6 +85,8 @@
           = link_to 'Big', current_user.qr.url(:print)
           |
           = link_to 'Small', current_user.qr.url(:medium)
+          |
+          = link_to 'Email', current_user.qr.url(:email)
           =# link_to_function 'Small', "$('#toPrint').printElement({printMode: 'popup',overrideElementCSS: ['/stylesheets/print_small.css']});"
           =# link_to_function 'Small', "$('#small_print').printElement({printMode: 'popup'});"
 

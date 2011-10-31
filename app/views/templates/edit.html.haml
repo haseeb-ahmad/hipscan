@@ -32,6 +32,14 @@
                     - when :file
                       %p.template_file_field
                         = label_tag "#{@template[field][:field_name]}:"
+                        - if field_value(field).present?
+                          .photo
+                            = link_to 'remove existing', destroy_template_item_path(:qr => @qr, :template_item => field_id(field)), :method => :delete, :remote => true, :class => "item_id_#{field_id(field)}"
+                            - @js_content << "$('.item_id_#{field_id(field)}').bind('ajax:success', function(){$(this).parent().hide();});"
+                            %br
+                            = image_tag(field_value(field), :style => 'width: 45%;')
+                            %br
+                            OR upload a new one
                         = file_field_tag field_tag(field), :size => field_size(field)
                     - when :text, :page
                       %p.template_file_field
@@ -63,3 +71,7 @@
           #loading-preview{} Loading preview...
           %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
         = link_to 'Change Template', new_template_path
+
+- content_for :js do
+  :javascript
+    #{@js_content}

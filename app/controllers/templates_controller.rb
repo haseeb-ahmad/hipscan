@@ -39,6 +39,7 @@ class TemplatesController < ApplicationController
   end
 
   def edit
+    @js_content = ''
     @template_key = params[:template].downcase.to_sym
     @template = TemplateItem::TEMPLATES[@template_key]
   end
@@ -96,6 +97,16 @@ class TemplatesController < ApplicationController
     end
 
     render :text => 'Success!'
+  end
+
+  def destroy
+    if params[:template_item].present?
+      item = @qr.template_items.find(params[:template_item])
+      item.destroy if item.present?
+    end
+    respond_to do |format|  
+      format.js   { render :nothing => true }  
+    end  
   end
   
 
