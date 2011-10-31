@@ -21,6 +21,11 @@
         - if current_user.subscription_plan =~ /^Basic/
           %br
           = link_to "Upgrade", plan_account_path, :style => 'color: #f06d2e; margin-right: 3px'
+    - else
+      %div{:style => 'text-align: right' }
+        .toll-free 
+          Toll-Free 
+          .orange 855-438-4477    
   .fr
     %ul.tmenu
       - unless logged_in?
@@ -29,10 +34,11 @@
       %li= link_to "Hipscan QR University", "/qr-university"
       |
       %li= link_to "Blog", "http://blog.hipscan.com"
-  - unless logged_in?
-    .toll-free 
-      Toll-Free 
-      .orange 855-438-4477    
+
+  / - unless logged_in?
+  /   .toll-free 
+  /     Toll-Free 
+  /     .orange 855-438-4477    
         
   = link_to image_tag('hipscan-logo.png', :style => 'margin-top: 4px;'), root_path
 

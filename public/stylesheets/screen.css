@@ -901,42 +901,40 @@ a.selected {
 
 /* line 40, ../../app/stylesheets/partials/_layout.sass */
 .toll-free {
-  position: absolute;
   color: black;
-  right: 167px;
-  top: 35px;
+  padding-right: 3px;
   font-size: 18px;
 }
-/* line 46, ../../app/stylesheets/partials/_layout.sass */
+/* line 48, ../../app/stylesheets/partials/_layout.sass */
 .toll-free .orange {
   text-shadow: #aaaaaa 0px 0px 1px;
   display: inline;
   color: #f06d2e;
 }
 
-/* line 51, ../../app/stylesheets/partials/_layout.sass */
+/* line 53, ../../app/stylesheets/partials/_layout.sass */
 .template_selection {
   margin-top: 30px;
 }
 
-/* line 54, ../../app/stylesheets/partials/_layout.sass */
+/* line 56, ../../app/stylesheets/partials/_layout.sass */
 .page_selector {
   cursor: hand;
   font-size: 15px;
   background: url(/images/icons/closed_arrow.png) no-repeat;
   padding-left: 20px;
 }
-/* line 59, ../../app/stylesheets/partials/_layout.sass */
+/* line 61, ../../app/stylesheets/partials/_layout.sass */
 .page_selector:hover {
   text-decoration: underline;
 }
 
-/* line 62, ../../app/stylesheets/partials/_layout.sass */
+/* line 64, ../../app/stylesheets/partials/_layout.sass */
 #page-select {
   margin-bottom: 30px;
 }
 
-/* line 64, ../../app/stylesheets/partials/_layout.sass */
+/* line 66, ../../app/stylesheets/partials/_layout.sass */
 .page_selector.selected {
   background: url(/images/icons/open_arrow.png) no-repeat;
   padding-left: 20px;
@@ -944,30 +942,30 @@ a.selected {
   color: #f06d2e;
 }
 
-/* line 70, ../../app/stylesheets/partials/_layout.sass */
+/* line 72, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today {
   color: #f06d2e;
   font-weight: bold;
   font-size: 18px;
   margin-top: 35px;
 }
-/* line 75, ../../app/stylesheets/partials/_layout.sass */
+/* line 77, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today img {
   display: block;
   margin-left: 140px;
   margin-top: 10px;
 }
-/* line 79, ../../app/stylesheets/partials/_layout.sass */
+/* line 81, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button {
   display: inline;
   padding: 10px;
 }
-/* line 82, ../../app/stylesheets/partials/_layout.sass */
+/* line 84, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button a {
   color: white;
 }
 
-/* line 85, ../../app/stylesheets/partials/_layout.sass */
+/* line 87, ../../app/stylesheets/partials/_layout.sass */
 .packages {
   -moz-box-shadow: 0 -5px 20px #bbbbbb;
   -webkit-box-shadow: 0 -5px 20px #bbbbbb;
@@ -979,62 +977,62 @@ a.selected {
   padding-top: 20px;
   height: 245px;
 }
-/* line 93, ../../app/stylesheets/partials/_layout.sass */
+/* line 95, ../../app/stylesheets/partials/_layout.sass */
 .packages td {
   padding: 0 20px;
   position: relative;
 }
-/* line 96, ../../app/stylesheets/partials/_layout.sass */
+/* line 98, ../../app/stylesheets/partials/_layout.sass */
 .packages b {
   font-weight: bold;
 }
-/* line 98, ../../app/stylesheets/partials/_layout.sass */
+/* line 100, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan {
   float: left;
   width: 45%;
   padding: 30px 20px 0 20px;
   position: relative;
 }
-/* line 103, ../../app/stylesheets/partials/_layout.sass */
+/* line 105, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan h2 {
   font-size: 18px;
   font-weight: 100;
   padding-top: 14px;
 }
-/* line 107, ../../app/stylesheets/partials/_layout.sass */
+/* line 109, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan a {
   text-align: right;
   font-weight: bold;
 }
-/* line 110, ../../app/stylesheets/partials/_layout.sass */
+/* line 112, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .icons {
   float: left;
   margin-right: 15px;
 }
-/* line 114, ../../app/stylesheets/partials/_layout.sass */
+/* line 116, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .content p {
   margin-bottom: 0;
   padding-top: 11px;
 }
-/* line 117, ../../app/stylesheets/partials/_layout.sass */
+/* line 119, ../../app/stylesheets/partials/_layout.sass */
 .packages .price-sticker {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-/* line 123, ../../app/stylesheets/partials/_layout.sass */
+/* line 125, ../../app/stylesheets/partials/_layout.sass */
 .left-side .signup-button {
   margin-top: 48px;
 }
 
-/* line 125, ../../app/stylesheets/partials/_layout.sass */
+/* line 127, ../../app/stylesheets/partials/_layout.sass */
 .right-side {
   margin-left: 330px;
   font-size: 95%;
 }
 
-/* line 130, ../../app/stylesheets/partials/_layout.sass */
+/* line 132, ../../app/stylesheets/partials/_layout.sass */
 .featured {
   position: absolute;
   background-color: #d7d7d7;
@@ -1044,11 +1042,11 @@ a.selected {
   margin-left: -184px;
   top: 125px;
 }
-/* line 138, ../../app/stylesheets/partials/_layout.sass */
+/* line 140, ../../app/stylesheets/partials/_layout.sass */
 .featured .signup-button {
   margin-top: 57px;
 }
-/* line 140, ../../app/stylesheets/partials/_layout.sass */
+/* line 142, ../../app/stylesheets/partials/_layout.sass */
 .featured .popular {
   display: block;
   position: absolute;
@@ -1059,7 +1057,7 @@ a.selected {
   top: 0px;
 }
 
-/* line 149, ../../app/stylesheets/partials/_layout.sass */
+/* line 151, ../../app/stylesheets/partials/_layout.sass */
 .anytime {
   font-family: Georgia, "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial;
   font-size: 16px;
@@ -1068,17 +1066,17 @@ a.selected {
   padding-top: 45px;
 }
 
-/* line 156, ../../app/stylesheets/partials/_layout.sass */
+/* line 158, ../../app/stylesheets/partials/_layout.sass */
 #template_editor {
   margin-top: 30px;
 }
 
-/* line 159, ../../app/stylesheets/partials/_layout.sass */
+/* line 161, ../../app/stylesheets/partials/_layout.sass */
 .template_select {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 162, ../../app/stylesheets/partials/_layout.sass */
+/* line 164, ../../app/stylesheets/partials/_layout.sass */
 .template_select img {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1086,18 +1084,18 @@ a.selected {
   border: 4px solid white;
   margin-right: 52px;
 }
-/* line 166, ../../app/stylesheets/partials/_layout.sass */
+/* line 168, ../../app/stylesheets/partials/_layout.sass */
 .template_select input {
   margin-left: 20px;
 }
 
-/* line 169, ../../app/stylesheets/partials/_layout.sass */
+/* line 171, ../../app/stylesheets/partials/_layout.sass */
 #loading-preview {
   margin-bottom: -25px;
   margin-left: 10px;
 }
 
-/* line 174, ../../app/stylesheets/partials/_layout.sass */
+/* line 176, ../../app/stylesheets/partials/_layout.sass */
 #edit-template input[type=text], #edit-template input[type=file], #edit-template textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1108,7 +1106,7 @@ a.selected {
   font-size: 20px;
 }
 
-/* line 181, ../../app/stylesheets/partials/_layout.sass */
+/* line 183, ../../app/stylesheets/partials/_layout.sass */
 .preview-template iframe {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1117,7 +1115,7 @@ a.selected {
   height: 430px;
 }
 
-/* line 186, ../../app/stylesheets/partials/_layout.sass */
+/* line 188, ../../app/stylesheets/partials/_layout.sass */
 #map_container {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1127,28 +1125,28 @@ a.selected {
   float: left;
   margin: 10px 20px 0 0;
 }
-/* line 192, ../../app/stylesheets/partials/_layout.sass */
+/* line 194, ../../app/stylesheets/partials/_layout.sass */
 #map_container #map, #map_container #wmap {
   width: 600px;
   height: 400px;
 }
 
-/* line 198, ../../app/stylesheets/partials/_layout.sass */
+/* line 200, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart {
   width: 100%;
 }
-/* line 201, ../../app/stylesheets/partials/_layout.sass */
+/* line 203, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td {
   border: 0;
   padding: 5px 0;
   vertical-align: middle;
 }
-/* line 206, ../../app/stylesheets/partials/_layout.sass */
+/* line 208, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td span {
   font-size: 11px;
   color: #888888;
 }
-/* line 210, ../../app/stylesheets/partials/_layout.sass */
+/* line 212, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td:first-child {
   width: 50px;
   padding-right: 10px;
