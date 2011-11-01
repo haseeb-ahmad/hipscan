@@ -910,54 +910,58 @@ a.selected {
   margin-left: -20px;
   border: 0;
 }
+/* line 42, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_form textarea {
+  height: 400px;
+}
 
-/* line 45, ../../app/stylesheets/partials/_layout.sass */
+/* line 47, ../../app/stylesheets/partials/_layout.sass */
 .user-list theader td {
   font-weight: bold;
   border-bottom: 1px solid #999999;
   font-size: 16px;
 }
-/* line 49, ../../app/stylesheets/partials/_layout.sass */
+/* line 51, ../../app/stylesheets/partials/_layout.sass */
 .user-list td {
   width: 200px;
 }
 
-/* line 52, ../../app/stylesheets/partials/_layout.sass */
+/* line 54, ../../app/stylesheets/partials/_layout.sass */
 .toll-free {
   color: black;
   padding-right: 3px;
   font-size: 18px;
 }
-/* line 60, ../../app/stylesheets/partials/_layout.sass */
+/* line 62, ../../app/stylesheets/partials/_layout.sass */
 .toll-free .orange {
   text-shadow: #aaaaaa 0px 0px 1px;
   display: inline;
   color: #f06d2e;
 }
 
-/* line 65, ../../app/stylesheets/partials/_layout.sass */
+/* line 67, ../../app/stylesheets/partials/_layout.sass */
 .template_selection {
   margin-top: 30px;
 }
 
-/* line 68, ../../app/stylesheets/partials/_layout.sass */
+/* line 70, ../../app/stylesheets/partials/_layout.sass */
 .page_selector {
   cursor: hand;
   font-size: 15px;
   background: url(/images/icons/closed_arrow.png) no-repeat;
   padding-left: 20px;
 }
-/* line 73, ../../app/stylesheets/partials/_layout.sass */
+/* line 75, ../../app/stylesheets/partials/_layout.sass */
 .page_selector:hover {
   text-decoration: underline;
 }
 
-/* line 76, ../../app/stylesheets/partials/_layout.sass */
+/* line 78, ../../app/stylesheets/partials/_layout.sass */
 #page-select {
   margin-bottom: 30px;
 }
 
-/* line 78, ../../app/stylesheets/partials/_layout.sass */
+/* line 80, ../../app/stylesheets/partials/_layout.sass */
 .page_selector.selected {
   background: url(/images/icons/open_arrow.png) no-repeat;
   padding-left: 20px;
@@ -965,30 +969,30 @@ a.selected {
   color: #f06d2e;
 }
 
-/* line 84, ../../app/stylesheets/partials/_layout.sass */
+/* line 86, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today {
   color: #f06d2e;
   font-weight: bold;
   font-size: 18px;
   margin-top: 35px;
 }
-/* line 89, ../../app/stylesheets/partials/_layout.sass */
+/* line 91, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today img {
   display: block;
   margin-left: 140px;
   margin-top: 10px;
 }
-/* line 93, ../../app/stylesheets/partials/_layout.sass */
+/* line 95, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button {
   display: inline;
   padding: 10px;
 }
-/* line 96, ../../app/stylesheets/partials/_layout.sass */
+/* line 98, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button a {
   color: white;
 }
 
-/* line 99, ../../app/stylesheets/partials/_layout.sass */
+/* line 101, ../../app/stylesheets/partials/_layout.sass */
 .packages {
   -moz-box-shadow: 0 -5px 20px #bbbbbb;
   -webkit-box-shadow: 0 -5px 20px #bbbbbb;
@@ -1000,62 +1004,62 @@ a.selected {
   padding-top: 20px;
   height: 245px;
 }
-/* line 107, ../../app/stylesheets/partials/_layout.sass */
+/* line 109, ../../app/stylesheets/partials/_layout.sass */
 .packages td {
   padding: 0 20px;
   position: relative;
 }
-/* line 110, ../../app/stylesheets/partials/_layout.sass */
+/* line 112, ../../app/stylesheets/partials/_layout.sass */
 .packages b {
   font-weight: bold;
 }
-/* line 112, ../../app/stylesheets/partials/_layout.sass */
+/* line 114, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan {
   float: left;
   width: 45%;
   padding: 30px 20px 0 20px;
   position: relative;
 }
-/* line 117, ../../app/stylesheets/partials/_layout.sass */
+/* line 119, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan h2 {
   font-size: 18px;
   font-weight: 100;
   padding-top: 14px;
 }
-/* line 121, ../../app/stylesheets/partials/_layout.sass */
+/* line 123, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan a {
   text-align: right;
   font-weight: bold;
 }
-/* line 124, ../../app/stylesheets/partials/_layout.sass */
+/* line 126, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .icons {
   float: left;
   margin-right: 15px;
 }
-/* line 128, ../../app/stylesheets/partials/_layout.sass */
+/* line 130, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .content p {
   margin-bottom: 0;
   padding-top: 11px;
 }
-/* line 131, ../../app/stylesheets/partials/_layout.sass */
+/* line 133, ../../app/stylesheets/partials/_layout.sass */
 .packages .price-sticker {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-/* line 137, ../../app/stylesheets/partials/_layout.sass */
+/* line 139, ../../app/stylesheets/partials/_layout.sass */
 .left-side .signup-button {
   margin-top: 48px;
 }
 
-/* line 139, ../../app/stylesheets/partials/_layout.sass */
+/* line 141, ../../app/stylesheets/partials/_layout.sass */
 .right-side {
   margin-left: 330px;
   font-size: 95%;
 }
 
-/* line 144, ../../app/stylesheets/partials/_layout.sass */
+/* line 146, ../../app/stylesheets/partials/_layout.sass */
 .featured {
   position: absolute;
   background-color: #d7d7d7;
@@ -1065,11 +1069,11 @@ a.selected {
   margin-left: -184px;
   top: 125px;
 }
-/* line 152, ../../app/stylesheets/partials/_layout.sass */
+/* line 154, ../../app/stylesheets/partials/_layout.sass */
 .featured .signup-button {
   margin-top: 57px;
 }
-/* line 154, ../../app/stylesheets/partials/_layout.sass */
+/* line 156, ../../app/stylesheets/partials/_layout.sass */
 .featured .popular {
   display: block;
   position: absolute;
@@ -1080,7 +1084,7 @@ a.selected {
   top: 0px;
 }
 
-/* line 163, ../../app/stylesheets/partials/_layout.sass */
+/* line 165, ../../app/stylesheets/partials/_layout.sass */
 .anytime {
   font-family: Georgia, "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial;
   font-size: 16px;
@@ -1089,17 +1093,17 @@ a.selected {
   padding-top: 45px;
 }
 
-/* line 170, ../../app/stylesheets/partials/_layout.sass */
+/* line 172, ../../app/stylesheets/partials/_layout.sass */
 #template_editor {
   margin-top: 30px;
 }
 
-/* line 173, ../../app/stylesheets/partials/_layout.sass */
+/* line 175, ../../app/stylesheets/partials/_layout.sass */
 .template_select {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 176, ../../app/stylesheets/partials/_layout.sass */
+/* line 178, ../../app/stylesheets/partials/_layout.sass */
 .template_select img {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1107,18 +1111,18 @@ a.selected {
   border: 4px solid white;
   margin-right: 52px;
 }
-/* line 180, ../../app/stylesheets/partials/_layout.sass */
+/* line 182, ../../app/stylesheets/partials/_layout.sass */
 .template_select input {
   margin-left: 20px;
 }
 
-/* line 183, ../../app/stylesheets/partials/_layout.sass */
+/* line 185, ../../app/stylesheets/partials/_layout.sass */
 #loading-preview {
   margin-bottom: -25px;
   margin-left: 10px;
 }
 
-/* line 188, ../../app/stylesheets/partials/_layout.sass */
+/* line 190, ../../app/stylesheets/partials/_layout.sass */
 #edit-template input[type=text], #edit-template input[type=file], #edit-template textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1129,7 +1133,7 @@ a.selected {
   font-size: 20px;
 }
 
-/* line 195, ../../app/stylesheets/partials/_layout.sass */
+/* line 197, ../../app/stylesheets/partials/_layout.sass */
 .preview-template iframe {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1138,7 +1142,7 @@ a.selected {
   height: 430px;
 }
 
-/* line 200, ../../app/stylesheets/partials/_layout.sass */
+/* line 202, ../../app/stylesheets/partials/_layout.sass */
 #map_container {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1148,28 +1152,28 @@ a.selected {
   float: left;
   margin: 10px 20px 0 0;
 }
-/* line 206, ../../app/stylesheets/partials/_layout.sass */
+/* line 208, ../../app/stylesheets/partials/_layout.sass */
 #map_container #map, #map_container #wmap {
   width: 600px;
   height: 400px;
 }
 
-/* line 212, ../../app/stylesheets/partials/_layout.sass */
+/* line 214, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart {
   width: 100%;
 }
-/* line 215, ../../app/stylesheets/partials/_layout.sass */
+/* line 217, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td {
   border: 0;
   padding: 5px 0;
   vertical-align: middle;
 }
-/* line 220, ../../app/stylesheets/partials/_layout.sass */
+/* line 222, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td span {
   font-size: 11px;
   color: #888888;
 }
-/* line 224, ../../app/stylesheets/partials/_layout.sass */
+/* line 226, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td:first-child {
   width: 50px;
   padding-right: 10px;
