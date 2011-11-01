@@ -9,6 +9,10 @@ gem 'fastercsv'
 gem 'batchbook'
 gem 'pdfkit'
 
+
+#cron jobs
+gem 'whenever', :require => false
+
 #gem 'rails', '3.1.0.rc4'
 #gem 'coffee-script'
 #gem 'uglifier'
