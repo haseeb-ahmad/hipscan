@@ -9,6 +9,9 @@ gem 'fastercsv'
 gem 'batchbook'
 gem 'pdfkit'
 
+#wiki
+gem "irwi"
+gem "RedCloth", ">= 4.0", :require => 'redcloth'
 
 #cron jobs
 gem 'whenever', :require => false

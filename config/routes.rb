@@ -5,6 +5,8 @@ class MainSite
 end
 
 Hipscan::Application.routes.draw do
+  wiki_root '/qr-university'
+
   # Routes for the public site
   constraints MainSite do
     # Homepage
