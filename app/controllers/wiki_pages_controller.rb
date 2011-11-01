@@ -1,4 +1,5 @@
 class WikiPagesController < ApplicationController
+  layout 'wiki'
 
   acts_as_wiki_pages_controller
 

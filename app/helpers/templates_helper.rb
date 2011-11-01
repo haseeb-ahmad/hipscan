@@ -64,6 +64,10 @@ module TemplatesHelper
 
   end
 
+  def insert_presentation(str)
+    str.gsub /youtube_presentation/, "<iframe width='560' height='315' src='http://www.youtube.com/embed/Xdh6epBLi74' frameborder='0' allowfullscreen></iframe>"
+  end
+
   def underscore(text)
     text.gsub(/[ |\/]/,'_').underscore
   end
