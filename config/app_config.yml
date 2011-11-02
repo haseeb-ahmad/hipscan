@@ -36,6 +36,7 @@ production:
   <<: *non_production_settings
   host: hipscan.com
   site_name: Hipscan
+  path_to_qrencode: '/usr/bin/qrencode'
   admin_email: admin@hipscan.com
   noreply_email: noreply@hipscan.com
   contact_email: info@hipscan.com

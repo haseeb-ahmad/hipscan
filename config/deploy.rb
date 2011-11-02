@@ -74,6 +74,7 @@ namespace :deploy do
   desc 'After deploy tasks'
   task :after_deploy, :roles => :app, :except => { :no_release => true } do
     #run "cd #{current_path}/.. && chown -R nobody:nogroup *"
+    run("chmod 777 #{current_path}/tmp")
   end
 
   # Restart passenger on deploy
