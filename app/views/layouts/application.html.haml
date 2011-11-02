@@ -38,11 +38,12 @@
       = render :partial => 'layouts/header'
       #content
         - if controller.controller_path.starts_with?('saas_admin')
-          %li= link_to('Subscriptions', saas_admin_subscriptions_path)
-          %li= link_to('Accounts', saas_admin_accounts_path)
-          %li= link_to('Plans', saas_admin_subscription_plans_path)
-          %li= link_to('Discounts', saas_admin_subscription_discounts_path)
-          %li= link_to('Affiliates', saas_admin_subscription_affiliates_path)
+          %ul{ :style => 'color: black;'}
+            %li= link_to('Subscriptions', saas_admin_subscriptions_path)
+            %li= link_to('Accounts', saas_admin_accounts_path)
+            %li= link_to('Plans', saas_admin_subscription_plans_path)
+            %li= link_to('Discounts', saas_admin_subscription_discounts_path)
+            %li= link_to('Affiliates', saas_admin_subscription_affiliates_path)
             %li= link_to("Log out #{current_user.email}", destroy_user_session_path)
         = yield
         .cl
