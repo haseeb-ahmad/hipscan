@@ -8,7 +8,7 @@ class TemplateItem < ActiveRecord::Base
     find_or_create_by_qr_id_and_template_name_and_field_name_and_page_field_name(qr.id, template_name, field, page_field)
   end
 
-  def self.set(qr, template_name, field, page_field = nil, value)
+  def self.set(qr, template_name, field, page_field = nil, value = nil)
     item = find_or_create_by_qr_id_and_template_name_and_field_name_and_page_field_name(qr.id, template_name, field, page_field)
     case item.field_type
       when :string, :url

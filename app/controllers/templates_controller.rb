@@ -111,7 +111,7 @@ class TemplatesController < ApplicationController
   
 
 private
-  def update_field(field, page_field = nil, value)
+  def update_field(field, page_field = nil, value = nil)
     if field.class == 'String' and field.last.match /^Enter URL for/
       TemplateItem.remove(@qr, @template_key, field.first, page_field)
     else

@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
                   :profile_option, :url, :image, :custom_text, :display_name, :email_address, :phone_number, :custom_page,
                   :photo, :facebook_url, :twitter_username, :foursquare_username, :status, :spda_username, :linked_in_profile_url,
                   :website_name, :website_url, :website_name2, :website_url2, :website_name3, :website_url3,
-                  :website_name4, :website_url4, :website_name5, :website_url5,
+                  :website_name4, :website_url4, :website_name5, :website_url5, :account_admin,
                   :sms_phone_number, :sms_carrier, :google_profile_id, :video_url, :video_embed
 
   def plan_name

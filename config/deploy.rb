@@ -16,8 +16,8 @@ require "whenever/capistrano"
 #############################################################
 
 set :application, "hipscan"
-#i set :deploy_to, "/rails/#{application}"
-set :deploy_to, "/var/www/hipscan"
+# set :deploy_to, "/rails/#{application}"
+set :deploy_to, "/rails/live_hipscan"
 
 set :keep_releases, 4
 after "deploy:update", "deploy:cleanup"
@@ -46,19 +46,19 @@ default_run_options[:pty] = true
 #ssh_options[:forward_agent] = true
 #set :use_sudo, true
 set :scm_verbose, false
-#i set :rails_env, "production"
-set :rails_env, "staging"
+set :rails_env, "production"
+# set :rails_env, "staging"
 
 
 #############################################################
 # Servers
 #############################################################
 
-#i set :domain, "hipscan.com"
-set :domain, 'staging.socialpda.com'
-#i set :user, "deploy"
-set :user, "spda"
-#i set :password, "!!dxni9e"
+set :domain, "hipscan.com"
+# set :domain, 'staging.socialpda.com'
+set :user, "deploy"
+# set :user, "spda"
+set :password, "!!dxni9e"
 
 #ssh_options[:port] = 2222
 
