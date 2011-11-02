@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
   inherit_resources
   
   include ActionView::Helpers::NumberHelper
+  include SslRequirement
   
   before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks]
   before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks]

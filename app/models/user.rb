@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
   has_attached_file :qr,
                     :processors => [:change_color],
                     :styles => {
+                        :email => {:resize => '60x60', :color => lambda{|a| a.instance.color}},
                         :thumb => {:resize => '60x60', :color => lambda{|a| a.instance.color}},
                         :print => {:resize => '2000x2000', :color => lambda{|a| a.instance.color}},
                         :poster => {:resize => '4000x4000', :color => lambda{|a| a.instance.color}},
