@@ -10,10 +10,10 @@ be charged <%= number_to_currency(@subscription.amount) %> monthly.
 <%- end -%>
 
 Billing Information:
-<%= @subscriber.home_url("subscription") %>
+<%= link_to "http://www.hipscan.com/account", 'http://www.hipscan.com/account' %>
 
 Trial Expiration Date:
-<%= @subscription.next_renewal_at.to_s(:long_day).squeeze(' ') %>
+<%= @subscription.next_renewal_at.strftime('%m-%d-%Y').squeeze(' ') %>
 
 
 If you have any questions, please email <%= Saas::Config.from_email %>.

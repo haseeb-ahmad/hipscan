@@ -2,14 +2,14 @@ This is a confirmation email to let you know your <%= Saas::Config.app_name %>
 subscription has been changed to the <%= @subscription.subscription_plan.name %> plan.
 
 <% if @subscription.amount > 0 -%>
-Your next bill date will be <%= @subscription.next_renewal_at.to_s(:long_day).squeeze(' ') %>.
+Your next bill date will be <%= @subscription.next_renewal_at.strftime('%m-%d-%Y') %>.
 
 <% if @subscription.needs_payment_info? -%>
 Please make sure you enter your billing information at the 
 following URL before your bill date to prevent an interruption
 in service:
 
-<%= @subscriber.home_url("subscription") %>
+<%= link_to "http://www.hipscan.com/account", 'http://www.hipscan.com/account' %>
 <% end -%>
 <% end -%>
 
