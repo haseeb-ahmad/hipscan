@@ -9,7 +9,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: hipscan_dev
+  database: hipscan_development
   pool: 5
   username: root
   password:

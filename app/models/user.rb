@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   URL = URI::regexp(%w(http https))
   URL_SAFE = /^[a-zA-Z0-9_]*$/
+  FACEBOOK_SAFE = /^[a-zA-Z0-9\._\/]*$/
+  TWITTER_SAFE = /^[@a-zA-Z0-9\._\/]*$/
   EMAIL = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
 
@@ -32,11 +34,11 @@ class User < ActiveRecord::Base
   validates_length_of :status, :maximum => 200
   validates_uniqueness_of :username
   validates_exclusion_of :username, :in => %w( admin superuser www welcome home about contact terms privacy ), :message => "is not allowed as a username"
-  validates_format_of :url, :with => URL, :if => :profile_url?, :message => 'does not appear to be a valid url'
+  validates_format_of :url, :with => URL, :allow_blank => true, :if => :profile_url?, :message => 'does not appear to be a valid url'
   validates_format_of :video_url, :with => URL, :allow_blank => true, :message => 'does not appear to be a valid url'
   validates_format_of :email_address, :with => EMAIL, :allow_blank => true, :message => 'does not appear to be valid', :if => :profile_profile?
-  validates_format_of :facebook_url, :with => URL_SAFE, :allow_blank => true, :message => 'enter your Facebook vanity name'
-  validates_format_of :twitter_username, :with => URL_SAFE, :allow_blank => true, :message => 'does not appear to be a valid Twitter username', :if => :profile_profile?
+  validates_format_of :facebook_url, :with => FACEBOOK_SAFE, :allow_blank => true, :message => 'enter your Facebook vanity name'
+  validates_format_of :twitter_username, :with => TWITTER_SAFE, :allow_blank => true, :message => 'does not appear to be a valid Twitter username', :if => :profile_profile?
   validates_format_of [:linked_in_profile_url, :website_url, :website_url2, :website_url3, :website_url4, :website_url5], :allow_blank => true, :with => URL, :message => 'does not appear to be valid', :if => :profile_profile?
   validates_format_of :spda_username, :with => URL_SAFE, :allow_blank => true, :message => 'is invalid, use only numbers, letters and underscore', :if => :profile_profile?
   validates_length_of :custom_text, :minimum => 1, :if => :profile_text?
@@ -63,7 +65,7 @@ class User < ActiveRecord::Base
   has_attached_file :qr,
                     :processors => [:change_color],
                     :styles => {
-                        :email => {:resize => '60x60', :color => lambda{|a| a.instance.color}},
+                        :email => {:resize => '100x100', :color => lambda{|a| a.instance.color}},
                         :thumb => {:resize => '60x60', :color => lambda{|a| a.instance.color}},
                         :print => {:resize => '2000x2000', :color => lambda{|a| a.instance.color}},
                         :poster => {:resize => '4000x4000', :color => lambda{|a| a.instance.color}},

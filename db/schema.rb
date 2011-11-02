@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101140635) do
+ActiveRecord::Schema.define(:version => 20111102120823) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -316,8 +316,8 @@ ActiveRecord::Schema.define(:version => 20111101140635) do
     t.text     "custom_page"
     t.string   "google_id"
     t.string   "google_profile_id"
-    t.boolean  "admin",                                :default => false
     t.string   "account_type",                         :default => "basic"
+    t.boolean  "admin",                                :default => false
     t.string   "video_url"
     t.text     "video_embed"
     t.integer  "account_id"
