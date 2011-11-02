@@ -10,7 +10,7 @@ be charged <%= number_to_currency(@subscription.amount) %> monthly.
 <%- end -%>
 
 Billing Information:
-<%= link_to "http://www.hipscan.com/account", 'http://www.hipscan.com/account' %>
+<a href='http://www.hipscan.com/account'>http://www.hipscan.com/account</a>
 
 Trial Expiration Date:
 <%= @subscription.next_renewal_at.strftime('%m-%d-%Y').squeeze(' ') %>
