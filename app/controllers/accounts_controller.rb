@@ -14,8 +14,8 @@ class AccountsController < ApplicationController
   before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks]
 
   
-  ssl_required :billing, :cancel, :new, :create if Rails.env == 'Production'
-  ssl_allowed :plans, :thanks, :canceled, :paypal if Rails.env == 'Production'
+  ssl_required :billing, :cancel, :new, :create
+  ssl_allowed :plans, :thanks, :canceled, :paypal
   
   def show
     @account = current_user.account
