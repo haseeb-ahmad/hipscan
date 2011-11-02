@@ -12,10 +12,10 @@
 ## Servers
 ##############################################################
 
-set :deploy_to, "/var/www/hipscan"
 
-set :rails_env, "staging"
 set :domain, 'staging.socialpda.com'
+set :deploy_to, "/var/www/hipscan"
+set :rails_env, "staging"
 set :user, "spda"
 #
 #set :domain, "testdev.net"

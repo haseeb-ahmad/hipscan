@@ -4,7 +4,7 @@
 # Fixed deploy by removing Enterprise Ruby
 # See /etc/environment -- changed paths there so regular Ruby is used rather than Enterprise Ruby
 
-#require 'capistrano/ext/multistage'
+require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
 
