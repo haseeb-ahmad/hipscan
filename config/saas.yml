@@ -36,11 +36,3 @@ staging:
 
 production:
   <<: *defaults
-  credentials:
-    gateway:
-      :login: demo
-      :password: password
-    paypal:
-      :login: demo
-      :password: password
-      :signature: signature
