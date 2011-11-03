@@ -1,5 +1,6 @@
 class SubscriptionNotifier < ActionMailer::Base
   include ActionView::Helpers::NumberHelper
+  include ApplicationHelper
 
   layout 'notifier' # use notifier.(html|text).erb as the layout
   default :from => "noreply@hipscan.com"
