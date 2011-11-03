@@ -19,7 +19,7 @@
           .right= page_field_value(:agent_listing, :price_2)
           = page_field_value(:agent_listing, :street_2)
         .img-box
-          .left-img= image_tag(page_field_value(:agent_listing, :photo_2))
+          .left-img= image_tag(page_field_value(:agent_listing, :photo_2) || '')
           .right-text
             %h3= page_field_value(:agent_listing, :title_2)
             %p= page_field_value(:agent_listing, :description_2)

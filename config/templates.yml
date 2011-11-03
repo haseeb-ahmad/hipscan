@@ -151,8 +151,8 @@
         :field_name: 'Price 2'
         :field_type: :string
         :size: '100'
-      :street_1:
-        :field_name: 'Street Address 1'
+      :street_2:
+        :field_name: 'Street Address 2'
         :field_type: :page
         :size: '300'
   # :contact:

@@ -96,4 +96,5 @@ end
 
 group :development do
   # gem 'mongrel'
+  gem 'newrelic_rpm'
 end
