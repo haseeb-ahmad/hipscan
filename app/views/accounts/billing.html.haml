@@ -16,11 +16,11 @@
     )
     - if @subscription.state == 'trial'
       %label Trial expiration date:
-      = @subscription.next_renewal_at.to_s(:long_day)
+      = @subscription.next_renewal_at.strftime('%m-%d-%Y')
     - else
       - if @subscription.amount > 0
         %label Next charge date:
-        = @subscription.next_renewal_at.to_s(:long_day)
+        = @subscription.next_renewal_at.strftime('%m-%d-%Y')
         %br/
         %label Next charge amount:
         = number_to_currency @subscription.amount

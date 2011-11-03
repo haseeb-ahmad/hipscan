@@ -14,8 +14,9 @@
   %tr
     %td{:style => 'width: 350px; padding-right: 10px'}
       %h1.hipscan= @qr.name
+      = link_to '(Change what your product Hipscan does)', edit_qr_path(@qr)
       =# barcode(current_user.hipscan, 7)
-      #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
+      #hipscan_qr_code{ :style => 'margin-top: 15px' }= image_tag @qr.qr.url(:medium), :title => @qr.name
       .fr{:style => 'margin-right: 25px; margin-top: 2px;'}
         Download
         = link_to 'Big', @qr.qr.url(:print)
@@ -38,7 +39,6 @@
 
       - if @qr.logo.file?
         .center= image_tag @qr.logo.url(:medium), :style => 'width: 300px'
-
 
     %td
       #edit

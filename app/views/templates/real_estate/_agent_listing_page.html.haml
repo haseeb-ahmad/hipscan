@@ -8,7 +8,9 @@
         .right= page_field_value(:agent_listing, :price_1)
         = page_field_value(:agent_listing, :street_1)
       .img-box
-        .left-img= image_tag(page_field_value(:agent_listing, :photo_1) || '')
+        .left-img
+          - if page_field_value(:agent_listing, :photo_1).present?
+            = image_tag(page_field_value(:agent_listing, :photo_1) || '')
         .right-text
           %h3= page_field_value(:agent_listing, :title_1)
           %p= page_field_value(:agent_listing, :description_1)
@@ -19,7 +21,9 @@
           .right= page_field_value(:agent_listing, :price_2)
           = page_field_value(:agent_listing, :street_2)
         .img-box
-          .left-img= image_tag(page_field_value(:agent_listing, :photo_2) || '')
+          .left-img
+            - if page_field_value(:agent_listing, :photo_2).present?
+              = image_tag(page_field_value(:agent_listing, :photo_2) || '')
           .right-text
             %h3= page_field_value(:agent_listing, :title_2)
             %p= page_field_value(:agent_listing, :description_2)
