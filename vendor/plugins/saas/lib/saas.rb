@@ -121,8 +121,8 @@ module Saas
       end
     
       def send_welcome_email
-        Notifier.welcome_email(self).deliver
-        # SubscriptionNotifier.welcome(self).deliver
+        #Notifier.welcome_email(self).deliver
+        SubscriptionNotifier.welcome(self).deliver
       end
 
   end
