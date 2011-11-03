@@ -8,6 +8,7 @@ class TemplatesController < ApplicationController
 
   def show
     #@author_mode = true
+    @qr = Qr.find(params[:qr]) if @qr.nil?
     @template_key = @qr.template.to_sym
     @template = TemplateItem::TEMPLATES[@template_key]
     if params[:show_data].present?
