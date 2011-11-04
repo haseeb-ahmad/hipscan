@@ -2,12 +2,11 @@ class SubscriptionNotifier < ActionMailer::Base
   include ActionView::Helpers::NumberHelper
 
   layout 'notifier' # use notifier.(html|text).erb as the layout
-  default :from => "noreply@hipscan.com"
+  default :from => "noreply@hipscan.com", :content_type => "text/html"
   default_url_options[:host] = APP_CONFIG[:host]
 
   helper :application
 
-  content_type "text/html"
   
   def setup_email(to, subject, from = Saas::Config.from_email)
     @sent_on = Time.now
