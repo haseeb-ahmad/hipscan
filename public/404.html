@@ -3,24 +3,35 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
     div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
+      width: 30em;
+      float: left;
+      line-height: 2.5em;
+      margin-top: 150px;
+      margin-left: 65px;
+    }
+
+    div.image {
+      padding: 0;
+      float: left;
       border: 1px solid #ccc;
       border-right-color: #999;
       border-bottom-color: #999;
+      width: 400px;
+      height: 400px;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    h1 { font-size: 130%; color: #777; line-height: 1.5em; }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
+  <div class="image">
+    <img src='hipscan_poster.png' width='400px' height='400px'>
+  </div>
   <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+    <h1>Ooops! This is not the page you are looking for.</h1>
+    <p>You can return back or try to discover what is hidden behind the qr code.</p>
   </div>
 </body>
 </html>

@@ -78,15 +78,15 @@
               %i Please wait...
 
         .cl
-        .fr{:style => 'margin-right: 60px'}
+        .fr.qr_download_links{ :style => 'margin-right: 64px;'}
           Download
           =# link_to_function 'Big', "$('#toPrint').printElement({printMode: 'popup',overrideElementCSS: ['/stylesheets/print_big.css']});"
           =# link_to_function 'Big', "$('#large_print').printElement({printMode: 'popup'});"
           = link_to 'Big', current_user.qr.url(:print)
           |
           = link_to 'Small', current_user.qr.url(:medium)
-          / |
-          / = link_to 'Email', current_user.qr.url(:email)
+          |
+          = link_to 'Email', current_user.qr.url(:email)
           =# link_to_function 'Small', "$('#toPrint').printElement({printMode: 'popup',overrideElementCSS: ['/stylesheets/print_small.css']});"
           =# link_to_function 'Small', "$('#small_print').printElement({printMode: 'popup'});"
 

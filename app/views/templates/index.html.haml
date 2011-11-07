@@ -2,19 +2,19 @@
   %table.twocol
     %tr
       %td
-        %h1 When scanned your #{hipscan} will launch the following personal mobile website:
+        %h1 When scanned, your #{hipscan}, will launch your HTML5 mobile website displayed on the right hand side:
         %p (#{link_to 'Edit your Hipscan mobile website', edit_template_path(@qr, @qr.template)})
         .hr
         
         #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
         
-        .fr
+        .fr.qr_download_links
           Download
           = link_to 'Big', @qr.qr.url(:print)
           |
           = link_to 'Small', @qr.qr.url(:medium)
-          / |
-          / = link_to 'Email', @qr.qr.url(:email)
+          |
+          = link_to 'Email', @qr.qr.url(:email)
         %br
         %h2 What's Your Color?
         %div

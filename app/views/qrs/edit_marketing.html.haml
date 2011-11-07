@@ -17,13 +17,13 @@
       = link_to '(Change what your product Hipscan does)', edit_qr_path(@qr)
       =# barcode(current_user.hipscan, 7)
       #hipscan_qr_code{ :style => 'margin-top: 15px' }= image_tag @qr.qr.url(:medium), :title => @qr.name
-      .fr{:style => 'margin-right: 25px; margin-top: 2px;'}
+      .fr.qr_download_links
         Download
         = link_to 'Big', @qr.qr.url(:print)
         |
         = link_to 'Small', @qr.qr.url(:medium)
-        / |
-        / = link_to 'Email', @qr.qr.url(:email)
+        |
+        = link_to 'Email', @qr.qr.url(:email)
 
       %br
 

@@ -260,7 +260,7 @@ p {
 }
 
 /* line 148, ../../app/stylesheets/partials/_application.sass */
-.flash_notice {
+.flash_notice, .flash_alert {
   color: #333333;
   margin-left: 40px;
 }
@@ -1208,6 +1208,12 @@ table.bar-chart td span {
 table.bar-chart td:first-child {
   width: 50px;
   padding-right: 10px;
+}
+
+/* line 251, ../../app/stylesheets/partials/_layout.sass */
+.qr_download_links {
+  margin-top: 3px;
+  margin-right: 32px;
 }
 
 /* line 9, ../../app/stylesheets/partials/_page.sass */

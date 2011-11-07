@@ -56,7 +56,7 @@
               
       %td{:style => 'width: 350px; padding-left: 15px'}
         #page-select
-          %h2 #{@template_key.to_s.titleize} Template Wizard
+          %h2 #{@template_key.to_s.titleize == 'Real Estate' ? 'Consultant / Real Estate' : @template_key.to_s.titleize} Template Wizard
           %p
             Select the page to edit the information 
             %br
