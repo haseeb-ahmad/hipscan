@@ -1,11 +1,15 @@
-Thank you for using <%= Saas::Config.app_name %>!
+<br/>
+<h1>Thank you for using <%= Saas::Config.app_name %>!</h1>
 
+<p>
 Your credit card <%= @subscription.card_number %> has been charged 
 <%= number_to_currency(@amount) %> for your <%= @subscription.subscription_plan.name %> plan. This charge covers usage
 from <%= Time.now.strftime('%m-%d-%Y').strip %> until <%= @subscription.next_renewal_at.strftime('%m-%d-%Y').strip %>.
-
+</p>
+<p>
 The attached invoice is for your records.
-
+</p>
+<p>
 
 INVOICE
 ----------------------------------------------------------
@@ -22,8 +26,12 @@ Description                                          Price
 
                    Credit card billed: <%= @subscription.card_number %>
 
+</p>
 
+<p>
 If you have any questions about this invoice, please contact 
 <%= Saas::Config.from_email %>.
-
+</p>
+<p>
 Thank you for your business!
+</p>

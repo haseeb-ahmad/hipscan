@@ -1,15 +1,22 @@
-Uh-oh!
+<br/>
+<h1>Uh-oh!</h1>
 
+<p>
 We were unable to process your payment of
 <%= number_to_currency(@subscription.amount) %> for your <%= @subscription.subscription_plan.name %> plan. 
-
+</p>
+<p>
 Please visit your account page at the following URL to update
 your payment information as soon as possible:
 
+</p>
+<p>
 <a href='http://www.hipscan.com/account'>http://www.hipscan.com/account</a>
-
-
+</p>
+<p>
 If you have any questions about this email, please contact 
 <%= Saas::Config.from_email %>.
-
+</p>
+<p>
 Thank you for your business!
+</p>

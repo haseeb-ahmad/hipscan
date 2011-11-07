@@ -1,12 +1,18 @@
-Welcome to <%= Saas::Config.app_name %>!
+<br/>
+<h1>Welcome to <%= Saas::Config.app_name %>!</h1>
 
-You signed up for the <%= @subscriber.subscription.subscription_plan.name %> plan with the email address <%= @subscriber.email %>.
-
+<p>
+  You signed up for the <%= @subscriber.subscription.subscription_plan.name %> plan with the email address <%= @subscriber.email %>.
+</p>
+<p>
 To sign in again in the future, please return to the following
 URL and use the email address and password you used to create 
 your account:
-
+</p>
+<p>
 <a href='http://www.hipscan.com/account'>http://www.hipscan.com/account</a>
-
+</p>
+<p>
 If you have any questions about or problems with the service, 
 please don't hesitate to email <%= Saas::Config.from_email %>.
+</p>
