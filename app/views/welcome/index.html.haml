@@ -57,7 +57,7 @@
               product call-out card for each product if you desire.
           %hr
           %p{:style => 'text-align:right;'}
-            .select-button= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
+            .select-button= link_to 'Get Started!', new_account_path(:plan => 'Product', :discount => params[:discount])
         .plan
           .price-sticker= image_tag('product_sticker_price.png')
           .icons= image_tag('business-icons.png')
