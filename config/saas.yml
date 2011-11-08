@@ -3,7 +3,7 @@ defaults: &defaults
   from_email: support@hipscan.com
   base_domain: hipscan.com
   gateway: authorize_net_cim
-  require_payment_info_for_trials: true
+  require_payment_info_for_trials: false
   credentials:
     gateway:
       :login: 4yygM7B2G4
@@ -17,7 +17,7 @@ defaults: &defaults
 development:
   <<: *defaults
   base_domain: subscriptions.dev # Edit /etc/hosts to add subscriptions.dev, test.subscriptions.dev, etc., or use Pow: http://pow.cx
-  require_payment_info_for_trials: true
+  require_payment_info_for_trials: false
   gateway: authorize_net_cim
   # credentials:
   #   gateway:

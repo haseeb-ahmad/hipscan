@@ -26,7 +26,9 @@
         #edit_url.profile_option{:style => "display:#{current_user.profile_url? ? nil : 'none'}"}
           = form_tag home_update_path do
             = hidden_field_tag '[user][profile_option]', User::PROFILE_URL
-            = text_field_tag '[user][url]', current_user.url, :class => 'field_with_default', :title => 'http://www.example com'
+            = text_field_tag '[user][url]', current_user.url, :class => 'field_with_default', :title => 'http://m.yourwebsite.com', :placeholder => 'http://m.yourwebsite.com'
+            .upgrade_instructions Remember, user engagement is the key.  Point your #{hipscan} to a mobile website and not a traditional website, as users will quickly close the web version.  You can also #{ link_to "Upgrade", plan_account_path, :style => 'color: #f06d2e; margin-right: 3px'} to the Business Marketer package, which makes creating a HTML5 Mobile Website very easy.
+
             .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
 
         %h1.profile_heading= link_to_function "Launch your Hipscan Profile", "$('.profile_option').hide();$('#edit_profile').show();"

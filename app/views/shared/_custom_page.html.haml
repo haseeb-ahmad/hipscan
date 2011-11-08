@@ -1,2 +1,2 @@
 #custom_page
-  = raw user.custom_page
+  = raw user.custom_page.gsub(/(width|height): \d+px;/, '')

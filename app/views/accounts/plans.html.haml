@@ -36,7 +36,11 @@
       %b Analytics Broken Down Per Product
     %li
       %b 30-day free trial.
-  .signup-button= link_to 'Signup today!', new_account_path(:plan => 'Product', :discount => params[:discount])
+  .signup-button
+    = link_to new_account_path(:plan => 'Product', :discount => params[:discount]) do
+      Start My Free Trial
+      %br
+      %div{:style => 'font-size: 12px'} No Credit Card Required
   
 .plans.middle_side.featured
   .popular 
@@ -60,7 +64,11 @@
       Email Support
     %li 
       %b 30-day free trial
-  .signup-button= link_to 'Signup today!', new_account_path(:plan => 'Business', :discount => params[:discount])
+  .signup-button
+    = link_to new_account_path(:plan => 'Business', :discount => params[:discount]) do
+      Start My Free Trial
+      %br
+      %div{:style => 'font-size: 12px; padding-top: 4px;'} No Credit Card Required
 
 .clearfix
 .anytime  

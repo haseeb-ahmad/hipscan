@@ -102,6 +102,10 @@ class ApplicationController < ActionController::Base
     facebook_logged_in? ? (@fb_friends ||= graph.get_connections("me", "friends")) : []
   end
 
+  def ckeditor_filebrowser_scope(options = {})
+    super({ :assetable_id => current_user.id, :assetable_type => 'User' }.merge(options))
+  end
+
   def add_scan(user, qr = nil)
     begin
       unless request.env['action_dispatch.request.parameters']['noscan'] || (logged_in? && current_user == user)

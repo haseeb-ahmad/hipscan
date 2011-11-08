@@ -26,7 +26,6 @@ Hipscan::Application.routes.draw do
     #
     match '/content/:action' => 'content'
     match '/u/:username' => 'mobile_sites#index'
-    
   end
 
   # devise_for :saas_admins
@@ -215,24 +214,23 @@ Hipscan::Application.routes.draw do
 
   # Rails 3.0 bug
 
- # ckeditor_pictures GET    /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"index"}
-#                    POST   /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"create"}
-#   ckeditor_picture DELETE /ckeditor/pictures/:id(.:format)          {:controller=>"ckeditor/pictures", :action=>"destroy"}
+  # ckeditor_pictures GET    /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"index"}
+                   # POST   /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"create"}
+  #   ckeditor_picture DELETE /ckeditor/pictures/:id(.:format)          {:controller=>"ckeditor/pictures", :action=>"destroy"}
 
 #ckeditor_attachment_files GET    /ckeditor/attachment_files(.:format)      {:controller=>"ckeditor/attachment_files", :action=>"index"}
 #                    POST   /ckeditor/attachment_files(.:format)      {:controller=>"ckeditor/attachment_files", :action=>"create"}
 # ckeditor_attachment_file DELETE /ckeditor/attachment_files/:id(.:format)  {:controller=>"ckeditor/attachment_files", :action=>"destroy"}
 
- # post '/ckeditor/attachment_files', :as => 'ckeditor/attachment_files#create'
- # match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :as => 'ckeditor_attachment_file'
+  post '/ckeditor/attachment_files' => 'ckeditor/attachment_files#create'
+  match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :as => 'ckeditor_attachment_file'
 
- # match 'ckeditor/attachment_files' => 'ckeditor/attachment_files#index', :as => 'ckeditor_attachment_files'
- # match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#create', :via => :post
- # match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :via => :delete, :as => 'ckeditor_attachment_file'
- # match 'ckeditor/pictures' => 'ckeditor/pictures#index', :as => 'ckeditor_pictures'
- # match 'ckeditor/picture' => 'ckeditor/pictures#create', :via => :post
- # match 'ckeditor/picture' => 'ckeditor/pictures#destroy', :via => :delete, :as => 'ckeditor_picture'
-
+  match 'ckeditor/attachment_files' => 'ckeditor/attachment_files#index', :as => 'ckeditor_attachment_files'
+  match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#create', :via => :post
+  match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :via => :delete, :as => 'ckeditor_attachment_file'
+  match 'ckeditor/pictures' => 'ckeditor/pictures#create', :via => :post
+  match 'ckeditor/pictures' => 'ckeditor/pictures#destroy', :via => :delete, :as => 'ckeditor_picture'
+  match 'ckeditor/pictures' => 'ckeditor/pictures#index', :as => 'ckeditor_pictures'
 
   # sneaky catch all, sets username to path
   match '*username', :to => 'welcome#missing_route'
