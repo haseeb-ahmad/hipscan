@@ -32,34 +32,34 @@
   - unless user.website_url5.blank?
     #profile_website= link_to user.website_name5.blank? ? user.website_url5 : user.website_name5, click_path(user,:website_url5)
 
+  .profile_links
+    - unless user.facebook_url.blank?
+      .profile_social_link
+        =# link_to image_tag('icons/FaceBook_icon_32x32.png'), "http://www.facebook.com/profile.php?id=#{user.facebook_url}"
+        = link_to image_tag('icons/FaceBook_icon_32x32.png'), click_path(user,:facebook)
 
-  - unless user.facebook_url.blank?
-    .profile_social_link
-      =# link_to image_tag('icons/FaceBook_icon_32x32.png'), "http://www.facebook.com/profile.php?id=#{user.facebook_url}"
-      = link_to image_tag('icons/FaceBook_icon_32x32.png'), click_path(user,:facebook)
+    - unless user.google_profile_id.blank?
+      .profile_social_link
+        = link_to image_tag('icons/google32.png'), click_path(user, :google_plus)
 
-  - unless user.google_profile_id.blank?
-    .profile_social_link
-      = link_to image_tag('icons/google32.png'), click_path(user, :google_plus)
+    - unless user.twitter_username.blank?
+      .profile_social_link
+        =# link_to image_tag('icons/twitter-icon-32x32.png'), "http://twitter.com/#{user.twitter_username}"
+        = link_to image_tag('icons/twitter-icon-32x32.png'), click_path(user,:twitter)
 
-  - unless user.twitter_username.blank?
-    .profile_social_link
-      =# link_to image_tag('icons/twitter-icon-32x32.png'), "http://twitter.com/#{user.twitter_username}"
-      = link_to image_tag('icons/twitter-icon-32x32.png'), click_path(user,:twitter)
+    -# unless user.foursquare_username.blank?
+      .profile_social_link= link_to image_tag('buttons/foursquare_sm.png'), "https://foursquare.com/user/#{user.foursquare_username}"
 
-  -# unless user.foursquare_username.blank?
-    .profile_social_link= link_to image_tag('buttons/foursquare_sm.png'), "https://foursquare.com/user/#{user.foursquare_username}"
-
-  - unless user.linked_in_profile_url.blank?
-    .profile_social_link
-      =# link_to image_tag('icons/linkedin_icon_32.png'), user.linked_in_profile_url
-      = link_to image_tag('icons/linkedin_icon_32.png'), click_path(user,:linked_in_profile_url)
+    - unless user.linked_in_profile_url.blank?
+      .profile_social_link
+        =# link_to image_tag('icons/linkedin_icon_32.png'), user.linked_in_profile_url
+        = link_to image_tag('icons/linkedin_icon_32.png'), click_path(user,:linked_in_profile_url)
 
 
-  -# unless user.spda_username.blank?
-    .profile_social_link
-      =# link_to image_tag('icons/spda_icon32.png'), "http://socialpda.com/#{user.spda_username}"
-      = link_to image_tag('icons/spda_icon32.png'), click_path(user,:socialpda)
+    -# unless user.spda_username.blank?
+      .profile_social_link
+        =# link_to image_tag('icons/spda_icon32.png'), "http://socialpda.com/#{user.spda_username}"
+        = link_to image_tag('icons/spda_icon32.png'), click_path(user,:socialpda)
 
   .cl
   .hr

@@ -1,8 +1,5 @@
-<!doctype html public "✰">
-<!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
-<!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>
+
 %head
   %meta{:charset => "utf-8"}/
   = csrf_meta_tag
@@ -21,7 +18,8 @@
   / Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
   / CSS: implied media="all"
   = stylesheet_link_tag "style", "application", :media => "all", :cache => "styles"
-  = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'mobile_screen.css', :media => 'only screen and (min-width: 400px)'
+  = stylesheet_link_tag 'small_screen.css', :media => "only screen and (max-width: 400px)"
   = yield :css
 
   / More ideas for your <head> here: h5bp.com/docs/#head-Tips
