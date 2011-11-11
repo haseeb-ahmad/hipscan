@@ -4,4 +4,6 @@ log/*.log
 tmp/
 .idea/
 public/system/qrs/
+public/system/
 public/system/files/
+.DS_Store

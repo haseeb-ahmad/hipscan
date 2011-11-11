@@ -6,4 +6,137 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+<url>
+  <loc>http://www.hipscan.com/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/users/sign_in</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/signup</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/contact</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/about</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/services</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/privacy_policy</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/terms_of_use</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/A%20QR%20Code%20Cannot</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/The%20Definitive%20Do&#39;s%20and%20Don&#39;ts%20of%20QR%20Code%20Marketing</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/What%20Are%20You%20Telling%20Them%3F%20Where%20Are%20You%20Sending%20Them%3F</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/Direct%20QR%20Codes%20Versus%20All%20The%20Other%20Guys</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/With%20QR%20Codes%E2%80%A6Size%20Does%20Matter</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/Hipscan%20QR%20Code%20Placement</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/Make%20it%20Fancy..%20But%20First,%20Make%20It%20Effective</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/services/video</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/services/mobile</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/services/design</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/The%20Definitive%20Does%20and%20Don%E2%80%99ts%20of%20QR%20Code%20Marketing</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/new?path=The%20Definitive%20Do&#39;s%20and%20Don&#39;ts%20of%20QR%20Code%20Marketing</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/The%20Definitive%20Do&#39;s%20and%20Don%E2%80%99ts%20of%20QR%20Code%20Marketing</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/pdfs/HS_and_Wireless.pdf</loc>
+  <lastmod>2011-11-02T12:43:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/pdfs/HS_and_Real_Estate.pdf</loc>
+  <lastmod>2011-11-02T12:43:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/pdfs/HS_and_Retail.pdf</loc>
+  <lastmod>2011-11-02T12:43:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.hipscan.com/qr-university/new?path=The%20Definitive%20Does%20and%20Don&#226;ts%20of%20QR%20Code%20Marketing</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
 </urlset>
