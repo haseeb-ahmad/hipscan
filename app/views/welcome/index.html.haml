@@ -38,36 +38,4 @@
           = image_tag 'qr_slide_3.png', :title => 'http://hipscan.com'
           = image_tag 'qr_slide_4.png', :title => 'http://hipscan.com'
           = link_to image_tag('qr_slide_5.png', :title => 'http://hipscan.com'), "/qr-university"
-%table{ :style => 'padding-top: 20px'}
-  %tr
-    %td         
-      .packages
-        .plan
-          .price-sticker= image_tag('business_sticker_price.png')
-          .icons= image_tag('product-icons.png')
-          .content
-            %h2 Product Marketer
-            %p
-              %b Create and track
-              up to
-              %b 30 Hipscan QR codes
-              within a single account. Each product can be tied into a URL or to a video, image or text destination.
-            %p
-              %b Make a custom
-              product call-out card for each product if you desire.
-          %hr
-          %p{:style => 'text-align:right;'}
-            .select-button= link_to 'Get Started!', new_account_path(:plan => 'Product', :discount => params[:discount])
-        .plan
-          .price-sticker= image_tag('product_sticker_price.png')
-          .icons= image_tag('business-icons.png')
-          .content
-            %h2 Business Marketer
-            %p
-              %b Create a custom HTML5 Mobile Website
-              or Mobile Coupon showcasing your product.
-            %p
-              %b Beautiful templates
-              available for each industry makes it easy to get started.
-          %hr{ :style => 'margin-top: 31px;'}
-          .select-button= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
+= render :partial => 'plan'

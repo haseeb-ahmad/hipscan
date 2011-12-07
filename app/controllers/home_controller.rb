@@ -33,7 +33,7 @@ class HomeController < ApplicationController
     else
       render :action => :edit
     end
-    
+
 #    if current_user.profile_option == 'url' && current_user.url !~ /\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i
 #      @error_msg = 'URL is invalid!'
 #      render :action => :edit
@@ -137,13 +137,15 @@ class HomeController < ApplicationController
 
 private
   def account_active?
-    redirect_to billing_account_path unless current_user.account.active?
+    unless current_user.account.active?
+      redirect_to billing_account_path unless current_user.subscription_plan == 'Basic'
+    end
     return true
   end
-  
+
   def check_subscription
     subscription = current_user.subscription.subscription_plan.name
-    
+
     if subscription =~ /^Business/
       if current_user.template.present?
         # redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)

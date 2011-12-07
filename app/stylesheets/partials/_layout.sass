@@ -31,10 +31,10 @@
 .upgrade_instructions
   padding: 5px 20px 5px 10px
 
-#content 
+#content
   .wiki_page_actions
     padding-right: 20px
-  
+
   .wiki_content
     margin-right: 20px
     border: 0px
@@ -106,7 +106,7 @@
   padding-left: 20px
   text-decoration: underline
   color: $orange-color
-    
+
 .create-hipscan-today
   color: $orange-color
   font-weight: bold
@@ -158,22 +158,22 @@
     position: absolute
     top: 0px
     right: 0px
-  
+
 .left-side
   .signup-button
     margin-top: 48px
-.right-side 
+.right-side
   margin-left: 330px
   font-size: 95%
 .middle-side
-  
+
 .featured
   position: absolute
   background-color: $featured-background
   width: 300px
   height: 500px
   left: 50%
-  margin-left: -184px 
+  margin-left: -184px
   top: 125px
   .signup-button
     margin-top: 57px
@@ -185,7 +185,7 @@
     width: 119px
     right: 0px
     top: 0px
-    
+
 .anytime
   font-family: Georgia, "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial
   font-size: 16px
@@ -195,17 +195,17 @@
 
 #template_editor
   margin-top: 30px
-  
+
 .template_select
   margin-top: 20px
   margin-bottom: 30px
-  img 
+  img
     +picture-drop-shadow
     border: 4px solid white
     margin-right: 52px
   input
     margin-left: 20px
-  
+
 #loading-preview
   margin-bottom: -25px
   margin-left: 10px
@@ -216,7 +216,7 @@
     width: 430px
     padding: 10px 20px
     font-size: 20px
-    
+
 .preview-template
   iframe
     +picture-drop-shadow
@@ -254,3 +254,153 @@ table.bar-chart
 .qr_download_links
   margin-top: 3px
   margin-right: 32px
+
+.orange-hr
+  background: url(images/orange_bar.png)
+  width: 960px
+  height: 20px
+  margin-top: 20px
+  margin-left: -20px
+
+$plan-text-color: #424242
+
+.plan_introduction
+  table
+    background-color: #e8e8e8
+    margin-top: 10px
+  td
+    color: $plan-text-color
+    font-size: 14px
+    padding: 0px 10px
+    text-align: center
+    h1
+      font-weight: bold
+      font-size: 140%
+    .orange-title
+      color: $titles
+      font-size: 30px
+      font-weight: bold
+      text-align: center
+      width: 330px
+      margin-top: -50px
+    .different
+      background: url(images/hipscan_different_image.png) no-repeat
+      background-position: center
+      height: 190px
+      width: 220px
+    .promotional
+      background: url(images/hipscan_benefit_image.png) no-repeat
+      background-position: center
+      height: 155px
+      width: 220px
+    .qr-codes
+      background: url(images/qr_codes.png) no-repeat
+      background-position: center
+      height: 180px
+  td.line
+    background: url(images/short_vertical_line.png) no-repeat
+    height: 440px
+    width: 10px
+    padding: 0px
+    margin: 0px
+  td:first-child
+    width: 255px
+    h1
+      padding-top: 25px
+
+.plan_description
+  color: $plan-text-color
+  td
+    .title
+      color: $titles
+      font-size: 22px
+      font-weight: bold
+      text-align: center
+      margin-top: 15px
+    .subheading
+      width: 300px
+      text-align: center
+      margin: 0 auto
+      padding-top: 10px
+    .box-promotion
+      +rounded-corners(10px)
+      +drop-shadow(0px)
+      background-color: white
+      width: 380px
+      margin: 10px auto
+      padding: 10px 5px
+      .title
+        text-align: center
+        font-weight: bold
+        font-size: 100%
+        color: $plan-text-color
+        width: 80%
+        margin: 0 auto
+      .description
+        background: url(images/day-badge.png) no-repeat
+        padding-left: 95px
+        padding-top: 12px
+        margin-left: 55px
+        margin-top: 5px
+        width: 80%
+        height: 80px
+        color: $titles
+        h1
+          font-weight: bold
+          font-size: 28px
+    .business-page, .product-page
+      width: 365px
+      height: 315px
+      margin: 0 auto
+      margin-top: -25px
+    .business-page
+      background: url(images/business-page.png) no-repeat
+    .product-page
+      background: url(images/product-page.png) no-repeat
+    .mobile, .analytics, .video, .retail, .graph, .web, .coupon, .map, .click, .update, .marketing
+      clear: both
+      vertical-align: middle
+      height: 70px
+      padding: 40px 10px 0px 100px
+      margin-top: -40px
+      font-family: ArchitectsDaughterRegular
+      background-position: center
+    .mobile
+      background: url(images/phones.png) no-repeat
+      height: 100px
+      padding-top: 40px
+      margin-top: 20px
+    .analytics
+      background: url(images/analytics.png) no-repeat
+    .video
+      background: url(images/video.png) no-repeat
+    .retail
+      background: url(images/store.png) no-repeat
+    .graph
+      background: url(images/graph.png) no-repeat
+    .web
+      background: url(images/template.png) no-repeat
+      height: 75px
+    .marketing
+      background: url(images/poster.png) no-repeat
+      height: 100px
+    .coupon
+      background: url(images/coupon.png) no-repeat
+    .map
+      background: url(images/map.png) no-repeat
+    .click
+      background: url(images/click.png) no-repeat
+      height: 70px
+    .update
+      background: url(images/wireless.png) no-repeat
+      height: 75px
+  td:first-child
+    .title
+      margin-top: -47px
+    .box-promotion
+      .title
+        margin-top: 0px
+  td.line
+    background: url(images/long_vertical_line.png) no-repeat
+    height: 1072px
+    width: 10px

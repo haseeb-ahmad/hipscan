@@ -1,0 +1,94 @@
+.orange-hr
+%table.plan_introduction
+  %tr
+    %td
+      .promotional
+      %h1 How can Hipscan benefit me?
+      .description
+        While the Hipscan QR itself is important, what the users see after the scan – is the most important element in the whole process.  Hipscan understands this.  More than the code, Hipscan helps create a user experience and ultimately brand loyalty.  And on the backend, we leave you just as engaged with your target market.  From advanced analytics to a SMS (text message) when a user is engaged, we keep you in the know!
+    %td.line &nbsp;
+    %td
+      .orange-title What’s a Hipscan?
+      .qr-codes
+      .description
+        Think of a Hipscan as the standard in QR code engagement & marketing.  Hipscan's proprietary technology let's you take your customers from a simple scan to a level of engagement that paints a picture in their minds – not to forget to mention – that this leaves your target client with a visual identity of your brand.
+    %td.line &nbsp;
+    %td
+      .different
+      %h1 How is Hipscan different?
+      .description
+        Part of what makes Hipscan different is that you can change your destination at anytime instantly!  Want your Hipscan to point to a mobile coupon today, and a user video tomorrow?  No problem, just login and change the destination!  Print your collateral without being worried about changing your digital destinations.  What makes Hipscan even more unique – are the R&D dollars we invest in making sure we understand, continually evolve, and keep you on the forefront of mobile marketing engagement at all times!
+.orange-hr
+%table.plan_description
+  %tr
+    %td
+      .title
+        Marketing different products?
+        %br
+        Want a new digital marketing force?
+      .subheading The Hipscan Product Marketer instantly allows you to create & track up to 30 products!
+      .box-promotion
+        .title Start Engaging With Your Mobile Users Now! (Less than 50 cents a day)
+        .description
+          %h1 FREE TRIAL
+          No credit card required
+      .product-page
+      .mobile Instantly connect with users on iPhones, iPads, Android, Blackberry & Windows devices
+      .marketing Create instant marketing pieces to go along with every product
+      .analytics Analytics available fo reach product
+      .video Point a product to a video, installation manual or mobile coupon
+      .retail Setup in you retail store as a digital marketing assistant
+      .graph See which products sell better or create re-ordering processes.
+    %td
+      .title
+        Own a business?
+        %br
+        Are you a consultant?
+      .subheading The Hipscan Business Marketer instantly allows you to create a html5 mobile website!
+      .box-promotion
+        .title Start Engaging With Your Mobile Users Now! (Less than 65 cents a day)
+        .description
+          %h1 FREE TRIAL
+          No credit card required
+      .business-page
+      .options
+        .mobile Instantly connect with users on iPhones, iPads, Android, Blackberry & Windows devices
+        .web Easy-to-edit high-quality template
+        .coupon Create instant mobile coupons
+        .map Mobile maps & directions
+        .analytics Advanced analytics
+        .click Click-to-call & Click-to-text features
+        .update Update, change any componenet on the fly
+%table{ :style => 'padding-top: 20px'}
+  %tr
+    %td
+      .packages
+        .plan
+          .price-sticker= image_tag('business_sticker_price.png')
+          .icons= image_tag('product-icons.png')
+          .content
+            %h2 Product Marketer
+            %p
+              %b Create and track
+              up to
+              %b 30 Hipscan QR codes
+              within a single account. Each product can be tied into a URL or to a video, image or text destination.
+            %p
+              %b Make a custom
+              product call-out card for each product if you desire.
+          %hr
+          %p{:style => 'text-align:right;'}
+            .select-button= link_to 'Get Started!', new_account_path(:plan => 'Product', :discount => params[:discount])
+        .plan
+          .price-sticker= image_tag('product_sticker_price.png')
+          .icons= image_tag('business-icons.png')
+          .content
+            %h2 Business Marketer
+            %p
+              %b Create a custom HTML5 Mobile Website
+              or Mobile Coupon showcasing your product.
+            %p
+              %b Beautiful templates
+              available for each industry makes it easy to get started.
+          %hr{ :style => 'margin-top: 31px;'}
+          .select-button= link_to 'Get Started!', new_account_path(:plan => 'Business', :discount => params[:discount])
