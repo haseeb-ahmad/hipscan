@@ -138,7 +138,11 @@ class HomeController < ApplicationController
 private
   def account_active?
     unless current_user.account.active?
-      redirect_to billing_account_path unless current_user.subscription_plan == 'Basic'
+      unless current_user.subscription_plan == 'Basic'
+        flash[:notice] = 'Your plan has expired. Please update your billing details for selected plan or switch to Basic plan'
+        redirect_to billing_account_path
+        # return false
+      end
     end
     return true
   end
