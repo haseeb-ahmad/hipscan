@@ -929,21 +929,33 @@ a.selected {
 #content .wiki_page_actions {
   padding-right: 20px;
 }
-/* line 38, ../../app/stylesheets/partials/_layout.sass */
+/* line 37, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_page_actions b {
+  font-weight: bold;
+}
+/* line 40, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_content {
   margin-right: 20px;
   border: 0px;
 }
-/* line 42, ../../app/stylesheets/partials/_layout.sass */
+/* line 43, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_content b {
+  font-weight: bold;
+}
+/* line 46, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_form {
   margin-left: -20px;
   border: 0;
 }
-/* line 45, ../../app/stylesheets/partials/_layout.sass */
+/* line 49, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_form textarea {
   height: 400px;
 }
-/* line 48, ../../app/stylesheets/partials/_layout.sass */
+/* line 51, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_form b {
+  font-weight: bold;
+}
+/* line 54, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_sidebar {
   width: 190px;
   float: left;
@@ -951,11 +963,15 @@ a.selected {
   height: 100%;
   word-wrap: break-word;
 }
-/* line 55, ../../app/stylesheets/partials/_layout.sass */
+/* line 60, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_sidebar b {
+  font-weight: bold;
+}
+/* line 62, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_sidebar img {
   width: 190px;
 }
-/* line 58, ../../app/stylesheets/partials/_layout.sass */
+/* line 65, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_section {
   border-left: 3px solid #404040;
   word-wrap: break-word;
@@ -964,58 +980,62 @@ a.selected {
   width: 690px;
   padding-left: 10px;
 }
-/* line 66, ../../app/stylesheets/partials/_layout.sass */
+/* line 72, ../../app/stylesheets/partials/_layout.sass */
+#content .wiki_section b {
+  font-weight: bold;
+}
+/* line 74, ../../app/stylesheets/partials/_layout.sass */
 #content .wiki_section iframe {
   margin-left: 64px;
 }
 
-/* line 71, ../../app/stylesheets/partials/_layout.sass */
+/* line 79, ../../app/stylesheets/partials/_layout.sass */
 .user-list theader td {
   font-weight: bold;
   border-bottom: 1px solid #999999;
   font-size: 16px;
 }
-/* line 75, ../../app/stylesheets/partials/_layout.sass */
+/* line 83, ../../app/stylesheets/partials/_layout.sass */
 .user-list td {
   width: 200px;
 }
 
-/* line 78, ../../app/stylesheets/partials/_layout.sass */
+/* line 86, ../../app/stylesheets/partials/_layout.sass */
 .toll-free {
   color: black;
   padding-right: 3px;
   font-size: 18px;
 }
-/* line 86, ../../app/stylesheets/partials/_layout.sass */
+/* line 94, ../../app/stylesheets/partials/_layout.sass */
 .toll-free .orange {
   text-shadow: #aaaaaa 0px 0px 1px;
   display: inline;
   color: #f06d2e;
 }
 
-/* line 91, ../../app/stylesheets/partials/_layout.sass */
+/* line 99, ../../app/stylesheets/partials/_layout.sass */
 .template_selection {
   margin-top: 30px;
 }
 
-/* line 94, ../../app/stylesheets/partials/_layout.sass */
+/* line 102, ../../app/stylesheets/partials/_layout.sass */
 .page_selector {
   cursor: hand;
   font-size: 15px;
   background: url(/images/icons/closed_arrow.png) no-repeat;
   padding-left: 20px;
 }
-/* line 99, ../../app/stylesheets/partials/_layout.sass */
+/* line 107, ../../app/stylesheets/partials/_layout.sass */
 .page_selector:hover {
   text-decoration: underline;
 }
 
-/* line 102, ../../app/stylesheets/partials/_layout.sass */
+/* line 110, ../../app/stylesheets/partials/_layout.sass */
 #page-select {
   margin-bottom: 30px;
 }
 
-/* line 104, ../../app/stylesheets/partials/_layout.sass */
+/* line 112, ../../app/stylesheets/partials/_layout.sass */
 .page_selector.selected {
   background: url(/images/icons/open_arrow.png) no-repeat;
   padding-left: 20px;
@@ -1023,30 +1043,30 @@ a.selected {
   color: #f06d2e;
 }
 
-/* line 110, ../../app/stylesheets/partials/_layout.sass */
+/* line 118, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today {
   color: #f06d2e;
   font-weight: bold;
   font-size: 18px;
   margin-top: 35px;
 }
-/* line 115, ../../app/stylesheets/partials/_layout.sass */
+/* line 123, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today img {
   display: block;
   margin-left: 140px;
   margin-top: 10px;
 }
-/* line 119, ../../app/stylesheets/partials/_layout.sass */
+/* line 127, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button {
   display: inline;
   padding: 10px;
 }
-/* line 122, ../../app/stylesheets/partials/_layout.sass */
+/* line 130, ../../app/stylesheets/partials/_layout.sass */
 .create-hipscan-today .signup-button a {
   color: white;
 }
 
-/* line 125, ../../app/stylesheets/partials/_layout.sass */
+/* line 133, ../../app/stylesheets/partials/_layout.sass */
 .packages {
   -moz-box-shadow: 0 -5px 20px #bbbbbb;
   -webkit-box-shadow: 0 -5px 20px #bbbbbb;
@@ -1058,62 +1078,62 @@ a.selected {
   padding-top: 20px;
   height: 245px;
 }
-/* line 133, ../../app/stylesheets/partials/_layout.sass */
+/* line 141, ../../app/stylesheets/partials/_layout.sass */
 .packages td {
   padding: 0 20px;
   position: relative;
 }
-/* line 136, ../../app/stylesheets/partials/_layout.sass */
+/* line 144, ../../app/stylesheets/partials/_layout.sass */
 .packages b {
   font-weight: bold;
 }
-/* line 138, ../../app/stylesheets/partials/_layout.sass */
+/* line 146, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan {
   float: left;
   width: 45%;
   padding: 30px 20px 0 20px;
   position: relative;
 }
-/* line 143, ../../app/stylesheets/partials/_layout.sass */
+/* line 151, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan h2 {
   font-size: 18px;
   font-weight: 100;
   padding-top: 14px;
 }
-/* line 147, ../../app/stylesheets/partials/_layout.sass */
+/* line 155, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan a {
   text-align: right;
   font-weight: bold;
 }
-/* line 150, ../../app/stylesheets/partials/_layout.sass */
+/* line 158, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .icons {
   float: left;
   margin-right: 15px;
 }
-/* line 154, ../../app/stylesheets/partials/_layout.sass */
+/* line 162, ../../app/stylesheets/partials/_layout.sass */
 .packages .plan .content p {
   margin-bottom: 0;
   padding-top: 11px;
 }
-/* line 157, ../../app/stylesheets/partials/_layout.sass */
+/* line 165, ../../app/stylesheets/partials/_layout.sass */
 .packages .price-sticker {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-/* line 163, ../../app/stylesheets/partials/_layout.sass */
+/* line 171, ../../app/stylesheets/partials/_layout.sass */
 .left-side .signup-button {
   margin-top: 48px;
 }
 
-/* line 165, ../../app/stylesheets/partials/_layout.sass */
+/* line 173, ../../app/stylesheets/partials/_layout.sass */
 .right-side {
   margin-left: 330px;
   font-size: 95%;
 }
 
-/* line 170, ../../app/stylesheets/partials/_layout.sass */
+/* line 178, ../../app/stylesheets/partials/_layout.sass */
 .featured {
   position: absolute;
   background-color: #d7d7d7;
@@ -1123,11 +1143,11 @@ a.selected {
   margin-left: -184px;
   top: 125px;
 }
-/* line 178, ../../app/stylesheets/partials/_layout.sass */
+/* line 186, ../../app/stylesheets/partials/_layout.sass */
 .featured .signup-button {
   margin-top: 57px;
 }
-/* line 180, ../../app/stylesheets/partials/_layout.sass */
+/* line 188, ../../app/stylesheets/partials/_layout.sass */
 .featured .popular {
   display: block;
   position: absolute;
@@ -1138,7 +1158,7 @@ a.selected {
   top: 0px;
 }
 
-/* line 189, ../../app/stylesheets/partials/_layout.sass */
+/* line 197, ../../app/stylesheets/partials/_layout.sass */
 .anytime {
   font-family: Georgia, "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial;
   font-size: 16px;
@@ -1147,17 +1167,17 @@ a.selected {
   padding-top: 45px;
 }
 
-/* line 196, ../../app/stylesheets/partials/_layout.sass */
+/* line 204, ../../app/stylesheets/partials/_layout.sass */
 #template_editor {
   margin-top: 30px;
 }
 
-/* line 199, ../../app/stylesheets/partials/_layout.sass */
+/* line 207, ../../app/stylesheets/partials/_layout.sass */
 .template_select {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 202, ../../app/stylesheets/partials/_layout.sass */
+/* line 210, ../../app/stylesheets/partials/_layout.sass */
 .template_select img {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1165,18 +1185,18 @@ a.selected {
   border: 4px solid white;
   margin-right: 52px;
 }
-/* line 206, ../../app/stylesheets/partials/_layout.sass */
+/* line 214, ../../app/stylesheets/partials/_layout.sass */
 .template_select input {
   margin-left: 20px;
 }
 
-/* line 209, ../../app/stylesheets/partials/_layout.sass */
+/* line 217, ../../app/stylesheets/partials/_layout.sass */
 #loading-preview {
   margin-bottom: -25px;
   margin-left: 10px;
 }
 
-/* line 214, ../../app/stylesheets/partials/_layout.sass */
+/* line 222, ../../app/stylesheets/partials/_layout.sass */
 #edit-template input[type=text], #edit-template input[type=file], #edit-template textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1187,7 +1207,7 @@ a.selected {
   font-size: 20px;
 }
 
-/* line 221, ../../app/stylesheets/partials/_layout.sass */
+/* line 229, ../../app/stylesheets/partials/_layout.sass */
 .preview-template iframe {
   -moz-box-shadow: 0 0 15px #bbbbbb;
   -webkit-box-shadow: 0 0 15px #bbbbbb;
@@ -1196,7 +1216,7 @@ a.selected {
   height: 430px;
 }
 
-/* line 226, ../../app/stylesheets/partials/_layout.sass */
+/* line 234, ../../app/stylesheets/partials/_layout.sass */
 #map_container {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1206,40 +1226,40 @@ a.selected {
   float: left;
   margin: 10px 20px 0 0;
 }
-/* line 232, ../../app/stylesheets/partials/_layout.sass */
+/* line 240, ../../app/stylesheets/partials/_layout.sass */
 #map_container #map, #map_container #wmap {
   width: 600px;
   height: 400px;
 }
 
-/* line 238, ../../app/stylesheets/partials/_layout.sass */
+/* line 246, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart {
   width: 100%;
 }
-/* line 241, ../../app/stylesheets/partials/_layout.sass */
+/* line 249, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td {
   border: 0;
   padding: 5px 0;
   vertical-align: middle;
 }
-/* line 246, ../../app/stylesheets/partials/_layout.sass */
+/* line 254, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td span {
   font-size: 11px;
   color: #888888;
 }
-/* line 250, ../../app/stylesheets/partials/_layout.sass */
+/* line 258, ../../app/stylesheets/partials/_layout.sass */
 table.bar-chart td:first-child {
   width: 50px;
   padding-right: 10px;
 }
 
-/* line 254, ../../app/stylesheets/partials/_layout.sass */
+/* line 262, ../../app/stylesheets/partials/_layout.sass */
 .qr_download_links {
   margin-top: 3px;
   margin-right: 32px;
 }
 
-/* line 258, ../../app/stylesheets/partials/_layout.sass */
+/* line 266, ../../app/stylesheets/partials/_layout.sass */
 .orange-hr {
   background: url(images/orange_bar.png);
   width: 960px;
@@ -1248,24 +1268,24 @@ table.bar-chart td:first-child {
   margin-left: -20px;
 }
 
-/* line 268, ../../app/stylesheets/partials/_layout.sass */
+/* line 276, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction table {
   background-color: #e8e8e8;
   margin-top: 10px;
 }
-/* line 271, ../../app/stylesheets/partials/_layout.sass */
+/* line 279, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td {
   color: #424242;
   font-size: 14px;
   padding: 0px 10px;
   text-align: center;
 }
-/* line 276, ../../app/stylesheets/partials/_layout.sass */
+/* line 284, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td h1 {
   font-weight: bold;
   font-size: 140%;
 }
-/* line 279, ../../app/stylesheets/partials/_layout.sass */
+/* line 287, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .orange-title {
   color: #f07422;
   font-size: 30px;
@@ -1274,27 +1294,27 @@ table.bar-chart td:first-child {
   width: 330px;
   margin-top: -50px;
 }
-/* line 286, ../../app/stylesheets/partials/_layout.sass */
+/* line 294, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .different {
   background: url(images/hipscan_different_image.png) no-repeat;
   background-position: center;
   height: 190px;
   width: 220px;
 }
-/* line 291, ../../app/stylesheets/partials/_layout.sass */
+/* line 299, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .promotional {
   background: url(images/hipscan_benefit_image.png) no-repeat;
   background-position: center;
   height: 155px;
   width: 220px;
 }
-/* line 296, ../../app/stylesheets/partials/_layout.sass */
+/* line 304, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .qr-codes {
   background: url(images/qr_codes.png) no-repeat;
   background-position: center;
   height: 180px;
 }
-/* line 300, ../../app/stylesheets/partials/_layout.sass */
+/* line 308, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td.line {
   background: url(images/short_vertical_line.png) no-repeat;
   height: 440px;
@@ -1302,20 +1322,20 @@ table.bar-chart td:first-child {
   padding: 0px;
   margin: 0px;
 }
-/* line 306, ../../app/stylesheets/partials/_layout.sass */
+/* line 314, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td:first-child {
   width: 255px;
 }
-/* line 308, ../../app/stylesheets/partials/_layout.sass */
+/* line 316, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td:first-child h1 {
   padding-top: 25px;
 }
 
-/* line 311, ../../app/stylesheets/partials/_layout.sass */
+/* line 319, ../../app/stylesheets/partials/_layout.sass */
 .plan_description {
   color: #424242;
 }
-/* line 314, ../../app/stylesheets/partials/_layout.sass */
+/* line 322, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .title {
   color: #f07422;
   font-size: 22px;
@@ -1323,14 +1343,14 @@ table.bar-chart td:first-child {
   text-align: center;
   margin-top: 15px;
 }
-/* line 320, ../../app/stylesheets/partials/_layout.sass */
+/* line 328, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .subheading {
   width: 300px;
   text-align: center;
   margin: 0 auto;
   padding-top: 10px;
 }
-/* line 325, ../../app/stylesheets/partials/_layout.sass */
+/* line 333, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1344,7 +1364,7 @@ table.bar-chart td:first-child {
   margin: 10px auto;
   padding: 10px 5px;
 }
-/* line 332, ../../app/stylesheets/partials/_layout.sass */
+/* line 340, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .title {
   text-align: center;
   font-weight: bold;
@@ -1353,7 +1373,7 @@ table.bar-chart td:first-child {
   width: 80%;
   margin: 0 auto;
 }
-/* line 339, ../../app/stylesheets/partials/_layout.sass */
+/* line 347, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .description {
   background: url(images/day-badge.png) no-repeat;
   padding-left: 95px;
@@ -1364,27 +1384,27 @@ table.bar-chart td:first-child {
   height: 80px;
   color: #f07422;
 }
-/* line 348, ../../app/stylesheets/partials/_layout.sass */
+/* line 356, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .description h1 {
   font-weight: bold;
   font-size: 28px;
 }
-/* line 351, ../../app/stylesheets/partials/_layout.sass */
+/* line 359, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .business-page, .plan_description td .product-page {
   width: 365px;
   height: 315px;
   margin: 0 auto;
   margin-top: -25px;
 }
-/* line 356, ../../app/stylesheets/partials/_layout.sass */
+/* line 364, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .business-page {
   background: url(images/business-page.png) no-repeat;
 }
-/* line 358, ../../app/stylesheets/partials/_layout.sass */
+/* line 366, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .product-page {
   background: url(images/product-page.png) no-repeat;
 }
-/* line 360, ../../app/stylesheets/partials/_layout.sass */
+/* line 368, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .mobile, .plan_description td .analytics, .plan_description td .video, .plan_description td .retail, .plan_description td .graph, .plan_description td .web, .plan_description td .coupon, .plan_description td .map, .plan_description td .click, .plan_description td .update, .plan_description td .marketing {
   clear: both;
   vertical-align: middle;
@@ -1394,66 +1414,66 @@ table.bar-chart td:first-child {
   font-family: ArchitectsDaughterRegular;
   background-position: center;
 }
-/* line 368, ../../app/stylesheets/partials/_layout.sass */
+/* line 376, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .mobile {
   background: url(images/phones.png) no-repeat;
   height: 100px;
   padding-top: 40px;
   margin-top: 20px;
 }
-/* line 373, ../../app/stylesheets/partials/_layout.sass */
+/* line 381, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .analytics {
   background: url(images/analytics.png) no-repeat;
 }
-/* line 375, ../../app/stylesheets/partials/_layout.sass */
+/* line 383, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .video {
   background: url(images/video.png) no-repeat;
 }
-/* line 377, ../../app/stylesheets/partials/_layout.sass */
+/* line 385, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .retail {
   background: url(images/store.png) no-repeat;
 }
-/* line 379, ../../app/stylesheets/partials/_layout.sass */
+/* line 387, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .graph {
   background: url(images/graph.png) no-repeat;
 }
-/* line 381, ../../app/stylesheets/partials/_layout.sass */
+/* line 389, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .web {
   background: url(images/template.png) no-repeat;
   height: 75px;
 }
-/* line 384, ../../app/stylesheets/partials/_layout.sass */
+/* line 392, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .marketing {
   background: url(images/poster.png) no-repeat;
   height: 100px;
 }
-/* line 387, ../../app/stylesheets/partials/_layout.sass */
+/* line 395, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .coupon {
   background: url(images/coupon.png) no-repeat;
 }
-/* line 389, ../../app/stylesheets/partials/_layout.sass */
+/* line 397, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .map {
   background: url(images/map.png) no-repeat;
 }
-/* line 391, ../../app/stylesheets/partials/_layout.sass */
+/* line 399, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .click {
   background: url(images/click.png) no-repeat;
   height: 70px;
 }
-/* line 394, ../../app/stylesheets/partials/_layout.sass */
+/* line 402, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .update {
   background: url(images/wireless.png) no-repeat;
   height: 75px;
 }
-/* line 398, ../../app/stylesheets/partials/_layout.sass */
+/* line 406, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td:first-child .title {
   margin-top: -47px;
 }
-/* line 401, ../../app/stylesheets/partials/_layout.sass */
+/* line 409, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td:first-child .box-promotion .title {
   margin-top: 0px;
 }
-/* line 403, ../../app/stylesheets/partials/_layout.sass */
+/* line 411, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td.line {
   background: url(images/long_vertical_line.png) no-repeat;
   height: 1072px;

@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
   inherit_resources
-  
+
   include ActionView::Helpers::NumberHelper
   include SslRequirement
-  
+
   before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks]
   before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks]
   before_filter :build_user, :only => [:new, :create]
@@ -13,21 +13,21 @@ class AccountsController < ApplicationController
   before_filter :build_plan, :only => [:new, :create]
   before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks]
 
-  
+
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :canceled, :paypal
-  
+
   def show
     @account = current_user.account
   end
-  
+
   def new
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
-  
+
   def create
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
-    
+
     @account.domain = @account.admin.username
     @account.name = @account.admin.username
     @account.admin.account_admin = true
@@ -38,12 +38,12 @@ class AccountsController < ApplicationController
       @account.address = @address
       @account.creditcard = @creditcard
     end
-          
+
     if @account.save
       unless @account.subscription.subscription_plan.name =~ /^Basic/
         @account.admin.profile_option = "profile"
       end
-      
+
       sign_in(:user, @account.admin)
       # flash[:domain] = @account.domain
       redirect_to home_path
@@ -51,7 +51,7 @@ class AccountsController < ApplicationController
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
   end
-  
+
   def password
     if request.post?
       if current_user.update_with_password(params[:user])
@@ -60,7 +60,7 @@ class AccountsController < ApplicationController
       end
     end
   end
-  
+
   def update
     if resource.update_attributes(params[:account])
       flash[:notice] = "Your account has been updated."
@@ -69,12 +69,12 @@ class AccountsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def plans
     @plans = SubscriptionPlan.find(:all, :order => 'amount desc').collect {|p| p.discount = @discount; p }
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
-  
+
   def billing
     if request.post?
       if params[:paypal].blank?
@@ -93,7 +93,7 @@ class AccountsController < ApplicationController
       end
     end
   end
-  
+
   # Handle the redirect return from PayPal
   def paypal
     if params[:token]
@@ -136,14 +136,14 @@ class AccountsController < ApplicationController
           end
         end
       end
-      
+
       Rails.logger.debug "#{@subscription.inspect}"
-      
+
       if @subscription.save
         flash[:notice] = "Your subscription has been changed."
         SubscriptionNotifier.plan_changed(@subscription).deliver
         if current_user.subscription_plan != 'Basic' and current_user.subscription.billing_id.nil?
-          redirect_to billing_account_path 
+          redirect_to billing_account_path
           return
         end
       else
@@ -154,7 +154,7 @@ class AccountsController < ApplicationController
       @plans = SubscriptionPlan.find(:all, :conditions => ['id <> ?', @subscription.subscription_plan_id], :order => 'amount desc').collect {|p| p.discount = @subscription.discount; p }
     end
   end
-  
+
   # Handle the redirect return from PayPal when changing plans
   def plan_paypal
     if params[:token]
@@ -179,35 +179,35 @@ class AccountsController < ApplicationController
       redirect_to :action => "canceled"
     end
   end
-  
+
   def thanks
     redirect_to :action => "plans" and return unless flash[:domain]
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
-  
+
   def dashboard
   end
 
   protected
-  
+
     def resource
       @account ||= current_account
     end
-    
+
     def build_user
       build_resource.admin = User.new unless build_resource.admin
     end
-    
+
     def build_plan
       redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
       @plan.discount = @discount
       @account.plan = @plan
     end
-    
+
     def redirect_url
       { :action => 'show' }
     end
-    
+
     def load_billing
       @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
       @address = SubscriptionAddress.new(params[:address])
@@ -216,18 +216,18 @@ class AccountsController < ApplicationController
     def load_subscription
       @subscription = current_account.subscription
     end
-    
+
     # Load the discount by code, but not if it's not available
     def load_discount
       if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
         @discount = nil
       end
     end
-    
+
     def authorized?
       redirect_to new_user_session_url unless self.action_name == 'dashboard' || account_admin?
-    end 
-    
+    end
+
     def load_account
       @account = current_user.account
     end
