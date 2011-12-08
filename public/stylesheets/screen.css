@@ -1436,45 +1436,41 @@ table.bar-chart td:first-child {
 /* line 387, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .graph {
   background: url(images/graph.png) no-repeat;
-  margin-top: -10px;
 }
-/* line 390, ../../app/stylesheets/partials/_layout.sass */
+/* line 389, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .web {
   background: url(images/template.png) no-repeat;
   height: 75px;
 }
-/* line 393, ../../app/stylesheets/partials/_layout.sass */
+/* line 392, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .marketing {
   background: url(images/poster.png) no-repeat;
   height: 100px;
 }
-/* line 396, ../../app/stylesheets/partials/_layout.sass */
+/* line 395, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .coupon {
   background: url(images/coupon.png) no-repeat;
 }
-/* line 398, ../../app/stylesheets/partials/_layout.sass */
+/* line 397, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .map {
   background: url(images/map.png) no-repeat;
 }
-/* line 400, ../../app/stylesheets/partials/_layout.sass */
+/* line 399, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .click {
   background: url(images/click.png) no-repeat;
   height: 70px;
 }
-/* line 403, ../../app/stylesheets/partials/_layout.sass */
+/* line 402, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .update {
   background: url(images/wireless.png) no-repeat;
   height: 75px;
+  margin-top: -20px;
 }
-/* line 407, ../../app/stylesheets/partials/_layout.sass */
-.plan_description td:first-child .title {
-  margin-top: -47px;
-}
-/* line 410, ../../app/stylesheets/partials/_layout.sass */
+/* line 408, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td:first-child .box-promotion .title {
   margin-top: 0px;
 }
-/* line 412, ../../app/stylesheets/partials/_layout.sass */
+/* line 410, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td.line {
   background: url(images/long_vertical_line.png) no-repeat;
   height: 1072px;
