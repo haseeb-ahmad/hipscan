@@ -1,3 +1,6 @@
+- if current_account.subscription.amount > 0 and current_user.created_at > 5.minutes.ago
+  = image_tag "https://shareasale.com/sale.cfm?amount=#{current_account.subscription.amount}&tracking=#{current_account.id}&transtype=sale&merchantID=37263", :width => "1", :height => "1"
+
 #premium_feauters
   .hr
   %h2 Product Marketer #{hipscan('s')}
@@ -5,7 +8,7 @@
   - c = current_user.qrs.count
   %p
     You have created #{c} of 30 Marketing #{hipscan('s')}.
-    
+
   - if c < 30
     %p= link_to "Create #{c == 0 ? 'One' : 'Another'} Now", new_qr_path
 

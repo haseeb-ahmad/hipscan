@@ -82,7 +82,7 @@ class AccountsController < ApplicationController
         @address.last_name = @creditcard.last_name
         if @creditcard.valid? & @address.valid?
           if @subscription.store_card(@creditcard, :billing_address => @address.to_activemerchant, :ip => request.remote_ip)
-            flash[:notice] = "Thanks.  Your Billing Information Has Been Updated.  The Next Time Your Card Will Be Charged is #{@subscription.paypal? ? "PayPal" : @subscription.card_number} for #{number_to_currency @subscription.amount}"
+            flash[:notice] = "Thanks. Your billing information has been updated. The next time your card will be charged is on #{@subscription.subscription.next_renewal_at.strftime('%m-%d-%Y')} for #{number_to_currency @subscription.amount}"
             redirect_to :action => "show"
           end
         end

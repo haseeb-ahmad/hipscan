@@ -1,12 +1,17 @@
+
+
 -if current_user.template.present?
   = link_to 'cancel template selection', home_path
 - else
+  - if current_account.subscription.amount > 0 and current_user.created_at > 5.minutes.ago
+    = image_tag "https://shareasale.com/sale.cfm?amount=#{current_account.subscription.amount}&tracking=#{current_account.id}&transtype=sale&merchantID=37263", :width => "1", :height => "1"
+
   #registration
     %table.twocol
       %tr
         %td{ :style => 'padding-right: 0px'}
           %ul.progress{:style => 'margin-left: 4%'}
-            %li 
+            %li
               %b 1. Choose a template
             %li 2. Customize the template
             %li 3. Finish & start engaging customers
@@ -16,8 +21,8 @@
     %h1 Select new template from the selection
   - else
     %h1 We're Ready to Create Your HTML5 Mobile Website
-    %h3 
-      Choose One of the Templates Below: 
+    %h3
+      Choose One of the Templates Below:
       %br
       (Note: You’ll Be Able To Fully Customize All Information)
 
