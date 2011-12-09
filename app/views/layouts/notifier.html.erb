@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /*<![CDATA[*/
+        .hipscan {
+          color: #f36d21;
+        }
+      /*]]>*/
+    </style>
+  </head>
+  <body>
+    <%= image_tag('http://hipscan.com/images/hipscan-logo.png') %>
+    <%= yield %>
+    <%= render :partial => 'notifier/footer' %>
+  </body>
+</html>
