@@ -1,0 +1,35 @@
+- if current_account.subscription.amount > 0 and current_user.created_at > 5.minutes.ago
+  = image_tag "https://shareasale.com/sale.cfm?amount=#{current_account.subscription.amount}&tracking=#{current_account.id}&transtype=sale&merchantID=37263", :width => "1", :height => "1"
+
+#premium_feauters
+  .hr
+  %h2
+    Product
+    %sup{:style => "font-size: 70%;"} (250)
+    Marketer #{hipscan('s')}
+  %br
+  - c = current_user.qrs.count
+  %p
+    You have created #{c} of 250 Marketing #{hipscan('s')}.
+
+  - if c < 250
+    %p= link_to "Create #{c == 0 ? 'One' : 'Another'} Now", new_qr_path
+
+  - if c > 0
+    -#%p= link_to "View your Marketing Hipscan Codes", qrs_path
+
+    %table#qrlist.scaffold
+      %tr
+        %th Name
+        %th{:style => 'text-align:right'} Actions
+      - for qr in current_user.qrs
+        %tr{:class => cycle('odd', 'even')}
+          %td= link_to qr.name || 'New Hipscan', "/#{qr.code}"
+          %td{:style => 'text-align:right'}
+            = link_to 'Edit', edit_qr_path(qr)
+            \|
+            = link_to 'Marketing', marketing_qr_path(qr)
+            \|
+            = link_to 'Analytics', analytics_qr_path(qr)
+            \|
+            = link_to 'Delete', qr, :confirm => 'Are you sure?', :method => :delete

@@ -63,6 +63,8 @@
         = render :partial => 'business'
       - elsif current_user.account_plan == 'Product'
         = render :partial => 'product'
+      - elsif current_user.account_plan == 'Agency 250'
+        = render :partial => 'product250'
       - else
         = render :partial => 'shared/product'
 

@@ -2,7 +2,7 @@
   %h1 Basic Hipscan
   %h2.price Free
   %p
-    %b For beginner 
+    %b For beginner
     to the world of QR - or those that already have developed marketing destinations for their Hipscan.
   %ul
     %li
@@ -16,7 +16,7 @@
     %li
       %b Basic Email Support
   .signup-button= link_to 'Signup today!', new_account_path(:plan => 'Basic', :discount => params[:discount])
-  
+
 .plans.right-side
   %h1 Product Marketer
   %h2.price $14 per month
@@ -29,10 +29,10 @@
       up to
       %b 30 Hipscan QR codes
       within a single account. Each product can be tied into a URL or to a video, image or text destination.
-    %li 
+    %li
       %b Make a custom
       product call-out card for each product if you desire.
-    %li 
+    %li
       %b Analytics Broken Down Per Product
     %li
       %b 30-day free trial.
@@ -41,12 +41,12 @@
       Start My Free Trial
       %br
       %div{:style => 'font-size: 12px'} No Credit Card Required
-  
+
 .plans.middle_side.featured
-  .popular 
+  .popular
   %h1 Business Marketer
   %h2.price $19 per month
-  %p 
+  %p
     %b Ready to promote your business?
     It's all about the engagement after someone scans your Hipscan. Create a custom mobile website for your business - and engage your users right after the scan!
   %ul
@@ -62,16 +62,20 @@
     %li
       %b Priority
       Email Support
-    %li 
+    %li
       %b 30-day free trial
   .signup-button
     = link_to new_account_path(:plan => 'Business', :discount => params[:discount]) do
       Start My Free Trial
       %br
       %div{:style => 'font-size: 12px; padding-top: 4px;'} No Credit Card Required
-
 .clearfix
-.anytime  
+.agency-plans
+  Are you an agency?
+  = mail_to APP_CONFIG[:contact_email], "Email us", :subject => 'Agency Plans'
+  for larger agency plans.
+
+.anytime
   %b Upgrade, Downgrade or Cancel anytime.
   %br
   All Plans Optimized for over 7,000 Mobile Devices
