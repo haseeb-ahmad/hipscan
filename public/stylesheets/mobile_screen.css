@@ -1,11 +1,11 @@
-/* line 4, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 4, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 html {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-/* line 18, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 18, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 .bp-reset-element, body, h1, h2, h3, h4, h5, h6, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, blockquote, q, th, td, caption, table,
 div, span, object, iframe, p,
 pre, a, abbr, acronym, address,
@@ -23,21 +23,21 @@ caption, tbody, tfoot, thead, tr {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 21, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 21, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 blockquote, q {
   quotes: "" "";
 }
-/* line 67, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 67, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 blockquote:before, blockquote:after, q:before, q:after {
   content: "";
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 th, td, caption {
   float: none !important;
   text-align: left;
@@ -45,19 +45,19 @@ th, td, caption {
   vertical-align: middle;
 }
 
-/* line 23, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 23, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 17, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -79,45 +79,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../.rvm/gems/ruby-1.9.2-p290@hipscan/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -130,32 +130,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-style: normal;
 }
 
-/* line 19, ../../app/stylesheets/partials/_mobile.sass */
+/* line 30, ../../app/stylesheets/partials/_mobile.sass */
 html {
   max-width: 600px;
   min-width: 320px;
   margin: 0 auto;
   position: relative;
   width: 100%;
+  font-family: Helvetica, Arial, sans-serif, Arial black;
+  color: #cccccc;
 }
 
-/* line 26, ../../app/stylesheets/partials/_mobile.sass */
+/* line 39, ../../app/stylesheets/partials/_mobile.sass */
 body {
   position: relative;
   width: 100%;
 }
 
-/* line 30, ../../app/stylesheets/partials/_mobile.sass */
+/* line 43, ../../app/stylesheets/partials/_mobile.sass */
 #hipscan_layout {
   width: 100%;
   margin: 0 auto;
 }
-/* line 33, ../../app/stylesheets/partials/_mobile.sass */
+/* line 46, ../../app/stylesheets/partials/_mobile.sass */
 #hipscan_layout content {
   padding: 130px 0 10px 0px;
 }
 
-/* line 36, ../../app/stylesheets/partials/_mobile.sass */
+/* line 49, ../../app/stylesheets/partials/_mobile.sass */
 #content {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d1d1d1), color-stop(10%, #f8f8f8), color-stop(80%, #ececec));
   background-image: -webkit-linear-gradient(#d1d1d1, #f8f8f8 10%, #ececec 80%);
@@ -168,12 +170,12 @@ body {
   margin: 0;
   background-color: #f5f5f5;
 }
-/* line 43, ../../app/stylesheets/partials/_mobile.sass */
+/* line 56, ../../app/stylesheets/partials/_mobile.sass */
 #content a {
   text-decoration: none;
 }
 
-/* line 46, ../../app/stylesheets/partials/_mobile.sass */
+/* line 59, ../../app/stylesheets/partials/_mobile.sass */
 #myhipscan {
   width: 100%;
   margin: 0 auto;
@@ -181,44 +183,215 @@ body {
   text-align: center;
 }
 
-/* line 52, ../../app/stylesheets/partials/_mobile.sass */
+/* line 65, ../../app/stylesheets/partials/_mobile.sass */
 .profile_links {
   margin: 0 auto;
   text-align: center;
   width: 210px;
 }
 
-/* line 57, ../../app/stylesheets/partials/_mobile.sass */
+/* line 70, ../../app/stylesheets/partials/_mobile.sass */
 #profile_display_name, #profile_email, #profile_phone_number, #profile_website {
   font-size: 20px;
   margin: 10px 0;
 }
 
-/* line 61, ../../app/stylesheets/partials/_mobile.sass */
+/* line 74, ../../app/stylesheets/partials/_mobile.sass */
 .profile_social_link {
+  cursor: pointer;
   float: left;
   margin: 10px 20px 10px 0;
 }
 
-/* line 65, ../../app/stylesheets/partials/_mobile.sass */
+/* line 79, ../../app/stylesheets/partials/_mobile.sass */
 #custom_page {
   width: 95%;
   margin: 0 auto;
 }
-/* line 68, ../../app/stylesheets/partials/_mobile.sass */
+/* line 82, ../../app/stylesheets/partials/_mobile.sass */
 #custom_page img {
   width: 90%;
 }
 
-/* line 72, ../../app/stylesheets/partials/_mobile.sass */
+/* line 85, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile {
+  color: #12469b;
+  margin-top: -140px;
+  margin-bottom: -30px;
+  padding-bottom: 40px;
+  background: url(images/custom-profile-background.png);
+}
+/* line 87, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-header {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7680f), color-stop(100%, #f4802d));
+  background-image: -webkit-linear-gradient(#e7680f, #f4802d);
+  background-image: -moz-linear-gradient(#e7680f, #f4802d);
+  background-image: -o-linear-gradient(#e7680f, #f4802d);
+  background-image: -ms-linear-gradient(#e7680f, #f4802d);
+  background-image: linear-gradient(#e7680f, #f4802d);
+  height: 30px;
+  border-bottom: 1px solid white;
+}
+/* line 95, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile table {
+  margin: 0 auto;
+  width: 90%;
+}
+/* line 98, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile table td:first-child {
+  width: 65px;
+  font-weight: bold;
+  color: #3964a9;
+}
+/* line 102, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile table td {
+  font-size: 120%;
+}
+/* line 104, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile table td a {
+  color: #ec701a;
+}
+/* line 106, ../../app/stylesheets/partials/_mobile.sass */
 #custom_profile #profile_status {
   font-size: 18px;
   font-weight: bold;
   margin: 15px auto;
   color: #666666;
 }
+/* line 112, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-box {
+  width: 95%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  padding-top: 40px;
+  background-color: white;
+  border: 1px solid #c2c2c2;
+  margin: 0 auto;
+}
+/* line 119, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-photo {
+  width: 30%;
+  margin-bottom: -80px;
+}
+/* line 122, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-photo img {
+  -moz-box-shadow: 0 0 20px #999999;
+  -webkit-box-shadow: 0 0 20px #999999;
+  box-shadow: 0 0 20px #999999;
+  padding: 5px;
+  background: white;
+  width: 100%;
+}
+/* line 127, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-display-name, #custom_profile .profile-description {
+  margin-left: 50%;
+  width: 50%;
+}
+/* line 130, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-display-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+/* line 133, ../../app/stylesheets/partials/_mobile.sass */
+#custom_profile .profile-status {
+  margin-bottom: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
 
-/* line 78, ../../app/stylesheets/partials/_mobile.sass */
+/* line 138, ../../app/stylesheets/partials/_mobile.sass */
+.profile-photo-on .profile-photo {
+  margin: 1em 0 -60px 2em;
+  z-index: 100;
+}
+
+/* line 143, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  height: 20px;
+  font-weight: bold;
+  text-align: left;
+  width: 95%;
+  margin: 10px auto;
+  background-color: #e5e5e5;
+  color: #eb7019;
+}
+/* line 152, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box .title {
+  float: left;
+  padding: 2px 0 0 10px;
+}
+/* line 155, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box .about, .horizontal-box .social-media, .horizontal-box .contact {
+  float: right;
+  height: 18px;
+  margin-top: 1px;
+  margin-right: 1px;
+  width: 18px;
+  background-size: 100%;
+}
+/* line 162, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box .about {
+  background: url(images/profile-about.png) no-repeat;
+}
+/* line 164, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box .social-media {
+  float: right;
+  height: 18px;
+  width: 18px;
+  background-size: 100%;
+  background: url(images/profile-social.png) no-repeat;
+}
+/* line 170, ../../app/stylesheets/partials/_mobile.sass */
+.horizontal-box .contact {
+  float: right;
+  height: 18px;
+  width: 18px;
+  background-size: 100%;
+  background: url(images/profile-contact.png) no-repeat;
+}
+
+/* line 176, ../../app/stylesheets/partials/_mobile.sass */
+.vcard {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  margin: 10px auto;
+  width: 200px;
+}
+/* line 182, ../../app/stylesheets/partials/_mobile.sass */
+.vcard .left, .vcard .right, .vcard .middle {
+  float: left;
+  height: 53px;
+}
+/* line 185, ../../app/stylesheets/partials/_mobile.sass */
+.vcard .left {
+  background: url(images/profile-vcard-left.png) no-repeat;
+  width: 5px;
+}
+/* line 188, ../../app/stylesheets/partials/_mobile.sass */
+.vcard .middle {
+  background: url(images/profile-vcard-middle.png) repeat-x;
+  width: 180px;
+  font-size: 20px;
+  padding-top: 16px;
+}
+/* line 193, ../../app/stylesheets/partials/_mobile.sass */
+.vcard .right {
+  width: 9px;
+  background: url(images/profile-vcard-right.png) no-repeat;
+}
+
+/* line 197, ../../app/stylesheets/partials/_mobile.sass */
 #custom_text, #custom_url, #custom_image {
   font-size: 20px;
   border: 2px solid #aaaaaa;
@@ -228,13 +401,13 @@ body {
   word-wrap: break-word;
   width: 90%;
 }
-/* line 87, ../../app/stylesheets/partials/_mobile.sass */
+/* line 206, ../../app/stylesheets/partials/_mobile.sass */
 #custom_text p, #custom_url p, #custom_image p {
   font-size: 18px;
   color: #333333;
 }
 
-/* line 91, ../../app/stylesheets/partials/_mobile.sass */
+/* line 210, ../../app/stylesheets/partials/_mobile.sass */
 #profile_photo, #custom_image {
   width: 90%;
   border: 1px solid #888888;
@@ -242,38 +415,38 @@ body {
   margin: 10px auto;
   background: white;
 }
-/* line 98, ../../app/stylesheets/partials/_mobile.sass */
+/* line 217, ../../app/stylesheets/partials/_mobile.sass */
 #profile_photo img, #custom_image img {
   width: 100%;
 }
 
-/* line 101, ../../app/stylesheets/partials/_mobile.sass */
+/* line 220, ../../app/stylesheets/partials/_mobile.sass */
 #custom_image {
   margin: 10px auto;
   padding: 15px 15px 8px 15px;
 }
 
-/* line 105, ../../app/stylesheets/partials/_mobile.sass */
+/* line 224, ../../app/stylesheets/partials/_mobile.sass */
 .hipscan {
   color: #f36d21;
 }
-/* line 108, ../../app/stylesheets/partials/_mobile.sass */
+/* line 227, ../../app/stylesheets/partials/_mobile.sass */
 .hipscan a {
   text-decoration: none;
   color: #f36d21;
 }
 
-/* line 113, ../../app/stylesheets/partials/_mobile.sass */
+/* line 232, ../../app/stylesheets/partials/_mobile.sass */
 .cl {
   clear: both;
 }
 
-/* line 116, ../../app/stylesheets/partials/_mobile.sass */
+/* line 235, ../../app/stylesheets/partials/_mobile.sass */
 .fr {
   float: right;
 }
 
-/* line 119, ../../app/stylesheets/partials/_mobile.sass */
+/* line 238, ../../app/stylesheets/partials/_mobile.sass */
 .fl {
   float: left;
 }

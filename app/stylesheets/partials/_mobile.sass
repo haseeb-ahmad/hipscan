@@ -16,12 +16,25 @@ $orange_bottom_color: #d94911
 $plan-background: #f5f5f5
 $featured-background: #d7d7d7
 
+// custom profile colors
+$profile-background: #e0e0e0m
+$profile-gradient-top: #e7680f
+$profile-gradient-bottom: #f4802d
+$profile-text-color: #12469b
+
+@mixin picture-drop-shadow($size: 20px, $color: #999)
+  -moz-box-shadow: 0 0 $size $color
+  -webkit-box-shadow: 0 0 $size $color
+  box-shadow: 0 0 $size $color
+
 html
   max-width: 600px
   min-width: 320px
   margin: 0 auto
   position: relative
   width: 100%
+  font-family: Helvetica, Arial, sans-serif, Arial Black
+  color: #ccc
 
 body
   position: relative
@@ -59,6 +72,7 @@ body
   margin: 10px 0
 
 .profile_social_link
+  cursor: pointer
   float: left
   margin: 10px 20px 10px 0
 
@@ -69,11 +83,116 @@ body
     width: 90%
 
 #custom_profile
+  color: $profile-text-color
+  .profile-header
+    +background-image(linear-gradient($profile-gradient-top, $profile-gradient-bottom))
+    height: 30px
+    border-bottom: 1px solid white
+  margin-top: -140px
+  margin-bottom: -30px
+  padding-bottom: 40px
+  background: url(images/custom-profile-background.png)
+  table
+    margin: 0 auto
+    width: 90%
+    td:first-child
+      width: 65px
+      font-weight: bold
+      color: #3964a9
+    td
+      font-size: 120%
+      a
+        color: #ec701a
   #profile_status
     font-size: 18px
     font-weight: bold
     margin: 15px auto
     color: #666
+  .profile_description
+  .profile-box
+    width: 95%
+    +border-radius
+    padding-top: 40px
+    background-color: white
+    border: 1px solid #c2c2c2
+    margin: 0 auto
+  .profile-photo
+    width: 30%
+    margin-bottom: -80px
+    img
+      +picture-drop-shadow
+      padding: 5px
+      background: white
+      width: 100%
+  .profile-display-name, .profile-description
+    margin-left: 50%
+    width: 50%
+  .profile-display-name
+    font-size: 28px
+    font-weight: bold
+  .profile-status
+    margin-bottom: 10px
+    width: 90%
+    margin: 0 auto
+.profile-photo-on
+  .profile-photo
+    margin: 1em 0 -60px 2em
+    z-index: 100
+.profile-photo-off
+
+.horizontal-box
+  +border-radius(10px)
+  height: 20px
+  font-weight: bold
+  text-align: left
+  width: 95%
+  margin: 10px auto
+  background-color: #e5e5e5
+  color: #eb7019
+  .title
+    float: left
+    padding: 2px 0 0 10px
+  .about, .social-media, .contact
+    float: right
+    height: 18px
+    margin-top: 1px
+    margin-right: 1px
+    width: 18px
+    background-size: 100%
+  .about
+    background: url(images/profile-about.png) no-repeat
+  .social-media
+    float: right
+    height: 18px
+    width: 18px
+    background-size: 100%
+    background: url(images/profile-social.png) no-repeat
+  .contact
+    float: right
+    height: 18px
+    width: 18px
+    background-size: 100%
+    background: url(images/profile-contact.png) no-repeat
+.vcard
+  cursor: pointer
+  color: white
+  font-weight: bold
+  margin: 10px auto
+  width: 200px
+  .left, .right, .middle
+    float: left
+    height: 53px
+  .left
+    background: url(images/profile-vcard-left.png) no-repeat
+    width: 5px
+  .middle
+    background: url(images/profile-vcard-middle.png) repeat-x
+    width: 180px
+    font-size: 20px
+    padding-top: 16px
+  .right
+    width: 9px
+    background: url(images/profile-vcard-right.png) no-repeat
 
 #custom_text, #custom_url, #custom_image
   font-size: 20px
@@ -83,7 +202,7 @@ body
   background: #f5f5f5
   word-wrap: break-word
   width: 90%
-  
+
   p
     font-size: 18px
     color: #333

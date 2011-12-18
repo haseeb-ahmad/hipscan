@@ -1,76 +1,116 @@
 #custom_profile
+  .profile-header
   -#
     %h1.hipscan= user.username
     .hr
-  - unless user.display_name.blank?
-    #profile_display_name= user.display_name
-
-  - unless user.email_address.blank?
-    #profile_email= mail_to user.email_address, user.email_address
-
-  - unless user.phone_number.blank?
-    #profile_phone_number
-      = link_to user.phone_number, "tel:#{user.phone_number}"
-      &nbsp;
-      = link_to "[SMS Me]", "sms:#{user.phone_number.gsub(/\D/,'')}"
-
-  - unless user.website_url.blank?
-    #profile_website
-      =# link_to user.website_name.blank? ? 'My Website' : user.website_name, user.website_url
-      = link_to user.website_name.blank? ? 'My Website' : user.website_name, click_path(user,:website_url)
-
-  - unless user.website_url2.blank?
-    #profile_website
-      = link_to user.website_name2.blank? ? user.website_url2 : user.website_name2, click_path(user,:website_url2)
-
-  - unless user.website_url3.blank?
-    #profile_website= link_to user.website_name3.blank? ? user.website_url3 : user.website_name3, click_path(user,:website_url3)
-
-  - unless user.website_url4.blank?
-    #profile_website= link_to user.website_name4.blank? ? user.website_url4 : user.website_name4, click_path(user,:website_url4)
-
-  - unless user.website_url5.blank?
-    #profile_website= link_to user.website_name5.blank? ? user.website_url5 : user.website_name5, click_path(user,:website_url5)
-
-  .profile_links
-    - unless user.facebook_url.blank?
-      .profile_social_link
-        =# link_to image_tag('icons/FaceBook_icon_32x32.png'), "http://www.facebook.com/profile.php?id=#{user.facebook_url}"
-        = link_to image_tag('icons/FaceBook_icon_32x32.png'), click_path(user,:facebook)
-
-    - unless user.google_profile_id.blank?
-      .profile_social_link
-        = link_to image_tag('icons/google32.png'), click_path(user, :google_plus)
-
-    - unless user.twitter_username.blank?
-      .profile_social_link
-        =# link_to image_tag('icons/twitter-icon-32x32.png'), "http://twitter.com/#{user.twitter_username}"
-        = link_to image_tag('icons/twitter-icon-32x32.png'), click_path(user,:twitter)
-
-    -# unless user.foursquare_username.blank?
-      .profile_social_link= link_to image_tag('buttons/foursquare_sm.png'), "https://foursquare.com/user/#{user.foursquare_username}"
-
-    - unless user.linked_in_profile_url.blank?
-      .profile_social_link
-        =# link_to image_tag('icons/linkedin_icon_32.png'), user.linked_in_profile_url
-        = link_to image_tag('icons/linkedin_icon_32.png'), click_path(user,:linked_in_profile_url)
-
-
-    -# unless user.spda_username.blank?
-      .profile_social_link
-        =# link_to image_tag('icons/spda_icon32.png'), "http://socialpda.com/#{user.spda_username}"
-        = link_to image_tag('icons/spda_icon32.png'), click_path(user,:socialpda)
-
-  .cl
-  .hr
-
-  - unless user.status.blank?
-    #profile_status= user.status
-    .hr
 
   - if user.photo.file?
-    #profile_photo= image_tag user.photo.url
+    .profile-photo-on
+      .profile-photo= image_tag user.photo.url
+    - unless user.display_name.blank?
+      .profile-display-name= user.display_name
+    - unless user.description.blank?
+      .profile-description= user.description
+  - else
+    .profile-photo-off
+      - unless user.display_name.blank?
+        .profile-display-name= user.display_name
+      - unless user.description.blank?
+        .profile-description= user.description
 
 
+  .profile-box
+    - unless user.status.blank?
+      .horizontal-box
+        .about
+        .title About
+      .profile-status= user.status
 
+    .horizontal-box
+      .contact
+      .title Contact
+    %table
+      - unless user.phone_number.blank?
+        %tr
+          %td Phone:
+          %td
+            = link_to user.phone_number, "tel:#{user.phone_number}"
+            &nbsp;
+            = link_to "SMS", "sms:#{user.phone_number.gsub(/\D/,'')}"
+
+      - unless user.email_address.blank?
+        %tr
+          %td Email:
+          %td
+            #profile_email= mail_to user.email_address, user.email_address
+
+      - unless user.website_url.blank?
+        %tr
+          %td Web:
+          %td
+            = link_to user.website_name.blank? ? 'My Website' : user.website_name, click_path(user,:website_url)
+
+      - unless user.website_url2.blank?
+        %tr
+          %td Web 2:
+          %td
+            = link_to user.website_name2.blank? ? user.website_url2 : user.website_name2, click_path(user,:website_url2)
+
+      - unless user.website_url3.blank?
+        %tr
+          %td Web 3:
+          %td
+            = link_to user.website_name3.blank? ? user.website_url3 : user.website_name3, click_path(user,:website_url3)
+
+      - unless user.website_url4.blank?
+        %tr
+          %td Web 4:
+          %td
+            = link_to user.website_name4.blank? ? user.website_url4 : user.website_name4, click_path(user,:website_url4)
+
+      - unless user.website_url5.blank?
+        %tr
+          %td Email:
+          %td
+            = link_to user.website_name5.blank? ? user.website_url5 : user.website_name5, click_path(user,:website_url5)
+
+    .horizontal-box
+      .social-media
+      .title Social Media
+    .profile_links
+      - unless user.facebook_url.blank?
+        .profile_social_link
+          =# link_to image_tag('icons/FaceBook_icon_32x32.png'), "http://www.facebook.com/profile.php?id=#{user.facebook_url}"
+          = link_to image_tag('icons/FaceBook_icon_32x32.png'), click_path(user,:facebook)
+
+      - unless user.google_profile_id.blank?
+        .profile_social_link
+          = link_to image_tag('icons/google32.png'), click_path(user, :google_plus)
+
+      - unless user.twitter_username.blank?
+        .profile_social_link
+          =# link_to image_tag('icons/twitter-icon-32x32.png'), "http://twitter.com/#{user.twitter_username}"
+          = link_to image_tag('icons/twitter-icon-32x32.png'), click_path(user,:twitter)
+
+      -# unless user.foursquare_username.blank?
+        .profile_social_link= link_to image_tag('buttons/foursquare_sm.png'), "https://foursquare.com/user/#{user.foursquare_username}"
+
+      - unless user.linked_in_profile_url.blank?
+        .profile_social_link
+          =# link_to image_tag('icons/linkedin_icon_32.png'), user.linked_in_profile_url
+          = link_to image_tag('icons/linkedin_icon_32.png'), click_path(user,:linked_in_profile_url)
+
+
+      -# unless user.spda_username.blank?
+        .profile_social_link
+          =# link_to image_tag('icons/spda_icon32.png'), "http://socialpda.com/#{user.spda_username}"
+          = link_to image_tag('icons/spda_icon32.png'), click_path(user,:socialpda)
+
+    .cl
+  .vcard{:onClick => "location.href = '/vcard/#{user.username}'"}
+    .left
+    .middle Download Contact
+    .right
+  %br
+  %hr{:style => "width: 80%; border-bottom: 1px solid #eee; margin: 5px auto;"}
   .clear

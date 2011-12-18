@@ -9,6 +9,9 @@ gem 'fastercsv'
 gem 'batchbook'
 gem 'pdfkit'
 
+# vcard
+gem 'vpim'
+
 #wiki
 gem "irwi"
 gem "RedCloth", ">= 4.0", :require => 'redcloth'

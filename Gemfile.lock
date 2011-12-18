@@ -246,6 +246,7 @@ GEM
     tzinfo (0.3.29)
     vidibus-routing_error (0.2.1)
       rails (~> 3.0.0)
+    vpim (0.695)
     warden (1.0.4)
       rack (>= 1.0)
     webrat (0.7.3)
@@ -295,6 +296,7 @@ DEPENDENCIES
   sms_fu
   ssl_requirement
   vidibus-routing_error
+  vpim
   webrat
   whenever
   will_paginate (~> 3.0.pre2)

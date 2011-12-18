@@ -11,7 +11,7 @@ Hipscan::Application.routes.draw do
   constraints MainSite do
     # Homepage
     root :to => 'welcome#index'
-    
+
     # Account Signup Routes
     match '/signup' => 'accounts#plans', :as => 'plans'
     match '/signup/d/:discount' => 'accounts#plans'
@@ -20,7 +20,7 @@ Hipscan::Application.routes.draw do
     match '/signup/:plan/:discount' => 'accounts#new', :as => 'new_account'
     match '/signup/:plan' => 'accounts#new', :as => 'new_account'
     match 'change-password' => 'accounts#password', :as => 'change_password'
-    
+
     # Catch-all that just loads views from app/views/content/* ...
     # e.g, http://yoursite.com/content/about -> app/views/content/about.html.erb
     #
@@ -49,15 +49,15 @@ Hipscan::Application.routes.draw do
   #
   # Account / User Management Routes
   #
-  resource :account do 
+  resource :account do
     member do
       get :dashboard, :thanks, :plans, :canceled
       match :billing, :paypal, :plan, :plan_paypal, :cancel
     end
-  end  
-  
+  end
+
   ## END OF SUBSCRIPTIONS
-  
+
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -104,6 +104,7 @@ Hipscan::Application.routes.draw do
   match 'myhipscan/:username' => 'welcome#myhipscan', :as => 'myhipscan'
   match 'myhipscan' => 'welcome#myhipscan'
   match 'qr/:username' => 'welcome#qr'
+  match 'vcard/:username' => 'qrs#vcard'
 
   match 'click/:user_id/:click_type' => 'welcome#click', :as => 'click'
 
@@ -127,7 +128,7 @@ Hipscan::Application.routes.draw do
   match 'template/:qr/destroy/:template_item' => 'templates#destroy', :as => 'destroy_template_item'
   match 'template/:qr/update/:template' => 'templates#update', :as => 'update_template'
 
-  
+
 
   #  post 'home/tweet'
   #  post 'home/wall'

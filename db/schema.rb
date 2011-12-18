@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111102120823) do
+ActiveRecord::Schema.define(:version => 20111217223109) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -322,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20111102120823) do
     t.text     "video_embed"
     t.integer  "account_id"
     t.boolean  "account_admin",                        :default => false
+    t.string   "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -16,16 +16,16 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  #:confirmable, 
+  #:confirmable,
 
   has_many :scans, :order => :created_at, :dependent => :destroy
   has_many :clicks, :dependent => :destroy
   has_many :qrs, :dependent => :destroy, :conditions => ['profile_option NOT LIKE ?', 'template']
   has_many :user_data_items, :dependent => :destroy
   has_one :template, :class_name => "Qr", :foreign_key => "user_id", :conditions => {:profile_option => 'template' }
-  
+
   belongs_to :account
-  
+
   delegate :subscription, :to => :account
 
   validates_presence_of :username
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
       errors.add :base, 'Please choose a video url or embed code, not both'
     end
   end
-  
+
   before_save :check_qr
   after_create :send_welcome_email
   after_create :add_to_batchbook
@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
                   :photo, :facebook_url, :twitter_username, :foursquare_username, :status, :spda_username, :linked_in_profile_url,
                   :website_name, :website_url, :website_name2, :website_url2, :website_name3, :website_url3,
                   :website_name4, :website_url4, :website_name5, :website_url5, :account_admin,
-                  :sms_phone_number, :sms_carrier, :google_profile_id, :video_url, :video_embed
+                  :sms_phone_number, :sms_carrier, :google_profile_id, :video_url, :video_embed, :description
 
   def plan_name
     self.subscription.subscription_plan.name
@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
       Rails.logger.debug $!
     end
   end
-  
+
   def subscription_plan
     subscription.subscription_plan.name
   end
@@ -404,7 +404,7 @@ class User < ActiveRecord::Base
   def premium?
     self.account_type == 'premium1'
   end
-  
+
   def account_plan
     self.subscription.subscription_plan.name
   end

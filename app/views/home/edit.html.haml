@@ -1,6 +1,6 @@
 - content_for :js do
   = javascript_include_tag :ckeditor
-  
+
 %table.twocol
   %tr
     %td{:style => 'width: 350px; padding-right: 10px'}
@@ -8,8 +8,6 @@
       =# barcode(current_user.hipscan, 7)
       #hipscan_qr_code
         = image_tag current_user.qr.url(:medium), :title => current_user.hipscan
-
-
     %td
       %h1
         %i Awesome!
@@ -39,8 +37,15 @@
             %h2 #{hipscan('  Profiles')} are digital business cards &#151; they provide your most essential contact details to anyone who scans your #{hipscan}.
             %h2{:style => 'color: #aaa; margin: 10px 0'} All fields are optional.  Only selected fields are displayed.
             %p
+              = label_tag '[user][photo]', 'Profile Photo'
+              = file_field :user, :photo
+
+            %p
               = label_tag '[user][display_name]', 'Display Name'
               = text_field_tag '[user][display_name]', current_user.display_name, :class => 'field_with_default', :title => 'Your Name'
+            %p
+              = label_tag '[user][description]', 'Description (shown under display name)'
+              = text_field_tag '[user][description]', current_user.description, :class => 'field_with_dafault', :title => 'Description', :placeholder => 'Description'
             %p
               = label_tag '[user][email_address]', 'Email Address'
               = text_field_tag '[user][email_address]', current_user.email_address.nil? ? current_user.email : current_user.email_address, :class => 'field_with_default'
@@ -126,11 +131,6 @@
               %p
                 = label_tag '[user][website_url5]', 'Website 5 URL'
                 = text_field_tag '[user][website_url5]', current_user.website_url5, :class => 'field_with_default', :title => 'http://www.example com'
-
-            %p
-              = label_tag '[user][photo]', 'Photo'
-            = file_field :user, :photo
-
             .save_and_continue= image_submit_tag 'buttons/save_and_continue.png'
 
         %h1.profile_heading= link_to_function 'Display Custom Text', "$('.profile_option').hide();$('#edit_custom_text').show();"

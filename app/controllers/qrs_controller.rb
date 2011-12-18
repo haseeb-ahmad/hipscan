@@ -1,5 +1,7 @@
+require 'vpim/vcard'
+
 class QrsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:marketing]
+  before_filter :authenticate_user!, :except => [:marketing, :vcard]
   before_filter :check_limit, :only => [:new, :create]
 
   def index
@@ -86,6 +88,24 @@ class QrsController < ApplicationController
     @qr.color = params[:color]
     @qr.save(false)
     @qr.generate_qr
+  end
+
+  def vcard
+    if @user = User.find_by_username(params[:username])
+      card = Vpim::Vcard::Maker.make2 do |maker|
+        maker.add_name do |name|
+          name.prefix = ''
+          name.given = @user.display_name if @user.display_name.present?
+        end
+
+        maker.add_tel(@user.phone_number) if @user.phone_number.present?
+        maker.add_email(@user.email) {|e| e.location = 'work' } if @user.email.present?
+        maker.add_url(@user.website_url) if @user.website_url.present?
+      end
+      send_data card.to_s, :filename => 'contact.vcf'
+    else
+      render :text => 'user not found'
+    end
   end
 
   def analytics
