@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217223109) do
+ActiveRecord::Schema.define(:version => 20111219001708) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(:version => 20111217223109) do
     t.string   "video_url"
     t.text     "video_embed"
     t.string   "template"
+  end
+
+  create_table "receipts", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "description"
+    t.float    "amount"
+    t.string   "tracking_id"
+    t.string   "shareasale_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "saas_admins", :force => true do |t|

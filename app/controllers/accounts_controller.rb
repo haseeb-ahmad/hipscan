@@ -4,14 +4,14 @@ class AccountsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   include SslRequirement
 
-  before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks]
-  before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks]
+  before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
+  before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
   before_filter :load_discount, :only => [ :plans, :plan, :new, :create ]
   before_filter :build_plan, :only => [:new, :create]
-  before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks]
+  before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
 
   if RAILS_ENV == 'production'
     ssl_required :billing, :cancel, :new, :create
@@ -44,6 +44,12 @@ class AccountsController < ApplicationController
       unless @account.subscription.subscription_plan.name =~ /^Basic/
         @account.admin.profile_option = "profile"
       end
+
+      receipt = Receipt.new
+      receipt.amount = @account.subscription.amount
+      receipt.tracking_id = @account.id
+      @account.receipts << receipt
+      receipt.save
 
       sign_in(:user, @account.admin)
       # flash[:domain] = @account.domain
@@ -107,6 +113,16 @@ class AccountsController < ApplicationController
     else
       redirect_to :action => "billing"
     end
+  end
+
+  def shareasale
+    # request.post? and
+    if params['tracking'].present?
+      receipt = Receipt.find_by_tracking_id params['tracking']
+      receipt.shareasale_user_id = params['userID']
+      receipt.save
+    end
+    render :nothing => true
   end
 
   def plan

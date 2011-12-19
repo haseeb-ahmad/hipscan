@@ -2,6 +2,7 @@ class Account < ActiveRecord::Base
 
   has_many :users, :dependent => :destroy
   has_one :admin, :class_name => "User", :conditions => { :account_admin => true }
+  has_many :receipts
   accepts_nested_attributes_for :admin
 
   #

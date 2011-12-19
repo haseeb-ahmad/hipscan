@@ -106,6 +106,8 @@ Hipscan::Application.routes.draw do
   match 'qr/:username' => 'welcome#qr'
   match 'vcard/:username' => 'qrs#vcard'
 
+  match 'shareasale/postback' => 'accounts#shareasale'
+
   match 'click/:user_id/:click_type' => 'welcome#click', :as => 'click'
 
 
