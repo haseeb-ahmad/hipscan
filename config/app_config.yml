@@ -17,6 +17,7 @@ development: &non_production_settings
   mixpanel_token: 8ae68e1362cc80f85d052e2b4dee3e9e
   mixpanel_api_key: 14ebf93852dc0b11b792ef50ce0b8c02
   mixpanel_api_secret: 89850e170bbf80d69bb14302cbbe231d
+  shareasale_merchant_id: 37263
 
 test:
   <<: *non_production_settings

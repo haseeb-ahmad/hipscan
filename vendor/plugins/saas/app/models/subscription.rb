@@ -1,3 +1,6 @@
+require 'net/https'
+require 'uri'
+
 class Subscription < ActiveRecord::Base
   belongs_to :subscriber, :polymorphic => true
   belongs_to :subscription_plan
@@ -111,6 +114,7 @@ class Subscription < ActiveRecord::Base
         if next_billing_date > Time.now.utc
           update_attributes(:next_renewal_at => next_billing_date, :state => 'active')
           subscription_payments.create(:subscriber => subscriber, :amount => amount) unless amount == 0
+          create_receipt
           true
         else
           false
@@ -123,6 +127,7 @@ class Subscription < ActiveRecord::Base
       if amount == 0 || (@response = gateway.purchase(amount_in_pennies, billing_id)).success?
         update_attributes(:next_renewal_at => self.next_renewal_at.advance(:months => self.renewal_period), :state => 'active')
         subscription_payments.create(:subscriber => subscriber, :amount => amount, :transaction_id => @response.authorization) unless amount == 0
+        create_receipt
         true
       else
         errors.add(:base, @response.message)
@@ -260,6 +265,22 @@ class Subscription < ActiveRecord::Base
     def set_renewal_at
       return if self.subscription_plan.nil? || self.next_renewal_at
       self.next_renewal_at = Time.now.advance(:months => self.renewal_period)
+    end
+
+    def create_receipt
+      account = self.subscriber
+      receipt = Receipt.new
+      receipt.amount = self.amount
+      receipt.description = 'Payment for Subscription'
+      receipt.save
+
+      if account.receipts.count == 2
+        first_receipt = account.receipts.first
+        uri = URI("https://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{receipt.id}&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        http.start
+      end
     end
 
     # If the discount is changed, set the amount to the discounted

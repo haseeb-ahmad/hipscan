@@ -1,6 +1,7 @@
 %table.twocol
   %tr
     %td{:style => 'width: 50%'}
+      //%iframe{ :src => template_path(@qr), :scrollbars => "auto"
       - case current_user.profile_option
         - when User::PROFILE_URL
           %h1 When scanned your #{hipscan} will launch the following custom URL:
