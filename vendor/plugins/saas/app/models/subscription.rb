@@ -279,7 +279,11 @@ class Subscription < ActiveRecord::Base
         uri = URI("https://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{receipt.id}&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
-        http.start
+        http.start {
+          http.request_get(uri.path) {|res|
+            print res.body
+          }
+        }
       end
     end
 
