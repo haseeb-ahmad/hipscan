@@ -1,7 +1,6 @@
 %table.twocol
   %tr
     %td{:style => 'width: 50%'}
-      //%iframe{ :src => template_path(@qr), :scrollbars => "auto"
       - case current_user.profile_option
         - when User::PROFILE_URL
           %h1 When scanned your #{hipscan} will launch the following custom URL:
@@ -47,8 +46,7 @@
           %h1 When scanned your #{hipscan} will launch your #{hipscan(' profile')}:
           %p (#{link_to 'Change what your Hipscan does', home_edit_path})
           .hr
-
-          = render :partial => 'shared/custom_profile', :locals => {:user => current_user}
+          %iframe{ :src => current_user.username, :scrollbars => "auto", :style => "width: 445px; height: 400px;" }
 
       %br
       %p
