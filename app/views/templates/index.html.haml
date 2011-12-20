@@ -5,9 +5,9 @@
         %h1 When scanned, your #{hipscan}, will launch your HTML5 mobile website displayed on the right hand side:
         %p (#{link_to 'Edit your Hipscan mobile website', edit_template_path(@qr, @qr.template)})
         .hr
-        
+
         #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
-        
+
         .fr.qr_download_links
           Download
           = link_to 'Big', @qr.qr.url(:print)
@@ -51,6 +51,13 @@
             %p
               = link_to 'Enable SMS Notifications', home_sms_path
               now!
+
+        #multi-url
+          %p Qr with multiple URLs for different mobile platforms
+          - if current_user.multi_urls.empty?
+            %p= link_to 'Create', multi_url_qr_path
+          - else
+            %p= link_to 'Edit', multi_url_qr_path(:edit => true)
 
 - content_for :js do
   :javascript

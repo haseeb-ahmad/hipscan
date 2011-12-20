@@ -33,6 +33,8 @@ class ApplicationController < ActionController::Base
 
       if @qr.template.present?
         redirect_to template_path(@qr)
+      elsif @qr.profile_option == 'multi_url'
+        redirect_to multi_url_decode
       elsif @qr.profile_url?
         redirect_to @qr.url
       elsif @qr.video? && @qr.video_url.present?
@@ -59,11 +61,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
+
   def admin_authenticate
     unless admin?
       flash[:notice] = "You don't have rights to access this page."
-      redirect_to root_path 
+      redirect_to root_path
     end
     return
   end
@@ -75,7 +77,7 @@ class ApplicationController < ActionController::Base
   def admin?
      user_signed_in? && current_user.admin?
   end
-  
+
   def account_admin?
     user_signed_in? and current_user.account_admin?
   end
@@ -90,11 +92,11 @@ class ApplicationController < ActionController::Base
   def facebook_logged_in?
     graph ? true : false
   end
-  
+
   def current_facebook_user
     facebook_logged_in? ? (@fb_user ||= graph.get_object("me")) : nil
   end
-  
+
   def graph
     session[:fb_token] ? (@graph ||= Koala::Facebook::GraphAPI.new(session[:fb_token])) : nil?
   end
@@ -140,6 +142,19 @@ class ApplicationController < ActionController::Base
       Rails.logger.fatal $!
       #Rails.logger.fatal $@
     end
+  end
+
+  def multi_url_decode
+    user_agent =  request.env['HTTP_USER_AGENT'].downcase
+    url = @qr.url
+    if user_agent.index 'android'
+      url = @qr.android_link.url if @qr.android_link.url?
+    elsif user_agent.index 'iphone' or user_agent.index 'ipad'
+      url = @qr.iphone_link.url if @qr.iphone_link.url?
+    elsif user_agent.index 'blackberry'
+      url = @qr.blackberry_link.url if @qr.blackberry_link.url?
+    end
+    url
   end
 
   def track(event, properties={})

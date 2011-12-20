@@ -693,7 +693,7 @@ table.scaffold th, table.scaffold td {
 }
 
 /* line 452, ../../app/stylesheets/partials/_application.sass */
-#scanned, #sms {
+#scanned, #sms, #multi-url {
   margin: 20px 0 0 0;
   width: 345px;
   border: 2px solid #aaaaaa;

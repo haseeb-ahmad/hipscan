@@ -1,13 +1,11 @@
 - if @qr.custom_image?
-  #custom_image
-    = image_tag(@qr.image.url(:medium))
+  #custom_image= image_tag(@qr.image.url(:medium))
 
 - elsif @qr.video?
   = raw @qr.video_embed
 
 - else
-  #custom_text
-    = simple_format(@qr.custom_text)
+  #custom_text= simple_format(@qr.custom_text)
 
 .cl
 .fr{:style => 'margin-top: 10px'}

@@ -3,6 +3,9 @@ class Qr < ActiveRecord::Base
   has_many :scans
   has_many :user_data_items
   has_many :template_items
+  has_many :links
+
+  scope :multi_url, where(:profile_option => 'multi_url')
 
   has_attached_file :logo, :styles => { :medium => "400x", :thumb => "100x" }
   has_attached_file :image, :styles => { :medium => "960x", :thumb => "100x" }
@@ -36,7 +39,6 @@ class Qr < ActiveRecord::Base
   before_save :make_code, :on => :create
   before_save :check_qr
 
-
   def make_code
     self.code ||= Digest::SHA1.hexdigest((Time.now.to_i + rand(99999)).to_s + "qr" )[0,20]
   end
@@ -54,6 +56,28 @@ class Qr < ActiveRecord::Base
   def generate_qr
     qrencode
     self.qr = File.open(qr_tmp_file)
+  end
+
+  def iphone_link
+    device_link 'iphone'
+  end
+
+  def android_link
+    device_link 'android'
+  end
+
+  def blackberry_link
+    device_link 'blackberry'
+  end
+
+  def device_link device
+    unless link = self.links.find_by_device(device)
+      link = Link.new
+      link.qr_id = self.id
+      link.device = device
+      link.save
+    end
+    link
   end
 
   protected

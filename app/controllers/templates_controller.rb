@@ -26,11 +26,27 @@ class TemplatesController < ApplicationController
     @field = params[:field].to_sym
     render :layout => 'template'
   end
-  
+
   def new
-    
+
   end
-  
+
+  def multi_url
+    if current_user.multi_urls.empty?
+      @qr = Qr.new
+      @qr.profile_option = 'multi_url'
+      @qr.user = current_user
+      @qr.save
+    else
+      @qr = current_user.multi_urls.first
+    end
+
+    if request.method == "POST"
+      @qr.update_attributes(params[:qr])
+      update_links
+    end
+  end
+
   def create
     qr = current_user.template.present? ? current_user.template : current_user.qrs.new
     qr.profile_option = 'template'
@@ -105,11 +121,11 @@ class TemplatesController < ApplicationController
       item = @qr.template_items.find(params[:template_item])
       item.destroy if item.present?
     end
-    respond_to do |format|  
-      format.js   { render :nothing => true }  
-    end  
+    respond_to do |format|
+      format.js   { render :nothing => true }
+    end
   end
-  
+
 
 private
   def update_field(field, page_field = nil, value = nil)
@@ -117,6 +133,26 @@ private
       TemplateItem.remove(@qr, @template_key, field.first, page_field)
     else
       TemplateItem.set(@qr, @template_key, field, page_field, value)
+    end
+  end
+
+  def update_links
+    if params['iphone'].present? and params['iphone_check'].present?
+      @qr.iphone_link.update_attribute :url, params['iphone']
+    else
+      @qr.iphone_link.update_attribute :url, nil
+    end
+
+    if params['android'].present? and params['android_check'].present?
+      @qr.android_link.update_attribute :url, params['android']
+    else
+      @qr.android_link.update_attribute :url, nil
+    end
+
+    if params['blackberry'].present? and params['blackberry_check'].present?
+      @qr.blackberry_link.update_attribute :url, params['blackberry']
+    else
+      @qr.blackberry_link.update_attribute :url, nil
     end
   end
 

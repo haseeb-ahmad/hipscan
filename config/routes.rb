@@ -105,6 +105,7 @@ Hipscan::Application.routes.draw do
   match 'myhipscan' => 'welcome#myhipscan'
   match 'qr/:username' => 'welcome#qr'
   match 'vcard/:username' => 'qrs#vcard'
+  match 'new-multi-url' => 'templates#multi_url', :as => 'multi_url_qr'
 
   match 'shareasale/postback' => 'accounts#shareasale'
 
@@ -118,6 +119,8 @@ Hipscan::Application.routes.draw do
   match 'contact' => 'welcome#contact'
   match 'welcome/edit' => 'welcome#edit', :as => 'edit_welcome'
   match 'cms/update' => 'welcome#update', :as => 'update_welcome'
+
+
 
   match 'templates/new' => 'templates#new', :as => "new_template"
   match 'templates/export' => 'templates#export', :as => "export_template"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219001708) do
+ActiveRecord::Schema.define(:version => 20111219185229) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20111219001708) do
 
   add_index "clicks", ["user_id", "click_type"], :name => "index_clicks_on_user_id_and_click_type"
   add_index "clicks", ["user_id"], :name => "index_clicks_on_user_id"
+
+  create_table "links", :force => true do |t|
+    t.integer  "qr_id"
+    t.string   "url"
+    t.string   "device"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "qrs", :force => true do |t|
     t.integer  "user_id"
