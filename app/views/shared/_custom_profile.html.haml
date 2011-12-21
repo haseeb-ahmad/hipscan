@@ -29,51 +29,38 @@
     .horizontal-box
       .contact
       .title Contact
-    %table
-      - unless user.phone_number.blank?
-        %tr
-          %td Phone:
-          %td
-            = link_to user.phone_number, "tel:#{user.phone_number}"
-            &nbsp;
-            = link_to "SMS", "sms:#{user.phone_number.gsub(/\D/,'')}"
+    - unless user.phone_number.blank?
+      .type Phone:
+      .data
+        = link_to user.phone_number, "tel:#{user.phone_number}"
+        &nbsp;
+        = link_to "SMS", "sms:#{user.phone_number.gsub(/\D/,'')}"
 
-      - unless user.email_address.blank?
-        %tr
-          %td Email:
-          %td
-            #profile_email= mail_to user.email_address, user.email_address
+    - unless user.email_address.blank?
+      .type Email:
+      .data= mail_to user.email_address, user.email_address
 
-      - unless user.website_url.blank?
-        %tr
-          %td Web:
-          %td
-            = link_to user.website_name.blank? ? 'My Website' : user.website_name, click_path(user,:website_url)
+    - unless user.website_url.blank?
+      .type Web:
+      .data= link_to user.website_name.blank? ? 'My Website' : user.website_name, click_path(user,:website_url)
 
-      - unless user.website_url2.blank?
-        %tr
-          %td Web 2:
-          %td
-            = link_to user.website_name2.blank? ? user.website_url2 : user.website_name2, click_path(user,:website_url2)
+    - unless user.website_url2.blank?
+      .type Web 2:
+      .data= link_to user.website_name2.blank? ? user.website_url2 : user.website_name2, click_path(user,:website_url2)
 
-      - unless user.website_url3.blank?
-        %tr
-          %td Web 3:
-          %td
-            = link_to user.website_name3.blank? ? user.website_url3 : user.website_name3, click_path(user,:website_url3)
+    - unless user.website_url3.blank?
+      .type Web 3:
+      .data= link_to user.website_name3.blank? ? user.website_url3 : user.website_name3, click_path(user,:website_url3)
 
-      - unless user.website_url4.blank?
-        %tr
-          %td Web 4:
-          %td
-            = link_to user.website_name4.blank? ? user.website_url4 : user.website_name4, click_path(user,:website_url4)
+    - unless user.website_url4.blank?
+      .type Web 4:
+      .data= link_to user.website_name4.blank? ? user.website_url4 : user.website_name4, click_path(user,:website_url4)
 
-      - unless user.website_url5.blank?
-        %tr
-          %td Email:
-          %td
-            = link_to user.website_name5.blank? ? user.website_url5 : user.website_name5, click_path(user,:website_url5)
+    - unless user.website_url5.blank?
+      .type Email:
+      .data= link_to user.website_name5.blank? ? user.website_url5 : user.website_name5, click_path(user,:website_url5)
 
+    .clearfix
     .horizontal-box
       .social-media
       .title Social Media
