@@ -53,7 +53,8 @@
               now!
 
         #multi-url
-          %p Qr with multiple URLs for different mobile platforms
+          %p Want to create multiple URL(s) for your Hipscan?
+          %p (To go to different destinations based on the platform)
           - if current_user.multi_urls.empty?
             %p= link_to 'Create', multi_url_qr_path
           - else
