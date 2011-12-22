@@ -28,7 +28,7 @@ class Notifier < ActionMailer::Base
   end
 
   def vcard_email(recipient, vcard)
-    attachments["contact.vcf"] = vcard.to_s
+    attachments["contact.vcf"] = { :content=> vcard.to_s, :mime_type => "text/x-vcard", :encoding => "base64" }
     mail(:to => recipient, :subject => 'Contact card for iPhone/iPad by Hipscan')
   end
 end
