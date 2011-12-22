@@ -1,0 +1,26 @@
+#myhipscan
+  - if request.post?
+    %h1{:style => 'font-size: 140%; font-weight: bold; margin-bottom: 10px'}
+      Thank you for your attention.
+    %p
+      You should receive your contact email in the following minutes.
+    %div{:style => 'margin-top: 3px; margin-right: 3px; text-align: center;'}
+      #{link_to hipscan, root_url} team.
+  - else
+    %h1{:style => 'font-size: 140%; font-weight: bold; margin-bottom: 10px'} iOS devices currently have a limitation to download a vcard directly
+    %p{:style => 'margin-bottom: 10px'} Send to this email to download contacts on your iPhone/iPad.  We are working on a simple workaround to download your vcard contacts available in Jan 2012.
+
+    = form_tag vcard_path(:username => @user.username) do
+      = label_tag 'email', 'Your email address:'
+      %br
+      = text_field_tag 'email'
+      %br
+      .vcard{:onClick => "javascript: document.forms[0].submit()"}
+        .left
+        .middle Send Contact
+        .right
+
+    .cl
+    %div{:style => 'margin-top: 3px; margin-right: 3px; text-align: center;'}
+      Powered by #{link_to hipscan, root_url}
+    .cl

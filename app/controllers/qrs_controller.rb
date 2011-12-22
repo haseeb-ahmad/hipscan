@@ -102,7 +102,17 @@ class QrsController < ApplicationController
         maker.add_email(@user.email) {|e| e.location = 'work' } if @user.email.present?
         maker.add_url(@user.website_url) if @user.website_url.present?
       end
-      send_data card.to_s, :filename => 'contact.vcf'
+
+      if request.post?
+        Notifier.vcard_email(params[:email], card).deliver
+        render :layout => 'hipscan'
+      else
+        if request.env['HTTP_USER_AGENT'].downcase.index /(iphone|ipad)/
+          render :layout => 'hipscan'
+        else
+          send_data card.to_s, :filename => 'contact.vcf'
+        end
+      end
     else
       render :text => 'user not found'
     end

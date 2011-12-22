@@ -10,7 +10,7 @@ class Notifier < ActionMailer::Base
     @message  = message
     mail(:to => APP_CONFIG[:contact_email], :subject => "Hipscan Contact from #{from}")
   end
- 
+
   def welcome_email(user)
     @user = user
     @url  = "http://example.com/login"
@@ -27,5 +27,8 @@ class Notifier < ActionMailer::Base
     mail(:to => 'marketing@hipscan.com', :subject => "Hipscan Professional Services Info Request")
   end
 
-
+  def vcard_email(recipient, vcard)
+    attachments["contact.vcf"] = vcard.to_s
+    mail(:to => recipient, :subject => 'Contact card for iPhone/iPad by Hipscan')
+  end
 end

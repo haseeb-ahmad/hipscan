@@ -104,7 +104,7 @@ Hipscan::Application.routes.draw do
   match 'myhipscan/:username' => 'welcome#myhipscan', :as => 'myhipscan'
   match 'myhipscan' => 'welcome#myhipscan'
   match 'qr/:username' => 'welcome#qr'
-  match 'vcard/:username' => 'qrs#vcard'
+  match 'vcard/:username' => 'qrs#vcard', :as => 'vcard'
   match 'new-multi-url' => 'templates#multi_url', :as => 'multi_url_qr'
 
   match 'shareasale/postback' => 'accounts#shareasale'
