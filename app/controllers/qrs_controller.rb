@@ -135,5 +135,4 @@ class QrsController < ApplicationController
       redirect_to home_path, :alert => "You are at your maximum QR count"
     end
   end
-
 end
