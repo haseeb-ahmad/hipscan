@@ -1,15 +1,19 @@
-%h2 Change your password
-= form_for(resource, :as => resource_name, :url => change_password_path, :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  = f.hidden_field :reset_password_token
-  %p
-    = f.label :password, "New password"
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Confirm new password"
-    %br/
-    = f.password_field :password_confirmation
-  %p.signup-button{:style => 'display: inline-block; font-size: 12px'}= link_to 'Change my password', 'javascript: $("form").submit();', :style => 'font-size: 12px'
-  or
-  %a{:href => "/account"} Cancel
+#registration
+  %table.twocol
+    %tr
+      %td
+        %h2 Change your password
+        = form_for(resource, :as => resource_name, :url => change_password_path, :html => { :method => :post }) do |f|
+          = devise_error_messages!
+          = f.hidden_field :reset_password_token
+          %p
+            = f.label :password, "New password"
+            %br/
+            = f.password_field :password
+          %p
+            = f.label :password_confirmation, "Confirm new password"
+            %br/
+            = f.password_field :password_confirmation
+          %p.signup-button{:style => 'display: inline-block; font-size: 12px'}= link_to 'Change my password', 'javascript: $("form").submit();', :style => 'font-size: 12px'
+          or
+          %a{:href => "/account"} Cancel

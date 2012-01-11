@@ -4,14 +4,16 @@ class AccountsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   include SslRequirement
 
-  before_filter :authenticate_user!, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
-  before_filter :authorized?, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
+  PUBLIC_METHODS = [ :new, :create, :plans, :canceled, :thanks, :shareasale, :password]
+
+  before_filter :authenticate_user!, :except => PUBLIC_METHODS
+  before_filter :authorized?, :except => PUBLIC_METHODS
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
   before_filter :load_discount, :only => [ :plans, :plan, :new, :create ]
   before_filter :build_plan, :only => [:new, :create]
-  before_filter :load_account, :except => [ :new, :create, :plans, :canceled, :thanks, :shareasale]
+  before_filter :load_account, :except => PUBLIC_METHODS
 
   if RAILS_ENV == 'production'
     ssl_required :billing, :cancel, :new, :create
@@ -60,9 +62,10 @@ class AccountsController < ApplicationController
   end
 
   def password
-    if request.post?
-      if current_user.update_with_password(params[:user])
-        sign_in User.find(current_user.id), :bypass => true
+    if request.post? and params[:user][:reset_password_token].present?
+      user = User.find_by_reset_password_token params[:user][:reset_password_token]
+      if user.update_with_password(params[:user])
+        sign_in User.find(user.id), :bypass => true
         redirect_to account_path, :notice => "Password updated!"
       end
     end
