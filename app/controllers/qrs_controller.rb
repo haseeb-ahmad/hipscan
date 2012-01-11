@@ -110,7 +110,7 @@ class QrsController < ApplicationController
         if request.env['HTTP_USER_AGENT'].downcase.index /(iphone|ipad)/
           render :layout => 'hipscan'
         else
-          send_data card.to_s, :filename => 'contact.vcf'
+          send_data card.to_s, :filename => 'contact.vcf', :mime_type => "text/x-vcard"
         end
       end
     else
