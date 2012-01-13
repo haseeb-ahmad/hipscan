@@ -271,20 +271,22 @@ class Subscription < ActiveRecord::Base
       account = self.subscriber
       receipt = Receipt.new
       receipt.amount = self.amount
-      account.receipts << receipt
+      receipt.account = account
       receipt.description = 'Payment for Subscription'
       receipt.save
 
       if account.receipts.count == 2
         first_receipt = account.receipts.first
-        uri = URI("https://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{receipt.id}&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        http.start {
-          http.request_get(uri.path) {|res|
-            print res.body
-          }
-        }
+        if first_receipt.shareasale_user_id.present?
+          uri = URI("https://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{receipt.id}&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = true
+          http.start do
+            http.request_get(uri.path) do |res|
+              print res.body
+            end
+          end
+        end
       end
     end
 
