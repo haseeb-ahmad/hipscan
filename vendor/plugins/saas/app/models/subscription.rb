@@ -271,6 +271,7 @@ class Subscription < ActiveRecord::Base
       account = self.subscriber
       receipt = Receipt.new
       receipt.amount = self.amount
+      account.receipts << receipt
       receipt.description = 'Payment for Subscription'
       receipt.save
 
