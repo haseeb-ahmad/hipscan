@@ -6,8 +6,8 @@ defaults: &defaults
   require_payment_info_for_trials: false
   credentials:
     gateway:
-      :login: 4yygM7B2G4
-      :password: 3n32PqS4nVNy5w97
+      :login: buzzsocial1
+      :password: Moorcheh1
       # :test: true
     paypal:
       :login: info_api1.hipscan.com
