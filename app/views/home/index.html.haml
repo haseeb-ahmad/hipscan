@@ -1,57 +1,11 @@
 %table.twocol
   %tr
     %td{:style => 'width: 50%'}
-      - case current_user.profile_option
-        - when User::PROFILE_URL
-          %h1 When scanned your #{hipscan} will launch the following custom URL:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-
-          = render :partial => 'shared/custom_url', :locals => {:user => current_user}
-
-        - when User::PROFILE_TEXT
-          %h1 When scanned your #{hipscan} will display the following custom text:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-
-          = render :partial => 'shared/custom_text', :locals => {:user => current_user}
-
-
-        - when User::PROFILE_IMAGE
-          %h1 When scanned your #{hipscan} will display the following custom image:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-
-          = render :partial => 'shared/custom_image', :locals => {:user => current_user}
-
-
-        - when User::PROFILE_PAGE
-          %h1 When scanned your #{hipscan} will display a  custom page:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-
-          =# render :partial => 'shared/custom_page', :locals => {:user => current_user}
-          %p= link_to 'View Custom Page', current_user.hipscan, :target => '_blank'
-
-        - when User::PROFILE_VIDEO
-          %h1 When scanned your #{hipscan} will launch a video:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-
-          =# render :partial => 'shared/custom_page', :locals => {:user => current_user}
-          %p= link_to 'View Video', current_user.hipscan, :target => '_blank'
-
-
-        - else # must be profile
-          %h1 When scanned your #{hipscan} will launch your #{hipscan(' profile')}:
-          %p (#{link_to 'Change what your Hipscan does', home_edit_path})
-          .hr
-          %iframe{ :src => current_user.username, :scrollbars => "auto", :style => "width: 445px; height: 400px;" }
-
-      %br
-      %p
-        Your #{hipscan} URL is #{link_to current_user.hipscan, current_user.hipscan}
-        = link_to image_tag('ExtLink.png'), current_user.hipscan, :target => '_blank'
+      - if ['Agency 250', 'Product'].include? current_user.account_plan
+        %h1 Create Your Product Marketer Hipscans Below.  
+        %p Each Has its Own Marketing Call-Out Card & Analytics Panel.
+      - else
+        = render :partial => 'basic_profile'
 
       - if facebook_logged_in?
         %p
