@@ -1,5 +1,4 @@
-- if current_account.subscription.amount > 0 and current_user.created_at > 5.minutes.ago
-  = img_tag "https://shareasale.com/sale.cfm?amount=#{current_account.subscription.amount}&tracking=#{current_account.id}&transtype=sale&merchantID=37263", :width => "1", :height => "1"
+= shareasale_image current_user, current_account
 
 %h1 Account created
 %p

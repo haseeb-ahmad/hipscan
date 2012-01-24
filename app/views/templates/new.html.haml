@@ -1,10 +1,7 @@
-
-
 -if current_user.template.present?
   = link_to 'cancel template selection', home_path
 - else
-  - if current_account.subscription.amount > 0 and current_user.created_at > 5.minutes.ago
-    = image_tag "https://shareasale.com/sale.cfm?amount=#{current_account.subscription.amount}&tracking=#{current_account.id}&transtype=sale&merchantID=37263", :width => "1", :height => "1"
+  = shareasale_image current_user, current_account
 
   #registration
     %table.twocol
