@@ -107,11 +107,12 @@ class QrsController < ApplicationController
         Notifier.vcard_email(params[:email], card).deliver
         render :layout => 'hipscan'
       else
+        @is_ios = false
         if request.env['HTTP_USER_AGENT'].downcase.index /(iphone|ipad)/
-          render :layout => 'hipscan'
-        else
-          send_data card.to_s, :filename => 'contact.vcf', :mime_type => "text/x-vcard"
+          # render :layout => 'hipscan'
+          @is_ios = true
         end
+        send_data card.to_s, :filename => 'contact.vcf', :mime_type => "text/x-vcard"
       end
     else
       render :text => 'user not found'

@@ -94,10 +94,25 @@
           = link_to image_tag('icons/spda_icon32.png'), click_path(user,:socialpda)
 
     .cl
-  .vcard{:onClick => "location.href = '/vcard/#{user.username}'"}
+  .vcard{:onClick => "openInsideHipscanApp();"}
     .left
     .middle Download Contact
     .right
   %br
   %hr{:style => "width: 80%; border-bottom: 1px solid #eee; margin: 5px auto;"}
   .clear
+
+:javascript
+  function openInsideHipscanApp() {
+    if(#{@is_ios ? "true" : "false"}) {
+      //location.href = 'vcard://#{APP_CONFIG[:host]}/vcard/#{user.username}';
+      location.href = '/vcard/#{user.username}';
+      setTimeout( function() {
+        if( confirm( 'You do not seem to have Hipscan vCard installed, do you want to go download it now?')) {
+          location.href = 'http://itunes.apple.com/us/app/hipscan-vcard';
+        }
+      },  500);
+    } else {
+      location.href = '/vcard/#{user.username}';  
+    }
+  }

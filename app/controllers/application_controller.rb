@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     username = params[:username] if params[:username].present?
     username ||= request.env['REQUEST_URI'].split('?').first.gsub('/','').downcase
 #    raise request.env['action_dispatch.request.parameters']['noscan'].inspect
+    @is_ios = true if request.env['HTTP_USER_AGENT'].downcase.index /(iphone|ipad)/
 
     if @user = User.find_by_username(username)
       add_scan(@user)
