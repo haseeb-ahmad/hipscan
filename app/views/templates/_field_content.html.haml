@@ -1,0 +1,26 @@
+- case page_field_type(field, page_field)
+  - when :string, :url
+    %p.template_string_field= raw string_field_type(field, page_field)
+  - when :country_selection
+    %p.template_file_field
+      = label_tag "#{page_field_name(field, page_field)}:"
+      = country_select "page_field[#{field.to_s}]", :country, ['United States', 'Canada'], :style => "width: 413px"
+  - when :file
+    %p.template_file_field
+      = label_tag "#{page_field_name(field, page_field)}:"
+      - if page_field_value(field, page_field).present?
+        .photo
+          = link_to 'remove existing', destroy_template_item_path(:qr => @qr, :template_item => page_field_id(field, page_field)), :method => :delete, :remote => true, :class => "item_id_#{page_field_id(field, page_field)}"
+          - @js_content << "$('.item_id_#{page_field_id(field, page_field)}').bind('ajax:success', function(){$(this).parent().hide();});"
+          %br
+          = image_tag(page_field_value(field, page_field), :style => 'width: 45%;')
+          %br
+          OR upload a new one
+      = file_field_tag page_field_tag(field, page_field), :size => page_field_size(field, page_field)
+  - when :text, :page
+    %p.template_file_field
+      = label_tag "#{page_field_name(field, page_field)}:"
+      = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
+  - else
+    %p
+      Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}                          

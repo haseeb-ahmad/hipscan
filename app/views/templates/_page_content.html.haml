@@ -4,28 +4,9 @@
       %h1== #{@template[field][:field_name]} page
       %h3 Add information to this page
       - if @template[field][:content].present?
-        - @template[field][:content].each_key do |page_field|
-          - case page_field_type(field, page_field)
-            - when :string, :url
-              %p.template_string_field
-                = label_tag "#{page_field_name(field, page_field)}:"
-                = text_field_tag page_field_tag(field, page_field), page_field_value(field, page_field), :class => 'page_field_with_default', :placeholder => page_field_title(field, page_field)
-            - when :file
-              %p.template_file_field
-                = label_tag "#{page_field_name(field, page_field)}:"
-                - if page_field_value(field, page_field).present?
-                  .photo
-                    = link_to 'remove existing', destroy_template_item_path(:qr => @qr, :template_item => page_field_id(field, page_field)), :method => :delete, :remote => true, :class => "item_id_#{page_field_id(field, page_field)}"
-                    - @js_content << "$('.item_id_#{page_field_id(field, page_field)}').bind('ajax:success', function(){$(this).parent().hide();});"
-                    %br
-                    = image_tag(page_field_value(field, page_field), :style => 'width: 45%;')
-                    %br
-                    OR upload a new one
-                = file_field_tag page_field_tag(field, page_field), :size => page_field_size(field, page_field)
-            - when :text, :page
-              %p.template_file_field
-                = label_tag "#{page_field_name(field, page_field)}:"
-                = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
-            - else
-              %p
-                Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}                          
+        - if @template[field][:field_ordering].present? and @template[field][:field_ordering]
+          - @template[field][:content].to_a.sort_by{|x| x.last[:order]}.each do |page_field|
+            = render :partial => "field_content", :locals => {:field => field, :page_field => page_field.first }
+        - else
+          - @template[field][:content].each_key do |page_field|
+            = render :partial => "field_content", :locals => {:field => field, :page_field => page_field }

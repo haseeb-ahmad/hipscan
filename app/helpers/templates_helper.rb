@@ -71,4 +71,11 @@ module TemplatesHelper
   def underscore(text)
     text.gsub(/[ |\/]/,'_').underscore
   end
+
+  def string_field_type field, page_field
+    label = label_tag "#{page_field_name(field, page_field)}:"
+    text_field = text_field_tag page_field_tag(field, page_field), page_field_value(field, page_field), :class => 'page_field_with_default', :placeholder => page_field_title(field, page_field)
+    "#{label}#{text_field}"
+  end
+
 end

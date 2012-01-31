@@ -23,7 +23,7 @@
       %li= link_to raw("#{image_tag('templates/restaurant/food-delivery-icon.png')}<span>Food Delivery</span>"), template_page_path(@qr, @template_key, :delivery)
 
     - unless page_field_value(:menu, :menu).blank?
-      %li= link_to raw("#{image_tag('templates/restaurant/our-menu-icon.png')}<span>Our Menu</span>"), template_page_path(@qr, @template_key, :menu)
+      %li= link_to raw("#{image_tag('templates/restaurant/menu-icon.png')}<span>Our Menu</span>"), template_page_path(@qr, @template_key, :menu)
 
     - unless field_value(:website).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/full-website-icon.png')}<span>Full Website</span>"), field_value(:website)

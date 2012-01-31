@@ -17,6 +17,8 @@ class TemplateItem < ActiveRecord::Base
         item.file = value
       when :text, :page
         item.text_value = value
+      when :country_selection
+        item.text_value = value
       else
         raise 'TBD'
     end
@@ -40,6 +42,8 @@ class TemplateItem < ActiveRecord::Base
   def value
     case field_type
       when :string, :url
+        string_value
+      when :country_selection
         string_value
       when :file
         file.file? ? file.url : nil
