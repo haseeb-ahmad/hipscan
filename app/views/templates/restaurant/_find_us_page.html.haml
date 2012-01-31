@@ -1,0 +1,15 @@
+#template
+  .header= link_to image_tag(field_value(:logo) || 'templates/restaurant/logo.png'), template_path(@qr)
+  .call= link_to f = field_value(:phone_number), "tel:#{f}"
+  .content
+    .right= link_to 'Home', template_path(@qr)
+    %h1 Find Us
+    / = simple_format page_field_value(@field, @field)
+    - location = "#{page_field_value(:find_us, :address)} #{page_field_value(:find_us, :address2)} #{page_field_value(:find_us, :city)} #{page_field_value(:find_us, :zip)} #{page_field_value(:find_us, :country)}"
+    %div{:style => "margin: 0 auto"}
+      = link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{CGI::escape(location)}&zoom=16&size=360x512&maptype=roadmap&sensor=false"),"http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{CGI::escape location}&z=16", :popup => true
+      %br
+      %span{:style => "color: white;"}Click on map to open it.
+  .footer
+    = raw field_value(:footer)
+  .clear

@@ -17,9 +17,32 @@
         :field_type: :page
   :find_us:
     :field_name: 'Find Us'
-    :field_type: :url
-    :title: 'Enter URL for Google Map directions'
-    :size: '80'
+    :field_type: :page_content
+    :content:
+      :address:
+        :field_name: 'Address'
+        :field_type: :string
+        :title: 'Enter your address'
+        :size: '80'
+      :address2:
+        :field_name: 'Address 2'
+        :field_type: :string
+        :title: 'Enter your address 2'
+        :size: '80'
+      :city:
+        :field_name: 'City'
+        :field_type: :string
+        :title: 'Enter your City'
+        :size: '80'
+      :zip:
+        :field_name: 'Zip Code'
+        :field_type: :string
+        :title: 'Enter your Zip code'
+        :size: '80'
+      :country:
+        :field_name: 'Country'
+        :field_type: :string
+        :title: 'Enter your Country'
   :hours:
     :field_name: 'Opening Hours'
     :field_type: :page_content

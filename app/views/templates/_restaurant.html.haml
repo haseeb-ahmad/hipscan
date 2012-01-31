@@ -13,7 +13,8 @@
       %li= link_to raw("#{image_tag('templates/restaurant/about-icon.png')}<span>About</span>"), template_page_path(@qr, @template_key, :about)
 
     - unless field_value(:find_us).blank?
-      %li= link_to raw("#{image_tag('templates/restaurant/find-us-icon.png')}<span>Find Us</span>"), field_value(:find_us)
+      %li= link_to raw("#{image_tag('templates/restaurant/find-us-icon.png')}<span>Find Us</span>"), template_page_path(@qr, @template_key, :find_us)
+      //%li= link_to raw("#{image_tag('templates/restaurant/find-us-icon.png')}<span>Find Us</span>"), field_value(:find_us)
 
     - unless page_field_value(:hours, :hours).blank?
       %li= link_to raw("#{image_tag('templates/restaurant/hours-icon.png')}<span>Hours</span>"), template_page_path(@qr, @template_key, :hours)
