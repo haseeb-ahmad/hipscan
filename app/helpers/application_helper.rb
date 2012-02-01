@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def shareasale_image user, account
     if account.subscription.amount > 0 and user.created_at > 5.minutes.ago
-      image_tag "https://shareasale.com/sale.cfm?amount=0.0&tracking=#{account.id}&transtype=lead&merchantID=37263", :width => "1", :height => "1"
+      image_tag "https://shareasale.com/sale.cfm?amount=0.0&tracking=#{account.id}L&transtype=lead&merchantID=37263", :width => "1", :height => "1"
     end
   end
 

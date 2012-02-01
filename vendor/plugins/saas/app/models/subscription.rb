@@ -278,7 +278,7 @@ class Subscription < ActiveRecord::Base
       if account.receipts.count == 2
         first_receipt = account.receipts.first
         if first_receipt.shareasale_user_id.present?
-          uri = URI("https://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{receipt.id}&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
+          uri = URI("http://shareasale.com/q.cfm?amount=#{self.amount}&tracking=#{account.id}S&transtype=sale&merchantID=#{APP_CONFIG[:shareasale_merchant_id]}&userID=#{first_receipt.shareasale_user_id}")
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = true
           http.start do
