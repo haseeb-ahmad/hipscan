@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :page]
+  before_filter :authenticate_user!, :except => [:show, :page, :form]
   before_filter :set_qr, :except => [:new, :create]
 
   def index
