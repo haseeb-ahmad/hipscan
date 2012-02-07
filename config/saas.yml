@@ -7,7 +7,7 @@ defaults: &defaults
   credentials:
     gateway:
       :login: 4qzN4h7MpuEa
-      :password: 4S9Q4h56Map7wEe6
+      :password: 7K34s7m3L8CmhC33
       # :test: true
     paypal:
       :login: info_api1.hipscan.com
