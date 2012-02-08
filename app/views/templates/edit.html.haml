@@ -62,16 +62,24 @@
             %br
             (default page is 'Landing page'):
 
-          .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');", :class => 'selected'} Landing Page
+          .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('Landing Page');", :class => 'selected'} Landing Page
           - @template.each_key do |field|
             - if field_type(field) == :page_content
-              .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected')"}= @template[field][:field_name]
+              .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('#{field}')"}= @template[field][:field_name]
 
         .preview-template
           #loading-preview{} Loading preview...
-          %iframe{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
+          %iframe#preview_panel{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
         = link_to 'Change Template', new_template_path
 
 - content_for :js do
   :javascript
     #{@js_content}
+
+    function page_select(selected_page) {
+      if (selected_page == 'Landing Page') {
+        $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}');
+      } else {
+        $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}' +'/' + '#{@template_key.to_s}' +'/page/' + selected_page);
+      }
+    }
