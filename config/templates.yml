@@ -210,34 +210,44 @@
       :welcome_title:
         :field_name: 'Welcome title'
         :field_type: :string
+        :order: 1
       :offer_title:
         :field_name: 'Coupon title'
         :field_type: :string
+        :order: 2
       :coupon_code:
         :field_name: 'Coupon code'
         :field_type: :string
+        :order: 4
       :coupon_description:
         :field_name: 'Description'
         :field_type: :page
+        :order: 3
       :facebook:
         :field_name: 'Facebook URL'
         :field_type: :string
         :title: 'Enter URL for Facebook'
+        :order: 7
       :twitter:
         :field_name: 'Twitter URL'
         :field_type: :string
         :title: 'Enter URL for Twitter'
+        :order: 8
       :youtube:
         :field_name: 'YouTube URL'
         :field_type: :string
         :title: 'Enter URL for You Tube'
+        :order: 9
       :phone_number:
         :field_name: 'Phone Number'
         :field_type: :string
+        :order: 6
       :email:
         :field_name: 'Email'
         :field_type: :string
+        :order: 5
       :website:
         :field_name: 'Website URL'
         :field_type: :url
         :title: 'Enter URL for Website'
+        :order: 10

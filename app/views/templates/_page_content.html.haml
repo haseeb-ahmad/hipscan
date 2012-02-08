@@ -2,7 +2,7 @@
   - if field_type(field) == :page_content
     .page_template{:style => 'display:none;', :id => underscore(@template[field][:field_name])}
       %h1== #{@template[field][:field_name]} page
-      %h3 Add information to this page
+      %h3 Customize the information below
       - if @template[field][:content].present?
         - if @template[field][:field_ordering].present? and @template[field][:field_ordering]
           - @template[field][:content].to_a.sort_by{|x| x.last[:order]}.each do |page_field|
