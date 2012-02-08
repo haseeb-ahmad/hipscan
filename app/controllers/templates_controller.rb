@@ -1,3 +1,10 @@
+if RUBY_VERSION < "1.9" 
+  require "faster_csv"
+  CSV = FCSV
+else
+  require "csv"
+end
+
 class TemplatesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :page, :form]
   before_filter :set_qr, :except => [:new, :create]
@@ -84,11 +91,9 @@ class TemplatesController < ApplicationController
   end
 
   def export
-    require 'csv'
-
     @data = current_user.user_data_items.email_listings
 
-    csv_string = CSV.generate do |csv|
+    csv_string = CSV.generate({}) do |csv|
       csv << ['First Name', 'Last Name', 'Email']
 
       @data.each do |user|
