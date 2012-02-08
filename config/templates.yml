@@ -206,6 +206,7 @@
   :offer:
     :field_name: 'Offer'
     :field_type: :page_content
+    :field_ordering: true
     :content:
       :welcome_title:
         :field_name: 'Welcome title'
