@@ -198,7 +198,7 @@
     :field_name: 'Main Message'
     :field_type: :string
   :fill_form: 
-    :field_name: 'Form fill out instructions'
+    :field_name: 'Form instructions'
     :field_type: :string
   :copyright:
     :field_name: 'Copyright information'

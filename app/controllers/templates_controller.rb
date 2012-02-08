@@ -104,7 +104,7 @@ class TemplatesController < ApplicationController
     if request.post?
       if params[:email].present?
         data = @qr.user_data_items.new
-        data.user = current_user
+        data.user = @qr.user
         data.data_type = 'email_listing'
         data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name]}.to_json
         data.save
