@@ -49,7 +49,7 @@ class AccountsController < ApplicationController
 
       receipt = Receipt.new
       receipt.amount = @account.subscription.amount
-      receipt.tracking_id = @account.id
+      receipt.tracking_id = "#{@account.id}L"
       @account.receipts << receipt
       receipt.save
 
