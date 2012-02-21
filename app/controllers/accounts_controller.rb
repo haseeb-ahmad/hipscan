@@ -62,11 +62,21 @@ class AccountsController < ApplicationController
   end
 
   def password
-    if request.post? and params[:user][:reset_password_token].present?
-      user = User.find_by_reset_password_token params[:user][:reset_password_token]
-      if user.update_with_password(params[:user])
-        sign_in User.find(user.id), :bypass => true
-        redirect_to account_path, :notice => "Password updated!"
+    if request.post?
+      if params[:user][:reset_password_token].present?
+        user = User.find_by_reset_password_token params[:user][:reset_password_token]
+        user = current_user if logged_in?
+
+        if user.update_with_password(params[:user])
+          sign_in User.find(user.id), :bypass => true
+          redirect_to account_path, :notice => "Password updated!"
+        end
+      elsif logged_in?
+        user = current_user
+        if user.update_with_password(params[:user])
+          sign_in User.find(user.id), :bypass => true
+          redirect_to account_path, :notice => "Password updated!"
+        end
       end
     end
   end
