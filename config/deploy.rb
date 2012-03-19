@@ -106,7 +106,7 @@ namespace :bundler do
   task :bundle_new_release, :roles => :app do
     bundler.create_symlink
     #run "cd #{release_path} && bundle install --without development test"
-    puts 'cap bundler is broken -- run bundle install --without development test'
+    puts 'cap bundler is broken -- run bundle install --without development test assets'
     puts 'manually on server'
   end
 
