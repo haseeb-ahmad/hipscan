@@ -6,8 +6,10 @@ class WelcomeController < ApplicationController
       flash.keep
       redirect_to home_path
       return
+    elsif %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/index', :layout => 'mobile'
+      return
     end
-    # @background_image = 'backgrounds/grassbg_white.jpg'
   end
 
   def contact
@@ -19,6 +21,11 @@ class WelcomeController < ApplicationController
       Notifier.contact_email(params[:email], params[:message]).deliver
       flash[:notice] = 'Message sent'
       redirect_to :action => :index
+      return
+    end
+
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/contact', :layout => 'mobile'
     end
   end
   
@@ -131,6 +138,11 @@ class WelcomeController < ApplicationController
   end
 
   def qr_uni
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/university', :layout => 'mobile'
+      return
+    end
+
     @title = 'QR University'
     @content = UserDataItem.find_or_create_by_data_type('qr-uni-content').text_value
   end
@@ -153,7 +165,42 @@ class WelcomeController < ApplicationController
     end
   end
 
-  private
+  def services
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/marketing', :layout => 'mobile'
+      return
+    end
+  end
+
+  def privacy_policy
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/privacy_policy', :layout => 'mobile'
+      return
+    end    
+  end
+
+  def terms_of_use
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/terms_of_use', :layout => 'mobile'
+      return
+    end        
+  end
+
+  def pricing
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/pricing', :layout => 'mobile'
+      return
+    end        
+  end
+
+  def mobile_university
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/university', :layout => 'mobile'
+      return
+    end            
+  end
+
+private
 
   def process_request_info_form
     if params[:name].blank? || params[:email].blank? || not_email?(params[:email])

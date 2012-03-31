@@ -1,0 +1,45 @@
+.login-page
+  %h2 Create an account
+  %p Note that the 'username' you choose will also be used in your URL. This cannot be changed later, so make sure to pick your ideal choice.
+  %br
+  %br
+  = form_for @account, :url => { :action => 'create' }, :style => 'margin-left: 15px;' do |account|
+    = hidden_field_tag 'plan', params[:plan]
+    - if @account.errors.any?
+      .errorExplanation
+        %h2 Errors encountered with your account information:
+        = raw(@account.errors.full_messages.each {|s| s.gsub! /Admin/, 'User'}.join(',<br/>'))
+    %fieldset
+      = account.fields_for :admin do |admin|
+        %p
+          = admin.label :username
+          %br
+          = admin.text_field :username
+        %p
+          = admin.label :email
+          %br
+          = admin.text_field :email
+        %p
+          = admin.label :password
+          %br
+          = admin.password_field :password
+        %p
+          = admin.label :password_confirmation
+          %br
+          = admin.password_field :password_confirmation
+    - if @account.needs_payment_info?
+      %p
+        Your card will be charged #{number_to_currency(@account.plan.setup_amount) + ' now and ' if  @account.plan.setup_amount? && !@account.plan.trial_period?} #{number_to_currency(@account.plan.amount)}
+        \#{@account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months"} until you cancel the subscription.
+      %p 
+        Please enter your payment information
+      = render :partial => "shared/credit_card_form"
+    %br/
+    - unless params[:plan] == 'Basic'
+      %fieldset
+        = label_tag :discount, "Discount Code"
+        %br
+        = text_field_tag :discount, params[:discount]
+      %br/
+    %fieldset
+      .signup-button= link_to 'Create my account', 'javascript: $("form").submit();'

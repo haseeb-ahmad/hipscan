@@ -44,6 +44,10 @@ class ApplicationController < ActionController::Base
         render :template => 'qrs/show', :layout => 'hipscan'
       end
     else
+      if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+        render 'welcome/mobile/404', :layout => 'mobile', :status => 404
+        return
+      end
       render :file => File.join(Rails.root, 'public', '404.html'), :status => 404
     end
   end
@@ -58,6 +62,10 @@ class ApplicationController < ActionController::Base
 
   # Automatically respond with 404 for ActiveRecord::RecordNotFound
   def record_not_found
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/404', :layout => 'mobile', :status => 404
+      return
+    end
     render :file => File.join(Rails.root, 'public', '404.html'), :status => 404
   end
 

@@ -1,6 +1,6 @@
 class MainSite
   def self.matches?(request)
-    request.subdomain.blank? || request.subdomain == 'www' || request.subdomain == 'staging'
+    request.subdomain.blank? || ['www', 'm', 'mobile', 'staging'].any? {|subdomain| subdomain == request.subdomain }
   end
 end
 
@@ -20,6 +20,7 @@ Hipscan::Application.routes.draw do
     match '/signup/:plan/:discount' => 'accounts#new', :as => 'new_account'
     match '/signup/:plan' => 'accounts#new', :as => 'new_account'
     match 'change-password' => 'accounts#password', :as => 'change_password'
+    match 'mobile-login' => 'accounts#mobile_signin', :as => "mobile_login"
 
     # Catch-all that just loads views from app/views/content/* ...
     # e.g, http://yoursite.com/content/about -> app/views/content/about.html.erb
@@ -68,7 +69,6 @@ Hipscan::Application.routes.draw do
 
   #  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
 
-
   get "welcome/index"
   get "home/index"
   get 'home/color'
@@ -111,17 +111,17 @@ Hipscan::Application.routes.draw do
 
   match 'click/:user_id/:click_type' => 'welcome#click', :as => 'click'
 
-
   match 'about' => 'welcome#about'
   match 'qr-uni' => 'welcome#qr_uni'
   match 'privacy_policy' => 'welcome#privacy_policy'
   match 'terms_of_use' => 'welcome#terms_of_use'
   match 'contact' => 'welcome#contact'
+  match 'pricing' => 'welcome#pricing'
+  match 'mobile_university' => 'welcome#mobile_university'
   match 'welcome/edit' => 'welcome#edit', :as => 'edit_welcome'
   match 'cms/update' => 'welcome#update', :as => 'update_welcome'
 
-
-
+  # Templates routes
   match 'templates/new' => 'templates#new', :as => "new_template"
   match 'templates/export' => 'templates#export', :as => "export_template"
   match 'templates/:qr/form/:template' => 'templates#form', :as => "form_template"
@@ -133,36 +133,6 @@ Hipscan::Application.routes.draw do
   match 'template/:qr/destroy/:template_item' => 'templates#destroy', :as => 'destroy_template_item'
   match 'template/:qr/update/:template' => 'templates#update', :as => 'update_template'
 
-
-
-  #  post 'home/tweet'
-  #  post 'home/wall'
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
   resources :qrs do
     member do
       get 'marketing'
@@ -172,20 +142,6 @@ Hipscan::Application.routes.draw do
       get 'analytics'
     end
   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
 
   # get "admin/index"
   # match "admin" => "admin#index"
@@ -199,38 +155,10 @@ Hipscan::Application.routes.draw do
   #  get 'incomplete'
   # end
 
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  #root :to => "devise/registrations#new"
   root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
-
-
-  # Rails 3.0 bug
-
-  # ckeditor_pictures GET    /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"index"}
-                   # POST   /ckeditor/pictures(.:format)              {:controller=>"ckeditor/pictures", :action=>"create"}
-  #   ckeditor_picture DELETE /ckeditor/pictures/:id(.:format)          {:controller=>"ckeditor/pictures", :action=>"destroy"}
-
-#ckeditor_attachment_files GET    /ckeditor/attachment_files(.:format)      {:controller=>"ckeditor/attachment_files", :action=>"index"}
-#                    POST   /ckeditor/attachment_files(.:format)      {:controller=>"ckeditor/attachment_files", :action=>"create"}
-# ckeditor_attachment_file DELETE /ckeditor/attachment_files/:id(.:format)  {:controller=>"ckeditor/attachment_files", :action=>"destroy"}
 
   post '/ckeditor/attachment_files' => 'ckeditor/attachment_files#create'
   match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :as => 'ckeditor_attachment_file'
-
   match 'ckeditor/attachment_files' => 'ckeditor/attachment_files#index', :as => 'ckeditor_attachment_files'
   match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#create', :via => :post
   match 'ckeditor/attachment_file' => 'ckeditor/attachment_files#destroy', :via => :delete, :as => 'ckeditor_attachment_file'

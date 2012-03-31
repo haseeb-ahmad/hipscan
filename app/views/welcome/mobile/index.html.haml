@@ -1,0 +1,61 @@
+%h4.toll-free
+  toll-free:
+  %span 855-438-4477
+%h1.mainheading Connect the real world with your digital identity
+= button_to "Create your FREE Hipscan Today!", pricing_path
+%p
+  A Hipscan sends mobile devices to your website, social profile, or
+  anything else online. The best part is that you can change it any
+  time you want!
+.header-image
+  = image_tag "header-img1.png", :class => 'header-img', :alt => "", :border => "0"
+%nav
+  %ul
+    %li
+      = link_to pricing_path do
+        = image_tag "arrow-nav.png", :alt => "", :border => "0"
+        Plans &amp; Pricing
+        %br/
+        %span Choose the right package for you
+    %li
+      = link_to mobile_university_path do
+        = image_tag "arrow-nav.png", :alt => "", :border => "0"
+        Hipscan QR University
+        %br/
+        %span Learn about QR codes &amp; mobile marketing
+    %li
+      = link_to "http://blog.hipscan.com" do
+        = image_tag "arrow-nav.png", :alt => "", :border => "0"
+        Blog
+        %br/
+        %span News &amp; Articles
+.plan
+  %h3 Product Marketer
+  %h1
+    %sup> $
+    14.00
+    %sub /mo
+  %p Have multiple products you want to promote? Create a Hipscan for each (up to 30) and track which ones your users are scanning! Instant offline custom marketing collateral is easy to create for each Hipscan.
+  = button_to "Choose this plan", new_account_path(:plan => 'Product')
+%ul.plan-bullets
+  %li
+    Create and track up to 30 Hipscan QR codes within a single account. Each product can be tied into a URL or to a video, image or text
+    destination.
+  %li Make a custom product call-out card for each product if you desire.
+  %li Analytics Broken Down Per Product
+  %li 30-day free trial.
+%br/
+.plan.plan2
+  %h3 Product Marketer
+  %h1
+    %sup> $
+    19.00
+    %sub /mo
+  %p Ready to promote your business? It's all about the engagement after someone scans your Hipscan. Create a custom mobile website for your business - and engage your users right after the scan!
+  = button_to "Choose this plan", new_account_path(:plan => 'Business')
+%ul.plan-bullets
+  %li Create a custom HTML5 Mobile Website or Mobile Coupon showcasing your product.
+  %li Beautiful templates available for each industry makes it easy to get started.
+  %li Advanced analytics panel
+  %li Priority Email Support
+  %li 30-day free trial

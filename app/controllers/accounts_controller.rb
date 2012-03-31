@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   include SslRequirement
 
-  PUBLIC_METHODS = [ :new, :create, :plans, :canceled, :thanks, :shareasale, :password]
+  PUBLIC_METHODS = [ :new, :create, :plans, :canceled, :thanks, :shareasale, :password, :mobile_signin]
 
   before_filter :authenticate_user!, :except => PUBLIC_METHODS
   before_filter :authorized?, :except => PUBLIC_METHODS
@@ -25,6 +25,11 @@ class AccountsController < ApplicationController
   end
 
   def new
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/signup', :layout => 'mobile'
+      return
+    end
+
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
 
@@ -216,49 +221,58 @@ class AccountsController < ApplicationController
   end
 
   def dashboard
+
   end
 
-  protected
+  def mobile_signin
+    render 'welcome/mobile/login', :layout => 'mobile'
+  end
 
-    def resource
-      @account ||= current_account
-    end
+  def mobile_signup
+    render 'welcome/mobile/signup', :layout => 'mobile'
+  end
 
-    def build_user
-      build_resource.admin = User.new unless build_resource.admin
-    end
+protected
 
-    def build_plan
-      redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
-      @plan.discount = @discount
-      @account.plan = @plan
-    end
+  def resource
+    @account ||= current_account
+  end
 
-    def redirect_url
-      { :action => 'show' }
-    end
+  def build_user
+    build_resource.admin = User.new unless build_resource.admin
+  end
 
-    def load_billing
-      @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
-      @address = SubscriptionAddress.new(params[:address])
-    end
+  def build_plan
+    redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
+    @plan.discount = @discount
+    @account.plan = @plan
+  end
 
-    def load_subscription
-      @subscription = current_account.subscription
-    end
+  def redirect_url
+    { :action => 'show' }
+  end
 
-    # Load the discount by code, but not if it's not available
-    def load_discount
-      if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
-        @discount = nil
-      end
-    end
+  def load_billing
+    @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
+    @address = SubscriptionAddress.new(params[:address])
+  end
 
-    def authorized?
-      redirect_to new_user_session_url unless self.action_name == 'dashboard' || account_admin?
-    end
+  def load_subscription
+    @subscription = current_account.subscription
+  end
 
-    def load_account
-      @account = current_user.account
+  # Load the discount by code, but not if it's not available
+  def load_discount
+    if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
+      @discount = nil
     end
+  end
+
+  def authorized?
+    redirect_to new_user_session_url unless self.action_name == 'dashboard' || account_admin?
+  end
+
+  def load_account
+    @account = current_user.account
+  end
 end
