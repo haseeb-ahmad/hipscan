@@ -134,6 +134,11 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    if %w{m mobile}.any? {|subdomain| subdomain == request.subdomain}
+      render 'welcome/mobile/about', :layout => 'mobile'
+      return
+    end
+
     @content = UserDataItem.find_or_create_by_data_type('about-content').text_value
   end
 
