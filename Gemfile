@@ -12,6 +12,9 @@ gem 'pdfkit'
 # vcard
 gem 'vpim'
 
+# detect mobile device
+gem 'mobile_fu-rails3'
+
 #wiki
 gem "irwi"
 gem "RedCloth", ">= 4.0", :require => 'redcloth'

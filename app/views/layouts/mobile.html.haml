@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "user-scalable=yes, width=device-width", :name => "viewport"}/
     = stylesheet_link_tag 'mobile'
+    = javascript_include_tag :defaults
     %title Hipscan
     = yield :head
   %body
@@ -18,7 +19,6 @@
           %li= link_to '', "http://www.facebook.com/#!/pages/hipscancom/156522207727893", :class => 'fb', :target => '_blank'
     %section#wrapper
       = yield
-      = javascript_include_tag :defaults
     %footer
       = link_to 'Blog', 'http://blog.hipscan.com'
       |
@@ -32,7 +32,7 @@
       |
       = link_to 'Terms of Use', terms_of_use_path
       |
-      = link_to 'Support', 'support.hipscan.com'
+      = link_to 'Support', 'http://support.hipscan.com'
       %br
       Hipscan&trade; &copy;2012, a Buzz Social Media Corporation
     = render :partial => 'layouts/google_analytics'

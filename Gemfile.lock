@@ -138,6 +138,8 @@ GEM
       activesupport (~> 3.0.2)
       arel (~> 2.0.2)
     mime-types (1.16)
+    mobile_fu-rails3 (1.0.6)
+      rails (>= 3.0.0)
     money (3.7.1)
       i18n (~> 0.4)
     multi_json (1.0.3)
@@ -282,6 +284,7 @@ DEPENDENCIES
   irwi
   jquery-rails
   koala
+  mobile_fu-rails3
   mysql2 (< 0.3)
   newrelic_rpm
   omniauth

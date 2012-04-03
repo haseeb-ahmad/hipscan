@@ -32,7 +32,7 @@
 
   %p Now you can leverage the awesome power of video for your marketing and deliver it to your target audience using cutting edge technology that’s the future of business marketing.
 
-  %p= link_to 'Click here to find out more.', video_services_path
+  %p= mail_to APP_CONFIG[:contact_email], "Contact us for a free analysis for your business.", :subject => 'Contact us for a free analysis for your business.'
 
   .cl
   .hr
@@ -51,7 +51,7 @@
 
   %p You don’t have to wait blindly for your customers to visit your website only whenever they’re online on their PCs. We can bring your website straight to your customers’ smartphones and other mobile devices whenever they scan your QR code.
 
-  %p= link_to 'Click here to find out more.', mobile_services_path
+  %p= mail_to APP_CONFIG[:contact_email], "Contact us for a free analysis for your business.", :subject => 'Contact us for a free analysis for your business.'
 
   .cl
   .hr
@@ -70,7 +70,7 @@
 
   %p Give your marketing a much-needed boost with a totally cool twist. Print your Hipscan on flyers, postcards, posters, stickers, stationary, t-shirts, real estate signs, mugs or just about anything you can think of. Use these as giveaways, promo items or for whatever purpose you want and watch your business boom.
 
-  %p= link_to 'Click here to find out more.', design_services_path
+  %p= mail_to APP_CONFIG[:contact_email], "Contact us for a free analysis for your business.", :subject => 'Contact us for a free analysis for your business.'
 
   .cl
   .hr

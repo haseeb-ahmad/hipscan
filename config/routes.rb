@@ -117,6 +117,7 @@ Hipscan::Application.routes.draw do
   match 'terms_of_use' => 'welcome#terms_of_use'
   match 'contact' => 'welcome#contact'
   match 'pricing' => 'welcome#pricing'
+  match 'ambassador' => 'welcome#ambassador'
   match 'mobile_university' => 'welcome#mobile_university'
   match 'welcome/edit' => 'welcome#edit', :as => 'edit_welcome'
   match 'cms/update' => 'welcome#update', :as => 'update_welcome'

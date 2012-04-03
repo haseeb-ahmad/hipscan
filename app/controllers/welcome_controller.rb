@@ -1,5 +1,8 @@
 class WelcomeController < ApplicationController
   include SMSFu
+  # has_mobile_fu
+
+  # before_filter :detect_mobile, :only => [:index]
 
   def index
     if logged_in?
@@ -205,7 +208,18 @@ class WelcomeController < ApplicationController
     end            
   end
 
+  def ambassador
+    
+  end
 private
+
+  def detect_mobile
+    if is_mobile_device?
+      @mobile = 'mobile'
+    else
+      @mobile = 'not'
+    end
+  end
 
   def process_request_info_form
     if params[:name].blank? || params[:email].blank? || not_email?(params[:email])
