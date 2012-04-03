@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
   include SMSFu
-  # has_mobile_fu
 
-  # before_filter :detect_mobile, :only => [:index]
+  before_filter :detect_mobile, :only => [:index]
 
   def index
     if logged_in?
@@ -214,10 +213,11 @@ class WelcomeController < ApplicationController
 private
 
   def detect_mobile
-    if is_mobile_device?
-      @mobile = 'mobile'
+    if request.user_agent =~ /Mobile|Blackberry|Android|iPhone|iOS|webOS/i and ['www'].any? {|subdomain| subdomain == request.subdomain }
+      @mobile = true
+      redirect_to "http://m.#{APP_CONFIG[:host]}"
     else
-      @mobile = 'not'
+      @mobile = false
     end
   end
 
