@@ -1504,7 +1504,7 @@ table.bar-chart td:first-child {
 }
 /* line 435, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .retail {
-  background: url(images/store.png) no-repeat;
+  background: url(images/retail.png) no-repeat;
 }
 /* line 437, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .graph {
@@ -1553,12 +1553,16 @@ table.bar-chart td:first-child {
 /* line 465, ../../app/stylesheets/partials/_layout.sass */
 .ambassador-form {
   margin: 0 15px 0 5px;
+  text-align: center;
 }
-/* line 467, ../../app/stylesheets/partials/_layout.sass */
+/* line 468, ../../app/stylesheets/partials/_layout.sass */
 .ambassador-form ul {
-  list-style-type: disc;
   font-size: 130%;
   margin-left: 30px;
+}
+/* line 471, ../../app/stylesheets/partials/_layout.sass */
+.ambassador-form ul li {
+  margin-top: 10px;
 }
 
 /* line 9, ../../app/stylesheets/partials/_page.sass */
