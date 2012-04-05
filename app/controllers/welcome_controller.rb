@@ -210,6 +210,10 @@ class WelcomeController < ApplicationController
   def ambassador
     
   end
+
+  def qr_code
+    
+  end
 private
 
   def detect_mobile

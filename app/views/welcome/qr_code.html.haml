@@ -1,0 +1,121 @@
+- content_for :js do
+  = javascript_include_tag 'jquery.cycle.all.latest'
+
+  :javascript
+    $(document).ready(function(){
+      $("#click").bind('click', function(){
+        $("#popup").bPopup();
+        return false
+      });
+
+      $('#qr0').cycle({
+        fx: 'fade',
+        timeout: 6000
+      });
+    });
+
+
+%table.twocol
+  %tr
+    %td{:style => 'width: 50%; padding-right: 40px'}
+      %h1{:style => 'font-size: 37px; font-weight: bold;'} Connect the real world with your digital identity
+      %br
+      %p{:style => 'font-weight: bold;'}
+        A #{hipscan} sends mobile devices to your website, social
+        profile, or anything else online. The best part is that you
+        can change it any time you want!
+
+      .create-hipscan-today
+        Create your Hipscan Today
+        .signup-button= link_to 'It\'s free!', plans_path
+        = image_tag('plan-arrow.png')
+    %td
+      #hipscan_qr
+        .home_qr#qr0
+          = image_tag 'qr_slide_1.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_2.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_3.png', :title => 'http://hipscan.com'
+          = image_tag 'qr_slide_4.png', :title => 'http://hipscan.com'
+          = link_to image_tag('qr_slide_5.png', :title => 'http://hipscan.com'), "/qr-university"
+
+.plans.left-side
+  %h1 Basic Hipscan
+  %h2.price Free
+  %p
+    %b For beginner
+    to the world of QR - or those that already have developed marketing destinations for their Hipscan.
+  %ul
+    %li
+      %b Point your Hipscan
+      to a custom Hipscan profile, text, video, URL or social profile!
+    %li
+      %b Create a Hipscan profile
+      (digital business card)
+    %li
+      %b Basic Analytics
+    %li
+      %b Basic Email Support
+  .signup-button= link_to 'Signup today!', new_account_path(:plan => 'Basic', :discount => params[:discount])
+
+.plans.right-side
+  %h1 Product Marketer
+  %h2.price $14 per month
+  %p
+    %b Have multiple products you want to promote?
+    Create a Hipscan for each (up to 30) and track which ones your users are scanning! Instant offline custom marketing collateral is easy to create for each Hipscan.
+  %ul
+    %li
+      %b Create and track
+      up to
+      %b 30 Hipscan QR codes
+      within a single account. Each product can be tied into a URL or to a video, image or text destination.
+    %li
+      %b Make a custom
+      product call-out card for each product if you desire.
+    %li
+      %b Analytics Broken Down Per Product
+    %li
+      %b 30-day free trial.
+  .signup-button
+    = link_to new_account_path(:plan => 'Product', :discount => params[:discount]) do
+      Start My Free Trial
+      %br
+      %div{:style => 'font-size: 12px'} No Credit Card Required
+
+.plans.middle_side.featured{:style => 'margin-top: 355px;'}
+  .popular
+  %h1 Business Marketer
+  %h2.price $19 per month
+  %p
+    %b Ready to promote your business?
+    It's all about the engagement after someone scans your Hipscan. Create a custom mobile website for your business - and engage your users right after the scan!
+  %ul
+    %li
+      %b Create a custom HTML5 Mobile Website
+      or Mobile Coupon showcasing your product.
+    %li
+      %b Beautiful templates
+      available for each industry makes it easy to get started.
+    %li
+      %b Advanced
+      analytics panel
+    %li
+      %b Priority
+      Email Support
+    %li
+      %b 30-day free trial
+  .signup-button
+    = link_to new_account_path(:plan => 'Business', :discount => params[:discount]) do
+      Start My Free Trial
+      %br
+      %div{:style => 'font-size: 12px; padding-top: 4px;'} No Credit Card Required
+.clearfix
+.agency-plans{:style => 'margin-top: 60px;'}
+  Are you an agency?
+  = mail_to APP_CONFIG[:contact_email], "Email us", :subject => 'Agency Plans'
+  for larger agency plans.
+
+.anytime
+  %b Upgrade, Downgrade or Cancel anytime.
+  %br
+  All Plans Optimized for over 7,000 Mobile Devices
