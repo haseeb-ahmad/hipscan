@@ -1,3 +1,18 @@
+- content_for :js do
+  <!-- Google Code for sign up Conversion Page -->
+  :javascript
+    var google_conversion_id = 948871387;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "Tp8OCP35gwQQ28G6xAM";
+    var google_conversion_value = 0;
+  /* ]]> */
+  = javascript_include_tag "http://www.googleadservices.com/pagead/conversion.js"
+  %noscript
+    %div{:style => 'display: inline;'}
+      %img{:height => '1', :width => '1', :style => "border-style:none;", :src => "http://www.googleadservices.com/pagead/conversion/948871387/?label=Tp8OCP35gwQQ28G6xAM&amp;guid=ON&amp;script=0" }
+
 .login-page
   %h2 Create an account
   %p Note that the 'username' you choose will also be used in your URL. This cannot be changed later, so make sure to pick your ideal choice.

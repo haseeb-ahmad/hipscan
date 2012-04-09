@@ -214,10 +214,11 @@ class WelcomeController < ApplicationController
   def qr_code
     
   end
+  
 private
 
   def detect_mobile
-    if request.user_agent =~ /Mobile|Blackberry|Android|iPhone|iOS|webOS/i and ['www'].any? {|subdomain| subdomain == request.subdomain }
+    if request.user_agent =~ /Mobile|Blackberry|Android|iPhone|iOS|webOS/i and ['www', ''].any? {|subdomain| subdomain == request.subdomain }
       @mobile = true
       redirect_to "http://m.#{APP_CONFIG[:host]}"
     else
