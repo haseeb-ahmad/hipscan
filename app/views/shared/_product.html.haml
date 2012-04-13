@@ -9,10 +9,6 @@
         .product= image_tag 'products/sticker.jpg'
   %br
   %p
-    The Hipscan Store
-    %br
     Ready to go shopping? Get your Hipscan codes to print. Increase customer engagement. Reach mobile users now! 
   %br
-  = link_to image_tag('buttons/button-store.png', 'data-hover' => '/images/buttons/button-store_selected.png'), 'http://store.hipscan.com', :target => '_blank'
-
-
+  .store_button= link_to image_tag('buttons/button-store.png', 'data-hover' => '/images/buttons/button-store_selected.png'), 'http://store.hipscan.com', :target => '_blank'

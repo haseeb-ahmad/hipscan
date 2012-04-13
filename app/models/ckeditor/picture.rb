@@ -10,7 +10,7 @@ class Ckeditor::Picture < Ckeditor::Asset
   :path => "/images/:id/:style_:basename.:extension",
   :styles => { :content => '575>', :thumb => '100x100' }
 
-  validates_attachment_size :data, :less_than=>2.megabytes
+  validates_attachment_size :data, :less_than=> 20.megabytes
 
 	def url_content
 	  url(:content)

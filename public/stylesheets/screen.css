@@ -1342,24 +1342,29 @@ table.bar-chart td:first-child {
   padding-top: 25px;
 }
 
-/* line 327, ../../app/stylesheets/partials/_layout.sass */
+/* line 326, ../../app/stylesheets/partials/_layout.sass */
+.store_button {
+  margin: -180px 0 80px 180px;
+}
+
+/* line 330, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction table {
   background-color: #e8e8e8;
   margin-top: 10px;
 }
-/* line 330, ../../app/stylesheets/partials/_layout.sass */
+/* line 333, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td {
   color: #424242;
   font-size: 14px;
   padding: 0px 10px;
   text-align: center;
 }
-/* line 335, ../../app/stylesheets/partials/_layout.sass */
+/* line 338, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td h1 {
   font-weight: bold;
   font-size: 140%;
 }
-/* line 338, ../../app/stylesheets/partials/_layout.sass */
+/* line 341, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .orange-title {
   color: #f07422;
   font-size: 30px;
@@ -1367,27 +1372,27 @@ table.bar-chart td:first-child {
   text-align: center;
   width: 330px;
 }
-/* line 344, ../../app/stylesheets/partials/_layout.sass */
+/* line 347, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .different {
   background: url(images/hipscan_different_image.png) no-repeat;
   background-position: center;
   height: 190px;
   width: 220px;
 }
-/* line 349, ../../app/stylesheets/partials/_layout.sass */
+/* line 352, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .promotional {
   background: url(images/hipscan_benefit_image.png) no-repeat;
   background-position: center;
   height: 155px;
   width: 220px;
 }
-/* line 354, ../../app/stylesheets/partials/_layout.sass */
+/* line 357, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td .qr-codes {
   background: url(images/qr_codes.png) no-repeat;
   background-position: center;
   height: 180px;
 }
-/* line 358, ../../app/stylesheets/partials/_layout.sass */
+/* line 361, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td.line {
   background: url(images/short_vertical_line.png) no-repeat;
   height: 440px;
@@ -1395,20 +1400,20 @@ table.bar-chart td:first-child {
   padding: 0px;
   margin: 0px;
 }
-/* line 364, ../../app/stylesheets/partials/_layout.sass */
+/* line 367, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td:first-child {
   width: 255px;
 }
-/* line 366, ../../app/stylesheets/partials/_layout.sass */
+/* line 369, ../../app/stylesheets/partials/_layout.sass */
 .plan_introduction td:first-child h1 {
   padding-top: 25px;
 }
 
-/* line 369, ../../app/stylesheets/partials/_layout.sass */
+/* line 372, ../../app/stylesheets/partials/_layout.sass */
 .plan_description {
   color: #424242;
 }
-/* line 372, ../../app/stylesheets/partials/_layout.sass */
+/* line 375, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .title {
   color: #f07422;
   font-size: 22px;
@@ -1416,14 +1421,14 @@ table.bar-chart td:first-child {
   text-align: center;
   margin-top: 15px;
 }
-/* line 378, ../../app/stylesheets/partials/_layout.sass */
+/* line 381, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .subheading {
   width: 300px;
   text-align: center;
   margin: 0 auto;
   padding-top: 10px;
 }
-/* line 383, ../../app/stylesheets/partials/_layout.sass */
+/* line 386, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1437,7 +1442,7 @@ table.bar-chart td:first-child {
   margin: 10px auto;
   padding: 10px 5px;
 }
-/* line 390, ../../app/stylesheets/partials/_layout.sass */
+/* line 393, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .title {
   text-align: center;
   font-weight: bold;
@@ -1446,7 +1451,7 @@ table.bar-chart td:first-child {
   width: 80%;
   margin: 0 auto;
 }
-/* line 397, ../../app/stylesheets/partials/_layout.sass */
+/* line 400, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .description {
   background: url(images/day-badge.png) no-repeat;
   padding-left: 95px;
@@ -1457,27 +1462,27 @@ table.bar-chart td:first-child {
   height: 80px;
   color: #f07422;
 }
-/* line 406, ../../app/stylesheets/partials/_layout.sass */
+/* line 409, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .box-promotion .description h1 {
   font-weight: bold;
   font-size: 28px;
 }
-/* line 409, ../../app/stylesheets/partials/_layout.sass */
+/* line 412, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .business-page, .plan_description td .product-page {
   width: 365px;
   height: 315px;
   margin: 0 auto;
   margin-top: -25px;
 }
-/* line 414, ../../app/stylesheets/partials/_layout.sass */
+/* line 417, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .business-page {
   background: url(images/business-page.png) no-repeat;
 }
-/* line 416, ../../app/stylesheets/partials/_layout.sass */
+/* line 419, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .product-page {
   background: url(images/product-page.png) no-repeat;
 }
-/* line 418, ../../app/stylesheets/partials/_layout.sass */
+/* line 421, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .mobile, .plan_description td .analytics, .plan_description td .video, .plan_description td .retail, .plan_description td .graph, .plan_description td .web, .plan_description td .coupon, .plan_description td .map, .plan_description td .click, .plan_description td .update, .plan_description td .marketing {
   clear: both;
   vertical-align: middle;
@@ -1487,80 +1492,80 @@ table.bar-chart td:first-child {
   font-family: ArchitectsDaughterRegular;
   background-position: center;
 }
-/* line 426, ../../app/stylesheets/partials/_layout.sass */
+/* line 429, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .mobile {
   background: url(images/phones.png) no-repeat;
   height: 100px;
   padding-top: 40px;
   margin-top: 20px;
 }
-/* line 431, ../../app/stylesheets/partials/_layout.sass */
+/* line 434, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .analytics {
   background: url(images/analytics.png) no-repeat;
 }
-/* line 433, ../../app/stylesheets/partials/_layout.sass */
+/* line 436, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .video {
   background: url(images/video.png) no-repeat;
 }
-/* line 435, ../../app/stylesheets/partials/_layout.sass */
+/* line 438, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .retail {
   background: url(images/retail.png) no-repeat;
 }
-/* line 437, ../../app/stylesheets/partials/_layout.sass */
+/* line 440, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .graph {
   background: url(images/graph.png) no-repeat;
 }
-/* line 439, ../../app/stylesheets/partials/_layout.sass */
+/* line 442, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .web {
   background: url(images/template.png) no-repeat;
   height: 75px;
 }
-/* line 442, ../../app/stylesheets/partials/_layout.sass */
+/* line 445, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .marketing {
   background: url(images/poster.png) no-repeat;
   height: 100px;
 }
-/* line 445, ../../app/stylesheets/partials/_layout.sass */
+/* line 448, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .coupon {
   background: url(images/coupon.png) no-repeat;
 }
-/* line 447, ../../app/stylesheets/partials/_layout.sass */
+/* line 450, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .map {
   background: url(images/map.png) no-repeat;
 }
-/* line 449, ../../app/stylesheets/partials/_layout.sass */
+/* line 452, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .click {
   background: url(images/click.png) no-repeat;
   height: 70px;
 }
-/* line 452, ../../app/stylesheets/partials/_layout.sass */
+/* line 455, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td .update {
   background: url(images/wireless.png) no-repeat;
   height: 75px;
   margin-top: -20px;
 }
-/* line 458, ../../app/stylesheets/partials/_layout.sass */
+/* line 461, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td:first-child .box-promotion .title {
   margin-top: 0px;
 }
-/* line 460, ../../app/stylesheets/partials/_layout.sass */
+/* line 463, ../../app/stylesheets/partials/_layout.sass */
 .plan_description td.line {
   background: url(images/long_vertical_line.png) no-repeat;
   height: 1072px;
   width: 10px;
 }
 
-/* line 465, ../../app/stylesheets/partials/_layout.sass */
+/* line 468, ../../app/stylesheets/partials/_layout.sass */
 .ambassador-form {
   margin: 0 15px 0 5px;
   text-align: center;
 }
-/* line 468, ../../app/stylesheets/partials/_layout.sass */
+/* line 471, ../../app/stylesheets/partials/_layout.sass */
 .ambassador-form ul {
   font-size: 130%;
   margin-left: 30px;
 }
-/* line 471, ../../app/stylesheets/partials/_layout.sass */
+/* line 474, ../../app/stylesheets/partials/_layout.sass */
 .ambassador-form ul li {
   margin-top: 10px;
 }
