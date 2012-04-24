@@ -31,4 +31,9 @@ class Notifier < ActionMailer::Base
     attachments["contact.vcf"] = { :content=> vcard.to_s, :mime_type => "text/x-vcard", :encoding => "base64" }
     mail(:to => recipient, :subject => 'Your Hipscan vcard has been received!')
   end
+
+  def university_signup(recipient, event, data)
+    @params = {:data => data, :event => event}
+    mail(:to => recipient, :subject => "New signup for #{@params[:event].present? ? @params[:event] : 'event'}")
+  end
 end

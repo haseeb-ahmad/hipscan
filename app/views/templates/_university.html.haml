@@ -1,0 +1,18 @@
+- content_for :css do
+  = stylesheet_link_tag 'university'
+  
+.content
+  %h1= field_value(:event_name).present? ? field_value(:event_name) : "Event Name"
+  .text= field_value(:description).present? ? field_value(:description) : "Fill in your name and email address."
+  = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
+    .field_box
+      = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :thank_you)
+      .label= label_tag :first_name
+      .field= text_field_tag :first_name
+      .label= label_tag :last_name
+      .field= text_field_tag :last_name
+      .label= label_tag :email
+      .field= text_field_tag :email
+      .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
+      .clear
+#footer Copyright Hipscan&copy; 2012 All Rights Reserved.

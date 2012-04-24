@@ -1,0 +1,6 @@
+New signup for #{@params[:event].present? ? @params[:event] : "event"}
+
+First Name: #{JSON(@params[:data].value)['first_name']}
+Last Name: #{JSON(@params[:data].value)['last_name']}
+
+Email: #{JSON(@params[:data].value)['email']}

@@ -190,6 +190,22 @@
   # :detail_page:
   #   :field_name: 'Detail Page'
   #   :field_type: :page_content
+:university:
+  :event_name: 
+    :field_name: 'Name'
+    :field_type: :string
+    :order: 1
+  :description: 
+    :field_name: 'Description'
+    :field_type: :page
+    :order: 2
+  :recipient: 
+    :field_name: 'Notification email'
+    :field_type: :string
+    :order: 3
+  :thank_you:
+    :field_name: 'Thank You'
+    :field_type: :page_content
 :coupon:
   :logo:
     :field_name: 'Logo'

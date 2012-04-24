@@ -112,7 +112,14 @@ class TemplatesController < ApplicationController
         data.user = @qr.user
         data.data_type = 'email_listing'
         data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name]}.to_json
-        data.save
+        if data.save and @qr.template == 'university'
+          recipient = @qr.template_items.find_by_field_name('recipient').string_value
+          recipient = @qr.user.email unless recipient.present?
+
+          event = @qr.template_items.find_by_field_name('event_name').string_value
+
+          Notifier.university_signup(recipient, event, data).deliver 
+        end
         redirect_to params[:redirect_to] if params[:redirect_to].present?
         return
       end
