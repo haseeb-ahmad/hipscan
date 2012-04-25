@@ -1,6 +1,4 @@
-New signup for #{@params[:event].present? ? @params[:event] : "event"}
+#{JSON(@params[:data].value)['first_name']} #{JSON(@params[:data].value)['last_name']} has requested additional information about #{@params[:event].present? ? @params[:event] : "event"} and would like to be added to your email list.
 
-First Name: #{JSON(@params[:data].value)['first_name']}
-Last Name: #{JSON(@params[:data].value)['last_name']}
-
+Name:  #{JSON(@params[:data].value)['first_name']} #{JSON(@params[:data].value)['last_name']}
 Email: #{JSON(@params[:data].value)['email']}

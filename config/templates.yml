@@ -192,7 +192,7 @@
   #   :field_type: :page_content
 :university:
   :event_name: 
-    :field_name: 'Name'
+    :field_name: 'Event name'
     :field_type: :string
     :order: 1
   :description: 
@@ -206,6 +206,10 @@
   :thank_you:
     :field_name: 'Thank You'
     :field_type: :page_content
+    :content:
+      :message:
+        :field_name: 'Success message'
+        :field_type: :string
 :coupon:
   :logo:
     :field_name: 'Logo'

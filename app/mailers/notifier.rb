@@ -34,6 +34,11 @@ class Notifier < ActionMailer::Base
 
   def university_signup(recipient, event, data)
     @params = {:data => data, :event => event}
-    mail(:to => recipient, :subject => "New signup for #{@params[:event].present? ? @params[:event] : 'event'}")
+    mail(:to => recipient, :subject => "You have a new subscriber")
+  end
+
+  def university_confirmation(recipient, event, data)
+    @params = {:event => event}
+    mail(:to => recipient, :subject => "Subscribed to #{@params[:event].present? ? @params[:event] : 'event'}")
   end
 end

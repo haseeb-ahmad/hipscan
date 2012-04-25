@@ -119,6 +119,7 @@ class TemplatesController < ApplicationController
           event = @qr.template_items.find_by_field_name('event_name').string_value
 
           Notifier.university_signup(recipient, event, data).deliver 
+          Notifier.university_confirmation(params[:email], event, data).deliver 
         end
         redirect_to params[:redirect_to] if params[:redirect_to].present?
         return
