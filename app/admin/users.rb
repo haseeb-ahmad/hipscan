@@ -3,11 +3,30 @@ ActiveAdmin.register User do
   filter :email
   actions :index, :edit, :update, :show
 
+  controller do
+    alias_method :update_ori, :update
+
+    def update
+      user = User.find params[:id]
+      user.update_attributes params[:user]
+
+      # Rails.logger.debug "XXX"      
+      update_ori
+    end
+  end
+
+  # form do |f|
+  #      f.inputs "User Details" do
+  #         f.input :email
+  #      end
+  #   f.buttons
+  # end
+
   index do
     column :username do |user|
       link_to user.username, "/#{user.username}?noscan=1", :target => '_blank'
     end
-    #column :email
+    column :email
     column :profile_option
     column :account_type
     #column :created_at
@@ -24,6 +43,15 @@ ActiveAdmin.register User do
       #links += link_to 'Make Admin', make_admin_admin_user_path(user), :class => "member_link"
       links
     end
+  end
+
+  show do
+    attributes_table :username, :email, :password, :password_confirmation, :remember_me,
+                  :profile_option, :url, :image, :custom_text, :display_name, :email_address, :phone_number, :custom_page,
+                  :photo, :facebook_url, :twitter_username, :foursquare_username, :status, :spda_username, :linked_in_profile_url,
+                  :website_name, :website_url, :website_name2, :website_url2, :website_name3, :website_url3,
+                  :website_name4, :website_url4, :website_name5, :website_url5, :account_admin,
+                  :sms_phone_number, :sms_carrier, :google_profile_id, :video_url, :video_embed, :description
   end
 
   member_action :impersonate do
