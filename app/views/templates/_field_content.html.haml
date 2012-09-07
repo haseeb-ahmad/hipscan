@@ -21,6 +21,12 @@
     %p.template_file_field
       = label_tag "#{page_field_name(field, page_field)}:"
       = text_area_tag page_field_tag(field, page_field), page_field_value(field, page_field)
+  - when :qr
+    %div{:style => "width: 470px;"}
+      This page contains completely customizable thank you page.
+    %br
+    - if @qr.finish_page.present?
+      .signup-button{ :style => 'margin: 10px 0 100px 5px; display: inline-block;'}= link_to("Edit thank you page", edit_qr_path(@qr.finish_page))
   - else
     %p
       Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}                          

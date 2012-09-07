@@ -149,7 +149,6 @@ private
 
   def check_subscription
     subscription = current_user.subscription.subscription_plan.name
-
     if subscription =~ /^Business/
       if current_user.template.present?
         # redirect_to edit_template_path(:qr => current_user.template.id, :template => current_user.template.template)

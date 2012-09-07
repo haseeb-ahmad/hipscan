@@ -6,7 +6,7 @@
   .text= field_value(:description).present? ? field_value(:description) : "Fill in your name and contact details."
   = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
     .field_box
-      = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :thank_you)
+      = hidden_field_tag :redirect_to, qr_path(@qr.finish_page)
       .label= label_tag :first_name
       .field= text_field_tag :first_name
       .label= label_tag :last_name

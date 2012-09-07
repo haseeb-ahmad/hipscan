@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219185229) do
+ActiveRecord::Schema.define(:version => 20120907002835) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(:version => 20111219185229) do
     t.string   "video_url"
     t.text     "video_embed"
     t.string   "template"
+    t.integer  "qr_id"
+    t.integer  "parent_qr_id"
   end
 
   create_table "receipts", :force => true do |t|
@@ -284,8 +286,6 @@ ActiveRecord::Schema.define(:version => 20111219185229) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "welcome_email_sent"
-    t.boolean  "dont_send_email"
     t.string   "username",              :limit => 128
     t.string   "foursquare_username"
     t.string   "twitter_username"
@@ -327,6 +327,8 @@ ActiveRecord::Schema.define(:version => 20111219185229) do
     t.datetime "qr_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "welcome_email_sent"
+    t.boolean  "dont_send_email"
     t.string   "color",                                :default => "black"
     t.boolean  "send_sms",                             :default => false
     t.string   "sms_phone_number",      :limit => 32

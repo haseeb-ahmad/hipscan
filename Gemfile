@@ -98,6 +98,7 @@ gem "compass", ">= 0.11.5"
 group :development, :test do
   gem 'shoulda'
   gem 'webrat'
+  # gem 'debugger'
 end
 
 group :development do

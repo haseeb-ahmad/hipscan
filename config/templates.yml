@@ -203,6 +203,10 @@
     :field_name: 'Notification email'
     :field_type: :string
     :order: 3
+  :phone_number:
+    :field_name: 'Phone number'
+    :field_type: :string
+    :order: 4
   :thank_you:
     :field_name: 'Thank You'
     :field_type: :page_content
@@ -210,6 +214,30 @@
       :message:
         :field_name: 'Success message'
         :field_type: :string
+:conference:
+  :event_name: 
+    :field_name: 'Event name'
+    :field_type: :string
+    :order: 1
+  :description: 
+    :field_name: 'Description'
+    :field_type: :page
+    :order: 2
+  :recipient: 
+    :field_name: 'Notification email'
+    :field_type: :string
+    :order: 3
+  :phone_number:
+    :field_name: 'Phone number'
+    :field_type: :string
+    :order: 4
+  :thank_you:
+    :field_name: 'Thank You'
+    :field_type: :page_content
+    :content:
+      :message:
+        :field_name: 'Qr Page'
+        :field_type: :qr
 :coupon:
   :logo:
     :field_name: 'Logo'

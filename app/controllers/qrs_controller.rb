@@ -55,9 +55,12 @@ class QrsController < ApplicationController
 
   def update
     @qr = current_user.qrs.find(params[:id])
-
     if @qr.update_attributes(params[:qr])
-      redirect_to edit_marketing_qr_path(@qr), :notice => 'Hipscan saved.'
+      if @qr.parent_qr.present?
+        redirect_to(edit_template_path(:qr => @qr.parent_qr.id, :template => @qr.parent_qr.template))
+      else
+        redirect_to edit_marketing_qr_path(@qr), :notice => 'Hipscan saved.'
+      end
     else
       render :action => "edit"
     end

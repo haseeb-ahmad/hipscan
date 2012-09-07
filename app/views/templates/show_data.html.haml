@@ -10,6 +10,7 @@
               %td First Name
               %td Last Name
               %td Email
+              %td Phone number
           %tbody
             - @data.each do |user|
               - data = JSON(user.value)
@@ -17,4 +18,5 @@
                 %td= data['first_name']
                 %td= data['last_name']
                 %td= data['email']
+                %td= data['phone_number']
 = link_to 'export to CSV', export_template_path

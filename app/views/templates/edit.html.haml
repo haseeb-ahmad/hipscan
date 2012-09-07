@@ -45,6 +45,8 @@
                       %p.template_file_field
                         = label_tag "#{@template[field][:field_name]}:"
                         = text_area_tag field_tag(field), field_value(field)
+                    - when :qr
+                      QR CODE 1
                     - else
                       - if field_type(field) != :page_content
                         %p
@@ -76,10 +78,16 @@
   :javascript
     #{@js_content}
 
+    template_type = '#{@qr.template}'
+
     function page_select(selected_page) {
       if (selected_page == 'Landing Page') {
         $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}');
       } else {
-        $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}' +'/' + '#{@template_key.to_s}' +'/page/' + selected_page);
+        if () {
+          $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}');
+        } else {
+          $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}' +'/' + '#{@template_key.to_s}' +'/page/' + selected_page);
+        }
       }
     }

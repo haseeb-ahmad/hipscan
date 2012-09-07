@@ -4,6 +4,8 @@ class Qr < ActiveRecord::Base
   has_many :user_data_items
   has_many :template_items
   has_many :links
+  has_one :finish, :class_name => "Qr", :foreign_key => "qr_id"
+  belongs_to :parent_qr, :class_name => "Qr", :foreign_key => "parent_qr_id"
 
   scope :multi_url, where(:profile_option => 'multi_url')
 
@@ -38,6 +40,7 @@ class Qr < ActiveRecord::Base
 
   before_save :make_code, :on => :create
   before_save :check_qr
+# before_create :check_template 
 
   def make_code
     self.code ||= Digest::SHA1.hexdigest((Time.now.to_i + rand(99999)).to_s + "qr" )[0,20]
@@ -51,6 +54,12 @@ class Qr < ActiveRecord::Base
 
   def check_qr
     generate_qr unless qr.file? || code.blank?
+  end
+
+  def finish_page
+    if self.qr_id.present?
+      Qr.find self.qr_id
+    end
   end
 
   def generate_qr
@@ -89,5 +98,15 @@ class Qr < ActiveRecord::Base
 
   def qr_tmp_file
     "#{Rails.root}/tmp/#{code}.png"
+  end
+
+  def check_template
+    if self.template == 'conference'
+      finish_qr = Qr.new 
+      finish_qr.profile_option = 'url'
+      finish_qr.tagline = "Shop with us.  Connect with us.  Go mobile!"
+      finish_qr.save(:validate => false)
+      self.finish = finish_qr
+    end
   end
 end

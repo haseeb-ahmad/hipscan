@@ -58,7 +58,19 @@ class TemplatesController < ApplicationController
     qr = current_user.template.present? ? current_user.template : current_user.qrs.new
     qr.profile_option = 'template'
     qr.template = (params['template'].present? ? Template.find_by_template_type(params['template']) : Template.first).template_type
-    qr.save(false)
+    qr.save(:validate => false)
+
+    if params['template'] == 'conference'
+      qr.reload
+      finish_qr = current_user.qrs.new
+      finish_qr.profile_option = 'url'
+      finish_qr.parent_qr_id = qr.id
+      finish_qr.tagline = "Shop with us.  Connect with us.  Go mobile!"
+      finish_qr.save(:validate => false)
+      finish_qr.reload
+      qr.update_attribute :qr_id, finish_qr.id
+    end
+
     redirect_to edit_template_path(:qr => qr.id, :template => qr.template)
   end
 
@@ -112,14 +124,16 @@ class TemplatesController < ApplicationController
         data.user = @qr.user
         data.data_type = 'email_listing'
         data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name]}.to_json
-        if data.save and @qr.template == 'university'
-          recipient = @qr.template_items.find_by_field_name('recipient').string_value
-          recipient = @qr.user.email unless recipient.present?
+        if data.save 
+          if @qr.template == 'university' || @qr.template == 'conference'
+            recipient = @qr.template_items.find_by_field_name('recipient').string_value
+            recipient = @qr.user.email unless recipient.present?
 
-          event = @qr.template_items.find_by_field_name('event_name').string_value
+            event = @qr.template_items.find_by_field_name('event_name').string_value
 
-          Notifier.university_signup(recipient, event, data).deliver 
-          Notifier.university_confirmation(params[:email], event, data).deliver 
+            Notifier.university_signup(recipient, event, data).deliver 
+            Notifier.university_confirmation(params[:email], event, data).deliver 
+          end
         end
         redirect_to params[:redirect_to] if params[:redirect_to].present?
         return
