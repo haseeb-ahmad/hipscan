@@ -152,7 +152,7 @@ class TemplatesController < ApplicationController
 
       if @qr.template == 'sweepstakes'
         if session[:user_data_item_id].present?
-          data = @qr.user_data_items.where(id: session[:user_data_item_id]).first
+          data = @qr.user_data_items.where(:id => session[:user_data_item_id]).first
 
           values = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number]}
           if session[:user_values].present?
