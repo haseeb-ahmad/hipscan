@@ -1,0 +1,24 @@
+.header 
+  %div{:style => "font-weight: bold; font-size: 26px; padding-top: 15px; color: #efefef;"} Congratulations
+    
+.content
+  .text 
+    Please fill out the information below
+    %br
+    to finish entering the contest
+  = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
+    .field_box
+      = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :thank_you)
+      .label= label_tag :first_name
+      .field= text_field_tag :first_name
+      .label= label_tag :last_name
+      .field= text_field_tag :last_name
+      .label= label_tag :email
+      .field= text_field_tag :email
+      .label= label_tag :phone_number
+      .field= text_field_tag :phone_number
+      .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
+      .clear
+#footer 
+  Powered by<br>
+  = image_tag 'hipscan-logo.png', :style => "width: 70px"

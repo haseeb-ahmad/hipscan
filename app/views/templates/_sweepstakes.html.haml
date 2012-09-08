@@ -1,0 +1,26 @@
+- content_for :css do
+  = stylesheet_link_tag 'sweepstakes'
+
+- if field_value(:logo)
+  .header
+    = link_to image_tag(field_value(:logo), :style => 'height: 50px; margin: 10px auto;'), template_path(@qr)
+  
+.content
+  // %h1= field_value(:event_name).present? ? field_value(:event_name) : "Event Name"
+  .sweepstakes
+    - if field_value(:prize_image).present?
+      .prize_image= image_tag(field_value(:prize_image))
+    - if field_value(:prize).present?
+      .text= field_value(:prize)
+    .text
+      %ul
+        %li 1. Answer question(s)
+        %li 2. Fill out your contact info
+        %li 3. Become eligible to win!
+    .field_box1
+      .button
+        .landing{:onclick => "location.href='#{template_page_path(@qr, @template_key, :quiz)}'; return false;", :style => 'margin-top: 20px;'}= link_to 'Enter Now', template_page_path(@qr, @template_key, :quiz)
+  .clear
+#footer 
+  Powered by<br>
+  = image_tag 'hipscan-logo.png', :style => "width: 70px"

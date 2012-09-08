@@ -9,6 +9,8 @@ class TemplatesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :page, :form]
   before_filter :set_qr, :except => [:new, :create]
 
+  include TemplatesHelper
+
   def index
     @scan_count = current_user.scans.count
   end
@@ -18,8 +20,16 @@ class TemplatesController < ApplicationController
     @qr = Qr.find(params[:qr]) if @qr.nil?
     @template_key = @qr.template.to_sym
     @template = TemplateItem::TEMPLATES[@template_key]
+    session.delete :user_data_item_id
+    session.delete :user_values
+
     if params[:show_data].present?
-      @data = current_user.user_data_items.email_listings
+      @data = []
+      if @qr.template == 'sweepstakes'
+        @data = current_user.user_data_items.sweepstakes
+      else
+        @data = current_user.user_data_items.email_listings
+      end
       render :template => 'templates/show_data'
     else
       render :layout => 'template'
@@ -119,11 +129,11 @@ class TemplatesController < ApplicationController
 
   def form
     if request.post?
-      if params[:email].present?
+      if params[:email].present? and @qr.template != 'sweepstakes'
         data = @qr.user_data_items.new
         data.user = @qr.user
         data.data_type = 'email_listing'
-        data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name]}.to_json
+        data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number]}.to_json
         if data.save 
           if @qr.template == 'university' || @qr.template == 'conference'
             recipient = @qr.template_items.find_by_field_name('recipient').string_value
@@ -137,6 +147,46 @@ class TemplatesController < ApplicationController
         end
         redirect_to params[:redirect_to] if params[:redirect_to].present?
         return
+      end
+
+
+      if @qr.template == 'sweepstakes'
+        if session[:user_data_item_id].present?
+          data = @qr.user_data_items.where(id: session[:user_data_item_id]).first
+
+          values = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number]}
+          if session[:user_values].present?
+            values.merge!(session[:user_values])
+          end
+
+          data.value = values.to_json
+          if data.save
+            session.delete :user_data_item_id
+            session.delete :user_values
+            redirect_to params[:redirect_to] if params[:redirect_to].present?
+            return
+          end
+
+        else
+          data = @qr.user_data_items.new
+          data.user = @qr.user
+          data.data_type = 'sweepstakes'
+
+          values = {}
+
+          @template_key = 'sweepstakes'
+          @template = TemplateItem::TEMPLATES[:sweepstakes]
+          values[:question1] = page_field_value(:quiz, params[:question1].to_sym) if params[:question1].present?
+          values[:question2] = page_field_value(:quiz, params[:question2].to_sym) if params[:question2].present?
+          values[:question3] = page_field_value(:quiz, params[:question3].to_sym) if params[:question3].present?
+          if data.save
+            session[:user_data_item_id] = data.id
+            session[:user_values] = values
+            redirect_to params[:redirect_to] if params[:redirect_to].present?
+            return
+          end
+        end
+
       end
     end
 

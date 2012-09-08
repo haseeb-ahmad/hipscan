@@ -1,0 +1,7 @@
+- content_for :css do
+  = stylesheet_link_tag 'sweepstakes'
+
+- content_for :js do
+  = javascript_include_tag "jQuery"
+
+= render :partial => "templates/#{@template_key}/#{@field.to_s}_page"

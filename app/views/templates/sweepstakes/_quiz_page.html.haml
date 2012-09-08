@@ -1,0 +1,76 @@
+- if field_value(:logo)
+  .header
+    = link_to image_tag(field_value(:logo), :style => 'height: 50px; margin: 10px auto;'), template_path(@qr)
+
+:javascript
+  function labelSelect(el) {
+    $(el).parent().parent().find('.choice').removeClass('selected');
+    $(el).parent().addClass('selected'); 
+    $(el).parent().find('input').prop('selected', true); 
+    return false;
+  }
+
+  function choiceSelect(el) {
+    $(el).parent().find('.choice').removeClass('selected');
+    $(el).addClass('selected'); 
+    $(el).find('input').prop('checked', true);
+    return false;
+  }
+
+.content
+  .sweepstakes
+    %h1{:style => 'margin: 8px 0;'}= "Take this quiz for a chance to win"
+    / .text= field_value(:description).present? ? field_value(:description) : "Fill in your name and contact details."
+    = form_tag form_template_path(:qr => @qr, :template => @template_key) do 
+      .field_box
+        = hidden_field_tag :redirect_to, template_page_path(@qr, @template_key, :details_form)
+        - if page_field_value(:quiz, :question1).present?
+          .question= label_tag(page_field_value(:quiz, :question1))
+          .field
+            - if page_field_value(:quiz, :answer1a).present?
+              .choice{onclick:"choiceSelect(this);"}
+                = radio_button_tag :question1, :answer1a, page_field_value(:quiz, :answer1a)
+                = label_tag :question1_answer1a, page_field_value(:quiz, :answer1a), onclick:"labelSelect(this);"
+            - if page_field_value(:quiz, :answer1b).present?
+              .choice{onclick:"choiceSelect(this);"}
+                = radio_button_tag :question1, :answer1b, page_field_value(:quiz, :answer1b)
+                = label_tag :question1_answer1b, page_field_value(:quiz, :answer1b), onclick:"labelSelect(this);"
+            - if page_field_value(:quiz, :answer1c).present?
+              .choice{onclick:"choiceSelect(this);"}
+                = radio_button_tag :question1, :answer1c, page_field_value(:quiz, :answer1c)
+                = label_tag :question1_answer1c, page_field_value(:quiz, :answer1c), onclick:"labelSelect(this);"
+        - if page_field_value(:quiz, :question2).present?
+          .question= label_tag(page_field_value(:quiz, :question2))
+          .field
+            - if page_field_value(:quiz, :answer2a).present?
+              .choice
+                = radio_button_tag :question2, :answer2a, page_field_value(:quiz, :answer2a)
+                = label_tag :question1_answer2a, page_field_value(:quiz, :answer2a)
+            - if page_field_value(:quiz, :answer2b).present?
+              .choice
+                = radio_button_tag :question2, :answer2b, page_field_value(:quiz, :answer2b)
+                = label_tag :question1_answer2b, page_field_value(:quiz, :answer2b)
+            - if page_field_value(:quiz, :answer2c).present?
+              .choice
+                = radio_button_tag :question2, :answer2c, page_field_value(:quiz, :answer2c)
+                = label_tag :question1_answer2c, page_field_value(:quiz, :answer2c)
+        - if page_field_value(:quiz, :question3).present?
+          .question= label_tag(page_field_value(:quiz, :question3))
+          .field
+            - if page_field_value(:quiz, :answer3a).present?
+              .choice
+                = radio_button_tag :question3, :answer3a, page_field_value(:quiz, :answer3a)
+                = label_tag :question1_answer3a, page_field_value(:quiz, :answer3a)
+            - if page_field_value(:quiz, :answer3b).present?
+              .choice 
+                = radio_button_tag :question3, :answer3b, page_field_value(:quiz, :answer3b)
+                = label_tag :question1_answer3b, page_field_value(:quiz, :answer3b)
+            - if page_field_value(:quiz, :answer3c).present?
+              .choice
+                = radio_button_tag :question3, :answer3c, page_field_value(:quiz, :answer3c)
+                = label_tag :question1_answer3c, page_field_value(:quiz, :answer3c)
+        .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
+        .clear
+#footer 
+  Powered by<br>
+  = image_tag 'hipscan-logo.png', :style => "width: 70px"
