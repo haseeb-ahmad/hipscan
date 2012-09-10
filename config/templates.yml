@@ -254,6 +254,7 @@
   :quiz:
     :field_name: 'Quiz'
     :field_type: :page_content
+    :field_ordering: true
     :content:
       :question1:
         :field_name: 'Question 1'
@@ -274,35 +275,35 @@
       :question2:
         :field_name: 'Question 2 (optional)'
         :field_type: :string
-        :order: 1
+        :order: 5
       :answer2a:
         :field_name: 'Answer a'
         :field_type: :string
-        :order: 2
+        :order: 6
       :answer2b:
         :field_name: 'Answer b'
         :field_type: :string
-        :order: 3
+        :order: 7
       :answer2c:
         :field_name: 'Answer c'
         :field_type: :string
-        :order: 4
+        :order: 8
       :question3:
         :field_name: 'Question 3 (optional)'
         :field_type: :string
-        :order: 1
+        :order: 9
       :answer3a:
         :field_name: 'Answer a'
         :field_type: :string
-        :order: 2
+        :order: 10
       :answer3b:
         :field_name: 'Answer b'
         :field_type: :string
-        :order: 3
+        :order: 11
       :answer3c:
         :field_name: 'Answer c'
         :field_type: :string
-        :order: 4
+        :order: 12
   :details_form:
     :field_name: 'Details form'
     :field_type: :page_content

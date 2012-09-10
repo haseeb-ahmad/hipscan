@@ -139,7 +139,11 @@ class ApplicationController < ActionController::Base
           Rails.logger.info "Mixpanel Scan #{scan.id}"
           if user.send_sms
             scan.geocode
-            msg = scan.city.blank? ? "You've been scanned at Hipscan.com!" :  "You've been scanned!  Your latest Hipscan just came through from #{scan.location}"
+            if qr.id.present?
+              msg = scan.city.blank? ? "You've been scanned for QR id #{qr.id} at Hipscan.com!" :  "You've been scanned for QR id #{qr.id}!  Your latest Hipscan just came through from #{scan.location}"
+            else
+              msg = scan.city.blank? ? "You've been scanned at Hipscan.com!" :  "You've been scanned!  Your latest Hipscan just came through from #{scan.location}"
+            end
             sms = SMSFu::Client.configure(:delivery => :pony, :pony_config => PONY_CONFIG)
             sms.deliver(user.sms_phone_number, user.sms_carrier, msg, :from => "4154799559")
             Rails.logger.info "Send SMS to #{user.sms_phone_number}"
