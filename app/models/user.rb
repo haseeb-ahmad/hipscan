@@ -411,7 +411,11 @@ class User < ActiveRecord::Base
   end
 
   def at_qr_limit?
-    self.qrs.count > 30
+    if self.account_plan == 'Agency 250'
+      self.qrs.count > 250
+    elsif self.account_plan == 'Product'
+      self.qrs.count > 30
+    end
   end
 
   protected
@@ -438,7 +442,7 @@ class User < ActiveRecord::Base
   #
   def qrencode
     cmd = "#{APP_CONFIG[:path_to_qrencode]} -o #{qr_tmp_file} -lL -s 10 -m 1 '#{hipscan}'"
-#    puts cmd
+   # puts cmd
     puts system(cmd)
   end
 
