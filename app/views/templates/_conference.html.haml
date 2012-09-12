@@ -15,6 +15,8 @@
       .field= text_field_tag :email
       .label= label_tag :phone_number
       .field= text_field_tag :phone_number
+      .label= label_tag :phone_carrier
+      .field= carrier_select(:phone_carrier, "Please choose a carrier")
       .button.float_right= submit_tag 'Submit', :style => 'cursor: pointer;', :class => 'submit'
       .clear
 #footer 

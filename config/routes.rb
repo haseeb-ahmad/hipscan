@@ -125,6 +125,7 @@ Hipscan::Application.routes.draw do
 
   # Templates routes
   match 'templates/new' => 'templates#new', :as => "new_template"
+  match 'templates/message' => 'templates#message', :as => "message_template"
   match 'templates/export' => 'templates#export', :as => "export_template"
   match 'templates/:qr/form/:template' => 'templates#form', :as => "form_template"
   match 'templates/index/:qr/' => 'templates#index', :as => 'templates'

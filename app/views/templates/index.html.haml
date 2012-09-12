@@ -37,6 +37,20 @@
             %p= link_to "Click here for analytics on your Hipscan.", home_analytics_path
         #scanned
           = link_to 'View User Subscription List', template_path(@qr, :show_data => true)
+        #scanned
+          #send_message
+            = link_to 'Send SMS to Subscribers', '#', :onclick => "$('#message_box').show();$('#send_message').hide(); return false;"
+          #message_box{:style => 'display: none; text-align: left;'}
+            %p{:style => 'text-align: left;'}
+              Send SMS to your subscribers. 
+              %br
+              You can only send to those who entered their phone number.
+            - form_tag message_template_path do |f|
+              %fieldset#submit_or_cancel
+                = text_area_tag :content_message, '', :style => 'width: 340px; height: 150px;'
+                %br
+                = link_to 'cancel', '#', :onclick => "$('#message_box').hide();$('#send_message').show(); return false;", :style => 'margin-left: 255px;'
+                = submit_tag 'Send', :style => 'text-align: right;'
 
         #sms
           - if current_user.send_sms

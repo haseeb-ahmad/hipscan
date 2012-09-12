@@ -27,7 +27,7 @@ class QrsController < ApplicationController
 
   def new
     @qr = current_user.qrs.new
-    #@qr.name = 'New Hipscan'
+    @qr.name = 'New Hipscan'
     @qr.profile_option = 'url'
     @qr.tagline = "Shop with us.  Connect with us.  Go mobile!"
     @qr.save(false)

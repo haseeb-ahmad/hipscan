@@ -176,7 +176,7 @@ a {
   padding:0;
   
 }
-.content .field_box .field input{
+.content .field_box .field input, .content .field_box .field select{
   text-align:left;
   padding:8px 5px;
   color:#666;

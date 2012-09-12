@@ -6,10 +6,14 @@ else
 end
 
 class TemplatesController < ApplicationController
+  include SMSFu
+  include TemplatesHelper
+
+  helper SMSFuHelper
+  
   before_filter :authenticate_user!, :except => [:show, :page, :form]
   before_filter :set_qr, :except => [:new, :create]
 
-  include TemplatesHelper
 
   def index
     @scan_count = current_user.scans.count
@@ -133,7 +137,7 @@ class TemplatesController < ApplicationController
         data = @qr.user_data_items.new
         data.user = @qr.user
         data.data_type = 'email_listing'
-        data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number]}.to_json
+        data.value = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number], :phone_carrier => params[:phone_carrier]}.to_json
         if data.save 
           if @qr.template == 'university' || @qr.template == 'conference'
             recipient = @qr.template_items.find_by_field_name('recipient').string_value
@@ -154,7 +158,7 @@ class TemplatesController < ApplicationController
         if session[:user_data_item_id].present?
           data = @qr.user_data_items.where(:id => session[:user_data_item_id]).first
 
-          values = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number]}
+          values = {:email => params[:email], :first_name => params[:first_name], :last_name => params[:last_name], :phone_number => params[:phone_number], :phone_carrier => params[:phone_carrier]}
           if session[:user_values].present?
             values.merge!(session[:user_values])
           end
@@ -200,6 +204,27 @@ class TemplatesController < ApplicationController
     end
     respond_to do |format|
       format.js   { render :nothing => true }
+    end
+  end
+
+  def message
+    if request.post? and params[:content].present?
+      @data = []
+      if @qr.template == 'sweepstakes'
+        @data = current_user.user_data_items.sweepstakes
+      else
+        @data = current_user.user_data_items.email_listings
+      end
+
+      sms = SMSFu::Client.configure(:delivery => :pony, :pony_config => PONY_CONFIG)
+      @data.each do |subscriber|
+        data = JSON(subscriber.value)
+        if data['phone_number'].present? && data['phone_carrier'].present?
+          sms.deliver(data['phone_number'], data['phone_carrier'], params[:content_message], :from => "4154799559")
+          Rails.logger.info "Send SMS to #{user.sms_phone_number}"
+        end
+      end
+      flash[:notice] = "Your have successfully sent SMS to your subscribers."
     end
   end
 
