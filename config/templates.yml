@@ -208,7 +208,7 @@
     :field_type: :string
     :order: 4
   :thank_you:
-    :field_name: 'Thank You'
+    :field_name: 'Thank You Page'
     :field_type: :page_content
     :content:
       :message:
@@ -232,7 +232,7 @@
     :field_type: :string
     :order: 4
   :thank_you:
-    :field_name: 'Thank You'
+    :field_name: 'Thank You Page'
     :field_type: :page_content
     :content:
       :message:
@@ -308,7 +308,7 @@
     :field_name: 'Details form'
     :field_type: :page_content
   :thank_you:
-    :field_name: 'Thank You'
+    :field_name: 'Thank You Page'
     :field_type: :page_content
     :content:
       :message:
