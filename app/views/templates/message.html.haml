@@ -1,6 +1,29 @@
-#registration
-  %table.twocol
-    %tr
-      %td
-        %h1 Message was successfully sent
-        = link_to 'back', root_path
+= link_to 'return home', root_path
+
+- if request.post?
+  #registration
+    %table.twocol
+      %tr
+        %td
+          %h1 Message was successfully sent
+          = link_to 'back', root_path
+
+- else 
+  #registration
+    %table.twocol
+      %tr
+        %td
+          %h1 Message history
+          %table.user-list
+            %theader
+              %tr
+                %td Content
+                %td Number of recipients
+                %td Created at
+            %tbody
+              - @data.each do |message|
+                - data = JSON(message.value)
+                %tr
+                  %td{:style => 'padding: 10px 0 '}= data['content']
+                  %td{:style => 'padding: 10px 0 '}= data['recipient_count']
+                  %td{:style => 'padding: 10px 0 '}= distance_of_time_in_words_to_now(Time.parse(data['created_at']))

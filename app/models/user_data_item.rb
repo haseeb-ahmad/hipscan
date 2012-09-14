@@ -4,4 +4,5 @@ class UserDataItem < ActiveRecord::Base
 
   scope :email_listings, lambda { where(:data_type => 'email_listing')}
   scope :sweepstakes, lambda { where(:data_type => 'sweepstakes')}
+  scope :messages, lambda { where(:data_type => 'messages').order('created_at DESC') }
 end

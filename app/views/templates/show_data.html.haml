@@ -11,24 +11,26 @@
               %td Last Name
               %td Email
               %td Phone number
-              - if JSON(@data.first.value)['question1'].present?
-                %td Question 1
-              - if JSON(@data.first.value)['question2'].present?
-                %td Question 2
-              - if JSON(@data.first.value)['question3'].present?
-                %td Question 3
+              - if @data.present? && @data.first.value.present?
+                - if JSON(@data.first.value)['question1'].present?
+                  %td Question 1
+                - if JSON(@data.first.value)['question2'].present?
+                  %td Question 2
+                - if JSON(@data.first.value)['question3'].present?
+                  %td Question 3
           %tbody
             - @data.each do |user|
-              - data = JSON(user.value)
-              %tr
-                %td= data['first_name']
-                %td= data['last_name']
-                %td= data['email']
-                %td= data['phone_number']
-                - if data['question1'].present?
-                  %td= data['question1']
-                - if data['question2'].present?
-                  %td= data['question2']
-                - if data['question3'].present?
-                  %td= data['question3']
+              - if user.value.present?
+                - data = JSON(user.value)
+                %tr
+                  %td= data['first_name']
+                  %td= data['last_name']
+                  %td= data['email']
+                  %td= data['phone_number']
+                  - if data['question1'].present?
+                    %td= data['question1']
+                  - if data['question2'].present?
+                    %td= data['question2']
+                  - if data['question3'].present?
+                    %td= data['question3']
 = link_to 'export to CSV', export_template_path

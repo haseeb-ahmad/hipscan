@@ -66,7 +66,7 @@
 
           .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('Landing Page');", :class => 'selected'} Landing Page
           - @template.each_key do |field|
-            - if field_type(field) == :page_content
+            - if field_type(field) == :page_content && @template[field][:content].present?
               .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('#{field}')"}= @template[field][:field_name]
 
         .preview-template
