@@ -227,7 +227,6 @@ class TemplatesController < ApplicationController
               subscriber_list << subscriber.id
               Rails.logger.info "Send SMS to #{user.sms_phone_number}"
             rescue
-
             end
           end
         end
