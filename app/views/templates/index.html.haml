@@ -40,6 +40,8 @@
         #scanned
           #send_message
             = link_to 'Send SMS to Subscribers', '#', :onclick => "$('#message_box').show();$('#send_message').hide(); return false;"
+            %br
+            = link_to 'Show message history', message_template_path
           #message_box{:style => 'display: none; text-align: left;'}
             %p{:style => 'text-align: left;'}
               Send SMS to your subscribers. 
