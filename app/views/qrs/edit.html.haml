@@ -3,43 +3,49 @@
   
 %table.twocol
   %tr
-    %td{:style => 'width: 350px; padding-right: 10px'}
-      %h1.hipscan= @qr.name || 'New Hipscan'
-      =# barcode(current_user.hipscan, 7)
-      #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
-      .fr.qr_download_links
-        Download
-        = link_to 'Big', @qr.qr.url(:print)
-        |
-        = link_to 'Small', @qr.qr.url(:medium)
-        |
-        = link_to 'Email', @qr.qr.url(:email)
+    - unless @qr.parent_qr.present?
+      %td{:style => 'width: 350px; padding-right: 10px'}
+        %h1.hipscan= @qr.name || 'New Hipscan'
+        =# barcode(current_user.hipscan, 7)
+        #hipscan_qr_code= image_tag @qr.qr.url(:medium), :title => @qr.name
+        .fr.qr_download_links
+          Download
+          = link_to 'Big', @qr.qr.url(:print)
+          |
+          = link_to 'Small', @qr.qr.url(:medium)
+          |
+          = link_to 'Email', @qr.qr.url(:email)
 
-      %br
-      %h2 What's Your Color?
-      %div
-        - for color in User::COLORS
-          =# link_to color, color_qr_path(:color => color), :remote => true
-          %a.change_color{:href => color_qr_path(:color => color, :id => @qr.id), 'data-remote' => 'true'}
-            .color_swatch
-              .color_div{:style => "background-color:#{color}"}
-      .cl
+        %br
+        %h2 What's Your Color?
+        %div
+          - for color in User::COLORS
+            =# link_to color, color_qr_path(:color => color), :remote => true
+            %a.change_color{:href => color_qr_path(:color => color, :id => @qr.id), 'data-remote' => 'true'}
+              .color_swatch
+                .color_div{:style => "background-color:#{color}"}
+        .cl
 
     %td
       = form_for @qr, :html => {:multipart => true} do |f|
         = f.hidden_field :profile_option, :id => :profile_option
-        %h2
-          %i Welcome!
-          %br
-          Create your Product Marketing #{hipscan}
-        %h2{:style => 'color: #888; margin: 10px 0'} After picking a destination for this Hipscan you will have the opportunity to create a marketing call-out card for offline engagement.
+        - unless @qr.parent_qr.present?
+          %h2
+            %i Welcome!
+            %br
+            Create your Product Marketing #{hipscan}
+          %h2{:style => 'color: #888; margin: 10px 0'} After picking a destination for this Hipscan you will have the opportunity to create a marketing call-out card for offline engagement.
 
         #edit
           = error_messages_for @qr#, :header_message => 'Unable to save your profile'
 
           .fixed_profile_option
             %p
-              = f.label :name, 'Identify your Hipscan (this will not be displayed)'
+              - if @qr.parent_qr.present?
+                = f.label :name, 'Page identification name in case you have enabled sms notifications.'
+                %br
+              - else
+                = f.label :name, 'Identify your Hipscan (this will not be displayed)'
               = f.text_field :name, :class => 'field_with_default', :title => 'Name this Hipscan'
 
           %h1.profile_heading= link_to_function 'Launch Custom URL', "$('.profile_option').hide();$('#edit_url').show();$('#profile_option').val('url');"

@@ -3,14 +3,14 @@
   %table.twocol
     %tr
       %td
-        %h1 User list for Coupon Template
+        %h1 Subscriber list for Coupon Template
         %table.user-list
           %theader
             %tr
               %td First Name
               %td Last Name
               %td Email
-              %td Phone number
+              %td Phone Number
               - if @data.present? && @data.first.value.present?
                 - if JSON(@data.first.value)['question1'].present?
                   %td Question 1

@@ -26,7 +26,7 @@
       You may completely customize the contents of this page.
     %br
     - if @qr.finish_page.present?
-      .signup-button{ :style => 'margin: 10px 0 100px 5px; display: inline-block;'}= link_to("Edit thank you page", edit_qr_path(@qr.finish_page))
+      .signup-button{ :style => 'width: 230px; margin: 10px 0 100px 5px; display: inline-block;'}= link_to("Edit 'Thank You' page", edit_qr_path(@qr.finish_page))
   - else
     %p
       Unhandled Field: #{page_field_name(field, page_field)}:#{page_field_type(field, page_field)}                          
