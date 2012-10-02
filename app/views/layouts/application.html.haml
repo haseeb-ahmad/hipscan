@@ -50,6 +50,7 @@
     / JavaScript at the bottom for fast page loading
     = javascript_include_tag :defaults, 'https://connect.facebook.net/en_US/all.js#xfbml=1', 'jquery.printElement.min', 'jquery.bpopup-0.5.1.min', 'jquery.backstretch.min' #, :cache => true
     = yield :js
+    = yield :js2
     - unless current_page?(root_url)
       = render :partial => 'layouts/uservoice'
     = render :partial => 'layouts/google_analytics'

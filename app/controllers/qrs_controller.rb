@@ -102,7 +102,7 @@ class QrsController < ApplicationController
         end
 
         maker.add_tel(@user.phone_number) if @user.phone_number.present?
-        maker.add_email(@user.email) {|e| e.location = 'work' } if @user.email.present?
+        maker.add_email(@user.email_address) {|e| e.location = 'work' } if @user.email_address.present?
         maker.add_url(@user.website_url) if @user.website_url.present?
       end
 
