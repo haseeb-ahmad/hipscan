@@ -45,7 +45,24 @@ class TemplatesController < ApplicationController
     @template_key = params[:template].to_sym
     @template = TemplateItem::TEMPLATES[@template_key]
     @field = params[:field].to_sym
-    render :layout => 'template'
+
+    if @template_key == :conference && params['field'] == 'thank_you'
+      @qr = Qr.find_by_parent_qr_id(params['qr'])
+      if @qr.template.present?
+        redirect_to template_path(@qr)
+      elsif @qr.profile_option == 'multi_url'
+        redirect_to multi_url_decode
+      elsif @qr.profile_url?
+        redirect_to @qr.url
+      elsif @qr.video? && @qr.video_url.present?
+        redirect_to @qr.video_url
+      else
+        render :template => 'qrs/show', :layout => 'hipscan'
+      end
+    else
+      render :layout => 'template'
+    end
+
   end
 
   def new
@@ -112,7 +129,10 @@ class TemplatesController < ApplicationController
     if params[:complete].present? and params[:complete] == 'true'
       redirect_to templates_path(:qr => @qr)
     else
-      redirect_to edit_template_path(:qr => @qr, :template => @qr.template)
+      redirect_to edit_template_path(:qr => @qr, 
+                                     :template => @qr.template, 
+                                     :refresh_page => params['refresh_page'], 
+                                     :current_tab => params['current_tab'])
     end
   end
 

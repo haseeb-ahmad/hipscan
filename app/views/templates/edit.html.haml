@@ -19,6 +19,8 @@
         #edit-template
           = form_tag update_template_path(@qr, @template_key), :multipart => true do
             = hidden_field_tag 'complete', ''
+            = hidden_field_tag 'refresh_page', ''
+            = hidden_field_tag 'current_tab', ''
             .profile_option
               .page_template{:class => 'selected', :id => 'landing_page'}
                 %h1 Landing page
@@ -67,27 +69,33 @@
           .page_selector{:onclick => "$('#edit-template .page_template').hide();$('#landing_page').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('Landing Page');", :class => 'selected'} Landing Page
           - @template.each_key do |field|
             - if field_type(field) == :page_content && @template[field][:content].present?
-              .page_selector{:onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('#{field}')"}= @template[field][:field_name]
+              .page_selector{:id => "#{field}_page", :onclick => "$('#edit-template .page_template').hide();$('##{underscore(@template[field][:field_name])}').show();$('#page-select .page_selector.selected').removeClass('selected');$(this).addClass('selected');page_select('#{field}')"}= @template[field][:field_name]
 
         .preview-template
           #loading-preview{} Loading preview...
-          %iframe#preview_panel{ :src => template_path(@qr), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
+          %iframe#preview_panel{ :src => (params['refresh_page'].present? ? params['refresh_page'] : template_path(@qr)), :scrollbars => "auto", :onload => "$('s#loading-preview').hide();" }
         = link_to 'Change Template', new_template_path
 
-- content_for :js do
+- content_for :js2 do
+  - if params['current_tab'].present?
+    :javascript
+      $('##{params['current_tab']}_page').click();
+
   :javascript
     #{@js_content}
 
     template_type = '#{@qr.template}'
 
+
     function page_select(selected_page) {
       if (selected_page == 'Landing Page') {
         $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}');
+        $('#refresh_page').attr('value', '');
+        $('#current_tab').attr('value', '');
       } else {
-        if () {
-          $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}');
-        } else {
-          $('#preview_panel').attr('src', 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}' +'/' + '#{@template_key.to_s}' +'/page/' + selected_page);
-        }
+        path = 'http://#{APP_CONFIG[:host]}/template/'+ '#{@qr.id}' +'/' + '#{@template_key.to_s}' +'/page/' + selected_page;
+        $('#preview_panel').attr('src', path);
+        $('#refresh_page').attr('value', path);
+        $('#current_tab').attr('value', selected_page);
       }
     }
