@@ -31,16 +31,26 @@ class QrsController < ApplicationController
     @qr.profile_option = 'url'
     @qr.tagline = "Shop with us.  Connect with us.  Go mobile!"
     @qr.save(false)
-    redirect_to edit_qr_path(@qr)
+    respond_to do |format|
+      format.html { redirect_to edit_qr_path(@qr) }
+      format.json { render :json => @qr }
+    end
   end
 
   def edit
     @qr = current_user.qrs.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render :json => @qr }
+    end
   end
 
   def edit_marketing
     @qr = current_user.qrs.find(params[:id])
-    redirect_to(edit_qr_path(@qr), :alert => 'Please complete this Hipscan before proceeding') unless @qr.valid?
+    respond_to do |format|
+      format.html { redirect_to(edit_qr_path(@qr), :alert => 'Please complete this Hipscan before proceeding') unless @qr.valid? }
+      format.json { render :json => @qr }
+    end
   end
 
   #def create
@@ -51,28 +61,39 @@ class QrsController < ApplicationController
   #  else
   #    render :action => "edit"
   #  end
-  #end
+  # end
 
   def update
     @qr = current_user.qrs.find(params[:id])
-    if @qr.update_attributes(params[:qr])
-      if @qr.parent_qr.present?
-        redirect_to(edit_template_path(:qr => @qr.parent_qr.id, :template => @qr.parent_qr.template))
+    respond_to do |format|    
+      if @qr.update_attributes(params[:qr])
+        format.html {
+          if @qr.parent_qr.present?
+            redirect_to(edit_template_path(:qr => @qr.parent_qr.id, :template => @qr.parent_qr.template))
+          else
+            redirect_to edit_marketing_qr_path(@qr), :notice => 'Hipscan saved.'
+          end
+        }
+        format.json { render :json => { :notice => 'Hipscan saved.'} }
       else
-        redirect_to edit_marketing_qr_path(@qr), :notice => 'Hipscan saved.'
+        format.html { render :action => "edit" }
+        format.json { render :json => { :notice => 'Hipscan could not be saved' } }
       end
-    else
-      render :action => "edit"
     end
   end
 
   def update_marketing
     @qr = current_user.qrs.find(params[:id])
-
-    if @qr.update_attributes(params[:qr])
-      redirect_to marketing_qr_path(@qr), :notice => 'Marketing was successfully updated.'
-    else
-      render :action => "edit_marketing"
+    respond_to do |format|
+      if @qr.update_attributes(params[:qr])
+        format.html{
+          redirect_to marketing_qr_path(@qr), :notice => 'Marketing was successfully updated.'
+        }
+        format.json { render :json => {:notice => 'Error updating Marketing' } }
+      else
+        format.html { render :action => "edit_marketing" }
+        format.json{ render :json => { :notice => 'Error updating Marketing' }, :status => :unprocessable_entity }
+      end    
     end
   end
 

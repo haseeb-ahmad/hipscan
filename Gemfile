@@ -32,7 +32,8 @@ gem 'whenever', :require => false
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'rails3_acts_as_paranoid'
+#gem 'rails3_acts_as_paranoid'
+gem "rails3_acts_as_paranoid", "~>0.0.9"
 gem 'activemerchant', '~>1.9', :require => "active_merchant"
 gem 'ssl_requirement'
 gem "dynamic_form"
@@ -98,10 +99,12 @@ gem "compass", ">= 0.11.5"
 group :development, :test do
   gem 'shoulda'
   gem 'webrat'
+  gem 'test-unit', :require => 'test/unit'
   # gem 'debugger'
 end
 
 group :development do
   # gem 'mongrel'
+  gem 'yard'
   gem 'newrelic_rpm'
 end

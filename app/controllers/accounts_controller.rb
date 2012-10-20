@@ -46,23 +46,30 @@ class AccountsController < ApplicationController
       @account.address = @address
       @account.creditcard = @creditcard
     end
+    respond_to do |format|
+      if @account.save
+        unless @account.subscription.subscription_plan.name =~ /^Basic/
+          @account.admin.profile_option = "profile"
+        end
 
-    if @account.save
-      unless @account.subscription.subscription_plan.name =~ /^Basic/
-        @account.admin.profile_option = "profile"
+        receipt = Receipt.new
+        receipt.amount = @account.subscription.amount
+        receipt.tracking_id = "#{@account.id}L"
+        @account.receipts << receipt
+        receipt.save
+        format.html {
+          sign_in(:user, @account.admin)
+          # flash[:domain] = @account.domain
+          redirect_to home_path
+        }
+        format.json { render :json => :user }
+        format.xml { render :xml => :user }
+      else
+        format.json { render :json => @account.errors, :status => :unprocessable_entity }
+        format.html {
+          render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+        }
       end
-
-      receipt = Receipt.new
-      receipt.amount = @account.subscription.amount
-      receipt.tracking_id = "#{@account.id}L"
-      @account.receipts << receipt
-      receipt.save
-
-      sign_in(:user, @account.admin)
-      # flash[:domain] = @account.domain
-      redirect_to home_path
-    else
-      render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
   end
 

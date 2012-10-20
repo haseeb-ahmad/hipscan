@@ -12,6 +12,11 @@ class HomeController < ApplicationController
 
   def index
     @scan_count = current_user.scans.count
+    respond_to do |format|
+      format.html
+      format.json { render :json => @scan_count }
+    end
+
   end
 
   def analytics
@@ -25,13 +30,23 @@ class HomeController < ApplicationController
 
   def edit
     @user = current_user
+    respond_to do |format|
+      format.html
+      format.json { render :json => @user }
+    end
   end
 
   def update
-    if current_user.update_attributes(params[:user])
-      redirect_to home_path, :notice => 'Profile updated'
-    else
-      render :action => :edit
+    respond_to do |format|
+      if current_user.update_attributes(params[:user])
+        format.html { redirect_to home_path, :notice => 'Profile updated' }
+        format.json { render :json => { :notice => 'Profile updated' } }
+        format.xml { render :xml => { :notice => 'Profile updated' } }
+      else
+        format.html { render :action => :edit }
+        format.json { render :json => { :notice => 'Error updating profile' }, :status => :unprocessable_entity }
+        format.xml { render :xml => { :notice => 'Error updating profile' } }
+     end
     end
 
 #    if current_user.profile_option == 'url' && current_user.url !~ /\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i

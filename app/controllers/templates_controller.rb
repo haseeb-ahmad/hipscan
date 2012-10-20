@@ -101,8 +101,10 @@ class TemplatesController < ApplicationController
       finish_qr.reload
       qr.update_attribute :qr_id, finish_qr.id
     end
-
-    redirect_to edit_template_path(:qr => qr.id, :template => qr.template)
+    respond_to do |format|
+      format.html{ redirect_to edit_template_path(:qr => qr.id, :template => qr.template) }
+      format.json{ render :json => {notice: 'template created' } }
+    end
   end
 
   def edit
@@ -126,13 +128,18 @@ class TemplatesController < ApplicationController
       end
     end if params[:page_field].present?
 
-    if params[:complete].present? and params[:complete] == 'true'
-      redirect_to templates_path(:qr => @qr)
-    else
-      redirect_to edit_template_path(:qr => @qr, 
-                                     :template => @qr.template, 
-                                     :refresh_page => params['refresh_page'], 
-                                     :current_tab => params['current_tab'])
+    respond_to do |format|
+      format.html {
+        if params[:complete].present? and params[:complete] == 'true'
+          redirect_to templates_path(:qr => @qr)
+        else
+          redirect_to edit_template_path(:qr => @qr, 
+                                         :template => @qr.template, 
+                                         :refresh_page => params['refresh_page'], 
+                                         :current_tab => params['current_tab'])
+        end
+      }
+      format.json { render :json =>  @qr }
     end
   end
 
