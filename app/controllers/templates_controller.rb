@@ -101,9 +101,10 @@ class TemplatesController < ApplicationController
       finish_qr.reload
       qr.update_attribute :qr_id, finish_qr.id
     end
+
     respond_to do |format|
-      format.html{ redirect_to edit_template_path(:qr => qr.id, :template => qr.template) }
-      format.json{ render :json => {notice: 'template created' } }
+      format.html { redirect_to edit_template_path(:qr => qr.id, :template => qr.template) }
+      format.json { render :json => { notice: 'template created' } }
     end
   end
 
