@@ -6,4 +6,5 @@ tmp/
 public/system/qrs/
 public/system/
 public/system/files/
+nbproject
 .DS_Store
