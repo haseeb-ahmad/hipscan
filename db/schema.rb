@@ -286,6 +286,8 @@ ActiveRecord::Schema.define(:version => 20120907002835) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "welcome_email_sent"
+    t.boolean  "dont_send_email"
     t.string   "username",              :limit => 128
     t.string   "foursquare_username"
     t.string   "twitter_username"
@@ -327,8 +329,6 @@ ActiveRecord::Schema.define(:version => 20120907002835) do
     t.datetime "qr_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "welcome_email_sent"
-    t.boolean  "dont_send_email"
     t.string   "color",                                :default => "black"
     t.boolean  "send_sms",                             :default => false
     t.string   "sms_phone_number",      :limit => 32

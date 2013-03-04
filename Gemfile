@@ -4,7 +4,7 @@ gem 'rails', '3.0.9'
 gem 'mysql2', '< 0.3'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'vidibus-routing_error'
-
+gem 'pg'
 gem 'fastercsv'
 gem 'batchbook'
 gem 'pdfkit'
