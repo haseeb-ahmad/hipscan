@@ -276,6 +276,7 @@ protected
   end
 
   def authorized?
+    puts "Autherized? actionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
     redirect_to new_user_session_url unless self.action_name == 'dashboard' || account_admin?
   end
 
