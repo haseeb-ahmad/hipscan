@@ -57,11 +57,13 @@ class AccountsController < ApplicationController
         receipt.tracking_id = "#{@account.id}L"
         @account.receipts << receipt
         receipt.save
+        
         format.html {
           sign_in(:user, @account.admin)
           # flash[:domain] = @account.domain
           redirect_to home_path
         }
+
         format.json { render :json => :user }
         format.xml { render :xml => :user }
       else
@@ -250,8 +252,15 @@ protected
   end
 
   def build_plan
+    
+    @discount = nil
+    if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
+      @discount = nil
+    end
+
     redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
     @plan.discount = @discount
+    
     @account.plan = @plan
   end
 
