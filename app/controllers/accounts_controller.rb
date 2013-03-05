@@ -252,13 +252,9 @@ protected
   end
 
   def build_plan
-    
-    @discount = nil
-    if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
-      @discount = nil
-    end
+      
+    redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan].capitalize)
 
-    redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
     @plan.discount = @discount
     
     @account.plan = @plan
@@ -279,7 +275,7 @@ protected
 
   # Load the discount by code, but not if it's not available
   def load_discount
-    if params[:discount].blank? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
+    if params[:discount].blank? || params[:discount].nil? || !(@discount = SubscriptionDiscount.find_by_code(params[:discount])) || !@discount.available?
       @discount = nil
     end
   end

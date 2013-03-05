@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery
+  #protect_from_forgery
 
   helper_method :logged_in?, :admin?
   helper_method :facebook_logged_in?, :current_facebook_user, :graph, :facebook_friends
 
-
+redirect
 # These are bugged in Rails 3.0 -- see last item in routes.rb
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found if Rails.env != 'development'
   rescue_from ActionController::RoutingError, :with => :route_not_found if Rails.env != 'development'
